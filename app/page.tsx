@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/app/_components/Section";
 import { ServiceCard } from "@/app/_components/ServiceCard";
-import { SERVICES } from "@/lib/services";
+import { ServiceIcon } from "@/app/_components/ServiceIcon";
+import {
+  NAV_SERVICES,
+  getObstetricTrimesters,
+  type Service,
+} from "@/lib/services";
 
 export default function HomePage() {
   return (
@@ -319,7 +324,7 @@ function ServicesSection() {
       description="Cliquez sur un service pour prendre rendez-vous en ligne. Chaque créneau est confirmé immédiatement."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SERVICES.map((service) => (
+        {NAV_SERVICES.map((service) => (
           <ServiceCard key={service.slug} service={service} />
         ))}
       </div>
@@ -338,72 +343,179 @@ function ServicesSection() {
 }
 
 function UltrasoundFocus() {
-  const trimesters = [
-    {
-      label: "T1",
-      title: "Premier trimestre",
-      detail:
-        "Vers 12 SA. Confirmation du terme, vitalité, mesure de la clarté nucale, dépistage des anomalies chromosomiques.",
-    },
-    {
-      label: "T2",
-      title: "Deuxième trimestre",
-      detail:
-        "Vers 22 SA. Examen morphologique détaillé de votre bébé — cœur, cerveau, organes — pour s'assurer de son bon développement.",
-    },
-    {
-      label: "T3",
-      title: "Troisième trimestre",
-      detail:
-        "Vers 32 SA. Surveillance de la croissance, du bien-être fœtal, de la position et préparation à l'accouchement.",
-    },
-  ];
+  const trimesters = getObstetricTrimesters();
 
   return (
-    <section className="bg-cream py-24 md:py-32">
-      <div className="container-page grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
-        <div>
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
-            Échographies
+    <section
+      id="echographies-obstetricales"
+      aria-labelledby="echographies-heading"
+      className="relative bg-cream py-24 md:py-32 overflow-hidden"
+    >
+      {/* Decorative ambient glow — purely visual */}
+      <div
+        aria-hidden
+        className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(58,141,150,0.16), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(201,169,106,0.14), transparent 70%)",
+        }}
+      />
+
+      <div className="container-page relative">
+        {/* Editorial header */}
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-line px-4 py-1.5 text-[11px] tracking-[0.22em] uppercase text-primary-deep">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+            Échographies prénatales · Réseau Aurore
           </div>
-          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] text-balance">
-            Un regard attentif à chaque trimestre.
-          </h2>
-          <p className="mt-5 text-lg text-ink-soft text-pretty">
-            Le Dr. Soldea réalise les échographies fœtales de dépistage prénatal
-            en tant qu&apos;échographiste agréée par le réseau de périnatalité
-            Aurore.
-          </p>
-          <Link
-            href="/services/echographie-obstetricale"
-            className="mt-8 inline-flex items-center justify-center h-12 px-7 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
+
+          <h2
+            id="echographies-heading"
+            className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.02] tracking-[-0.01em] text-balance"
           >
-            Prendre rendez-vous
-          </Link>
+            Échographies obstétricales{" "}
+            <span className="italic text-primary-deep">à Lyon</span> et Miribel.
+          </h2>
+
+          <p className="mt-6 text-lg md:text-xl text-ink-soft leading-relaxed text-pretty max-w-2xl">
+            Le <strong className="font-medium text-ink">Dr. Alexandra Soldea</strong>,
+            échographiste agréée du réseau de périnatalité{" "}
+            <strong className="font-medium text-ink">Aurore</strong>, réalise les
+            trois échographies obligatoires du suivi de grossesse :
+            l&apos;échographie du 1<sup>er</sup> trimestre (clarté nucale),
+            l&apos;échographie morphologique du 2<sup>e</sup> trimestre et
+            l&apos;échographie du 3<sup>e</sup> trimestre — au cabinet de
+            Miribel, à quelques minutes du centre de Lyon.
+          </p>
         </div>
 
-        <div className="space-y-4">
+        {/* Trimester cards — three full-width SEO landing entry points */}
+        <ol className="mt-14 md:mt-16 grid gap-6 md:grid-cols-3">
           {trimesters.map((t, i) => (
-            <article
-              key={t.label}
-              className={`rounded-2xl bg-white ring-1 ring-line p-7 md:p-8 flex gap-6 transition-all hover:-translate-y-0.5 hover:shadow-[0_30px_60px_-30px_rgba(11,31,61,0.18)] animate-rise animate-rise-delay-${
-                i + 1
-              }`}
-            >
-              <div className="shrink-0 h-14 w-14 rounded-full bg-primary-soft text-primary-deep grid place-content-center font-display text-xl">
-                {t.label}
-              </div>
-              <div>
-                <h3 className="font-display text-2xl text-ink">{t.title}</h3>
-                <p className="mt-2 text-sm text-ink-soft leading-relaxed text-pretty">
-                  {t.detail}
-                </p>
-              </div>
-            </article>
+            <TrimesterCard key={t.slug} service={t} index={i} />
           ))}
+        </ol>
+
+        {/* Reassurance band — also a small SEO win (extra keyword density) */}
+        <div className="mt-14 md:mt-16 rounded-3xl bg-white ring-1 ring-line p-6 md:p-8 grid gap-6 md:grid-cols-[1.4fr_1fr] items-center">
+          <ul className="grid sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-ink-soft">
+            {[
+              "Échographiste agréée Réseau Aurore",
+              "Imagerie 2D · 3D · 4D possible (T3)",
+              "Compte-rendu remis en main propre",
+              "Cabinet à 15 min de Lyon",
+              "Voies abdominale & endo-vaginale",
+              "Examens indolores et sécurisés",
+            ].map((line) => (
+              <li key={line} className="flex items-start gap-2.5">
+                <span
+                  aria-hidden
+                  className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0"
+                />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex md:justify-end">
+            <Link
+              href="/services/echographie-obstetricale"
+              className="group inline-flex items-center justify-center h-12 pl-6 pr-3 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
+            >
+              Tout savoir sur l&apos;échographie obstétricale
+              <span
+                aria-hidden
+                className="ml-3 grid place-content-center h-8 w-8 rounded-full bg-white text-ink transition-transform group-hover:translate-x-0.5"
+              >
+                <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
+                  <path
+                    d="M3 8h10m0 0L9 4m4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * Editorial card for a single trimester ultrasound. The whole card is one
+ * link — large click target — and the heading uses the full SEO title so
+ * search engines pick up "Échographie du 1er trimestre (Écho T1) à Lyon".
+ */
+function TrimesterCard({ service, index }: { service: Service; index: number }) {
+  return (
+    <li>
+      <Link
+        href={`/services/${service.slug}`}
+        className="group relative block h-full rounded-[1.5rem] bg-white ring-1 ring-line p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_rgba(11,31,61,0.25)] hover:ring-primary/30"
+      >
+        {/* Big number marker — gives each card a strong identity */}
+        <div className="flex items-start justify-between">
+          <span className="font-display text-[3.5rem] md:text-[4rem] leading-none text-primary-deep">
+            <span className="opacity-30">0</span>
+            {index + 1}
+          </span>
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary-soft text-primary-deep ring-1 ring-line">
+            <ServiceIcon name={service.icon} className="h-5 w-5" />
+          </span>
+        </div>
+
+        <p className="mt-6 text-[11px] tracking-[0.22em] uppercase text-primary">
+          {service.shortLabel} · {service.weeks}
+        </p>
+
+        <h3 className="mt-2 font-display text-2xl md:text-[26px] text-ink leading-snug text-balance">
+          Échographie du{" "}
+          {service.shortLabel === "T1"
+            ? "1er"
+            : service.shortLabel === "T2"
+              ? "2e"
+              : "3e"}{" "}
+          trimestre
+          <span className="text-muted font-normal text-base"> (Écho {service.shortLabel})</span>
+        </h3>
+
+        <p className="mt-3 text-sm text-ink-soft leading-relaxed text-pretty">
+          {service.tagline}
+        </p>
+
+        <div className="mt-6 pt-5 border-t border-line flex items-center justify-between">
+          <span className="text-xs text-muted">{service.durationLabel}</span>
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-deep">
+            Découvrir l&apos;écho {service.shortLabel}
+            <svg
+              viewBox="0 0 16 16"
+              className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d="M3 8h10m0 0L9 4m4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </div>
+      </Link>
+    </li>
   );
 }
 

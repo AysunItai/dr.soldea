@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { SERVICES } from "@/lib/services";
+import { ServiceIcon } from "@/app/_components/ServiceIcon";
+import { NAV_SERVICES } from "@/lib/services";
 
 type LinkItem = { href: string; label: string };
 
@@ -124,24 +125,29 @@ export function Navbar() {
                 className="absolute right-0 top-full pt-3 w-[380px]"
               >
                 <div className="rounded-2xl bg-white ring-1 ring-line shadow-[0_30px_60px_-30px_rgba(11,31,61,0.25)] p-2 animate-rise">
-                  {SERVICES.map((service) => (
+                  {NAV_SERVICES.map((service) => (
                     <Link
                       key={service.slug}
                       href={`/services/${service.slug}`}
                       role="menuitem"
-                      className="block rounded-xl px-4 py-3 hover:bg-primary-soft/60 transition-colors group"
+                      className="flex items-start gap-3 rounded-xl px-3 py-3 hover:bg-primary-soft/60 transition-colors group"
                     >
-                      <div className="flex items-baseline justify-between gap-3">
-                        <span className="text-[15px] font-medium text-ink group-hover:text-primary-deep">
-                          {service.shortTitle ?? service.title}
+                      <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-soft/50 text-primary-deep ring-1 ring-line/70 group-hover:bg-white">
+                        <ServiceIcon name={service.icon} className="h-4 w-4" />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-baseline justify-between gap-3">
+                          <span className="text-[15px] font-medium text-ink group-hover:text-primary-deep">
+                            {service.shortTitle ?? service.title}
+                          </span>
+                          <span className="text-xs text-muted whitespace-nowrap">
+                            {service.durationMinutes} min
+                          </span>
                         </span>
-                        <span className="text-xs text-muted whitespace-nowrap">
-                          {service.durationMinutes} min
+                        <span className="block text-xs text-muted mt-0.5 line-clamp-1">
+                          {service.tagline}
                         </span>
-                      </div>
-                      <p className="text-xs text-muted mt-0.5 line-clamp-1">
-                        {service.tagline}
-                      </p>
+                      </span>
                     </Link>
                   ))}
                   <Link
@@ -240,14 +246,19 @@ export function Navbar() {
             </svg>
           </button>
           {mobileServicesOpen && (
-            <div className="pl-4 pb-2 border-b border-line">
-              {SERVICES.map((service) => (
+            <div className="pl-2 pb-2 border-b border-line">
+              {NAV_SERVICES.map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="block px-4 py-3 text-base text-ink-soft hover:text-ink"
+                  className="flex items-center gap-3 px-3 py-3 text-base text-ink-soft hover:text-ink"
                 >
-                  {service.shortTitle ?? service.title}
+                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-soft/50 text-primary-deep">
+                    <ServiceIcon name={service.icon} className="h-4 w-4" />
+                  </span>
+                  <span className="flex-1">
+                    {service.shortTitle ?? service.title}
+                  </span>
                 </Link>
               ))}
               <Link

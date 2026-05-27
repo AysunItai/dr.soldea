@@ -8,20 +8,55 @@ type CalendlyEmbedProps = {
   minWidth?: number;
 };
 
+type CalendlyGlobal = {
+  initInlineWidget: (opts: {
+    url: string;
+    parentElement: HTMLElement;
+    prefill?: Record<string, unknown>;
+    utm?: Record<string, unknown>;
+  }) => void;
+};
+
+declare global {
+  interface Window {
+    Calendly?: CalendlyGlobal;
+  }
+}
+
 const SCRIPT_SRC = "https://assets.calendly.com/assets/external/widget.js";
 const CSS_HREF = "https://assets.calendly.com/assets/external/widget.css";
 
 /**
- * Inline Calendly widget. The Calendly script auto-mounts any
- * `.calendly-inline-widget` it finds on the page once loaded. We:
- *   - Lazily inject the script & stylesheet on the client (once).
- *   - Watch the widget container with a MutationObserver — when Calendly
- *     inserts its iframe, we mark the widget as ready and hide the skeleton.
- *   - Fall back to an "open in new tab" CTA if the script fails to load.
+ * Compose the final Calendly URL: keep the caller's primary_color
+ * (the booking events are pre-themed in 45bfcc) and add `hide_gdpr_banner=1`
+ * if not already present.
+ */
+function buildCalendlyUrl(raw: string): string {
+  try {
+    const u = new URL(raw);
+    if (!u.searchParams.has("hide_gdpr_banner")) {
+      u.searchParams.set("hide_gdpr_banner", "1");
+    }
+    return u.toString();
+  } catch {
+    return raw;
+  }
+}
+
+/**
+ * Inline Calendly widget. Mounted programmatically via
+ * `window.Calendly.initInlineWidget` so we can swap the URL at runtime —
+ * essential for the obstetric ultrasound page where the user toggles
+ * between T1 / T2 / T3 calendars.
  *
- * setState calls all happen inside async callbacks (script events,
- * MutationObserver) — not in the body of an effect — to comply with the
- * `react-hooks/set-state-in-effect` rule.
+ * State transitions:
+ *   - Script + CSS are injected once and reused across embeds.
+ *   - On URL change we wipe the container, status snaps back to "loading"
+ *     (via the "adjust state during render" pattern to keep the
+ *     `react-hooks/set-state-in-effect` linter happy), then re-init.
+ *   - A MutationObserver flips status to "ready" the moment Calendly
+ *     inserts its iframe.
+ *   - Graceful fallback to an "open in new tab" CTA if the script errors.
  */
 export function CalendlyEmbed({
   url,
@@ -30,20 +65,22 @@ export function CalendlyEmbed({
 }: CalendlyEmbedProps) {
   const widgetRef = useRef<HTMLDivElement | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [activeUrl, setActiveUrl] = useState(url);
+
+  // Adjust state during render when the URL prop changes — preferred over
+  // setState-in-effect per React 19 guidance.
+  if (url !== activeUrl) {
+    setActiveUrl(url);
+    setStatus("loading");
+  }
 
   useEffect(() => {
     const target = widgetRef.current;
     if (!target) return;
 
-    if (!document.querySelector('script[data-calendly="widget"]')) {
-      const script = document.createElement("script");
-      script.src = SCRIPT_SRC;
-      script.async = true;
-      script.dataset.calendly = "widget";
-      script.addEventListener("error", () => setStatus("error"));
-      document.body.appendChild(script);
-    }
+    const finalUrl = buildCalendlyUrl(url);
 
+    // Inject Calendly stylesheet once.
     if (!document.querySelector('link[data-calendly="widget-css"]')) {
       const link = document.createElement("link");
       link.rel = "stylesheet";
@@ -52,14 +89,15 @@ export function CalendlyEmbed({
       document.head.appendChild(link);
     }
 
-    // If Calendly's script has already mounted an iframe (e.g. fast nav),
-    // surface it on the next paint.
-    const existingIframe = target.querySelector("iframe");
-    if (existingIframe) {
-      const raf = requestAnimationFrame(() => setStatus("ready"));
-      return () => cancelAnimationFrame(raf);
-    }
+    const mount = () => {
+      const cal = window.Calendly;
+      if (!cal || !widgetRef.current) return;
+      // Wipe any previous widget so we never stack iframes when the URL changes.
+      widgetRef.current.innerHTML = "";
+      cal.initInlineWidget({ url: finalUrl, parentElement: widgetRef.current });
+    };
 
+    // Watch for the iframe insertion → flip to "ready".
     const observer = new MutationObserver(() => {
       if (target.querySelector("iframe")) {
         setStatus("ready");
@@ -68,17 +106,37 @@ export function CalendlyEmbed({
     });
     observer.observe(target, { childList: true, subtree: true });
 
+    const existing = document.querySelector<HTMLScriptElement>(
+      'script[data-calendly="widget"]',
+    );
+
+    if (existing) {
+      if (window.Calendly) {
+        mount();
+      } else {
+        const onLoad = () => mount();
+        existing.addEventListener("load", onLoad, { once: true });
+        return () => {
+          existing.removeEventListener("load", onLoad);
+          observer.disconnect();
+        };
+      }
+    } else {
+      const script = document.createElement("script");
+      script.src = SCRIPT_SRC;
+      script.async = true;
+      script.dataset.calendly = "widget";
+      script.addEventListener("load", () => mount());
+      script.addEventListener("error", () => setStatus("error"));
+      document.body.appendChild(script);
+    }
+
     return () => observer.disconnect();
-  }, []);
+  }, [url]);
 
   return (
     <div className="relative rounded-2xl overflow-hidden ring-1 ring-line bg-cream">
-      <div
-        ref={widgetRef}
-        className="calendly-inline-widget"
-        data-url={`${url}?hide_gdpr_banner=1&primary_color=3a8d96`}
-        style={{ minWidth, height }}
-      />
+      <div ref={widgetRef} style={{ minWidth, height }} />
 
       {status !== "ready" && (
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 bg-cream">
