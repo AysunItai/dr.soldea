@@ -92,9 +92,9 @@ function HeroCopy() {
       <div className="animate-rise animate-rise-delay-4 mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3">
         <Link
           href="/services"
-          className="group inline-flex items-center justify-center h-12 pl-6 sm:pl-7 pr-3 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
+          className="shine group inline-flex items-center justify-center h-12 pl-6 sm:pl-7 pr-3 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
         >
-          Prendre rendez-vous
+          <span>Prendre rendez-vous</span>
           <span
             aria-hidden
             className="ml-3 grid place-content-center h-8 w-8 rounded-full bg-white text-ink transition-transform group-hover:translate-x-0.5"
@@ -230,7 +230,7 @@ function HeroGallery() {
       </figure>
 
       {/* "Réseau Aurore" credential pill — floats off the right edge of the primary image. */}
-      <div className="absolute -right-3 md:-right-6 top-1/3 z-20 hidden md:flex flex-col items-start gap-1 rounded-2xl bg-white px-4 py-3 ring-1 ring-line shadow-[0_24px_50px_-24px_rgba(11,31,61,0.35)] max-w-[200px]">
+      <div className="absolute -right-3 md:-right-6 top-1/3 z-20 hidden md:flex flex-col items-start gap-1 rounded-2xl bg-white px-4 py-3 ring-1 ring-line shadow-[0_24px_50px_-24px_rgba(11,31,61,0.35)] max-w-[200px] animate-float">
         <span className="text-[10px] tracking-[0.25em] uppercase text-primary">
           Échographiste agréée
         </span>
@@ -292,9 +292,9 @@ function Highlights() {
   ];
   return (
     <section className="bg-white py-16 md:py-20 border-t border-line">
-      <div className="container-page grid md:grid-cols-3 gap-10">
+      <div className="container-page grid md:grid-cols-3 gap-10 reveal-stagger">
         {items.map((item) => (
-          <div key={item.title} className="flex gap-4">
+          <div key={item.title} className="flex gap-4 reveal">
             <span
               aria-hidden
               className="mt-1 inline-block h-10 w-[2px] bg-primary"
@@ -323,7 +323,7 @@ function ServicesSection() {
       }
       description="Cliquez sur un service pour prendre rendez-vous en ligne. Chaque créneau est confirmé immédiatement."
     >
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
         {NAV_SERVICES.map((service) => (
           <ServiceCard key={service.slug} service={service} />
         ))}
@@ -398,7 +398,7 @@ function UltrasoundFocus() {
         </div>
 
         {/* Trimester cards — three full-width SEO landing entry points */}
-        <ol className="mt-14 md:mt-16 grid gap-6 md:grid-cols-3">
+        <ol className="mt-14 md:mt-16 grid gap-6 md:grid-cols-3 reveal-stagger">
           {trimesters.map((t, i) => (
             <TrimesterCard key={t.slug} service={t} index={i} />
           ))}
@@ -520,75 +520,155 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
 }
 
 function DoctorTeaser() {
+  // Editorial credentials grid that replaces the portrait. Each card is a
+  // tight, scannable signal of the doctor's expertise — diploma, hospital,
+  // network, research focus — laid out like an editorial spread.
+  const credentials: {
+    n: string;
+    eyebrow: string;
+    title: string;
+    sub: string;
+  }[] = [
+    {
+      n: "01",
+      eyebrow: "Diplôme",
+      title: "DIU Échographie gynécologique & obstétricale",
+      sub: "Université Paris Descartes — 2020",
+    },
+    {
+      n: "02",
+      eyebrow: "Hôpital",
+      title: "Praticien hospitalier",
+      sub: "Maternité du CH de Sainte-Foy-lès-Lyon",
+    },
+    {
+      n: "03",
+      eyebrow: "Réseau",
+      title: "Réseau de périnatalité Aurore",
+      sub: "Échographiste agréée — dépistage prénatal",
+    },
+    {
+      n: "04",
+      eyebrow: "Recherche",
+      title: "Endométriose",
+      sub: "Collaboration centre expert ENDOMETRIOSE — CHU de Rouen",
+    },
+  ];
+
   return (
-    <section className="bg-white py-24 md:py-32">
-      <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
-          {/* Soft warm halo behind the portrait */}
-          <div
+    <section className="relative bg-white py-24 md:py-32 overflow-hidden">
+      {/* Subtle ambient glow — frames the section without competing with type. */}
+      <div
+        aria-hidden
+        className="absolute top-1/3 -left-32 h-[460px] w-[460px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(58,141,150,0.10), transparent 70%)",
+        }}
+      />
+
+      <div className="container-page relative grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-start reveal">
+        {/* Left column — editorial copy + monogram */}
+        <div className="relative">
+          {/* Decorative monogram floating behind the headline. */}
+          <span
             aria-hidden
-            className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-cream-deep via-cream to-primary-soft -z-10"
-          />
-          <div className="relative rounded-[1.75rem] overflow-hidden aspect-[4/5] ring-1 ring-line shadow-[0_50px_100px_-40px_rgba(11,31,61,0.30)]">
-            <Image
-              src="/alexandra.png"
-              alt="Portrait du Dr. Alexandra Soldea"
-              fill
-              sizes="(min-width: 1024px) 40vw, (min-width: 640px) 28rem, 24rem"
-              className="object-cover object-center"
-            />
-          </div>
-          <div className="absolute -right-3 md:-right-6 bottom-10 hidden md:block rounded-2xl bg-white ring-1 ring-line p-5 max-w-[240px] shadow-[0_30px_60px_-30px_rgba(11,31,61,0.25)]">
-            <p className="text-xs tracking-[0.25em] uppercase text-primary">
-              Diplôme
-            </p>
-            <p className="font-display text-lg mt-1 text-ink leading-snug">
-              DIU Échographie gynécologique et obstétricale
-            </p>
-            <p className="text-xs text-muted mt-1">Paris Descartes — 2020</p>
-          </div>
-        </div>
-
-        <div>
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
-            Présentation
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] text-balance">
-            Une médecine humaine, rigoureuse et continue.
-          </h2>
-          <p className="mt-6 text-lg text-ink-soft text-pretty">
-            Le Dr. Soldea exerce également comme praticien hospitalier à la
-            maternité du Centre Hospitalier de Sainte-Foy-lès-Lyon, où elle
-            pratique accouchements, chirurgie et consultations spécialisées.
-          </p>
-          <p className="mt-4 text-base text-muted text-pretty">
-            Son activité de recherche porte sur l&apos;endométriose, en
-            collaboration avec le centre expert ENDOMETRIOSE du CHU de Rouen.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-3">
-            {[
-              "Aurore — Réseau périnatal",
-              "CFEF",
-              "CNGOF",
-              "Langues : FR · EN",
-            ].map((b) => (
-              <span
-                key={b}
-                className="rounded-full bg-cream ring-1 ring-line px-4 py-1.5 text-xs text-ink-soft"
-              >
-                {b}
-              </span>
-            ))}
-          </div>
-
-          <Link
-            href="/presentation"
-            className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+            className="absolute -top-10 -left-3 md:-top-14 md:-left-6 font-display text-[10rem] md:text-[14rem] leading-none text-primary/[0.06] select-none pointer-events-none"
           >
-            Lire la présentation complète <span aria-hidden>→</span>
-          </Link>
+            AS
+          </span>
+
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 rounded-full bg-cream ring-1 ring-line px-4 py-1.5 text-[11px] tracking-[0.22em] uppercase text-primary-deep">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+              Présentation
+            </div>
+            <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-[3.5rem] text-ink leading-[1.04] tracking-[-0.01em] text-balance">
+              Une médecine{" "}
+              <span className="italic text-primary-deep">humaine</span>,
+              <br className="hidden md:block" /> rigoureuse et continue.
+            </h2>
+
+            <p className="mt-6 text-lg text-ink-soft text-pretty leading-relaxed max-w-xl">
+              Le Dr. Soldea exerce également comme praticien hospitalier à la
+              maternité du Centre Hospitalier de Sainte-Foy-lès-Lyon —
+              accouchements, chirurgie et consultations spécialisées. Son
+              activité de recherche porte sur l&apos;endométriose, en
+              collaboration avec le centre expert ENDOMETRIOSE du CHU de
+              Rouen.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {[
+                "Aurore — Réseau périnatal",
+                "CFEF",
+                "CNGOF",
+                "Langues : FR · EN",
+              ].map((b) => (
+                <span
+                  key={b}
+                  className="rounded-full bg-cream ring-1 ring-line px-4 py-1.5 text-xs text-ink-soft"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+
+            <Link
+              href="/presentation"
+              className="group mt-10 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+            >
+              <span className="border-b border-primary-deep/30 pb-px group-hover:border-primary-deep transition-colors">
+                Lire la présentation complète
+              </span>
+              <svg
+                viewBox="0 0 16 16"
+                className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M3 8h10m0 0L9 4m4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
+
+        {/* Right column — credentials wall (2×2). */}
+        <ol className="grid sm:grid-cols-2 gap-4 lg:gap-5 reveal-stagger">
+          {credentials.map((c, i) => (
+            <li
+              key={c.n}
+              className={`group relative rounded-[1.25rem] bg-cream ring-1 ring-line p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_30px_60px_-30px_rgba(11,31,61,0.20)] hover:ring-primary/30 ${
+                i % 2 === 1 ? "sm:mt-6" : ""
+              }`}
+            >
+              {/* Top accent line — thickens slightly on hover. */}
+              <span
+                aria-hidden
+                className="absolute top-0 left-6 right-6 h-px bg-primary/30 group-hover:bg-primary/70 transition-colors"
+              />
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="font-display text-2xl text-primary-deep leading-none">
+                  <span className="opacity-30">0</span>
+                  {c.n.slice(1)}
+                </span>
+                <span className="text-[10px] tracking-[0.25em] uppercase text-primary">
+                  {c.eyebrow}
+                </span>
+              </div>
+              <p className="mt-5 font-display text-lg text-ink leading-snug text-balance">
+                {c.title}
+              </p>
+              <p className="mt-2 text-xs text-muted leading-relaxed">{c.sub}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -597,7 +677,7 @@ function DoctorTeaser() {
 function ContactCTA() {
   return (
     <section className="container-page py-20 md:py-24">
-      <div className="relative overflow-hidden rounded-[2rem] bg-ink text-white p-12 md:p-16">
+      <div className="relative overflow-hidden rounded-[2rem] bg-ink text-white p-12 md:p-16 reveal">
         <div
           aria-hidden
           className="absolute -top-32 -right-32 h-[400px] w-[400px] rounded-full"
@@ -630,9 +710,9 @@ function ContactCTA() {
           <div className="flex flex-col gap-3 md:items-end">
             <Link
               href="/services"
-              className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-white text-ink text-sm font-medium hover:bg-primary-soft transition-colors"
+              className="shine inline-flex items-center justify-center h-12 px-7 rounded-full bg-white text-ink text-sm font-medium hover:bg-primary-soft transition-colors"
             >
-              Voir tous les services
+              <span>Voir tous les services</span>
             </Link>
             <a
               href="tel:+33428295516"
