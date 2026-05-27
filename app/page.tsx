@@ -1,65 +1,544 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Section } from "@/app/_components/Section";
+import { ServiceCard } from "@/app/_components/ServiceCard";
+import { SERVICES } from "@/lib/services";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Hero />
+      <Highlights />
+      <ServicesSection />
+      <UltrasoundFocus />
+      <DoctorTeaser />
+      <ContactCTA />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-cream pb-32 md:pb-44">
+      <div className="absolute inset-0 bg-grid-soft opacity-50" />
+      <div
+        aria-hidden
+        className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(58,141,150,0.22), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(201,169,106,0.16), transparent 70%)",
+        }}
+      />
+
+      <div className="container-page relative pt-20 md:pt-28 grid lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-20 items-start">
+        <HeroCopy />
+        <HeroGallery />
+      </div>
+
+      {/* Editorial credential ticker — sits along the hero baseline. */}
+      <CredentialTicker />
+    </section>
+  );
+}
+
+function HeroCopy() {
+  return (
+    <div className="relative lg:pt-8">
+      {/* Editorial index marker — a thin vertical accent on the left. */}
+      <div className="absolute -left-3 top-2 hidden lg:flex flex-col items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-muted">
+        <span>01</span>
+        <span aria-hidden className="h-16 w-px bg-line" />
+        <span className="[writing-mode:vertical-rl] rotate-180">
+          Accueil
+        </span>
+      </div>
+
+      <div className="animate-rise inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur ring-1 ring-line px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-primary-deep">
+        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+        Cabinets à Miribel &amp; Lyon
+      </div>
+
+      <h1 className="animate-rise animate-rise-delay-1 mt-6 sm:mt-7 font-display text-[clamp(2.5rem,9vw,5.75rem)] leading-[0.94] tracking-[-0.015em] text-ink text-balance">
+        Dr. Alexandra
+        <br />
+        <span className="italic text-primary-deep">Soldea.</span>
+      </h1>
+      <p className="animate-rise animate-rise-delay-2 mt-4 text-[10px] sm:text-[11px] tracking-[0.22em] sm:tracking-[0.32em] uppercase text-primary">
+        Gynécologue · Obstétricienne
+      </p>
+
+      <p className="animate-rise animate-rise-delay-3 mt-7 sm:mt-9 max-w-lg text-base sm:text-lg leading-relaxed text-ink-soft text-pretty">
+        Un suivi gynécologique et obstétrical attentif, des échographies de
+        grossesse agréées du{" "}
+        <span className="text-ink underline decoration-primary/40 underline-offset-4 decoration-2">
+          réseau Aurore
+        </span>
+        , et la téléconsultation pour vos questions du quotidien.
+      </p>
+
+      <div className="animate-rise animate-rise-delay-4 mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3">
+        <Link
+          href="/services"
+          className="group inline-flex items-center justify-center h-12 pl-6 sm:pl-7 pr-3 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
+        >
+          Prendre rendez-vous
+          <span
+            aria-hidden
+            className="ml-3 grid place-content-center h-8 w-8 rounded-full bg-white text-ink transition-transform group-hover:translate-x-0.5"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
+              <path
+                d="M3 8h10m0 0L9 4m4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </Link>
+        <Link
+          href="/presentation"
+          className="inline-flex items-center gap-2 h-12 px-1 sm:px-2 text-sm font-medium text-ink hover:text-primary-deep transition-colors"
+        >
+          Découvrir le Dr. Soldea
+          <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" aria-hidden>
+            <path
+              d="M3 8h10m0 0L9 4m4 4-4 4"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          </svg>
+        </Link>
+      </div>
+
+      <dl className="animate-rise animate-rise-delay-4 mt-12 sm:mt-14 grid grid-cols-3 gap-3 sm:gap-6 max-w-md">
+        {[
+          { k: "10+", v: "Années d'exercice" },
+          { k: "Aurore", v: "Réseau de périnatalité" },
+          { k: "FR · EN", v: "Langues parlées" },
+        ].map((s) => (
+          <div key={s.v} className="border-t border-line pt-3 sm:pt-4">
+            <dt className="font-display text-lg sm:text-2xl text-ink leading-none">
+              {s.k}
+            </dt>
+            <dd className="text-[11px] sm:text-xs text-muted mt-1 leading-tight">
+              {s.v}
+            </dd>
+          </div>
+        ))}
+      </dl>
     </div>
+  );
+}
+
+function HeroGallery() {
+  return (
+    <div className="relative animate-rise animate-rise-delay-2 lg:pb-20">
+      {/* Soft halo behind the diptych — gentle on mobile, more generous on
+       * desktop where the cascade has room to breathe. */}
+      <div
+        aria-hidden
+        className="absolute -inset-3 sm:-inset-6 md:-inset-10 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/40 backdrop-blur-[2px] ring-1 ring-line/60 -z-10"
+      />
+
+      {/* Floating credential card — "01" caption. */}
+      <div className="absolute -left-3 -top-3 z-20 hidden md:flex items-center gap-2.5 rounded-full bg-white pl-3 pr-4 py-2 ring-1 ring-line shadow-[0_20px_40px_-20px_rgba(11,31,61,0.25)]">
+        <span className="grid place-content-center h-7 w-7 rounded-full bg-primary-soft text-primary-deep font-display text-xs">
+          01
+        </span>
+        <span className="text-xs font-medium text-ink">Salle de consultation</span>
+      </div>
+
+      {/* Primary image — consultation room. Aspect tightens slightly on the
+       * largest screens so the diptych never overpowers the copy column. */}
+      <figure className="relative rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden ring-1 ring-line shadow-[0_50px_100px_-40px_rgba(11,31,61,0.35)] aspect-[3/2] sm:aspect-[4/3] lg:aspect-[5/4] bg-cream">
+        <Image
+          src="/hero1.webp"
+          alt="Salle de consultation du Dr. Alexandra Soldea — lumière douce, fenêtres haussmanniennes"
+          fill
+          priority
+          sizes="(min-width: 1024px) 48vw, 100vw"
+          className="object-cover animate-ken-burns"
+        />
+        {/* Subtle gradient for caption legibility */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/35 via-black/10 to-transparent"
+        />
+        <figcaption className="absolute bottom-4 sm:bottom-5 left-4 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-3 text-white">
+          <div className="min-w-0">
+            <p className="text-[10px] tracking-[0.3em] uppercase text-white/75">
+              Cabinet · Lyon
+            </p>
+            <p className="font-display text-sm sm:text-base mt-1">
+              Salle de consultation
+            </p>
+          </div>
+          <span className="hidden md:inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur ring-1 ring-white/25 px-3 py-1 text-[10px] tracking-[0.2em] uppercase text-white whitespace-nowrap">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+            Lumière naturelle
+          </span>
+        </figcaption>
+      </figure>
+
+      {/* Secondary image — waiting room, cascading bottom-right. The
+       * overflow and width step up with screen size so the cascade reads
+       * cleanly on phones (less drop, slightly wider crop) and becomes a
+       * dramatic editorial gesture on desktop. */}
+      <figure
+        className="absolute -bottom-10 right-2 sm:-bottom-14 sm:right-4 md:-bottom-20 md:-right-6 lg:-bottom-24 lg:-right-12 w-[68%] sm:w-[64%] md:w-[60%] lg:w-[58%] aspect-[3/2] rounded-[1.25rem] sm:rounded-[1.5rem] overflow-hidden ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)] bg-cream"
+      >
+        <Image
+          src="/hero2.webp"
+          alt="Salle d'attente du cabinet — assises en rotin et atmosphère apaisante"
+          fill
+          sizes="(min-width: 1024px) 30vw, 60vw"
+          className="object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/35 via-black/10 to-transparent"
+        />
+        <figcaption className="absolute bottom-3 sm:bottom-4 left-4 sm:left-5 right-4 sm:right-5 text-white">
+          <p className="text-[9px] sm:text-[10px] tracking-[0.3em] uppercase text-white/75">
+            Cabinet · Miribel
+          </p>
+          <p className="font-display text-sm sm:text-base mt-1">
+            Salle d&apos;attente
+          </p>
+        </figcaption>
+
+        <span className="absolute top-3 left-3 sm:top-4 sm:left-4 grid place-content-center h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-white/90 backdrop-blur text-primary-deep font-display text-[11px] sm:text-xs ring-1 ring-white/60">
+          02
+        </span>
+      </figure>
+
+      {/* "Réseau Aurore" credential pill — floats off the right edge of the primary image. */}
+      <div className="absolute -right-3 md:-right-6 top-1/3 z-20 hidden md:flex flex-col items-start gap-1 rounded-2xl bg-white px-4 py-3 ring-1 ring-line shadow-[0_24px_50px_-24px_rgba(11,31,61,0.35)] max-w-[200px]">
+        <span className="text-[10px] tracking-[0.25em] uppercase text-primary">
+          Échographiste agréée
+        </span>
+        <span className="font-display text-base text-ink leading-snug">
+          Réseau Aurore
+        </span>
+        <span className="text-[11px] text-muted">
+          Dépistage prénatal · T1 / T2 / T3
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function CredentialTicker() {
+  const items = [
+    "Réseau Aurore",
+    "CFEF",
+    "CNGOF",
+    "DIU Échographie · Paris Descartes",
+    "Praticien hospitalier · Sainte-Foy-lès-Lyon",
+    "ESGE 2016 — Best abstract",
+  ];
+  return (
+    <div className="container-page relative mt-20 sm:mt-24 md:mt-32 lg:mt-40">
+      <div className="flex items-center gap-3 mb-5">
+        <span aria-hidden className="h-px w-6 sm:w-8 bg-line" />
+        <span className="text-[10px] tracking-[0.28em] sm:tracking-[0.32em] uppercase text-muted whitespace-nowrap">
+          Affiliations &amp; reconnaissance
+        </span>
+        <span aria-hidden className="h-px flex-1 bg-line" />
+      </div>
+      <ul className="flex flex-wrap items-center gap-x-5 sm:gap-x-7 md:gap-x-10 gap-y-2.5 text-[13px] sm:text-sm text-ink-soft">
+        {items.map((item) => (
+          <li key={item} className="inline-flex items-center gap-2">
+            <span aria-hidden className="h-1 w-1 rounded-full bg-primary" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Highlights() {
+  const items = [
+    {
+      title: "Réseau Aurore",
+      desc: "Échographiste agréée pour le dépistage de la T21 (réseau périnatal Aurore).",
+    },
+    {
+      title: "Hôpital Sainte-Foy",
+      desc: "Praticien hospitalier au CH de Sainte-Foy-lès-Lyon — accouchements et chirurgie.",
+    },
+    {
+      title: "Recherche & publications",
+      desc: "Travaux sur l'endométriose (Journal of Minimally Invasive Gynecology, Fertility & Sterility).",
+    },
+  ];
+  return (
+    <section className="bg-white py-16 md:py-20 border-t border-line">
+      <div className="container-page grid md:grid-cols-3 gap-10">
+        {items.map((item) => (
+          <div key={item.title} className="flex gap-4">
+            <span
+              aria-hidden
+              className="mt-1 inline-block h-10 w-[2px] bg-primary"
+            />
+            <div>
+              <h3 className="font-display text-xl text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ServicesSection() {
+  return (
+    <Section
+      eyebrow="Services"
+      title={
+        <>
+          Choisissez votre <span className="italic">consultation</span>
+        </>
+      }
+      description="Cliquez sur un service pour prendre rendez-vous en ligne. Chaque créneau est confirmé immédiatement."
+    >
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {SERVICES.map((service) => (
+          <ServiceCard key={service.slug} service={service} />
+        ))}
+      </div>
+
+      <div className="mt-12 text-center">
+        <Link
+          href="/services"
+          className="inline-flex items-center gap-2 text-sm font-medium text-primary-deep hover:gap-3 transition-all"
+        >
+          Voir tous les services
+          <span aria-hidden>→</span>
+        </Link>
+      </div>
+    </Section>
+  );
+}
+
+function UltrasoundFocus() {
+  const trimesters = [
+    {
+      label: "T1",
+      title: "Premier trimestre",
+      detail:
+        "Vers 12 SA. Confirmation du terme, vitalité, mesure de la clarté nucale, dépistage des anomalies chromosomiques.",
+    },
+    {
+      label: "T2",
+      title: "Deuxième trimestre",
+      detail:
+        "Vers 22 SA. Examen morphologique détaillé de votre bébé — cœur, cerveau, organes — pour s'assurer de son bon développement.",
+    },
+    {
+      label: "T3",
+      title: "Troisième trimestre",
+      detail:
+        "Vers 32 SA. Surveillance de la croissance, du bien-être fœtal, de la position et préparation à l'accouchement.",
+    },
+  ];
+
+  return (
+    <section className="bg-cream py-24 md:py-32">
+      <div className="container-page grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
+        <div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+            Échographies
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] text-balance">
+            Un regard attentif à chaque trimestre.
+          </h2>
+          <p className="mt-5 text-lg text-ink-soft text-pretty">
+            Le Dr. Soldea réalise les échographies fœtales de dépistage prénatal
+            en tant qu&apos;échographiste agréée par le réseau de périnatalité
+            Aurore.
+          </p>
+          <Link
+            href="/services/echographie-obstetricale"
+            className="mt-8 inline-flex items-center justify-center h-12 px-7 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
+          >
+            Prendre rendez-vous
+          </Link>
+        </div>
+
+        <div className="space-y-4">
+          {trimesters.map((t, i) => (
+            <article
+              key={t.label}
+              className={`rounded-2xl bg-white ring-1 ring-line p-7 md:p-8 flex gap-6 transition-all hover:-translate-y-0.5 hover:shadow-[0_30px_60px_-30px_rgba(11,31,61,0.18)] animate-rise animate-rise-delay-${
+                i + 1
+              }`}
+            >
+              <div className="shrink-0 h-14 w-14 rounded-full bg-primary-soft text-primary-deep grid place-content-center font-display text-xl">
+                {t.label}
+              </div>
+              <div>
+                <h3 className="font-display text-2xl text-ink">{t.title}</h3>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed text-pretty">
+                  {t.detail}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DoctorTeaser() {
+  return (
+    <section className="bg-white py-24 md:py-32">
+      <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none mx-auto lg:mx-0">
+          {/* Soft warm halo behind the portrait */}
+          <div
+            aria-hidden
+            className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-cream-deep via-cream to-primary-soft -z-10"
+          />
+          <div className="relative rounded-[1.75rem] overflow-hidden aspect-[4/5] ring-1 ring-line shadow-[0_50px_100px_-40px_rgba(11,31,61,0.30)]">
+            <Image
+              src="/alexandra.png"
+              alt="Portrait du Dr. Alexandra Soldea"
+              fill
+              sizes="(min-width: 1024px) 40vw, (min-width: 640px) 28rem, 24rem"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="absolute -right-3 md:-right-6 bottom-10 hidden md:block rounded-2xl bg-white ring-1 ring-line p-5 max-w-[240px] shadow-[0_30px_60px_-30px_rgba(11,31,61,0.25)]">
+            <p className="text-xs tracking-[0.25em] uppercase text-primary">
+              Diplôme
+            </p>
+            <p className="font-display text-lg mt-1 text-ink leading-snug">
+              DIU Échographie gynécologique et obstétricale
+            </p>
+            <p className="text-xs text-muted mt-1">Paris Descartes — 2020</p>
+          </div>
+        </div>
+
+        <div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+            Présentation
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] text-balance">
+            Une médecine humaine, rigoureuse et continue.
+          </h2>
+          <p className="mt-6 text-lg text-ink-soft text-pretty">
+            Le Dr. Soldea exerce également comme praticien hospitalier à la
+            maternité du Centre Hospitalier de Sainte-Foy-lès-Lyon, où elle
+            pratique accouchements, chirurgie et consultations spécialisées.
+          </p>
+          <p className="mt-4 text-base text-muted text-pretty">
+            Son activité de recherche porte sur l&apos;endométriose, en
+            collaboration avec le centre expert ENDOMETRIOSE du CHU de Rouen.
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            {[
+              "Aurore — Réseau périnatal",
+              "CFEF",
+              "CNGOF",
+              "Langues : FR · EN",
+            ].map((b) => (
+              <span
+                key={b}
+                className="rounded-full bg-cream ring-1 ring-line px-4 py-1.5 text-xs text-ink-soft"
+              >
+                {b}
+              </span>
+            ))}
+          </div>
+
+          <Link
+            href="/presentation"
+            className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+          >
+            Lire la présentation complète <span aria-hidden>→</span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactCTA() {
+  return (
+    <section className="container-page py-20 md:py-24">
+      <div className="relative overflow-hidden rounded-[2rem] bg-ink text-white p-12 md:p-16">
+        <div
+          aria-hidden
+          className="absolute -top-32 -right-32 h-[400px] w-[400px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(58,141,150,0.35), transparent 70%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(201,169,106,0.18), transparent 70%)",
+          }}
+        />
+        <div className="relative grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
+          <div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-primary-soft mb-4">
+              Prendre rendez-vous
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl leading-[1.05] text-balance">
+              Un rendez-vous en quelques clics.
+            </h2>
+            <p className="mt-5 text-white/75 text-lg max-w-lg text-pretty">
+              Choisissez le type de consultation, sélectionnez votre créneau —
+              confirmation immédiate.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 md:items-end">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-white text-ink text-sm font-medium hover:bg-primary-soft transition-colors"
+            >
+              Voir tous les services
+            </Link>
+            <a
+              href="tel:+33428295516"
+              className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white"
+            >
+              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" aria-hidden>
+                <path
+                  d="M4 3h3l1.5 3-2 1c1 2.5 2.5 4 5 5l1-2 3 1.5V14c-7 0-11-4-11-11Z"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              04 28 29 55 16
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
