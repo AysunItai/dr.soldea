@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/app/contact/ContactForm";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contactez le cabinet du Dr. Alexandra Soldea — adresses à Miribel et Lyon, téléphone, formulaire et plan d'accès.",
+  alternates: { canonical: "/contact" },
 };
 
 const ADDRESSES = [
@@ -32,6 +34,17 @@ const ADDRESSES = [
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Accueil", path: "/" },
+              { name: "Contact", path: "/contact" },
+            ]),
+          ),
+        }}
+      />
       <Header />
       <InfoStrip />
       <FormSection />
@@ -202,7 +215,8 @@ function Maps() {
           {ADDRESSES.map((a) => (
             <div
               key={a.city}
-              className="rounded-2xl overflow-hidden ring-1 ring-line bg-cream"
+              id={`cabinet-${a.city.toLowerCase()}`}
+              className="scroll-mt-28 rounded-2xl overflow-hidden ring-1 ring-line bg-cream"
             >
               <iframe
                 src={a.embed}

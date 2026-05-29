@@ -11,8 +11,11 @@ import {
   type Service,
 } from "@/lib/services";
 import {
-  medicalProcedureJsonLd,
+  breadcrumbJsonLd,
   buildAbsoluteUrl,
+  faqPageJsonLd,
+  medicalProcedureJsonLd,
+  medicalWebPageJsonLd,
 } from "@/lib/seo";
 
 type Params = { slug: string };
@@ -59,6 +62,26 @@ export default async function ServicePage(
   const isHub = !!service.children?.length;
   const children = isHub ? getChildServices(service) : [];
 
+  /* Build the breadcrumb trail. Trimester pages get an extra hop through
+   * the obstetric hub so the SERP shows the full taxonomy. */
+  const breadcrumbItems: { name: string; path: string }[] = [
+    { name: "Accueil", path: "/" },
+    { name: "Services", path: "/services" },
+  ];
+  if (
+    service.group === "obstetrical" &&
+    service.slug !== "echographie-obstetricale"
+  ) {
+    breadcrumbItems.push({
+      name: "Échographie obstétricale",
+      path: "/services/echographie-obstetricale",
+    });
+  }
+  breadcrumbItems.push({
+    name: service.shortTitle ?? service.title,
+    path: `/services/${service.slug}`,
+  });
+
   return (
     <>
       {/* MedicalProcedure structured data — only for actual procedures,
@@ -71,11 +94,41 @@ export default async function ServicePage(
           }}
         />
       )}
+      {/* MedicalWebPage — flags this as medical content reviewed by the
+       * practitioner. Strong E-E-A-T signal for YMYL queries. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(medicalWebPageJsonLd(service)),
+        }}
+      />
+      {/* Breadcrumb — Google renders the trail in SERPs in place of the
+       * raw URL when present, materially improving CTR. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbItems)),
+        }}
+      />
+      {/* FAQPage — emitted only when faqs are present AND visible on the
+       * page (the <FaqSection> below renders them). Google policy requires
+       * visible Q&A content matching the structured data. */}
+      {service.faqs && service.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqPageJsonLd(service.faqs)),
+          }}
+        />
+      )}
       <Header service={service} />
       {isHub ? (
         <HubBody service={service} childServices={children} />
       ) : (
         <BookingBody service={service} />
+      )}
+      {service.faqs && service.faqs.length > 0 && (
+        <FaqSection service={service} />
       )}
       <RelatedServices service={service} />
     </>
@@ -410,6 +463,85 @@ function LongFormSections({ service }: { service: Service }) {
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- FAQ section (paired with FAQPage JSON-LD) ----------- */
+
+/**
+ * Visible FAQ section. MUST mirror the `service.faqs` data 1:1 because the
+ * page also emits a `FAQPage` JSON-LD block — Google's policy requires the
+ * structured data to match content visible to the user.
+ *
+ * Rendered as native <details>/<summary> so it's expandable without any
+ * client-side JavaScript (perf-friendly, accessible by default, indexable).
+ */
+function FaqSection({ service }: { service: Service }) {
+  if (!service.faqs || service.faqs.length === 0) return null;
+  return (
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="bg-white py-16 md:py-20 border-t border-line"
+    >
+      <div className="container-page grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
+        <div className="lg:sticky lg:top-28">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
+            Questions fréquentes
+          </div>
+          <h2
+            id="faq-heading"
+            className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance"
+          >
+            Vos questions sur{" "}
+            <span className="italic text-primary-deep">
+              {service.shortTitle ?? service.title}
+            </span>
+            .
+          </h2>
+          <p className="mt-4 text-ink-soft text-sm leading-relaxed text-pretty max-w-sm">
+            Vous ne trouvez pas la réponse à votre question ?{" "}
+            <Link
+              href="/contact"
+              className="underline decoration-primary/40 underline-offset-4 decoration-2 text-ink hover:text-primary-deep"
+            >
+              Contactez le cabinet
+            </Link>
+            .
+          </p>
+        </div>
+
+        <ul className="divide-y divide-line border-y border-line">
+          {service.faqs.map((faq) => (
+            <li key={faq.question}>
+              <details className="group py-5">
+                <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
+                  <h3 className="font-display text-lg md:text-xl text-ink leading-snug text-balance">
+                    {faq.question}
+                  </h3>
+                  <span
+                    aria-hidden
+                    className="mt-1 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary-deep ring-1 ring-line group-open:rotate-45 transition-transform"
+                  >
+                    <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none">
+                      <path
+                        d="M6 2v8M2 6h8"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+                </summary>
+                <p className="mt-4 text-ink-soft leading-relaxed text-pretty max-w-3xl">
+                  {faq.answer}
+                </p>
+              </details>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

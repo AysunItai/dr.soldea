@@ -179,7 +179,7 @@ function HeroGallery() {
          */}
         <Image
           src="/hero1.webp"
-          alt="Salle de consultation du Dr. Alexandra Soldea — lumière douce, fenêtres haussmanniennes"
+          alt="Cabinet d'échographie et de gynécologie à Lyon — salle de consultation du Dr. Alexandra Soldea"
           fill
           preload
           fetchPriority="high"
@@ -216,7 +216,7 @@ function HeroGallery() {
       >
         <Image
           src="/hero2.webp"
-          alt="Salle d'attente du cabinet — assises en rotin et atmosphère apaisante"
+          alt="Cabinet de gynécologie à Miribel — salle d'attente du Dr. Alexandra Soldea"
           fill
           sizes="(min-width: 1024px) 30vw, 60vw"
           className="object-cover"

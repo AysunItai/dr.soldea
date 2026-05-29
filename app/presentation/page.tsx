@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Présentation",
   description:
     "Découvrez le parcours du Dr. Alexandra Soldea : gynécologue obstétricienne à Lyon et Miribel, échographiste agréée du réseau Aurore, praticien hospitalier au CH de Sainte-Foy-lès-Lyon.",
+  alternates: { canonical: "/presentation" },
 };
 
 export default function PresentationPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Accueil", path: "/" },
+              { name: "Présentation", path: "/presentation" },
+            ]),
+          ),
+        }}
+      />
       <Header />
       <Bio />
       <CredentialsGrid />
@@ -67,7 +80,7 @@ function Header() {
           <div className="relative rounded-[1.75rem] overflow-hidden aspect-[567/600] ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)]">
             <Image
               src="/alexandra.png"
-              alt="Portrait du Dr. Alexandra Soldea — gynécologue obstétricienne"
+              alt="Dr. Alexandra Soldea — gynécologue obstétricienne et échographiste agréée à Lyon et Miribel"
               fill
               preload
               fetchPriority="high"

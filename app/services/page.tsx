@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Section } from "@/app/_components/Section";
 import { ServiceCard } from "@/app/_components/ServiceCard";
 import { SERVICES, type Service } from "@/lib/services";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Services & prise de rendez-vous en ligne",
   description:
     "Tous les services du Dr. Alexandra Soldea à Lyon et Miribel : échographies obstétricales T1/T2/T3 (réseau Aurore), échographie gynécologique, suivi de grossesse, contrôle de stérilet, téléconsultation et suivi de gynécologie. Prise de rendez-vous en ligne.",
+  alternates: { canonical: "/services" },
 };
 
 type Group = {
@@ -56,6 +58,17 @@ const GROUPS: Group[] = [
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Accueil", path: "/" },
+              { name: "Services", path: "/services" },
+            ]),
+          ),
+        }}
+      />
       <Header />
 
       {GROUPS.map((group, index) => {

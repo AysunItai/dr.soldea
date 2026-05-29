@@ -3,7 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/app/_components/Navbar";
 import { Footer } from "@/app/_components/Footer";
-import { SITE_URL, physicianJsonLd } from "@/lib/seo";
+import { SITE_URL, siteGraphJsonLd } from "@/lib/seo";
 
 const sans = Inter({
   variable: "--font-sans",
@@ -107,13 +107,15 @@ export default function RootLayout({
       className={`${sans.variable} ${display.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background text-ink">
-        {/* Site-wide Physician structured data — strong signal for Google
-            knowledge panel and local SEO. Lives in <body> so it ships on
-            every route. */}
+        {/* Site-wide JSON-LD `@graph` — emits WebSite, Person (the doctor),
+            Physician (the practice), and one MedicalClinic per cabinet,
+            all cross-referenced via `@id`. Strongest possible signal for
+            Google's knowledge graph and the local pack (map results) on
+            "échographie lyon" / "gynécologue miribel" type queries. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(physicianJsonLd()),
+            __html: JSON.stringify(siteGraphJsonLd()),
           }}
         />
         <Navbar />

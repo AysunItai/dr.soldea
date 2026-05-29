@@ -36,6 +36,19 @@ export type ServiceSection = {
   bullets?: string[];
 };
 
+/**
+ * Single FAQ entry. Pages declaring `faqs` will both render them visually
+ * AND emit a `FAQPage` JSON-LD block (see `lib/seo.ts → faqPageJsonLd`),
+ * which Google may surface as expandable Q&A rich results in SERPs.
+ *
+ * Answers should be self-contained, ≈40–80 words, written in plain French
+ * patient-facing language.
+ */
+export type ServiceFaq = {
+  question: string;
+  answer: string;
+};
+
 export type Service = {
   slug: string;
   title: string;
@@ -64,6 +77,11 @@ export type Service = {
   details?: string[];
   /** Long-form SEO content: rendered as <h2>+<p>+<ul> on the detail page. */
   sections?: ServiceSection[];
+  /**
+   * Patient-facing FAQs. Rendered as an accordion at the bottom of the
+   * service page AND emitted as `FAQPage` JSON-LD for rich results.
+   */
+  faqs?: ServiceFaq[];
   /** SEO meta description (≤160 chars). Falls back to `tagline`. */
   metaDescription?: string;
   /** Comma-separated SEO keywords. */
@@ -160,6 +178,37 @@ export const SERVICES: Service[] = [
       "Compte-rendu remis en main propre à l'issue de l'examen",
       "Cabinet à Miribel — facilement accessible depuis Lyon et l'Ain",
     ],
+    faqs: [
+      {
+        question:
+          "Combien d'échographies sont obligatoires pendant la grossesse ?",
+        answer:
+          "La Haute Autorité de Santé recommande trois échographies de dépistage pendant une grossesse normale : l'écho du 1er trimestre (entre 11 et 13 SA + 6 jours), l'écho du 2e trimestre dite morphologique (entre 22 et 24 SA), et l'écho du 3e trimestre (entre 31 et 34 SA). Au cabinet du Dr. Alexandra Soldea à Miribel, les trois sont réalisées par une échographiste agréée du réseau Aurore.",
+      },
+      {
+        question:
+          "Les échographies de grossesse sont-elles remboursées par la Sécurité sociale ?",
+        answer:
+          "Oui. Les trois échographies de dépistage prénatal recommandées (T1, T2, T3) sont remboursées par l'Assurance Maladie sur prescription médicale, dans le cadre du suivi de grossesse. La prise en charge est de 70 % jusqu'au 5e mois, puis 100 % à partir du 6e mois de grossesse.",
+      },
+      {
+        question:
+          "Pourquoi choisir une échographiste agréée du réseau Aurore ?",
+        answer:
+          "Le réseau de périnatalité Aurore agrée les échographistes formés au dépistage de la trisomie 21 par la mesure de la clarté nucale. L'agrément garantit le respect d'un protocole strict de qualité d'image, de mesure et de compte-rendu — exigé par l'Assurance Maladie pour la prise en charge du dépistage combiné du 1er trimestre.",
+      },
+      {
+        question:
+          "Le cabinet est à Miribel — est-ce accessible depuis Lyon ?",
+        answer:
+          "Oui. Le cabinet du Dr. Alexandra Soldea est situé 63 place de la République à Miribel (01700), à environ 15 minutes du centre de Lyon par la D1084. Il est facilement accessible en voiture (parking à proximité) et dessert toute la métropole de Lyon ainsi que l'Ain et la Côtière.",
+      },
+      {
+        question: "Faut-il un rendez-vous pour une échographie obstétricale ?",
+        answer:
+          "Oui, les échographies de grossesse sont réalisées exclusivement sur rendez-vous. Vous pouvez réserver votre créneau en ligne 24 h/24 directement sur ce site, en choisissant le trimestre concerné. Confirmation immédiate par e-mail.",
+      },
+    ],
     metaDescription:
       "Échographies obstétricales à Lyon & Miribel — 1er, 2e et 3e trimestre. Dr. Alexandra Soldea, échographiste agréée du réseau de périnatalité Aurore.",
     keywords: [
@@ -212,6 +261,34 @@ export const SERVICES: Service[] = [
       {
         heading: "Quand prendre rendez-vous ?",
         body: "L'écho T1 doit être planifiée entre 11 SA et 13 SA + 6 jours d'aménorrhée. Idéalement, prenez rendez-vous dès la confirmation de votre grossesse pour vous garantir un créneau dans cette fenêtre.",
+      },
+    ],
+    faqs: [
+      {
+        question:
+          "À quel terme faire l'échographie du 1er trimestre à Lyon ?",
+        answer:
+          "L'écho T1 doit être réalisée entre 11 SA et 13 SA + 6 jours d'aménorrhée. Cette fenêtre est essentielle pour mesurer correctement la clarté nucale dans le cadre du dépistage de la trisomie 21. Il est conseillé de prendre rendez-vous dès la confirmation de votre grossesse pour vous garantir un créneau dans la fenêtre recommandée.",
+      },
+      {
+        question: "Que mesure exactement la clarté nucale ?",
+        answer:
+          "La clarté nucale est une fine zone liquidienne située sous la peau de la nuque du fœtus. Sa mesure échographique entre 11 et 13 SA + 6 j, combinée à une prise de sang (dépistage combiné du 1er trimestre), permet d'évaluer le risque de trisomie 21 (syndrome de Down) et de quelques autres anomalies chromosomiques.",
+      },
+      {
+        question: "Faut-il être à jeun pour l'écho T1 ?",
+        answer:
+          "Non, il n'est pas nécessaire d'être à jeun pour l'échographie du 1er trimestre. Il est en revanche utile d'avoir la vessie modérément remplie pour faciliter la visualisation par voie abdominale — il suffit de boire un verre d'eau environ 30 minutes avant le rendez-vous.",
+      },
+      {
+        question: "L'écho T1 est-elle douloureuse ?",
+        answer:
+          "Non. L'échographie est un examen totalement indolore et sans danger pour la mère comme pour le bébé. Elle est réalisée par voie abdominale, parfois complétée par une voie endo-vaginale en début de grossesse pour mieux visualiser le fœtus. L'examen dure entre 20 et 30 minutes.",
+      },
+      {
+        question: "Combien coûte l'échographie du 1er trimestre ?",
+        answer:
+          "Le tarif est conventionné par la Sécurité sociale et remboursé à 70 % par l'Assurance Maladie sur prescription médicale. Le complément est généralement pris en charge par la mutuelle. Le règlement s'effectue sur place après l'examen ; le compte-rendu détaillé vous est remis en main propre.",
       },
     ],
     metaDescription:
@@ -270,6 +347,34 @@ export const SERVICES: Service[] = [
         body: "L'examen est réalisé par voie abdominale, à l'aide d'une sonde d'échographie. Il est indolore et dure en moyenne entre 30 et 45 minutes, selon la position du bébé. Un compte-rendu détaillé vous est remis à l'issue de la consultation.",
       },
     ],
+    faqs: [
+      {
+        question:
+          "À quel terme faire l'échographie morphologique (T2) à Lyon ?",
+        answer:
+          "L'écho T2, dite morphologique, doit être réalisée entre 22 et 24 SA d'aménorrhée. C'est le moment où l'anatomie du bébé est suffisamment développée pour être étudiée en détail tout en restant entièrement visible à l'échographie. Prenez rendez-vous dès la confirmation de votre grossesse pour vous garantir un créneau.",
+      },
+      {
+        question: "Que voit-on à l'échographie morphologique du 2e trimestre ?",
+        answer:
+          "L'écho T2 est l'examen le plus complet du suivi de grossesse. Elle permet d'étudier en détail le cerveau, le cœur, les reins, la colonne vertébrale et les membres du bébé, de vérifier sa croissance, d'examiner le placenta et la quantité de liquide amniotique, et de dépister les principales malformations morphologiques.",
+      },
+      {
+        question: "Combien de temps dure l'échographie du 2e trimestre ?",
+        answer:
+          "L'écho T2 dure en moyenne 30 à 45 minutes, selon la position du bébé. Si le fœtus est dans une position défavorable à l'analyse de certains organes, il peut être nécessaire de programmer un complément d'examen. Un compte-rendu détaillé vous est remis à la fin de la consultation.",
+      },
+      {
+        question: "Faut-il être à jeun pour l'écho T2 ?",
+        answer:
+          "Non. L'échographie morphologique ne nécessite ni jeûne, ni vessie pleine. Présentez-vous simplement à l'heure prévue avec votre carte Vitale, votre prescription, votre carnet de maternité et les comptes-rendus de vos échographies précédentes.",
+      },
+      {
+        question: "Peut-on connaître le sexe du bébé à l'écho T2 ?",
+        answer:
+          "Oui, dans la majorité des cas le sexe du bébé est identifiable à l'échographie du 2e trimestre, sauf si sa position rend l'observation difficile. Précisez en début d'examen si vous souhaitez ou non connaître le sexe — le Dr. Soldea respecte votre choix.",
+      },
+    ],
     metaDescription:
       "Échographie morphologique du 2e trimestre (Écho T2) à Lyon & Miribel — entre 22 et 24 SA. Étude anatomique détaillée du bébé. Réseau Aurore.",
     keywords: [
@@ -323,6 +428,35 @@ export const SERVICES: Service[] = [
       {
         heading: "Comment se déroule l'examen ?",
         body: "L'écho T3 est réalisée par voie abdominale et dure généralement entre 20 et 40 minutes selon la position du bébé. L'examen est indolore et fait partie du suivi obstétrical recommandé.",
+      },
+    ],
+    faqs: [
+      {
+        question: "À quel terme faire l'échographie du 3e trimestre à Lyon ?",
+        answer:
+          "L'écho T3 doit être réalisée entre 31 et 34 SA d'aménorrhée. Elle complète le suivi obstétrical et permet d'évaluer la croissance du bébé et de préparer la fin de grossesse dans les meilleures conditions. Pensez à prendre rendez-vous quelques semaines à l'avance, après votre rendez-vous obstétrical du 7e mois.",
+      },
+      {
+        question:
+          "Les images 3D / 4D sont-elles systématiques lors de l'écho T3 ?",
+        answer:
+          "Les images 3D et 4D ne sont pas obligatoires : ce sont des vues complémentaires à l'examen médical, qui peuvent être réalisées lorsque la position du bébé et la qualité de l'imagerie le permettent. Au cabinet du Dr. Soldea à Miribel, elles sont proposées dans le cadre standard de l'écho T3, sans surcoût.",
+      },
+      {
+        question: "Faut-il une vessie pleine pour l'échographie du 3e trimestre ?",
+        answer:
+          "Non, une vessie pleine n'est pas nécessaire pour l'écho T3 — le bébé est suffisamment grand pour être visualisé sans contraste vésical. L'examen est réalisé par voie abdominale, en position allongée, et dure entre 20 et 40 minutes.",
+      },
+      {
+        question: "Que regarde-t-on à l'écho T3 ?",
+        answer:
+          "L'écho T3 contrôle la croissance et le poids estimé du bébé, sa position avant l'accouchement (céphalique, siège, transverse), l'état du placenta et la quantité de liquide amniotique, le fonctionnement du cœur, et les organes principaux. Elle permet aussi de dépister certaines anomalies tardives de croissance ou de circulation placentaire.",
+      },
+      {
+        question:
+          "Que faire si le bébé est mal positionné lors de l'examen ?",
+        answer:
+          "Si le bébé est en siège ou en transverse à l'écho T3, ne vous inquiétez pas — la majorité des bébés se positionnent en céphalique avant l'accouchement. Le compte-rendu est transmis à l'obstétricien qui suit votre grossesse, et un contrôle peut être programmé en fin de grossesse si nécessaire.",
       },
     ],
     metaDescription:
