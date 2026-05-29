@@ -165,9 +165,12 @@ function HeroGallery() {
         <span className="text-xs font-medium text-ink">Salle de consultation</span>
       </div>
 
-      {/* Primary image — consultation room. Aspect tightens slightly on the
-       * largest screens so the diptych never overpowers the copy column. */}
-      <figure className="relative rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden ring-1 ring-line shadow-[0_50px_100px_-40px_rgba(11,31,61,0.35)] aspect-[3/2] sm:aspect-[4/3] lg:aspect-[5/4] bg-cream">
+      {/* Primary image — consultation room. The frame aspect mirrors the
+       * source file's intrinsic 3:2 ratio (hero1.webp is 680×453) so the
+       * `<img>` is never displayed at a ratio different from its natural
+       * dimensions. This satisfies Lighthouse's `image-aspect-ratio` audit
+       * across every breakpoint without cropping or letter-boxing. */}
+      <figure className="relative rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden ring-1 ring-line shadow-[0_50px_100px_-40px_rgba(11,31,61,0.35)] aspect-[680/453] bg-cream">
         {/*
          * Hero1 is the LCP element on the homepage.
          * `preload` (Next 16, replaces deprecated `priority`) injects a
@@ -209,7 +212,7 @@ function HeroGallery() {
        * cleanly on phones (less drop, slightly wider crop) and becomes a
        * dramatic editorial gesture on desktop. */}
       <figure
-        className="absolute -bottom-10 right-2 sm:-bottom-14 sm:right-4 md:-bottom-20 md:-right-6 lg:-bottom-24 lg:-right-12 w-[68%] sm:w-[64%] md:w-[60%] lg:w-[58%] aspect-[3/2] rounded-[1.25rem] sm:rounded-[1.5rem] overflow-hidden ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)] bg-cream"
+        className="absolute -bottom-10 right-2 sm:-bottom-14 sm:right-4 md:-bottom-20 md:-right-6 lg:-bottom-24 lg:-right-12 w-[68%] sm:w-[64%] md:w-[60%] lg:w-[58%] aspect-[680/453] rounded-[1.25rem] sm:rounded-[1.5rem] overflow-hidden ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)] bg-cream"
       >
         <Image
           src="/hero2.webp"

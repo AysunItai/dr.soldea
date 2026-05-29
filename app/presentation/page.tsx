@@ -61,12 +61,16 @@ function Header() {
             aria-hidden
             className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-primary-soft via-cream to-cream-deep -z-10"
           />
-          <div className="relative rounded-[1.75rem] overflow-hidden aspect-[3/4] ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)]">
+          {/* Frame aspect mirrors the source file (alexandra.png is 567×600)
+           * so the rendered `<img>` keeps its natural ratio and Lighthouse's
+           * `image-aspect-ratio` audit passes. */}
+          <div className="relative rounded-[1.75rem] overflow-hidden aspect-[567/600] ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)]">
             <Image
               src="/alexandra.png"
               alt="Portrait du Dr. Alexandra Soldea — gynécologue obstétricienne"
               fill
-              priority
+              preload
+              fetchPriority="high"
               sizes="(min-width: 1024px) 38vw, (min-width: 640px) 28rem, 24rem"
               className="object-cover object-center"
             />
