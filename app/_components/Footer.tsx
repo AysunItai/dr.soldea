@@ -30,9 +30,16 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
+          {/*
+           * The Footer's column titles were `<h4>` for visual weight, but
+           * Lighthouse flagged a heading-order skip (main content's
+           * trailing h2 → footer h4). Promoting them to `<h2>` (kept
+           * visually identical via the same Tailwind classes) restores a
+           * legal hierarchy without altering the design.
+           */}
+          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
             Services
-          </h4>
+          </h2>
           <ul className="space-y-2">
             {NAV_SERVICES.map((s) => (
               <li key={s.slug}>
@@ -56,9 +63,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
+          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
             Échographies obstétricales
-          </h4>
+          </h2>
           <ul className="space-y-2">
             {trimesters.map((t) => (
               <li key={t.slug}>
@@ -73,7 +80,7 @@ export function Footer() {
                   Échographie du {t.shortLabel === "T1" ? "1er" : t.shortLabel === "T2" ? "2e" : "3e"} trimestre
                 </Link>
                 {t.weeks && (
-                  <span className="block text-[11px] text-white/45 mt-0.5">
+                  <span className="block text-[11px] text-white/65 mt-0.5">
                     {t.weeks}
                   </span>
                 )}
@@ -83,9 +90,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
+          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
             Cabinet Miribel
-          </h4>
+          </h2>
           <p className="text-sm text-white/75 leading-relaxed">
             63 place de la République
             <br />
@@ -97,9 +104,9 @@ export function Footer() {
             </a>
           </p>
 
-          <h4 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mt-8 mb-4">
+          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mt-8 mb-4">
             Cabinet Lyon
-          </h4>
+          </h2>
           <p className="text-sm text-white/75 leading-relaxed">
             4 rue du Président Carnot
             <br />
@@ -108,9 +115,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
+          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
             Liens
-          </h4>
+          </h2>
           <ul className="space-y-2">
             <li>
               <Link

@@ -156,8 +156,16 @@ function CredentialsGrid() {
   ];
 
   return (
-    <section className="bg-cream py-20 md:py-24">
+    <section
+      aria-labelledby="credentials-heading"
+      className="bg-cream py-20 md:py-24"
+    >
       <div className="container-page">
+        {/* Visually hidden — restores h2 between the page h1 and the h3
+         * labels below so heading order doesn't skip a level. */}
+        <h2 id="credentials-heading" className="sr-only">
+          Diplômes, langues et affiliations
+        </h2>
         <div className="grid md:grid-cols-3 gap-10">
           {items.map((item) => (
             <div key={item.label}>

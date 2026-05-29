@@ -66,7 +66,6 @@ export default async function ServicePage(
       {!isHub && (
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(medicalProcedureJsonLd(service)),
           }}
@@ -74,7 +73,7 @@ export default async function ServicePage(
       )}
       <Header service={service} />
       {isHub ? (
-        <HubBody service={service} children={children} />
+        <HubBody service={service} childServices={children} />
       ) : (
         <BookingBody service={service} />
       )}
@@ -257,10 +256,10 @@ function BookingBody({ service }: { service: Service }) {
 
 function HubBody({
   service,
-  children,
+  childServices,
 }: {
   service: Service;
-  children: Service[];
+  childServices: Service[];
 }) {
   return (
     <>
@@ -306,7 +305,7 @@ function HubBody({
               </span>
             </div>
             <ol className="grid gap-6 md:grid-cols-3">
-              {children.map((child, i) => (
+              {childServices.map((child, i) => (
                 <li key={child.slug}>
                   <Link
                     href={`/services/${child.slug}`}

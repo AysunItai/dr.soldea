@@ -168,11 +168,18 @@ function HeroGallery() {
       {/* Primary image — consultation room. Aspect tightens slightly on the
        * largest screens so the diptych never overpowers the copy column. */}
       <figure className="relative rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden ring-1 ring-line shadow-[0_50px_100px_-40px_rgba(11,31,61,0.35)] aspect-[3/2] sm:aspect-[4/3] lg:aspect-[5/4] bg-cream">
+        {/*
+         * Hero1 is the LCP element on the homepage.
+         * `preload` (Next 16, replaces deprecated `priority`) injects a
+         * <link rel="preload"> so the browser starts fetching it during
+         * HTML parse. `fetchPriority="high"` reinforces the hint.
+         */}
         <Image
           src="/hero1.webp"
           alt="Salle de consultation du Dr. Alexandra Soldea — lumière douce, fenêtres haussmanniennes"
           fill
-          priority
+          preload
+          fetchPriority="high"
           sizes="(min-width: 1024px) 48vw, 100vw"
           className="object-cover animate-ken-burns"
         />
@@ -291,22 +298,33 @@ function Highlights() {
     },
   ];
   return (
-    <section className="bg-white py-16 md:py-20 border-t border-line">
-      <div className="container-page grid md:grid-cols-3 gap-10 reveal-stagger">
-        {items.map((item) => (
-          <div key={item.title} className="flex gap-4 reveal">
-            <span
-              aria-hidden
-              className="mt-1 inline-block h-10 w-[2px] bg-primary"
-            />
-            <div>
-              <h3 className="font-display text-xl text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-                {item.desc}
-              </p>
+    <section
+      aria-labelledby="highlights-heading"
+      className="bg-white py-16 md:py-20 border-t border-line"
+    >
+      <div className="container-page">
+        {/* Visually hidden so the visual design is unchanged, but the
+         * heading hierarchy now reads h1 (hero) → h2 (highlights) → h3
+         * (cards) instead of skipping a level. */}
+        <h2 id="highlights-heading" className="sr-only">
+          Affiliations et reconnaissance
+        </h2>
+        <div className="grid md:grid-cols-3 gap-10 reveal-stagger">
+          {items.map((item) => (
+            <div key={item.title} className="flex gap-4 reveal">
+              <span
+                aria-hidden
+                className="mt-1 inline-block h-10 w-[2px] bg-primary"
+              />
+              <div>
+                <h3 className="font-display text-xl text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

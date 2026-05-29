@@ -59,6 +59,17 @@ export const metadata: Metadata = {
     description:
       "Échographies de grossesse à Lyon et Miribel (T1, T2, T3 — réseau Aurore), suivi gynécologique et téléconsultation. Prise de rendez-vous en ligne.",
     siteName: "Dr. Alexandra Soldea",
+    // Facebook / LinkedIn social card. The hero image is reused so we
+    // ship a single optimised asset; replace with a dedicated 1200×630
+    // export later if you want richer share previews.
+    images: [
+      {
+        url: "/hero1.webp",
+        width: 680,
+        height: 453,
+        alt: "Cabinet du Dr. Alexandra Soldea — gynécologue obstétricienne à Lyon et Miribel",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -66,6 +77,7 @@ export const metadata: Metadata = {
       "Échographie & Gynécologue à Lyon — Dr. Alexandra Soldea (Miribel)",
     description:
       "Échographies de grossesse T1, T2, T3 (réseau Aurore), suivi gynécologique et téléconsultation à Lyon & Miribel.",
+    images: ["/hero1.webp"],
   },
   robots: {
     index: true,

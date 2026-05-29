@@ -66,12 +66,19 @@ export function Navbar() {
           aria-label="Dr. Alexandra Soldea — Accueil"
           className="flex items-center group"
         >
+          {/*
+           * Above-the-fold but NOT the LCP candidate — load eagerly so the
+           * brand mark renders immediately, but skip `preload`/`priority`
+           * so Next.js does not inject a competing <link rel="preload">
+           * that would steal bandwidth from the hero image.
+           */}
           <Image
             src="/logo.png"
             alt="Dr. Alexandra Soldea — Gynécologue Obstétricienne"
             width={366}
             height={85}
-            priority
+            loading="eager"
+            fetchPriority="low"
             className="h-11 w-auto md:h-12"
           />
         </Link>

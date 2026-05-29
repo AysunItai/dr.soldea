@@ -1,13 +1,14 @@
 import type { Service } from "@/lib/services";
 
 /**
- * Canonical absolute URL of the live site. Falls back to a sensible
- * default when the env var is missing. Update via NEXT_PUBLIC_SITE_URL
- * once the production domain is finalised.
+ * Canonical absolute URL of the live site. The production canonical is
+ * the non-www apex `https://gynecologuelyon.fr` — Vercel redirects www to
+ * apex. Override via NEXT_PUBLIC_SITE_URL if you ever move to a different
+ * domain.
  */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://www.gynecologuelyon.fr";
+  "https://gynecologuelyon.fr";
 
 export function buildAbsoluteUrl(path: string): string {
   if (path.startsWith("http")) return path;
