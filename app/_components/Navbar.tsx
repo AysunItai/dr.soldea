@@ -52,14 +52,15 @@ export function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header
-      className={[
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "backdrop-blur-md bg-white/85 border-b border-line"
-          : "bg-transparent",
-      ].join(" ")}
-    >
+    <>
+      <header
+        className={[
+          "sticky top-0 z-50 transition-all duration-300",
+          scrolled
+            ? "backdrop-blur-md bg-white/85 border-b border-line"
+            : "bg-transparent",
+        ].join(" ")}
+      >
       <div className="container-page flex items-center justify-between h-20">
         <Link
           href="/"
@@ -207,11 +208,24 @@ export function Navbar() {
           </div>
         </button>
       </div>
+      </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer.
+       *
+       * IMPORTANT: rendered as a sibling of <header>, not a child.
+       *
+       * Why: when the user scrolls, the header gets `backdrop-blur-md`.
+       * Per the CSS spec, an element with `backdrop-filter` (or
+       * `transform`, `filter`, `perspective`) becomes a *containing block*
+       * for its `position: fixed` descendants. If the drawer lived inside
+       * the header, its `fixed top-20 bottom-0` would be measured against
+       * the header (≈ 80px tall) instead of the viewport, collapsing the
+       * drawer to height 0 the moment the user scrolled. Keeping the drawer
+       * outside the header guarantees its containing block is always the
+       * viewport. */}
       <div
         className={[
-          "lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white origin-top transition-all duration-300",
+          "lg:hidden fixed inset-x-0 top-20 bottom-0 z-40 bg-white origin-top transition-all duration-300",
           mobileOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-2 pointer-events-none",
@@ -295,7 +309,7 @@ export function Navbar() {
           </Link>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
 
