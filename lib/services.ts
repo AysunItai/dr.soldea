@@ -128,15 +128,43 @@ export const SERVICES: Service[] = [
       "Interprétation de résultats",
       "Confirmation par e-mail à la fin du rendez-vous",
     ],
-    keywords: ["téléconsultation gynécologue", "consultation à distance Lyon"],
+    faqs: [
+      {
+        question: "Dans quels cas une téléconsultation gynécologique est-elle adaptée ?",
+        answer:
+          "La téléconsultation est adaptée aux situations qui ne nécessitent pas d'examen clinique : renouvellement d'une contraception ou d'un traitement, interprétation de résultats biologiques ou d'imagerie, conseils en cas de symptômes simples, second avis ou échange préparatoire à une consultation en cabinet. En cas de doute, le Dr. Soldea vous orientera vers une consultation en présentiel à Miribel.",
+      },
+      {
+        question: "La téléconsultation est-elle remboursée par la Sécurité sociale ?",
+        answer:
+          "Oui. Depuis 2018, les téléconsultations médicales sont remboursées par l'Assurance Maladie dans les mêmes conditions qu'une consultation en cabinet, à condition d'être réalisées par un médecin conventionné. Le règlement s'effectue à la fin du rendez-vous ; le complément éventuel est pris en charge par votre mutuelle.",
+      },
+      {
+        question: "Comment se déroule la téléconsultation et faut-il une application ?",
+        answer:
+          "La téléconsultation se déroule par appel téléphonique simple à l'heure du rendez-vous — aucune application à installer. Préparez votre carte Vitale, votre ordonnance ou vos résultats si applicable, et installez-vous dans un endroit calme. Une confirmation et une ordonnance électronique (si nécessaire) vous sont envoyées par e-mail à la fin de la consultation.",
+      },
+      {
+        question: "Puis-je obtenir une ordonnance lors d'une téléconsultation ?",
+        answer:
+          "Oui. Le Dr. Soldea peut établir une ordonnance médicale lors de la téléconsultation et vous l'envoyer par e-mail au format dématérialisé, accepté par toutes les pharmacies. C'est le cas notamment pour les renouvellements de contraception ou les prescriptions d'examens biologiques et d'imagerie.",
+      },
+    ],
+    keywords: [
+      "téléconsultation gynécologue Lyon",
+      "consultation gynécologique à distance",
+      "téléconsultation Lyon",
+      "renouvellement ordonnance gynécologie",
+    ],
   },
   {
     slug: "echographie-gynecologique",
-    title: "Échographie gynécologique (pelvienne)",
+    title: "Échographie gynécologique (pelvienne) à Lyon & Miribel",
     shortTitle: "Échographie gynécologique",
-    tagline: "Exploration pelvienne par voie sus-pubienne et endo-vaginale.",
+    tagline:
+      "Exploration pelvienne par voie sus-pubienne et endo-vaginale — utérus, ovaires, pelvis.",
     description:
-      "Examen approfondi de l'utérus, des ovaires et du pelvis pour le diagnostic et le suivi des pathologies gynécologiques (kystes, fibromes, endométriose, suivi DIU, bilan douleurs).",
+      "Examen d'imagerie approfondi de l'utérus, des ovaires et du pelvis pour le diagnostic et le suivi des principales pathologies gynécologiques : kystes ovariens, fibromes utérins, endométriose, polypes endométriaux, contrôle de stérilet (DIU), bilan de douleurs pelviennes et de saignements anormaux. Réalisée au cabinet du Dr. Alexandra Soldea à Miribel, à 15 minutes de Lyon, par une praticienne titulaire du DIU d'échographie gynécologique et obstétricale (Paris Descartes).",
     durationMinutes: 20,
     location: "Miribel",
     category: "echographie",
@@ -144,14 +172,81 @@ export const SERVICES: Service[] = [
     calendlyUrl: calendly("echographie-gynecologique-pelvienne"),
     details: [
       "Voie sus-pubienne et endo-vaginale",
-      "Bilan de douleurs ou saignements",
-      "Suivi de fibromes, kystes, endométriose",
+      "Bilan de douleurs ou de saignements anormaux",
+      "Suivi de fibromes, kystes, endométriose, polypes",
       "Compte-rendu remis en fin de consultation",
     ],
+    sections: [
+      {
+        heading: "Quand faire une échographie pelvienne ?",
+        body: "L'échographie gynécologique pelvienne est l'examen d'imagerie de référence pour explorer l'utérus, les ovaires et la cavité pelvienne. Elle peut être prescrite dans de nombreuses situations cliniques :",
+        bullets: [
+          "Douleurs pelviennes ou règles douloureuses (dysménorrhée)",
+          "Saignements anormaux ou règles abondantes (ménorragies)",
+          "Suspicion ou suivi d'un kyste ovarien",
+          "Suivi de fibromes utérins (myomes)",
+          "Bilan d'endométriose pelvienne",
+          "Contrôle de stérilet (DIU cuivre ou hormonal)",
+          "Bilan d'infertilité ou suivi d'ovulation",
+          "Suivi de polypes endométriaux",
+        ],
+      },
+      {
+        heading: "Comment se déroule l'examen ?",
+        body: "L'échographie pelvienne est généralement réalisée en deux temps. La voie sus-pubienne (sonde appliquée sur le bas-ventre avec un gel transparent, vessie modérément remplie) offre une vue d'ensemble du pelvis. La voie endo-vaginale (sonde fine introduite dans le vagin, vessie vide) permet ensuite une analyse beaucoup plus précise de l'utérus, de l'endomètre et des ovaires. L'examen dure 15 à 20 minutes, est indolore et ne nécessite pas de préparation lourde. Le compte-rendu vous est remis en main propre à la fin de la consultation.",
+      },
+      {
+        heading: "À quel moment du cycle ?",
+        body: "Pour la majorité des indications, l'échographie est idéalement réalisée en début de cycle, entre le 6e et le 10e jour, juste après les règles : l'endomètre est alors fin et la cavité utérine bien analysable. Pour un suivi d'ovulation ou un bilan d'infertilité, d'autres jours du cycle sont nécessaires. Suivez l'indication de votre prescripteur ou demandez conseil au cabinet lors de la prise de rendez-vous.",
+      },
+    ],
+    faqs: [
+      {
+        question:
+          "Faut-il avoir la vessie pleine pour l'échographie pelvienne ?",
+        answer:
+          "Oui, partiellement. La première partie de l'examen, par voie sus-pubienne, nécessite une vessie modérément remplie : buvez environ 50 cl d'eau dans l'heure qui précède le rendez-vous, sans aller aux toilettes. La seconde partie, par voie endo-vaginale, se fait au contraire vessie vide — vous pourrez donc uriner entre les deux temps de l'examen.",
+      },
+      {
+        question:
+          "À quel moment du cycle faire une échographie gynécologique ?",
+        answer:
+          "Pour un bilan standard, l'échographie pelvienne est idéalement réalisée entre le 6e et le 10e jour du cycle, juste après les règles. À ce moment, l'endomètre est fin et la cavité utérine est bien analysable. Pour un suivi d'ovulation ou un bilan d'infertilité, d'autres jours du cycle peuvent être indiqués — suivez la prescription de votre médecin.",
+      },
+      {
+        question: "L'échographie endo-vaginale est-elle douloureuse ?",
+        answer:
+          "Non, l'échographie endo-vaginale est généralement indolore. La sonde est fine, lubrifiée et introduite délicatement. La gêne est minime et cette partie de l'examen ne dure que quelques minutes. Si vous êtes vierge ou particulièrement anxieuse, prévenez le Dr. Soldea en début de consultation : l'examen peut être adapté ou limité à la seule voie sus-pubienne.",
+      },
+      {
+        question:
+          "L'échographie gynécologique est-elle remboursée par la Sécurité sociale ?",
+        answer:
+          "Oui. L'échographie pelvienne est conventionnée et prise en charge par l'Assurance Maladie sur prescription médicale (médecin traitant, gynécologue ou sage-femme). Le règlement s'effectue sur place après l'examen, et votre mutuelle prend en charge le complément éventuel selon votre contrat. Pensez à apporter votre carte Vitale et votre ordonnance.",
+      },
+      {
+        question:
+          "Où est réalisée l'échographie ? Le cabinet est-il accessible depuis Lyon ?",
+        answer:
+          "L'échographie gynécologique est réalisée au cabinet du Dr. Alexandra Soldea, 63 place de la République à Miribel (01700), à environ 15 minutes du centre de Lyon par la D1084. Le cabinet est facilement accessible en voiture (parking à proximité) et dessert toute la métropole de Lyon (Villeurbanne, Caluire, Rillieux-la-Pape, Vaulx-en-Velin) ainsi que la Côtière de l'Ain.",
+      },
+      {
+        question: "Faut-il une ordonnance pour une échographie pelvienne ?",
+        answer:
+          "Oui, une prescription médicale est nécessaire pour bénéficier du remboursement par l'Assurance Maladie. Elle est délivrée par votre médecin traitant, votre gynécologue ou votre sage-femme. Pensez à apporter l'ordonnance, votre carte Vitale et — si possible — vos précédents comptes-rendus d'échographie le jour du rendez-vous, pour comparer l'évolution.",
+      },
+    ],
+    metaDescription:
+      "Échographie gynécologique (pelvienne) à Lyon & Miribel — utérus, ovaires, pelvis. Bilan kystes, fibromes, endométriose, contrôle DIU. Dr. Alexandra Soldea.",
     keywords: [
+      "échographie gynécologique Lyon",
       "échographie pelvienne Lyon",
-      "échographie gynécologique Miribel",
-      "endométriose",
+      "échographie pelvienne Miribel",
+      "endométriose Lyon",
+      "kyste ovarien",
+      "fibrome utérin",
+      "bilan douleur pelvienne",
+      "contrôle stérilet DIU",
     ],
   },
   {
@@ -489,7 +584,35 @@ export const SERVICES: Service[] = [
       "Conseils & préparation à la naissance",
       "Coordination avec la maternité du CH Sainte-Foy-lès-Lyon",
     ],
-    keywords: ["suivi grossesse Lyon", "obstétricienne Lyon", "gynécologue Miribel"],
+    faqs: [
+      {
+        question: "À quelle fréquence consulter pour le suivi de grossesse ?",
+        answer:
+          "Le suivi de grossesse comporte une consultation mensuelle obligatoire à partir du 4e mois (4e, 5e, 6e, 7e, 8e et 9e mois). Au cabinet du Dr. Soldea à Miribel, chaque consultation comprend l'examen clinique, la prescription des examens biologiques recommandés, des conseils personnalisés et la coordination avec la maternité où aura lieu l'accouchement.",
+      },
+      {
+        question: "Quels examens sont prescrits pendant le suivi de grossesse ?",
+        answer:
+          "Le suivi standard comprend : les trois échographies de dépistage (T1, T2, T3), le dépistage combiné de la trisomie 21 au 1er trimestre, les sérologies recommandées (toxoplasmose, rubéole, VIH, etc.), le test du diabète gestationnel entre 24 et 28 SA, le prélèvement vaginal du streptocoque B en fin de grossesse et l'entretien prénatal précoce.",
+      },
+      {
+        question: "Où aura lieu l'accouchement après le suivi ?",
+        answer:
+          "Le Dr. Soldea exerce également comme praticien hospitalier à la maternité du Centre Hospitalier de Sainte-Foy-lès-Lyon, où elle peut assurer la continuité du suivi et pratiquer les accouchements. Vous pouvez également choisir la maternité de votre choix dans la métropole de Lyon — le suivi sera coordonné avec l'équipe obstétricale de l'établissement retenu.",
+      },
+      {
+        question: "Le suivi de grossesse est-il remboursé à 100 % ?",
+        answer:
+          "Oui, à partir du 6e mois de grossesse, l'ensemble des consultations, examens et échographies prescrits dans le cadre du suivi prénatal sont pris en charge à 100 % par l'Assurance Maladie (assurance maternité). Avant le 6e mois, la prise en charge est de 70 % avec complément par votre mutuelle.",
+      },
+    ],
+    keywords: [
+      "suivi grossesse Lyon",
+      "obstétricienne Lyon",
+      "gynécologue Miribel",
+      "accouchement Sainte-Foy-lès-Lyon",
+      "suivi prénatal Lyon",
+    ],
   },
   {
     slug: "controle-sterilet",
@@ -509,7 +632,36 @@ export const SERVICES: Service[] = [
       "Discussion de la tolérance",
       "Conseils de suivi",
     ],
-    keywords: ["contrôle stérilet Lyon", "DIU Lyon", "stérilet gynécologue"],
+    faqs: [
+      {
+        question: "À quelle fréquence faire contrôler son stérilet (DIU) ?",
+        answer:
+          "Un contrôle médical du DIU est recommandé après les premières règles suivant la pose, puis lors d'une consultation gynécologique annuelle. Un contrôle échographique est généralement réalisé une fois par an pour vérifier le bon positionnement du stérilet dans la cavité utérine. Une consultation supplémentaire est indiquée en cas de douleurs, de saignements anormaux ou de fils non perçus.",
+      },
+      {
+        question: "Pourquoi un contrôle échographique du DIU est-il important ?",
+        answer:
+          "L'échographie est le seul examen qui permet de vérifier que le stérilet est correctement positionné dans la cavité utérine (et non descendu vers le col, ou expulsé) et d'évaluer l'épaisseur de l'endomètre. Un mauvais positionnement peut diminuer l'efficacité contraceptive du DIU et provoquer des douleurs ou saignements.",
+      },
+      {
+        question:
+          "Combien de temps un stérilet est-il efficace : cuivre ou hormonal ?",
+        answer:
+          "Le DIU au cuivre est efficace pendant 5 à 10 ans selon le modèle. Le DIU hormonal (lévonorgestrel) est efficace pendant 5 à 8 ans selon le dosage. Le Dr. Soldea vous indiquera lors du contrôle la date limite recommandée pour le renouvellement de votre DIU et discutera avec vous des options pour la suite.",
+      },
+      {
+        question: "Que faire si je ne sens plus les fils de mon stérilet ?",
+        answer:
+          "Prenez rendez-vous rapidement pour un contrôle. Dans la grande majorité des cas, les fils sont simplement remontés contre le col de l'utérus et l'échographie confirme que le DIU est en place. Plus rarement, le stérilet a pu être expulsé ou avoir migré — dans ce cas, une autre méthode contraceptive est indispensable en attendant.",
+      },
+    ],
+    keywords: [
+      "contrôle stérilet Lyon",
+      "DIU Lyon",
+      "contrôle DIU Miribel",
+      "stérilet cuivre hormonal",
+      "échographie stérilet",
+    ],
   },
   {
     slug: "echographie-datation",
@@ -529,10 +681,36 @@ export const SERVICES: Service[] = [
       "Détection précoce d'une grossesse multiple",
       "Calendrier des examens à venir",
     ],
+    faqs: [
+      {
+        question: "Quand faire une échographie de datation ?",
+        answer:
+          "L'échographie de datation est généralement réalisée entre la 6e et la 10e semaine d'aménorrhée. Elle est indiquée pour confirmer une grossesse débutante après un test positif, pour préciser le terme lorsque la date des dernières règles est incertaine, ou en cas de doute sur la viabilité (en particulier après des antécédents de fausse couche).",
+      },
+      {
+        question:
+          "L'échographie de datation remplace-t-elle l'échographie du 1er trimestre ?",
+        answer:
+          "Non. L'échographie de datation est un examen précoce optionnel qui ne se substitue pas à l'écho T1 obligatoire, réalisée entre 11 SA et 13 SA + 6 jours d'aménorrhée. L'écho T1 mesure la clarté nucale dans le cadre du dépistage de la trisomie 21 — elle reste indispensable même si une datation précoce a déjà été pratiquée.",
+      },
+      {
+        question:
+          "Peut-on voir le cœur du bébé à l'échographie de datation ?",
+        answer:
+          "Oui, à partir de 6 SA d'aménorrhée environ, l'activité cardiaque embryonnaire est généralement visible à l'échographie endo-vaginale. À 7–8 SA, le cœur est nettement perceptible. La confirmation d'une activité cardiaque est l'un des principaux objectifs de l'échographie de datation.",
+      },
+      {
+        question:
+          "L'échographie de datation est-elle remboursée par la Sécurité sociale ?",
+        answer:
+          "Oui, sur prescription médicale, l'échographie de datation est remboursée à 70 % par l'Assurance Maladie jusqu'au 5e mois de grossesse (taux de remboursement standard), puis à 100 % à partir du 6e mois. Apportez votre carte Vitale, votre prescription et votre test de grossesse positif si vous en disposez.",
+      },
+    ],
     keywords: [
       "échographie datation Lyon",
-      "échographie précoce grossesse",
+      "échographie précoce grossesse Lyon",
       "confirmation grossesse Miribel",
+      "écho 6 semaines grossesse",
     ],
   },
   {
@@ -554,11 +732,35 @@ export const SERVICES: Service[] = [
       "Conseils en contraception",
       "Accompagnement de la ménopause",
     ],
+    faqs: [
+      {
+        question: "À quelle fréquence faire un suivi gynécologique ?",
+        answer:
+          "Une consultation gynécologique annuelle est recommandée à partir des premiers rapports sexuels, puis tout au long de la vie. Elle comprend un examen clinique, le suivi de la contraception, les dépistages adaptés à l'âge (frottis cervico-utérin, dépistage du cancer du sein) et un temps d'échange sur la santé sexuelle, la fertilité, ou la ménopause.",
+      },
+      {
+        question: "À quel rythme faire un frottis de dépistage ?",
+        answer:
+          "Selon les recommandations de la Haute Autorité de Santé, le frottis cervico-utérin de dépistage est réalisé tous les 3 ans entre 25 et 29 ans (après deux frottis normaux à un an d'intervalle), puis le test HPV est privilégié tous les 5 ans entre 30 et 65 ans. Le Dr. Soldea adaptera ce calendrier à votre situation personnelle.",
+      },
+      {
+        question: "Comment se passe le suivi de la ménopause ?",
+        answer:
+          "Le suivi de la ménopause comprend un échange sur les symptômes (bouffées de chaleur, troubles du sommeil, sécheresse vaginale), le dépistage des complications osseuses et cardio-vasculaires, et la discussion d'un éventuel traitement hormonal substitutif (THS) adapté à votre profil. Le Dr. Soldea propose un accompagnement personnalisé pour cette transition.",
+      },
+      {
+        question: "Puis-je consulter pour un changement de contraception ?",
+        answer:
+          "Bien sûr. Une consultation dédiée permet de faire le point sur votre méthode actuelle (tolérance, efficacité, projet de grossesse), d'envisager les alternatives (pilule, implant, DIU cuivre ou hormonal, anneau, patch) et de choisir ensemble la contraception la mieux adaptée à votre mode de vie et à votre santé.",
+      },
+    ],
     keywords: [
       "gynécologue Lyon",
-      "consultation gynécologique Miribel",
-      "contraception",
-      "ménopause",
+      "consultation gynécologique Lyon",
+      "gynécologue Miribel",
+      "contraception Lyon",
+      "ménopause Lyon",
+      "frottis dépistage",
     ],
   },
 ];

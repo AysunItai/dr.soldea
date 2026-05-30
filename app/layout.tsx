@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   publisher: "ITAI Web Solutions",
   keywords: [
     "échographie Lyon",
+    "échographie gynécologique Lyon",
+    "échographie pelvienne Lyon",
     "échographie grossesse Lyon",
     "échographie obstétricale Lyon",
     "échographie 1er trimestre Lyon",
@@ -42,6 +44,7 @@ export const metadata: Metadata = {
     "écho T3 Lyon",
     "gynécologue Lyon",
     "gynécologue obstétricienne Lyon",
+    "endométriose Lyon",
     "Dr Alexandra Soldea",
     "cabinet gynécologue Miribel",
     "téléconsultation gynécologue",

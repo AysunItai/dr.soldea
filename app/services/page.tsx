@@ -5,9 +5,17 @@ import { SERVICES, type Service } from "@/lib/services";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Services & prise de rendez-vous en ligne",
+  title: "Services & prise de rendez-vous en ligne à Lyon",
   description:
-    "Tous les services du Dr. Alexandra Soldea à Lyon et Miribel : échographies obstétricales T1/T2/T3 (réseau Aurore), échographie gynécologique, suivi de grossesse, contrôle de stérilet, téléconsultation et suivi de gynécologie. Prise de rendez-vous en ligne.",
+    "Tous les services du Dr. Alexandra Soldea à Lyon et Miribel : échographies obstétricales T1, T2, T3 (réseau Aurore), échographie gynécologique pelvienne, suivi de grossesse, contrôle de stérilet (DIU), téléconsultation et suivi gynécologique. Prise de rendez-vous en ligne 24 h/24.",
+  keywords: [
+    "échographie Lyon",
+    "échographie gynécologique Lyon",
+    "échographie pelvienne Lyon",
+    "échographie grossesse Lyon",
+    "gynécologue Lyon",
+    "rendez-vous gynécologue Lyon",
+  ],
   alternates: { canonical: "/services" },
 };
 
