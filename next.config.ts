@@ -34,6 +34,32 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  /**
+   * Permanent redirects from the legacy domain to the new production
+   * domain. `permanent: true` issues a 308 (the HTTP-method-preserving
+   * equivalent of a 301) so search engines and browsers update their
+   * cached canonical URL. The `has: [{ type: "host", ... }]` matchers
+   * ensure these only fire when the request actually hits the old
+   * hostname — `echographielyon.fr` traffic is unaffected, and there is
+   * no possible self-loop since neither matcher targets the new domain.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "gynecologuelyon.fr" }],
+        destination: "https://www.echographielyon.fr/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.gynecologuelyon.fr" }],
+        destination: "https://www.echographielyon.fr/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
