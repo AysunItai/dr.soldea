@@ -38,7 +38,7 @@ const RECIPIENT =
 /**
  * Sender address used in the `from` header. Default is Resend's universal
  * `onboarding@resend.dev` so submissions work even before a domain has
- * been verified. Switch to `contact@gynecologuelyon.fr` (or similar)
+ * been verified. Switch to `contact@echographielyon.fr` (or similar)
  * via env var after verifying the domain in Resend.
  */
 const SENDER =
@@ -183,7 +183,7 @@ export async function POST(request: NextRequest) {
 
   // Plain text — Gmail mobile defaults to text on narrow screens.
   const text = [
-    `Nouveau message depuis le site gynecologuelyon.fr`,
+    `Nouveau message depuis le site echographielyon.fr`,
     ``,
     `Nom        : ${fullName}`,
     `E-mail     : ${email}`,
@@ -205,7 +205,7 @@ export async function POST(request: NextRequest) {
 <html lang="fr"><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#0b1f3d;background:#f6efe6;padding:24px;line-height:1.55">
   <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #e6ddd0;border-radius:16px;padding:28px">
     <p style="margin:0 0 16px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#3a8d96">
-      Nouveau message — gynecologuelyon.fr
+      Nouveau message — echographielyon.fr
     </p>
     <h1 style="margin:0 0 16px;font-size:22px;line-height:1.25">${escapeHtml(fullName)}</h1>
     <table style="width:100%;border-collapse:collapse;font-size:14px">

@@ -2,13 +2,14 @@ import type { Service } from "@/lib/services";
 
 /**
  * Canonical absolute URL of the live site. The production canonical is
- * the non-www apex `https://gynecologuelyon.fr` — Vercel redirects www to
- * apex. Override via NEXT_PUBLIC_SITE_URL if you ever move to a different
- * domain.
+ * the www form `https://www.echographielyon.fr` — configure your DNS so
+ * that the apex `echographielyon.fr` 301-redirects to the www subdomain
+ * to avoid duplicate-content signals. Override via NEXT_PUBLIC_SITE_URL
+ * if you ever move to a different domain.
  */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://gynecologuelyon.fr";
+  "https://www.echographielyon.fr";
 
 export function buildAbsoluteUrl(path: string): string {
   if (path.startsWith("http")) return path;
