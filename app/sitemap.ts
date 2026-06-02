@@ -46,6 +46,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.6,
     },
+    {
+      url: `${SITE_URL}/mentions-legales`,
+      lastModified: CONTENT_LAST_MODIFIED,
+      changeFrequency: "yearly",
+      // Legal page — indexed but low SEO priority vs. service pages.
+      priority: 0.3,
+    },
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({

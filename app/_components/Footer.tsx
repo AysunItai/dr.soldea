@@ -178,7 +178,10 @@ export function Footer() {
               </svg>
             </a>
             <span aria-hidden className="text-white/30">·</span>
-            <Link href="/contact" className="underline-offset-4 hover:underline">
+            <Link
+              href="/mentions-legales"
+              className="underline-offset-4 hover:underline"
+            >
               Mentions légales
             </Link>
           </p>
