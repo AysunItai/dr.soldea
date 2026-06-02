@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NAV_SERVICES, getObstetricTrimesters } from "@/lib/services";
+import { CookieSettingsTrigger } from "@/app/_components/CookieConsent";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -184,6 +185,10 @@ export function Footer() {
             >
               Mentions légales
             </Link>
+            <span aria-hidden className="text-white/30">·</span>
+            <CookieSettingsTrigger className="underline-offset-4 hover:underline text-white/70 hover:text-white transition-colors">
+              Gestion des cookies
+            </CookieSettingsTrigger>
           </p>
         </div>
       </div>

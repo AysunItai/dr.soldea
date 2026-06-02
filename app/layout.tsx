@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/app/_components/Navbar";
 import { Footer } from "@/app/_components/Footer";
+import { CookieConsent } from "@/app/_components/CookieConsent";
 import { SITE_URL, siteGraphJsonLd } from "@/lib/seo";
 
 const sans = Inter({
@@ -124,6 +125,8 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        {/* GDPR/CNIL consent banner. GA4 only loads after explicit grant. */}
+        <CookieConsent />
       </body>
     </html>
   );

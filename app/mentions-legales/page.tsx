@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CookieSettingsTrigger } from "@/app/_components/CookieConsent";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 /**
@@ -417,11 +418,20 @@ const SECTIONS: { id: string; title: string; content: React.ReactNode }[] = [
     content: (
       <>
         <p>
+          Ce site peut utiliser <strong>Google Analytics</strong>
+          {" "}afin de mesurer la fréquentation et l&apos;utilisation du
+          site. Ces cookies ne sont déposés qu&apos;après votre consentement.
+          Vous pouvez accepter ou refuser les cookies de mesure d&apos;audience
+          lors de votre première visite, puis modifier votre choix à tout
+          moment.
+        </p>
+        <p>
           Le site n&apos;utilise pas de cookies publicitaires ni de cookies de
-          suivi à des fins marketing. Seuls les cookies strictement nécessaires
-          au fonctionnement du site et de ses services tiers (notamment le
+          suivi à des fins marketing. Les cookies strictement nécessaires au
+          fonctionnement de services tiers utilisés sur le site (notamment le
           module de prise de rendez-vous Calendly et les cartes Google Maps
-          intégrées sur la page Contact) peuvent être déposés.
+          intégrées sur la page Contact) peuvent être déposés lorsque vous
+          interagissez avec ces fonctionnalités.
         </p>
         <p>
           Vous pouvez à tout moment configurer votre navigateur pour refuser
@@ -429,6 +439,27 @@ const SECTIONS: { id: string; title: string; content: React.ReactNode }[] = [
           (notamment la prise de rendez-vous en ligne et l&apos;affichage des
           cartes) pourraient alors ne plus être disponibles.
         </p>
+        <div className="mt-2">
+          <CookieSettingsTrigger className="inline-flex items-center gap-2 rounded-full bg-ink text-white h-10 px-5 text-sm font-medium hover:bg-primary-deep transition-colors">
+            <svg
+              viewBox="0 0 24 24"
+              className="h-4 w-4"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d="M12 3a9 9 0 1 0 9 9 4 4 0 0 1-5-5 4 4 0 0 1-4-4Z"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+              <circle cx="9" cy="13" r="1" fill="currentColor" />
+              <circle cx="14" cy="16" r="1" fill="currentColor" />
+              <circle cx="15" cy="10" r="1" fill="currentColor" />
+            </svg>
+            Gérer mes préférences cookies
+          </CookieSettingsTrigger>
+        </div>
       </>
     ),
   },
