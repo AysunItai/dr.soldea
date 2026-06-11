@@ -1,18 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import dynamic from "next/dynamic";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { CookieConsentLoader } from "@/app/_components/CookieConsentLoader";
 import { Navbar } from "@/app/_components/Navbar";
 import { Footer } from "@/app/_components/Footer";
 import { SITE_URL, siteGraphJsonLd } from "@/lib/seo";
-
-const CookieConsent = dynamic(
-  () =>
-    import("@/app/_components/CookieConsent").then((m) => ({
-      default: m.CookieConsent,
-    })),
-  { ssr: false },
-);
 
 const sans = Inter({
   variable: "--font-sans",
@@ -137,7 +129,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         {/* GDPR/CNIL consent banner. GA4 only loads after explicit grant. */}
-        <CookieConsent />
+        <CookieConsentLoader />
       </body>
     </html>
   );
