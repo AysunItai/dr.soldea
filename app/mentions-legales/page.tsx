@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CookieSettingsTrigger } from "@/app/_components/CookieSettingsTrigger";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
 /**
  * Mentions légales — required disclosure page for any French website
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: { absolute: "Mentions légales | Dr. Alexandra Soldea" },
   description:
     "Mentions légales du site du Dr. Alexandra Soldea, gynécologue obstétricienne à Lyon et Miribel.",
-  alternates: { canonical: "/mentions-legales" },
+  alternates: { canonical: canonicalUrl("/mentions-legales") },
   robots: { index: true, follow: true },
 };
 

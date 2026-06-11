@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { LazyMapEmbed } from "@/app/_components/LazyMapEmbed";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
 const ContactForm = dynamic(
   () =>
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contactez le cabinet du Dr. Alexandra Soldea — adresses à Miribel et Lyon, téléphone, formulaire et plan d'accès.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: canonicalUrl("/contact") },
 };
 
 const ADDRESSES = [

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Section } from "@/app/_components/Section";
 import { ServiceCard } from "@/app/_components/ServiceCard";
 import { SERVICES, type Service } from "@/lib/services";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Services & prise de rendez-vous en ligne à Lyon",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "gynécologue Lyon",
     "rendez-vous gynécologue Lyon",
   ],
-  alternates: { canonical: "/services" },
+  alternates: { canonical: canonicalUrl("/services") },
 };
 
 type Group = {

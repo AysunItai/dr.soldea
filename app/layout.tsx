@@ -4,7 +4,7 @@ import "./globals.css";
 import { CookieConsentLoader } from "@/app/_components/CookieConsentLoader";
 import { Navbar } from "@/app/_components/Navbar";
 import { Footer } from "@/app/_components/Footer";
-import { SITE_URL, siteGraphJsonLd } from "@/lib/seo";
+import { canonicalUrl, SITE_URL, siteGraphJsonLd } from "@/lib/seo";
 
 const sans = Inter({
   variable: "--font-sans",
@@ -55,12 +55,12 @@ export const metadata: Metadata = {
     "réseau Aurore",
   ],
   alternates: {
-    canonical: SITE_URL,
+    canonical: canonicalUrl("/"),
   },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: SITE_URL,
+    url: canonicalUrl("/"),
     title:
       "Échographie & Gynécologue à Lyon — Dr. Alexandra Soldea (Miribel)",
     description:

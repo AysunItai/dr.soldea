@@ -13,6 +13,7 @@ import {
 import {
   breadcrumbJsonLd,
   buildAbsoluteUrl,
+  canonicalUrl,
   faqPageJsonLd,
   medicalProcedureJsonLd,
   medicalWebPageJsonLd,
@@ -33,7 +34,7 @@ export async function generateMetadata(
     return { title: "Service introuvable" };
   }
   const description = service.metaDescription ?? service.tagline;
-  const url = buildAbsoluteUrl(`/services/${service.slug}`);
+  const url = canonicalUrl(`/services/${service.slug}`);
   return {
     title: service.title,
     description,

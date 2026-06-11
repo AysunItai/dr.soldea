@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   breadcrumbJsonLd,
   buildAbsoluteUrl,
+  canonicalUrl,
   CABINETS,
   faqPageJsonLd,
   lyonLandingPageJsonLd,
@@ -72,7 +73,7 @@ const SERVICES = [
 export const metadata: Metadata = {
   title: "Échographie gynécologique et obstétricale à Lyon",
   description: META_DESCRIPTION,
-  alternates: { canonical: PAGE_PATH },
+  alternates: { canonical: canonicalUrl(PAGE_PATH) },
   openGraph: {
     title: "Échographie gynécologique et obstétricale à Lyon | Dr Alexandra Soldea",
     description: META_DESCRIPTION,

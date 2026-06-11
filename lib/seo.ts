@@ -1,19 +1,56 @@
 import type { Service } from "@/lib/services";
 
+/** Production canonical origin — always the www subdomain. */
+export const CANONICAL_ORIGIN = "https://www.echographielyon.fr";
+
 /**
- * Canonical absolute URL of the live site. The production canonical is
- * the www form `https://www.echographielyon.fr` — configure your DNS so
- * that the apex `echographielyon.fr` 301-redirects to the www subdomain
- * to avoid duplicate-content signals. Override via NEXT_PUBLIC_SITE_URL
- * if you ever move to a different domain.
+ * Normalise any configured site URL to the indexable www origin.
+ * Apex `echographielyon.fr`, Vercel preview hosts, and legacy domains
+ * must never leak into canonicals, sitemaps, or JSON-LD.
  */
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://www.echographielyon.fr";
+function normalizeSiteUrl(raw?: string): string {
+  if (!raw?.trim()) return CANONICAL_ORIGIN;
+
+  const trimmed = raw.trim().replace(/\/$/, "");
+
+  try {
+    const { hostname, protocol } = new URL(trimmed);
+    const host = hostname.toLowerCase();
+
+    if (
+      host === "echographielyon.fr" ||
+      host === "gynecologuelyon.fr" ||
+      host === "www.gynecologuelyon.fr" ||
+      host.endsWith(".vercel.app")
+    ) {
+      return CANONICAL_ORIGIN;
+    }
+
+    if (host === "www.echographielyon.fr") {
+      return `${protocol}//www.echographielyon.fr`;
+    }
+
+    return trimmed;
+  } catch {
+    return CANONICAL_ORIGIN;
+  }
+}
+
+/**
+ * Canonical absolute URL of the live site (no trailing slash).
+ * Used for metadataBase, Open Graph, sitemap, robots, and JSON-LD `@id`s.
+ */
+export const SITE_URL = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 
 export function buildAbsoluteUrl(path: string): string {
   if (path.startsWith("http")) return path;
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+/** Absolute canonical URL for a route — use in `alternates.canonical`. */
+export function canonicalUrl(path: string = "/"): string {
+  if (!path || path === "/") return `${SITE_URL}/`;
+  return buildAbsoluteUrl(path);
 }
 
 /* -------------------------------------------------------------------------
