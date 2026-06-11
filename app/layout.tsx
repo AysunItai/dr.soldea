@@ -26,8 +26,7 @@ const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
+  axes: ["SOFT"],
   adjustFontFallback: true,
 });
 

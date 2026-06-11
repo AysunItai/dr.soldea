@@ -141,12 +141,6 @@ body {
   animation: ken-burns-slow 28s ease-in-out infinite;
 }
 
-@media (min-width: 1024px) {
-  .animate-ken-burns {
-    will-change: transform;
-  }
-}
-
 /*
  * Whisper-soft floating loop for "Réseau Aurore" / credentials pills.
  * 6px vertical travel over 8s — gives the page a quiet pulse without
@@ -233,12 +227,20 @@ body {
 }
 
 /*
- * Mobile homepage LCP is the hero headline (copy stacks above the image).
- * Opacity-based rise animations delay that paint — skip them on small
- * screens while keeping the effect on desktop where the photo is LCP.
+ * LCP targets must never start at opacity:0 — rise-in uses `both` fill mode
+ * which hides content during animation-delay. Mobile LCP is the hero h1;
+ * desktop LCP is hero1.webp inside .hero-lcp-gallery.
  */
+.hero-lcp-gallery,
+.hero-lcp-headline {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+/* Secondary hero copy may still rise in — below the LCP headline on mobile. */
 @media (max-width: 1023px) {
-  .hero-above-fold .animate-rise {
+  .hero-above-fold .animate-rise:not(.hero-lcp-headline) {
     animation: none;
     opacity: 1;
     transform: none;
@@ -261,6 +263,22 @@ body {
       transform: none;
       animation: none;
     }
+  }
+}
+
+/* Desktop: rise motion on non-LCP hero copy only (no opacity fade). */
+@media (min-width: 1024px) {
+  @keyframes rise-in-translate {
+    from {
+      transform: translateY(12px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .hero-above-fold .animate-rise:not(.hero-lcp-headline) {
+    animation: rise-in-translate 0.7s ease-out both;
   }
 }
 

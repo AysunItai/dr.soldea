@@ -71,7 +71,7 @@ function HeroCopy() {
         Cabinets à Miribel &amp; Lyon
       </div>
 
-      <h1 className="animate-rise animate-rise-delay-1 mt-6 sm:mt-7 font-display text-[clamp(2.5rem,9vw,5.75rem)] leading-[0.94] tracking-[-0.015em] text-ink text-balance">
+      <h1 className="hero-lcp-headline animate-rise animate-rise-delay-1 mt-6 sm:mt-7 font-display text-[clamp(2.5rem,9vw,5.75rem)] leading-[0.94] tracking-[-0.015em] text-ink text-balance">
         Dr. Alexandra
         <br />
         <span className="italic text-primary-deep">Soldea.</span>
@@ -149,7 +149,7 @@ function HeroCopy() {
 
 function HeroGallery() {
   return (
-    <div className="relative animate-rise animate-rise-delay-2 lg:pb-20">
+    <div className="hero-lcp-gallery relative lg:pb-20">
       {/* Soft halo behind the diptych — gentle on mobile, more generous on
        * desktop where the cascade has room to breathe. */}
       <div
