@@ -5,9 +5,9 @@ import { SERVICES, type Service } from "@/lib/services";
 import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Services & prise de rendez-vous en ligne à Lyon",
+  title: "Services & rendez-vous en ligne",
   description:
-    "Tous les services du Dr. Alexandra Soldea à Lyon et Miribel : échographies obstétricales T1, T2, T3 (réseau Aurore), échographie gynécologique pelvienne, suivi de grossesse, contrôle de stérilet (DIU), téléconsultation et suivi gynécologique. Prise de rendez-vous en ligne 24 h/24.",
+    "Échographies T1, T2, T3, écho gynécologique, suivi de grossesse et consultations à Lyon et Miribel. Réseau Aurore. RDV en ligne 24 h/24.",
   keywords: [
     "échographie Lyon",
     "échographie gynécologique Lyon",

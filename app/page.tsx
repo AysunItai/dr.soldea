@@ -180,11 +180,12 @@ function HeroGallery() {
         <Image
           src="/hero1.webp"
           alt="Cabinet d'échographie et de gynécologie à Lyon — salle de consultation du Dr. Alexandra Soldea"
-          fill
+          width={680}
+          height={453}
           preload
           fetchPriority="high"
           sizes="(min-width: 1024px) 48vw, 100vw"
-          className="object-cover animate-ken-burns"
+          className="h-full w-full object-cover animate-ken-burns"
         />
         {/* Subtle gradient for caption legibility */}
         <div
@@ -217,10 +218,11 @@ function HeroGallery() {
         <Image
           src="/hero2.webp"
           alt="Cabinet de gynécologie à Miribel — salle d'attente du Dr. Alexandra Soldea"
-          fill
+          width={680}
+          height={453}
           loading="lazy"
           sizes="(min-width: 1024px) 30vw, 60vw"
-          className="object-cover"
+          className="h-full w-full object-cover"
         />
         <div
           aria-hidden

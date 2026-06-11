@@ -33,15 +33,16 @@ export async function generateMetadata(
   if (!service) {
     return { title: "Service introuvable" };
   }
+  const title = service.seoTitle ?? service.shortTitle ?? service.title;
   const description = service.metaDescription ?? service.tagline;
   const url = canonicalUrl(`/services/${service.slug}`);
   return {
-    title: service.title,
+    title,
     description,
     keywords: service.keywords,
     alternates: { canonical: url },
     openGraph: {
-      title: service.title,
+      title,
       description,
       url,
       type: "article",

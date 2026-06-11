@@ -21,7 +21,7 @@ const ContactForm = dynamic(
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez le cabinet du Dr. Alexandra Soldea — adresses à Miribel et Lyon, téléphone, formulaire et plan d'accès.",
+    "Contactez le cabinet du Dr. Alexandra Soldea à Lyon et Miribel : téléphone, formulaire de contact et plans d'accès. Réponse du secrétariat en semaine.",
   alternates: { canonical: canonicalUrl("/contact") },
 };
 

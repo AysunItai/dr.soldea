@@ -14,7 +14,7 @@ const LYON_CABINET = CABINETS.find((c) => c.id === "lyon")!;
 const PAGE_PATH = "/echographie-gynecologique-obstetricale-lyon";
 
 const META_DESCRIPTION =
-  "Dr Alexandra Soldea vous accueille à Lyon pour les échographies gynécologiques et obstétricales, le suivi de grossesse et les consultations spécialisées.";
+  "Échographies gynécologiques et obstétricales à Lyon avec le Dr Alexandra Soldea. Suivi de grossesse et consultations sur rendez-vous, 2e arrondissement.";
 
 const FAQS = [
   {
@@ -71,11 +71,11 @@ const SERVICES = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Échographie gynécologique et obstétricale à Lyon",
+  title: "Échographie à Lyon",
   description: META_DESCRIPTION,
   alternates: { canonical: canonicalUrl(PAGE_PATH) },
   openGraph: {
-    title: "Échographie gynécologique et obstétricale à Lyon | Dr Alexandra Soldea",
+    title: "Échographie à Lyon | Dr Alexandra Soldea",
     description: META_DESCRIPTION,
     url: buildAbsoluteUrl(PAGE_PATH),
     type: "website",

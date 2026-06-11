@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Présentation",
   description:
-    "Découvrez le parcours du Dr. Alexandra Soldea : gynécologue obstétricienne à Lyon et Miribel, échographiste agréée du réseau Aurore, praticien hospitalier au CH de Sainte-Foy-lès-Lyon.",
+    "Parcours de la Dr. Alexandra Soldea, gynécologue-obstétricienne et échographiste agréée Aurore à Lyon et Miribel, praticien hospitalier à Sainte-Foy.",
   alternates: { canonical: canonicalUrl("/presentation") },
 };
 
@@ -74,18 +74,16 @@ function Header() {
             aria-hidden
             className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-primary-soft via-cream to-cream-deep -z-10"
           />
-          {/* Frame aspect mirrors the source file (alexandra.png is 567×600)
-           * so the rendered `<img>` keeps its natural ratio and Lighthouse's
-           * `image-aspect-ratio` audit passes. */}
-          <div className="relative rounded-[1.75rem] overflow-hidden aspect-[567/600] ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)]">
+          <div className="relative rounded-[1.75rem] overflow-hidden ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)]">
             <Image
-              src="/alexandra.png"
+              src="/alexandra.webp"
               alt="Dr. Alexandra Soldea — gynécologue obstétricienne et échographiste agréée à Lyon et Miribel"
-              fill
+              width={567}
+              height={600}
               preload
               fetchPriority="high"
               sizes="(min-width: 1024px) 38vw, (min-width: 640px) 28rem, 24rem"
-              className="object-cover object-center"
+              className="h-auto w-full object-cover object-center"
             />
           </div>
 

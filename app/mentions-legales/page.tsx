@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   // so the rendered <title> matches the legal page spec exactly.
   title: { absolute: "Mentions légales | Dr. Alexandra Soldea" },
   description:
-    "Mentions légales du site du Dr. Alexandra Soldea, gynécologue obstétricienne à Lyon et Miribel.",
+    "Mentions légales du site echographielyon.fr : éditeur, hébergement, données personnelles, cookies et responsabilité du Dr. Alexandra Soldea.",
   alternates: { canonical: canonicalUrl("/mentions-legales") },
   robots: { index: true, follow: true },
 };
@@ -498,7 +498,7 @@ const SECTIONS: { id: string; title: string; content: React.ReactNode }[] = [
   },
   {
     id: "contact",
-    title: "Contact",
+    title: "Nous contacter",
     content: (
       <>
         <p>

@@ -82,7 +82,9 @@ export type Service = {
    * service page AND emitted as `FAQPage` JSON-LD for rich results.
    */
   faqs?: ServiceFaq[];
-  /** SEO meta description (≤160 chars). Falls back to `tagline`. */
+  /** Short `<title>` for SERPs (≤35 chars before layout template). */
+  seoTitle?: string;
+  /** SEO meta description (120–155 chars). Falls back to `tagline`. */
   metaDescription?: string;
   /** Comma-separated SEO keywords. */
   keywords?: string[];
@@ -112,6 +114,9 @@ export const SERVICES: Service[] = [
     slug: "teleconsultation",
     title: "Téléconsultation — en ligne",
     shortTitle: "Téléconsultation",
+    seoTitle: "Téléconsultation gynécologique",
+    metaDescription:
+      "Téléconsultation gynécologique par téléphone : ordonnances, résultats, conseils. Dr. Alexandra Soldea, 15 min, remboursée par la Sécurité sociale.",
     tagline:
       "Une consultation à distance pour vos questions, prescriptions et résultats.",
     description:
@@ -161,6 +166,7 @@ export const SERVICES: Service[] = [
     slug: "echographie-gynecologique",
     title: "Échographie gynécologique (pelvienne) à Lyon & Miribel",
     shortTitle: "Échographie gynécologique",
+    seoTitle: "Échographie pelvienne à Lyon",
     tagline:
       "Exploration pelvienne par voie sus-pubienne et endo-vaginale — utérus, ovaires, pelvis.",
     description:
@@ -237,7 +243,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie gynécologique (pelvienne) à Lyon & Miribel — utérus, ovaires, pelvis. Bilan kystes, fibromes, endométriose, contrôle DIU. Dr. Alexandra Soldea.",
+      "Échographie pelvienne à Lyon et Miribel : utérus, ovaires, pelvis. Bilan endométriose, fibromes, kystes et contrôle de stérilet (DIU).",
     keywords: [
       "échographie gynécologique Lyon",
       "échographie pelvienne Lyon",
@@ -253,6 +259,7 @@ export const SERVICES: Service[] = [
     slug: "echographie-obstetricale",
     title: "Échographies obstétricales à Lyon & Miribel",
     shortTitle: "Échographie obstétricale",
+    seoTitle: "Échographie obstétricale à Lyon",
     tagline:
       "Les trois échographies obligatoires du suivi de grossesse — T1, T2, T3.",
     description:
@@ -305,7 +312,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographies obstétricales à Lyon & Miribel — 1er, 2e et 3e trimestre. Dr. Alexandra Soldea, échographiste agréée du réseau de périnatalité Aurore.",
+      "Échographies obstétricales T1, T2 et T3 à Lyon et Miribel. Échographiste agréée réseau Aurore. Prise de rendez-vous en ligne.",
     keywords: [
       "échographie obstétricale Lyon",
       "échographie grossesse Lyon",
@@ -317,6 +324,7 @@ export const SERVICES: Service[] = [
     slug: "echographie-1er-trimestre",
     title: "Échographie du 1er trimestre (Écho T1) à Lyon",
     shortTitle: "Échographie 1er trimestre",
+    seoTitle: "Échographie T1 à Lyon",
     shortLabel: "T1",
     tagline:
       "Datation, vitalité fœtale et mesure de la clarté nucale pour le dépistage de la trisomie 21.",
@@ -387,7 +395,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie du 1er trimestre (Écho T1) à Lyon & Miribel — entre 11 et 13 SA + 6 j. Datation, vitalité fœtale, mesure de la clarté nucale. Réseau Aurore.",
+      "Échographie du 1er trimestre à Lyon et Miribel (11–13 SA). Clarté nucale, datation et vitalité fœtale. Échographiste agréée réseau Aurore.",
     keywords: [
       "échographie 1er trimestre Lyon",
       "écho T1 Lyon",
@@ -401,6 +409,7 @@ export const SERVICES: Service[] = [
     slug: "echographie-2e-trimestre",
     title: "Échographie du 2e trimestre (Écho T2) à Lyon",
     shortTitle: "Échographie 2e trimestre",
+    seoTitle: "Échographie T2 à Lyon",
     shortLabel: "T2",
     tagline:
       "Échographie morphologique : étude détaillée du cerveau, du cœur, des reins, de la colonne et des membres du bébé.",
@@ -471,7 +480,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie morphologique du 2e trimestre (Écho T2) à Lyon & Miribel — entre 22 et 24 SA. Étude anatomique détaillée du bébé. Réseau Aurore.",
+      "Échographie morphologique du 2e trimestre à Lyon et Miribel (22–24 SA). Examen anatomique détaillé du bébé. Réseau Aurore.",
     keywords: [
       "échographie morphologique Lyon",
       "écho T2 Lyon",
@@ -484,6 +493,7 @@ export const SERVICES: Service[] = [
     slug: "echographie-3e-trimestre",
     title: "Échographie du 3e trimestre (Écho T3) à Lyon",
     shortTitle: "Échographie 3e trimestre",
+    seoTitle: "Échographie T3 à Lyon",
     shortLabel: "T3",
     tagline:
       "Croissance fœtale, position avant l'accouchement, placenta — images 3D/4D possibles.",
@@ -555,7 +565,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie du 3e trimestre (Écho T3) à Lyon & Miribel — entre 31 et 34 SA. Croissance, position, placenta, images 3D/4D possibles. Réseau Aurore.",
+      "Échographie du 3e trimestre à Lyon et Miribel (31–34 SA). Croissance, position et placenta. Images 3D/4D possibles. Réseau Aurore.",
     keywords: [
       "échographie 3e trimestre Lyon",
       "écho T3 Lyon",
@@ -568,6 +578,9 @@ export const SERVICES: Service[] = [
     slug: "suivi-grossesse",
     title: "RDV de suivi de grossesse",
     shortTitle: "Suivi de grossesse",
+    seoTitle: "Suivi de grossesse à Lyon",
+    metaDescription:
+      "Suivi de grossesse avec le Dr. Alexandra Soldea à Lyon et Miribel : consultations mensuelles, examens et préparation à la naissance.",
     tagline:
       "Un accompagnement personnalisé tout au long de votre grossesse.",
     description:
@@ -618,6 +631,9 @@ export const SERVICES: Service[] = [
     slug: "controle-sterilet",
     title: "Contrôle de stérilet (DIU)",
     shortTitle: "Contrôle de DIU",
+    seoTitle: "Contrôle de stérilet à Lyon",
+    metaDescription:
+      "Contrôle échographique du stérilet (DIU) à Lyon et Miribel : position, fils et tolérance. Cabinet Dr. Alexandra Soldea.",
     tagline: "Vérification du positionnement et du bon état de votre DIU.",
     description:
       "Consultation dédiée au contrôle échographique de votre stérilet (cuivre ou hormonal) : vérification de la position, état des fils, tolérance et conseils.",
@@ -667,6 +683,9 @@ export const SERVICES: Service[] = [
     slug: "echographie-datation",
     title: "Échographie de datation",
     shortTitle: "Échographie de datation",
+    seoTitle: "Échographie de datation à Lyon",
+    metaDescription:
+      "Échographie de datation à Lyon et Miribel (6–10 SA) : confirmation de grossesse, vitalité embryonnaire et terme prévu.",
     tagline: "Confirmer et dater précisément votre grossesse débutante.",
     description:
       "Échographie précoce (entre 6 et 10 SA) pour confirmer la viabilité de la grossesse, dater son début et préparer le calendrier des examens à venir.",
@@ -717,6 +736,9 @@ export const SERVICES: Service[] = [
     slug: "suivi-gynecologie",
     title: "RDV de suivi de gynécologie",
     shortTitle: "Suivi de gynécologie",
+    seoTitle: "Suivi gynécologique à Lyon",
+    metaDescription:
+      "Consultation gynécologique à Lyon et Miribel : suivi annuel, contraception, frottis, dépistage et accompagnement de la ménopause.",
     tagline:
       "Consultation annuelle, contraception, dépistage et ménopause.",
     description:

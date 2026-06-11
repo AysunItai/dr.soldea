@@ -25,12 +25,11 @@ const display = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "Échographie & Gynécologue à Lyon — Dr. Alexandra Soldea (Miribel)",
+    default: "Échographie & gynécologue à Lyon — Dr. Soldea",
     template: "%s · Dr. Alexandra Soldea",
   },
   description:
-    "Cabinet du Dr. Alexandra Soldea, gynécologue obstétricienne à Lyon et Miribel. Échographies de grossesse agréées du réseau Aurore (T1, T2, T3), suivi gynécologique, téléconsultation et rendez-vous en ligne.",
+    "Gynécologue et échographiste à Lyon et Miribel. Échographies de grossesse agréées Aurore (T1, T2, T3), suivi gynécologique et rendez-vous en ligne.",
   applicationName: "Dr. Alexandra Soldea",
   authors: [{ name: "Dr. Alexandra Soldea" }],
   creator: "ITAI Web Solutions",
@@ -61,10 +60,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: canonicalUrl("/"),
-    title:
-      "Échographie & Gynécologue à Lyon — Dr. Alexandra Soldea (Miribel)",
+    title: "Échographie & gynécologue à Lyon — Dr. Soldea",
     description:
-      "Échographies de grossesse à Lyon et Miribel (T1, T2, T3 — réseau Aurore), suivi gynécologique et téléconsultation. Prise de rendez-vous en ligne.",
+      "Gynécologue et échographiste à Lyon et Miribel. Échographies de grossesse agréées Aurore (T1, T2, T3), suivi gynécologique et rendez-vous en ligne.",
     siteName: "Dr. Alexandra Soldea",
     // Facebook / LinkedIn social card. The hero image is reused so we
     // ship a single optimised asset; replace with a dedicated 1200×630
@@ -80,10 +78,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Échographie & Gynécologue à Lyon — Dr. Alexandra Soldea (Miribel)",
+    title: "Échographie & gynécologue à Lyon — Dr. Soldea",
     description:
-      "Échographies de grossesse T1, T2, T3 (réseau Aurore), suivi gynécologique et téléconsultation à Lyon & Miribel.",
+      "Gynécologue et échographiste à Lyon et Miribel. Échographies de grossesse agréées Aurore (T1, T2, T3), suivi gynécologique et rendez-vous en ligne.",
     images: ["/hero1.webp"],
   },
   robots: {
