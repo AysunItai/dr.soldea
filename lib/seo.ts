@@ -209,7 +209,7 @@ export function medicalClinicJsonLd(cabinet: (typeof CABINETS)[number]) {
     name: cabinet.name,
     url:
       cabinet.id === "lyon"
-        ? `${SITE_URL}/contact#cabinet-lyon`
+        ? `${SITE_URL}/echographie-gynecologique-obstetricale-lyon`
         : `${SITE_URL}/contact#cabinet-miribel`,
     image: `${SITE_URL}/hero1.webp`,
     telephone: cabinet.telephone,
@@ -364,6 +364,32 @@ export function medicalProcedureJsonLd(service: Service) {
  * `FAQPage` JSON-LD. Powers expandable Q&A rich results in Google mobile
  * SERPs — one of the highest-CTR rich result types for medical queries.
  */
+/**
+ * `MedicalWebPage` for the Lyon local landing page. Reinforces the Lyon
+ * cabinet as a distinct local entity for queries like "échographie Lyon".
+ */
+export function lyonLandingPageJsonLd() {
+  const url = buildAbsoluteUrl("/echographie-gynecologique-obstetricale-lyon");
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: "Échographie gynécologique et obstétricale à Lyon",
+    description:
+      "Dr Alexandra Soldea vous accueille à Lyon pour les échographies gynécologiques et obstétricales, le suivi de grossesse et les consultations spécialisées.",
+    inLanguage: "fr-FR",
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": cabinetId("lyon") },
+    reviewedBy: { "@id": PERSON_ID },
+    audience: {
+      "@type": "MedicalAudience",
+      audienceType: "Patient",
+    },
+    lastReviewed: new Date().toISOString().slice(0, 10),
+  };
+}
+
 export function faqPageJsonLd(
   faqs: { question: string; answer: string }[],
 ) {

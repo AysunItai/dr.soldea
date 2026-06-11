@@ -113,6 +113,40 @@ export function Footer() {
             <br />
             69002 Lyon
           </p>
+          <ul className="mt-4 space-y-2">
+            <li>
+              <Link
+                href="/echographie-gynecologique-obstetricale-lyon"
+                className="text-sm text-white/75 hover:text-white transition-colors"
+              >
+                Cabinet de Lyon
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/echographie-gynecologique"
+                className="text-sm text-white/75 hover:text-white transition-colors"
+              >
+                Échographie gynécologique à Lyon
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/echographie-obstetricale"
+                className="text-sm text-white/75 hover:text-white transition-colors"
+              >
+                Échographie obstétricale à Lyon
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services"
+                className="text-sm text-white/75 hover:text-white transition-colors"
+              >
+                Prendre rendez-vous à Lyon
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <div>

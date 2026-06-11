@@ -15,6 +15,7 @@ const ADDRESSES = [
     city: "Miribel",
     title: "Cabinet principal",
     address: "63 place de la République, 01700 Miribel",
+    detail: null as string | null,
     mapsUrl:
       "https://www.google.com/maps?q=63+place+de+la+République+01700+Miribel",
     embed:
@@ -22,8 +23,9 @@ const ADDRESSES = [
   },
   {
     city: "Lyon",
-    title: "Consultations Lyon",
+    title: "Cabinet d'échographie à Lyon",
     address: "4 rue du Président Carnot, 69002 Lyon",
+    detail: "Consultations gynécologiques et échographies sur rendez-vous.",
     mapsUrl:
       "https://www.google.com/maps?q=4+rue+du+Président+Carnot+69002+Lyon",
     embed:
@@ -69,6 +71,11 @@ function Header() {
           message ou appelez directement le secrétariat. Pour prendre
           rendez-vous, utilisez la prise de rendez-vous en ligne.
         </p>
+        <p className="mt-4 text-lg text-ink-soft text-pretty">
+          Dr Alexandra Soldea vous accueille à Lyon et Miribel pour les
+          échographies gynécologiques et obstétricales, le suivi de grossesse et
+          les consultations spécialisées.
+        </p>
       </div>
     </section>
   );
@@ -110,9 +117,10 @@ function InfoStrip() {
     },
     {
       label: "Lyon",
-      value: "4 rue du Président Carnot",
-      detail: "69002 Lyon",
-      href: ADDRESSES[1].mapsUrl,
+      value: "Cabinet d'échographie à Lyon",
+      detail:
+        "4 rue du Président Carnot, 69002 Lyon · Consultations gynécologiques et échographies sur rendez-vous.",
+      href: "/echographie-gynecologique-obstetricale-lyon",
       icon: (
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
           <path
@@ -133,8 +141,14 @@ function InfoStrip() {
           <a
             key={item.label}
             href={item.href}
-            target={item.href.startsWith("http") ? "_blank" : undefined}
-            rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            target={
+              item.href.startsWith("http") ? "_blank" : undefined
+            }
+            rel={
+              item.href.startsWith("http")
+                ? "noopener noreferrer"
+                : undefined
+            }
             className="group rounded-2xl bg-white ring-1 ring-line p-6 flex gap-4 hover:ring-primary/40 hover:-translate-y-0.5 transition-all"
           >
             <span className="shrink-0 h-12 w-12 rounded-full bg-primary-soft text-primary-deep grid place-content-center">
@@ -185,9 +199,44 @@ function FormSection() {
               href="/services"
               className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
             >
-              Voir tous les services <span aria-hidden>→</span>
+              Prendre rendez-vous à Lyon <span aria-hidden>→</span>
             </Link>
           </div>
+
+          <nav
+            aria-label="Services à Lyon"
+            className="mt-6 rounded-2xl bg-white ring-1 ring-line p-5"
+          >
+            <p className="text-xs tracking-[0.25em] uppercase text-primary">
+              À Lyon
+            </p>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/services/echographie-gynecologique"
+                  className="text-primary-deep hover:text-ink transition-colors"
+                >
+                  Échographie gynécologique à Lyon
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/echographie-obstetricale"
+                  className="text-primary-deep hover:text-ink transition-colors"
+                >
+                  Échographie obstétricale à Lyon
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/echographie-gynecologique-obstetricale-lyon"
+                  className="text-primary-deep hover:text-ink transition-colors"
+                >
+                  Cabinet de Lyon
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <div className="rounded-[var(--radius-card)] bg-white ring-1 ring-line p-7 md:p-10">
@@ -209,6 +258,25 @@ function Maps() {
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
             Deux adresses pour vous accueillir.
           </h2>
+        </div>
+
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <h3 className="font-display text-2xl text-ink leading-tight">
+            Consultations et échographies à Lyon
+          </h3>
+          <p className="mt-4 text-ink-soft text-pretty leading-relaxed">
+            Le cabinet de Lyon permet aux patientes du centre de Lyon
+            d&apos;accéder aux consultations de gynécologie, au suivi de
+            grossesse et aux échographies gynécologiques et obstétricales avec
+            Dr Alexandra Soldea.{" "}
+            <Link
+              href="/echographie-gynecologique-obstetricale-lyon"
+              className="text-primary-deep hover:text-ink transition-colors"
+            >
+              En savoir plus sur le cabinet de Lyon
+            </Link>
+            .
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -237,6 +305,9 @@ function Maps() {
                     {a.title}
                   </p>
                   <p className="text-sm text-muted mt-1">{a.address}</p>
+                  {a.detail && (
+                    <p className="text-sm text-ink-soft mt-2">{a.detail}</p>
+                  )}
                 </div>
                 <a
                   href={a.mapsUrl}
