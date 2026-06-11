@@ -139,7 +139,12 @@ body {
 
 .animate-ken-burns {
   animation: ken-burns-slow 28s ease-in-out infinite;
-  will-change: transform;
+}
+
+@media (min-width: 1024px) {
+  .animate-ken-burns {
+    will-change: transform;
+  }
 }
 
 /*
@@ -154,7 +159,6 @@ body {
 
 .animate-float {
   animation: float-soft 8s ease-in-out infinite;
-  will-change: transform;
 }
 
 /*
@@ -228,6 +232,38 @@ body {
   animation: shine-sweep 1.1s ease-out;
 }
 
+/*
+ * Mobile homepage LCP is the hero headline (copy stacks above the image).
+ * Opacity-based rise animations delay that paint — skip them on small
+ * screens while keeping the effect on desktop where the photo is LCP.
+ */
+@media (max-width: 1023px) {
+  .hero-above-fold .animate-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-above-fold .animate-ken-burns {
+    animation: none;
+    transform: none;
+  }
+
+  .hero-above-fold .animate-float {
+    animation: none;
+    transform: none;
+  }
+
+  /* Scroll-driven reveals add compositor work on mobile — show content immediately. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-ken-burns,
   .animate-rise,
@@ -236,7 +272,8 @@ body {
   .shine::after {
     animation: none;
   }
-  .reveal {
+  .reveal,
+  .animate-rise {
     opacity: 1;
     transform: none;
   }

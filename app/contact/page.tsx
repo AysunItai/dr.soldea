@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ContactForm } from "@/app/contact/ContactForm";
+import { LazyMapEmbed } from "@/app/_components/LazyMapEmbed";
 import { breadcrumbJsonLd } from "@/lib/seo";
+
+const ContactForm = dynamic(
+  () =>
+    import("@/app/contact/ContactForm").then((m) => ({
+      default: m.ContactForm,
+    })),
+  {
+    loading: () => (
+      <div className="h-48 flex items-center justify-center text-sm text-muted">
+        Chargement du formulaire…
+      </div>
+    ),
+  },
+);
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -286,15 +301,9 @@ function Maps() {
               id={`cabinet-${a.city.toLowerCase()}`}
               className="scroll-mt-28 rounded-2xl overflow-hidden ring-1 ring-line bg-cream"
             >
-              <iframe
+              <LazyMapEmbed
                 src={a.embed}
-                width="100%"
-                height="320"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
                 title={`Plan d'accès — ${a.city}`}
-                className="block w-full h-72"
               />
               <div className="p-5 flex items-start justify-between gap-3">
                 <div>

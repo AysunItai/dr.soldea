@@ -130,9 +130,9 @@ export function CookieConsent() {
           <Script
             id="ga4-loader"
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="ga4-init" strategy="afterInteractive">
+          <Script id="ga4-init" strategy="lazyOnload">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -242,29 +242,3 @@ function Banner({
   );
 }
 
-/**
- * Reusable button that re-opens the consent banner from anywhere on the
- * site (footer, mentions-légales, etc.). Kept in the same module so the
- * event name stays a private implementation detail.
- */
-export function CookieSettingsTrigger({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={() => {
-        if (typeof window !== "undefined") {
-          window.dispatchEvent(new Event(OPEN_EVENT));
-        }
-      }}
-      className={className}
-    >
-      {children}
-    </button>
-  );
-}

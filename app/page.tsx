@@ -24,7 +24,7 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-cream pb-32 md:pb-44">
+    <section className="hero-above-fold relative overflow-hidden bg-cream pb-32 md:pb-44">
       <div className="absolute inset-0 bg-grid-soft opacity-50" />
       <div
         aria-hidden
@@ -218,6 +218,7 @@ function HeroGallery() {
           src="/hero2.webp"
           alt="Cabinet de gynécologie à Miribel — salle d'attente du Dr. Alexandra Soldea"
           fill
+          loading="lazy"
           sizes="(min-width: 1024px) 30vw, 60vw"
           className="object-cover"
         />

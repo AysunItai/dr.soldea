@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NAV_SERVICES, getObstetricTrimesters } from "@/lib/services";
-import { CookieSettingsTrigger } from "@/app/_components/CookieConsent";
+import { CookieSettingsTrigger } from "@/app/_components/CookieSettingsTrigger";
 
 export function Footer() {
   const year = new Date().getFullYear();

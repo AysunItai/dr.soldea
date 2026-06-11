@@ -1,22 +1,34 @@
 import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/app/_components/Navbar";
 import { Footer } from "@/app/_components/Footer";
-import { CookieConsent } from "@/app/_components/CookieConsent";
 import { SITE_URL, siteGraphJsonLd } from "@/lib/seo";
+
+const CookieConsent = dynamic(
+  () =>
+    import("@/app/_components/CookieConsent").then((m) => ({
+      default: m.CookieConsent,
+    })),
+  { ssr: false },
+);
 
 const sans = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600"],
+  adjustFontFallback: true,
 });
 
 const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz", "SOFT"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

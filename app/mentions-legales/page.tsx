@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CookieSettingsTrigger } from "@/app/_components/CookieConsent";
+import { CookieSettingsTrigger } from "@/app/_components/CookieSettingsTrigger";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 /**
