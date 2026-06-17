@@ -4,6 +4,7 @@ import "./globals.css";
 import { CookieConsentLoader } from "@/app/_components/CookieConsentLoader";
 import { Navbar } from "@/app/_components/Navbar";
 import { Footer } from "@/app/_components/Footer";
+import { SiteChrome } from "@/app/_components/SiteChrome";
 import { canonicalUrl, SITE_URL, siteGraphJsonLd } from "@/lib/seo";
 
 const sans = Inter({
@@ -129,11 +130,13 @@ export default function RootLayout({
             __html: JSON.stringify(siteGraphJsonLd()),
           }}
         />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        {/* GDPR/CNIL consent banner. GA4 only loads after explicit grant. */}
-        <CookieConsentLoader />
+        <SiteChrome
+          navbar={<Navbar />}
+          footer={<Footer />}
+          cookieConsent={<CookieConsentLoader />}
+        >
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );

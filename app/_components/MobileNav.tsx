@@ -11,6 +11,7 @@ const PRIMARY_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/equipe", label: "Équipe" },
   { href: "/presentation", label: "Présentation" },
+  { href: "/blog", label: "Actualités" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

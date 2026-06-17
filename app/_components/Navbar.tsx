@@ -108,6 +108,7 @@ export function Navbar() {
 
           <DesktopLink href="/equipe">Équipe</DesktopLink>
           <DesktopLink href="/presentation">Présentation</DesktopLink>
+          <DesktopLink href="/blog">Actualités</DesktopLink>
           <DesktopLink href="/contact">Contact</DesktopLink>
 
           <Link

@@ -451,3 +451,52 @@ export function faqPageJsonLd(
     })),
   };
 }
+
+/* -------------------------------------------------------------------------
+ * Blog JSON-LD
+ * -----------------------------------------------------------------------*/
+
+export function blogIndexLd() {
+  const url = buildAbsoluteUrl("/blog");
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${url}#blog`,
+    url,
+    name: "Actualités — Centre d'Échographie de la Femme OPÉRA",
+    description:
+      "Articles et conseils du centre d'échographie à Lyon.",
+    publisher: { "@id": WEBSITE_ID },
+    inLanguage: "fr-FR",
+  };
+}
+
+export function blogPostingLd(post: {
+  title: string;
+  excerpt: string | null;
+  slug: string;
+  coverImage: string | null;
+  publishedAt: Date | null;
+  updatedAt: Date;
+}) {
+  const url = buildAbsoluteUrl(`/blog/${post.slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    headline: post.title,
+    description: post.excerpt ?? post.title,
+    url,
+    datePublished: post.publishedAt?.toISOString(),
+    dateModified: post.updatedAt.toISOString(),
+    author: { "@id": PERSON_ID },
+    publisher: { "@id": WEBSITE_ID },
+    image: post.coverImage
+      ? post.coverImage.startsWith("http")
+        ? post.coverImage
+        : buildAbsoluteUrl(post.coverImage)
+      : buildAbsoluteUrl("/logo.png"),
+    inLanguage: "fr-FR",
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
+}
