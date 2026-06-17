@@ -819,3 +819,56 @@ export function getObstetricTrimesters(): Service[] {
   if (!hub) return [];
   return getChildServices(hub);
 }
+
+/** Pregnancy ultrasound exams featured on the homepage (clinic services list). */
+export type PregnancyUltrasoundExam = {
+  title: string;
+  href: string;
+};
+
+export const PREGNANCY_ULTRASOUND_EXAMS: PregnancyUltrasoundExam[] = [
+  {
+    title: "Échographie de datation précoce",
+    href: "/services/echographie-datation",
+  },
+  {
+    title: "Échographie du 1er trimestre avec mesure de la clarté nucale",
+    href: "/services/echographie-1er-trimestre",
+  },
+  {
+    title: "Échographie morphologique du 2e trimestre",
+    href: "/services/echographie-2e-trimestre",
+  },
+  {
+    title: "Échographie du 3e trimestre",
+    href: "/services/echographie-3e-trimestre",
+  },
+  {
+    title: "Échographie de croissance fœtale",
+    href: "/services/echographie-3e-trimestre",
+  },
+  {
+    title: "Échographie de grossesse gémellaire",
+    href: "/services/echographie-obstetricale",
+  },
+  {
+    title: "Échographie de diagnostic prénatal",
+    href: "/services/echographie-obstetricale",
+  },
+  {
+    title: "Échographie ciblée ou focalisée",
+    href: "/services/echographie-obstetricale",
+  },
+  {
+    title: "Doppler materno-fœtal",
+    href: "/services/echographie-3e-trimestre",
+  },
+  {
+    title: "Échographie 3D et 4D",
+    href: "/services/echographie-3e-trimestre",
+  },
+  {
+    title: "Surveillance des grossesses à risque",
+    href: "/services/suivi-grossesse",
+  },
+];

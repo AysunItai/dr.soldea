@@ -5,11 +5,11 @@ import { ServiceCard } from "@/app/_components/ServiceCard";
 import { ServiceIcon } from "@/app/_components/ServiceIcon";
 import {
   OperaArch,
-  OperaDivider,
   OrnateCorners,
 } from "@/app/_components/OperaMotifs";
 import {
   NAV_SERVICES,
+  PREGNANCY_ULTRASOUND_EXAMS,
   getObstetricTrimesters,
   type Service,
 } from "@/lib/services";
@@ -18,10 +18,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Highlights />
+      <PregnancyExamsSection />
       <ServicesSection />
       <UltrasoundFocus />
-      <DoctorTeaser />
+      <TeamTeaser />
       <ContactCTA />
     </>
   );
@@ -122,12 +122,9 @@ function HeroCopy() {
       </p>
 
       <p className="animate-rise animate-rise-delay-3 mt-7 sm:mt-9 max-w-lg text-base sm:text-lg leading-relaxed text-white/75 text-pretty">
-        Échographies gynécologiques et obstétricales à Lyon, réalisées par le{" "}
-        <span className="text-white underline decoration-accent/60 underline-offset-4 decoration-2">
-          Dr Alexandra Soldea
-        </span>{" "}
-        et son équipe. Consultations sur rendez-vous — suivi de grossesse,
-        échographies T1, T2, T3 et examens gynécologiques.
+        Échographies gynécologiques et obstétricales au cœur de Lyon, réalisées
+        par notre équipe médicale. Consultations sur rendez-vous — suivi de
+        grossesse, échographies T1, T2, T3 et examens gynécologiques.
       </p>
 
       <div className="animate-rise animate-rise-delay-4 mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3">
@@ -170,9 +167,9 @@ function HeroCopy() {
 
       <dl className="animate-rise animate-rise-delay-4 mt-12 sm:mt-14 grid grid-cols-3 gap-3 sm:gap-6 max-w-md">
         {[
-          { k: "10+", v: "Années d'exercice" },
+          { k: "T1 · T2 · T3", v: "Échographies de dépistage" },
           { k: "Aurore", v: "Réseau de périnatalité" },
-          { k: "FR · EN", v: "Langues parlées" },
+          { k: "En ligne", v: "Prise de rendez-vous" },
         ].map((s) => (
           <div key={s.v} className="border-t border-accent/30 pt-3 sm:pt-4">
             <dt className="font-display text-lg sm:text-2xl text-white leading-none">
@@ -240,10 +237,10 @@ function HeroMedallion() {
         {/* Réseau Aurore credential pill — gentle floating accent. */}
         <div className="absolute -right-2 md:-right-6 top-6 z-20 hidden md:flex flex-col items-start gap-1 rounded-2xl bg-ink px-4 py-3 ring-1 ring-accent/40 shadow-[0_24px_50px_-24px_rgba(0,0,0,0.5)] max-w-[200px] animate-float">
           <span className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium">
-            Échographiste agréée
+            Réseau Aurore
           </span>
           <span className="font-display text-base text-white leading-snug">
-            Réseau Aurore
+            Équipe agréée
           </span>
           <span className="text-[11px] text-white/55">
             Dépistage prénatal · T1 / T2 / T3
@@ -254,34 +251,10 @@ function HeroMedallion() {
   );
 }
 
-function Highlights() {
-  const items = [
-    {
-      title: "Réseau Aurore",
-      desc: "Échographiste agréée pour le dépistage de la T21 (réseau périnatal Aurore).",
-    },
-    {
-      title: "Hôpital Sainte-Foy",
-      desc: "Praticien hospitalier au CH de Sainte-Foy-lès-Lyon — accouchements et chirurgie.",
-    },
-    {
-      title: "Recherche & publications",
-      desc: "Travaux sur l'endométriose (Journal of Minimally Invasive Gynecology, Fertility & Sterility).",
-    },
-  ];
-
-  const affiliations = [
-    "Réseau Aurore",
-    "CFEF",
-    "CNGOF",
-    "DIU Échographie · Paris Descartes",
-    "Praticien hospitalier · Sainte-Foy-lès-Lyon",
-    "ESGE 2016 — Best abstract",
-  ];
-
+function PregnancyExamsSection() {
   return (
     <section
-      aria-labelledby="highlights-heading"
+      aria-labelledby="pregnancy-exams-heading"
       className="relative overflow-hidden bg-cream text-ink -mt-16 md:-mt-20 pt-24 md:pt-28 pb-16 md:pb-20"
     >
       <span aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
@@ -295,50 +268,57 @@ function Highlights() {
       />
 
       <div className="container-page relative">
-        <div className="flex flex-col items-center text-center mb-10 md:mb-12">
+        <div className="max-w-3xl">
           <h2
-            id="highlights-heading"
+            id="pregnancy-exams-heading"
             className="text-[11px] tracking-[0.34em] uppercase text-accent-deep font-medium"
           >
-            Une expertise reconnue
+            Échographies de grossesse
           </h2>
-          <OperaDivider className="mt-4" />
+          <p className="mt-4 font-display text-3xl md:text-4xl text-ink leading-[1.08] text-balance">
+            Nos examens d&apos;échographie de grossesse
+          </p>
+          <p className="mt-4 text-base md:text-lg text-ink-soft leading-relaxed text-pretty max-w-2xl">
+            Au Centre d&apos;Échographie de la Femme OPÉRA, notre équipe réalise
+            l&apos;ensemble des examens du suivi prénatal — du dépistage du 1er
+            trimestre à la surveillance des grossesses à risque.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 reveal-stagger">
-          {items.map((item) => (
-            <div
-              key={item.title}
-              className="royal-panel reveal group relative rounded-[1.25rem] bg-gradient-to-b from-white to-champagne/80 p-7 ring-1 ring-accent/30 shadow-[0_20px_50px_-28px_rgba(11,31,58,0.12)] transition-all duration-300 hover:-translate-y-1 hover:ring-accent/50 hover:shadow-[0_28px_60px_-24px_rgba(201,162,74,0.2)]"
-            >
-              <span
-                aria-hidden
-                className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
-              />
-              <h3 className="font-display text-xl text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
+        <ul className="mt-10 md:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 reveal-stagger">
+          {PREGNANCY_ULTRASOUND_EXAMS.map((exam) => (
+            <li key={exam.title}>
+              <Link
+                href={exam.href}
+                className="group flex h-full items-start gap-3 rounded-2xl bg-gradient-to-b from-white to-champagne/70 px-5 py-4 ring-1 ring-accent/25 shadow-[0_16px_40px_-28px_rgba(11,31,58,0.14)] transition-all duration-300 hover:-translate-y-0.5 hover:ring-accent/45 hover:shadow-[0_24px_50px_-24px_rgba(201,162,74,0.18)]"
+              >
+                <span
+                  aria-hidden
+                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                />
+                <span className="text-sm text-ink leading-snug group-hover:text-primary-deep transition-colors">
+                  {exam.title}
+                </span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div className="mt-14 md:mt-16 pt-8 border-t border-accent/20">
-          <div className="flex items-center gap-3 mb-5">
-            <span aria-hidden className="gold-tick" />
-            <span className="text-[10px] tracking-[0.28em] uppercase text-accent-deep font-medium whitespace-nowrap">
-              Affiliations &amp; reconnaissance
-            </span>
-            <span aria-hidden className="h-px flex-1 gold-rule" />
-          </div>
-          <ul className="flex flex-wrap items-center gap-x-5 sm:gap-x-7 md:gap-x-10 gap-y-2.5 text-[13px] sm:text-sm text-ink-soft">
-            {affiliations.map((item) => (
-              <li key={item} className="inline-flex items-center gap-2">
-                <span aria-hidden className="h-1 w-1 rounded-full bg-accent" />
-                {item}
-              </li>
-            ))}
-          </ul>
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <Link
+            href="/services/echographie-obstetricale"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary-deep hover:gap-3 transition-all"
+          >
+            Tout sur l&apos;échographie obstétricale
+            <span aria-hidden>→</span>
+          </Link>
+          <span aria-hidden className="hidden sm:inline h-4 w-px bg-line" />
+          <Link
+            href="/services"
+            className="text-sm text-ink-soft hover:text-ink transition-colors"
+          >
+            Voir tous les services
+          </Link>
         </div>
       </div>
     </section>
@@ -358,7 +338,7 @@ function ServicesSection() {
           Choisissez votre <span className="italic text-primary-deep">consultation</span>
         </>
       }
-      description="Chaque consultation est dispensée dans un cadre d'exception, avec le plus grand soin apporté à votre confort et à la qualité de l'examen."
+      description="Consultations et examens d'imagerie réalisés sur rendez-vous, dans un cadre d'exception au cœur de Lyon."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
         {services.map((service, index) => (
@@ -432,10 +412,9 @@ function UltrasoundFocus() {
           </h2>
 
           <p className="mt-6 text-lg md:text-xl text-ink-soft leading-relaxed text-pretty max-w-2xl">
-            Au Centre d&apos;Échographie de la Femme OPÉRA, le{" "}
-            <strong className="font-medium text-ink">Dr. Alexandra Soldea</strong>,
-            échographiste agréée du réseau de périnatalité{" "}
-            <strong className="font-medium text-ink">Aurore</strong>, réalise les
+            Au Centre d&apos;Échographie de la Femme OPÉRA, notre équipe
+            d&apos;échographistes agréés du réseau de périnatalité{" "}
+            <strong className="font-medium text-ink">Aurore</strong> réalise les
             trois échographies obligatoires du suivi de grossesse :
             l&apos;échographie du 1<sup>er</sup> trimestre (clarté nucale),
             l&apos;échographie morphologique du 2<sup>e</sup> trimestre et
@@ -455,7 +434,7 @@ function UltrasoundFocus() {
           <OrnateCorners />
           <ul className="grid sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-white/75">
             {[
-              "Échographiste agréée Réseau Aurore",
+              "Équipe agréée Réseau Aurore",
               "Imagerie 2D · 3D · 4D possible (T3)",
               "Compte-rendu remis en main propre",
               "Centre au cœur de Lyon (1ᵉʳ)",
@@ -566,45 +545,27 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
   );
 }
 
-function DoctorTeaser() {
-  // Editorial credentials grid that replaces the portrait. Each card is a
-  // tight, scannable signal of the doctor's expertise — diploma, hospital,
-  // network, research focus — laid out like an editorial spread.
-  const credentials: {
-    n: string;
-    eyebrow: string;
-    title: string;
-    sub: string;
-  }[] = [
+function TeamTeaser() {
+  const trustPoints = [
     {
-      n: "01",
-      eyebrow: "Diplôme",
-      title: "DIU Échographie gynécologique & obstétricale",
-      sub: "Université Paris Descartes — 2020",
+      title: "Réseau Aurore",
+      desc: "Échographistes agréés pour le dépistage prénatal (clarté nucale, T1 / T2 / T3).",
     },
     {
-      n: "02",
-      eyebrow: "Hôpital",
-      title: "Praticien hospitalier",
-      sub: "Maternité du CH de Sainte-Foy-lès-Lyon",
+      title: "Équipe pluridisciplinaire",
+      desc: "Gynécologues et échographistes au service des patientes du centre.",
     },
     {
-      n: "03",
-      eyebrow: "Réseau",
-      title: "Réseau de périnatalité Aurore",
-      sub: "Échographiste agréée — dépistage prénatal",
-    },
-    {
-      n: "04",
-      eyebrow: "Recherche",
-      title: "Endométriose",
-      sub: "Collaboration centre expert ENDOMETRIOSE — CHU de Rouen",
+      title: "Prise en charge sur mesure",
+      desc: "Examens de routine, diagnostic prénatal et surveillance des grossesses à risque.",
     },
   ];
 
   return (
-    <section className="relative bg-background py-24 md:py-32 overflow-hidden">
-      {/* Subtle ambient glow — frames the section without competing with type. */}
+    <section
+      aria-labelledby="team-teaser-heading"
+      className="relative bg-background py-20 md:py-28 overflow-hidden"
+    >
       <div
         aria-hidden
         className="absolute top-1/3 -left-32 h-[460px] w-[460px] rounded-full"
@@ -614,107 +575,53 @@ function DoctorTeaser() {
         }}
       />
 
-      <div className="container-page relative grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-20 items-start reveal">
-        {/* Left column — editorial copy + monogram */}
-        <div className="relative">
-          {/* Decorative monogram floating behind the headline. */}
-          <span
-            aria-hidden
-            className="absolute -top-10 -left-3 md:-top-14 md:-left-6 font-display text-[10rem] md:text-[14rem] leading-none text-primary/[0.06] select-none pointer-events-none"
+      <div className="container-page relative">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-accent/40 px-4 py-1.5 text-[11px] tracking-[0.22em] uppercase text-primary-deep">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+            L&apos;équipe médicale
+          </div>
+          <h2
+            id="team-teaser-heading"
+            className="mt-6 font-display text-3xl md:text-4xl text-ink leading-[1.06] text-balance"
           >
-            AS
-          </span>
-
-          <div className="relative">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-accent/40 px-4 py-1.5 text-[11px] tracking-[0.22em] uppercase text-primary-deep">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-              Présentation
-            </div>
-            <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-[3.5rem] text-ink leading-[1.04] tracking-[-0.01em] text-balance">
-              Une médecine{" "}
-              <span className="italic text-primary-deep">humaine</span>,
-              <br className="hidden md:block" /> rigoureuse et continue.
-            </h2>
-
-            <p className="mt-6 text-lg text-ink-soft text-pretty leading-relaxed max-w-xl">
-              Le Dr. Soldea exerce également comme praticien hospitalier à la
-              maternité du Centre Hospitalier de Sainte-Foy-lès-Lyon —
-              accouchements, chirurgie et consultations spécialisées. Son
-              activité de recherche porte sur l&apos;endométriose, en
-              collaboration avec le centre expert ENDOMETRIOSE du CHU de
-              Rouen.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              {[
-                "Aurore — Réseau périnatal",
-                "CFEF",
-                "CNGOF",
-                "Langues : FR · EN",
-              ].map((b) => (
-                <span
-                  key={b}
-                  className="rounded-full bg-cream ring-1 ring-line px-4 py-1.5 text-xs text-ink-soft"
-                >
-                  {b}
-                </span>
-              ))}
-            </div>
-
+            Une équipe à votre écoute,{" "}
+            <span className="italic text-primary-deep">au cœur de Lyon</span>.
+          </h2>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed text-pretty">
+            Le centre réunit des praticiens expérimentés en échographie
+            gynécologique et obstétricale. Retrouvez les parcours, affiliations
+            et spécialités de chaque membre de l&apos;équipe.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/equipe"
+              className="shine inline-flex items-center justify-center h-11 px-6 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
+            >
+              Découvrir l&apos;équipe
+            </Link>
             <Link
               href="/presentation"
-              className="group mt-10 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+              className="inline-flex items-center justify-center h-11 px-6 rounded-full bg-white text-sm font-medium text-ink ring-1 ring-line hover:ring-accent/40 transition-colors"
             >
-              <span className="border-b border-primary-deep/30 pb-px group-hover:border-primary-deep transition-colors">
-                Lire la présentation complète
-              </span>
-              <svg
-                viewBox="0 0 16 16"
-                className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
-                fill="none"
-                aria-hidden
-              >
-                <path
-                  d="M3 8h10m0 0L9 4m4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              Présentation du centre
             </Link>
           </div>
         </div>
 
-        {/* Right column — credentials wall (2×2). */}
-        <ol className="grid sm:grid-cols-2 gap-4 lg:gap-5 reveal-stagger">
-          {credentials.map((c, i) => (
-            <li
-              key={c.n}
-              className={`royal-panel group relative rounded-[1.25rem] bg-gradient-to-b from-white to-champagne/70 ring-1 ring-accent/30 p-6 shadow-[0_20px_50px_-28px_rgba(11,31,58,0.12)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-24px_rgba(201,162,74,0.2)] hover:ring-accent/55 ${
-                i % 2 === 1 ? "sm:mt-6" : ""
-              }`}
+        <div className="mt-12 md:mt-14 grid md:grid-cols-3 gap-5 reveal-stagger">
+          {trustPoints.map((item) => (
+            <div
+              key={item.title}
+              className="royal-panel rounded-[1.25rem] bg-gradient-to-b from-white to-champagne/70 ring-1 ring-accent/30 p-6 shadow-[0_20px_50px_-28px_rgba(11,31,58,0.12)]"
             >
-              <span
-                aria-hidden
-                className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent/55 to-transparent group-hover:via-accent transition-colors"
-              />
-              <div className="flex items-baseline justify-between gap-3">
-                <span className="font-display text-2xl text-accent leading-none">
-                  <span className="opacity-35">0</span>
-                  {c.n.slice(1)}
-                </span>
-                <span className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
-                  {c.eyebrow}
-                </span>
-              </div>
-              <p className="mt-5 font-display text-lg text-ink leading-snug text-balance">
-                {c.title}
+              <h3 className="font-display text-lg text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                {item.desc}
               </p>
-              <p className="mt-2 text-xs text-ink-soft leading-relaxed">{c.sub}</p>
-            </li>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
