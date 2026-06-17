@@ -105,12 +105,12 @@ function HeroCopy() {
       </p>
 
       <p className="animate-rise animate-rise-delay-3 mt-7 sm:mt-9 max-w-lg text-base sm:text-lg leading-relaxed text-white/75 text-pretty">
-        Échographies gynécologiques et obstétricales au cœur de Lyon, avec{" "}
+        Échographies gynécologiques et obstétricales à Lyon, réalisées par le{" "}
         <span className="text-white underline decoration-accent/60 underline-offset-4 decoration-2">
           Dr Alexandra Soldea
         </span>{" "}
-        et son équipe. Un centre dédié au suivi des femmes, dans un cadre
-        médical élégant, humain et rigoureux.
+        et son équipe. Consultations sur rendez-vous — suivi de grossesse,
+        échographies T1, T2, T3 et examens gynécologiques.
       </p>
 
       <div className="animate-rise animate-rise-delay-4 mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3">
