@@ -29,23 +29,23 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="hero-above-fold relative overflow-hidden pb-32 md:pb-44 bg-ink-deep text-white">
-      {/* Consultation-room photo — low-opacity texture behind a navy wash. */}
-      <div aria-hidden className="absolute inset-0">
+    <section className="hero-above-fold relative overflow-hidden pb-28 md:pb-36 bg-ink-deep text-white">
+      {/* Consultation-room photo — editorial ken-burns behind a navy wash. */}
+      <div aria-hidden className="absolute inset-0 overflow-hidden">
         <Image
           src="/hero1.webp"
           alt=""
           fill
           sizes="100vw"
-          quality={60}
+          quality={65}
           fetchPriority="low"
-          className="object-cover object-[62%_42%] opacity-[0.38] sm:opacity-[0.45] lg:opacity-[0.52]"
+          className="animate-ken-burns object-cover object-[62%_42%] opacity-[0.42] sm:opacity-[0.5] lg:opacity-[0.58]"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(105deg, rgba(6,21,43,0.86) 0%, rgba(7,26,51,0.78) 46%, rgba(7,26,51,0.62) 100%), linear-gradient(168deg, rgba(10,34,64,0.38) 0%, transparent 35%)",
+              "linear-gradient(105deg, rgba(6,21,43,0.84) 0%, rgba(7,26,51,0.74) 42%, rgba(7,26,51,0.55) 100%), linear-gradient(168deg, rgba(10,34,64,0.32) 0%, transparent 40%)",
           }}
         />
       </div>
@@ -56,7 +56,7 @@ function Hero() {
         className="absolute -top-44 -right-40 h-[600px] w-[600px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(201,162,74,0.18), transparent 72%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.22), transparent 72%)",
         }}
       />
       {/* Burgundy glow, lower-left. */}
@@ -65,7 +65,7 @@ function Hero() {
         className="absolute top-1/3 -left-44 h-[500px] w-[500px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(163,76,99,0.14), transparent 72%)",
+            "radial-gradient(closest-side, rgba(163,76,99,0.16), transparent 72%)",
         }}
       />
       {/* Gold wash behind the medallion column. */}
@@ -74,7 +74,7 @@ function Hero() {
         className="absolute right-0 top-0 h-full w-1/2 hidden lg:block"
         style={{
           background:
-            "radial-gradient(60% 55% at 70% 42%, rgba(212,175,55,0.12), transparent 70%)",
+            "radial-gradient(60% 55% at 70% 42%, rgba(212,175,55,0.16), transparent 70%)",
         }}
       />
       {/* Hairline gold rule pinned to the very top of the page. */}
@@ -85,8 +85,11 @@ function Hero() {
         <HeroMedallion />
       </div>
 
-      {/* Editorial credential ticker — sits along the hero baseline. */}
-      <CredentialTicker />
+      {/* Soft fade into the cream section below. */}
+      <div
+        aria-hidden
+        className="hero-fade-bottom pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 md:h-40"
+      />
     </section>
   );
 }
@@ -209,7 +212,7 @@ function HeroMedallion() {
          * preloaded with a high fetch priority; next/image serves an
          * optimised AVIF/WebP at the displayed size.
          */}
-        <div className="relative rounded-full bg-gradient-to-b from-white via-[#fbf3e3] to-champagne p-4 sm:p-5 ring-1 ring-accent/50 shadow-[0_60px_120px_-40px_rgba(122,38,61,0.45),0_28px_60px_-30px_rgba(7,26,51,0.35)]">
+        <div className="relative rounded-full bg-gradient-to-b from-white via-[#fbf3e3] to-champagne p-4 sm:p-5 ring-2 ring-accent/55 shadow-[0_60px_120px_-40px_rgba(201,162,74,0.35),0_28px_60px_-30px_rgba(7,26,51,0.35)]">
           <span
             aria-hidden
             className="absolute inset-[0.6rem] rounded-full ring-1 ring-accent/30"
@@ -251,36 +254,6 @@ function HeroMedallion() {
   );
 }
 
-function CredentialTicker() {
-  const items = [
-    "Réseau Aurore",
-    "CFEF",
-    "CNGOF",
-    "DIU Échographie · Paris Descartes",
-    "Praticien hospitalier · Sainte-Foy-lès-Lyon",
-    "ESGE 2016 — Best abstract",
-  ];
-  return (
-    <div className="container-page relative z-10 mt-20 sm:mt-24 md:mt-32 lg:mt-40">
-      <div className="flex items-center gap-3 mb-5">
-        <span aria-hidden className="gold-tick" />
-        <span className="text-[10px] tracking-[0.28em] sm:tracking-[0.32em] uppercase text-accent font-medium whitespace-nowrap">
-          Affiliations &amp; reconnaissance
-        </span>
-        <span aria-hidden className="h-px flex-1 gold-rule" />
-      </div>
-      <ul className="flex flex-wrap items-center gap-x-5 sm:gap-x-7 md:gap-x-10 gap-y-2.5 text-[13px] sm:text-sm text-white/75">
-        {items.map((item) => (
-          <li key={item} className="inline-flex items-center gap-2">
-            <span aria-hidden className="h-1 w-1 rounded-full bg-accent" />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 function Highlights() {
   const items = [
     {
@@ -296,46 +269,76 @@ function Highlights() {
       desc: "Travaux sur l'endométriose (Journal of Minimally Invasive Gynecology, Fertility & Sterility).",
     },
   ];
+
+  const affiliations = [
+    "Réseau Aurore",
+    "CFEF",
+    "CNGOF",
+    "DIU Échographie · Paris Descartes",
+    "Praticien hospitalier · Sainte-Foy-lès-Lyon",
+    "ESGE 2016 — Best abstract",
+  ];
+
   return (
     <section
       aria-labelledby="highlights-heading"
-      className="relative overflow-hidden bg-ink-deep text-white py-16 md:py-20"
+      className="relative overflow-hidden bg-cream text-ink -mt-16 md:-mt-20 pt-24 md:pt-28 pb-16 md:pb-20"
     >
-      {/* Gold top hairline + a soft warm glow give the dark band depth. */}
       <span aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
       <div
         aria-hidden
-        className="absolute -top-24 right-0 h-[360px] w-[360px] rounded-full"
+        className="absolute -top-20 right-0 h-[320px] w-[320px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(201,162,74,0.18), transparent 70%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.14), transparent 70%)",
         }}
       />
+
       <div className="container-page relative">
         <div className="flex flex-col items-center text-center mb-10 md:mb-12">
           <h2
             id="highlights-heading"
-            className="text-[11px] tracking-[0.34em] uppercase text-accent font-medium"
+            className="text-[11px] tracking-[0.34em] uppercase text-accent-deep font-medium"
           >
             Une expertise reconnue
           </h2>
           <OperaDivider className="mt-4" />
         </div>
-        <div className="grid md:grid-cols-3 gap-8 md:gap-10 reveal-stagger">
+
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 reveal-stagger">
           {items.map((item) => (
-            <div key={item.title} className="flex gap-4 reveal">
+            <div
+              key={item.title}
+              className="royal-panel reveal group relative rounded-[1.25rem] bg-gradient-to-b from-white to-champagne/80 p-7 ring-1 ring-accent/30 shadow-[0_20px_50px_-28px_rgba(11,31,58,0.12)] transition-all duration-300 hover:-translate-y-1 hover:ring-accent/50 hover:shadow-[0_28px_60px_-24px_rgba(201,162,74,0.2)]"
+            >
               <span
                 aria-hidden
-                className="mt-1 inline-block h-10 w-px bg-gradient-to-b from-accent to-transparent"
+                className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
               />
-              <div>
-                <h3 className="font-display text-xl text-white">{item.title}</h3>
-                <p className="mt-2 text-sm text-white/70 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
+              <h3 className="font-display text-xl text-ink">{item.title}</h3>
+              <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-14 md:mt-16 pt-8 border-t border-accent/20">
+          <div className="flex items-center gap-3 mb-5">
+            <span aria-hidden className="gold-tick" />
+            <span className="text-[10px] tracking-[0.28em] uppercase text-accent-deep font-medium whitespace-nowrap">
+              Affiliations &amp; reconnaissance
+            </span>
+            <span aria-hidden className="h-px flex-1 gold-rule" />
+          </div>
+          <ul className="flex flex-wrap items-center gap-x-5 sm:gap-x-7 md:gap-x-10 gap-y-2.5 text-[13px] sm:text-sm text-ink-soft">
+            {affiliations.map((item) => (
+              <li key={item} className="inline-flex items-center gap-2">
+                <span aria-hidden className="h-1 w-1 rounded-full bg-accent" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -343,19 +346,32 @@ function Highlights() {
 }
 
 function ServicesSection() {
+  const services = NAV_SERVICES;
+  const lastIndex = services.length - 1;
+
   return (
     <Section
+      className="bg-cream pt-8 md:pt-12"
       eyebrow="Services"
       title={
         <>
-          Choisissez votre <span className="italic">consultation</span>
+          Choisissez votre <span className="italic text-primary-deep">consultation</span>
         </>
       }
-      description="Cliquez sur un service pour prendre rendez-vous en ligne. Chaque créneau est confirmé immédiatement."
+      description="Chaque consultation est dispensée dans un cadre d'exception, avec le plus grand soin apporté à votre confort et à la qualité de l'examen."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
-        {NAV_SERVICES.map((service) => (
-          <ServiceCard key={service.slug} service={service} />
+        {services.map((service, index) => (
+          <div
+            key={service.slug}
+            className={
+              index === lastIndex
+                ? "sm:col-span-2 sm:max-w-md sm:mx-auto lg:col-span-1 lg:col-start-2 lg:max-w-none"
+                : undefined
+            }
+          >
+            <ServiceCard service={service} />
+          </div>
         ))}
       </div>
 
@@ -493,25 +509,24 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
     <li>
       <Link
         href={`/services/${service.slug}`}
-        className="card-gold-top group relative block h-full rounded-[1.5rem] bg-ink-deep text-white ring-1 ring-accent/25 p-7 md:p-8 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_55px_100px_-40px_rgba(0,0,0,0.8)] hover:ring-accent/55"
+        className="card-gold-top group relative block h-full rounded-[1.5rem] bg-gradient-to-b from-white via-[#fbf7f0] to-champagne text-ink ring-1 ring-accent/35 p-7 md:p-8 shadow-[0_24px_60px_-32px_rgba(11,31,58,0.14)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_40px_80px_-28px_rgba(201,162,74,0.22)] hover:ring-accent/60"
       >
         <OrnateCorners />
-        {/* Big number marker — gives each card a strong identity */}
         <div className="flex items-start justify-between">
           <span className="font-display text-[3.5rem] md:text-[4rem] leading-none text-accent">
-            <span className="opacity-40">0</span>
+            <span className="opacity-35">0</span>
             {index + 1}
           </span>
-          <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/[0.05] text-accent ring-1 ring-accent/45">
+          <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink-deep text-accent ring-1 ring-accent/45 shadow-[0_12px_28px_-16px_rgba(7,26,51,0.45)]">
             <ServiceIcon name={service.icon} className="h-5 w-5" />
           </span>
         </div>
 
-        <p className="mt-6 text-[11px] tracking-[0.22em] uppercase text-accent font-medium">
+        <p className="mt-6 text-[11px] tracking-[0.22em] uppercase text-accent-deep font-medium">
           {service.shortLabel} · {service.weeks}
         </p>
 
-        <h3 className="mt-2 font-display text-2xl md:text-[26px] text-white leading-snug text-balance">
+        <h3 className="mt-2 font-display text-2xl md:text-[26px] text-ink leading-snug text-balance">
           Échographie du{" "}
           {service.shortLabel === "T1"
             ? "1er"
@@ -519,16 +534,16 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
               ? "2e"
               : "3e"}{" "}
           trimestre
-          <span className="text-white/45 font-normal text-base"> (Écho {service.shortLabel})</span>
+          <span className="text-muted font-normal text-base"> (Écho {service.shortLabel})</span>
         </h3>
 
-        <p className="mt-3 text-sm text-white/70 leading-relaxed text-pretty">
+        <p className="mt-3 text-sm text-ink-soft leading-relaxed text-pretty">
           {service.tagline}
         </p>
 
-        <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
-          <span className="text-xs text-white/55">{service.durationLabel}</span>
-          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent">
+        <div className="mt-6 pt-5 border-t border-accent/20 flex items-center justify-between">
+          <span className="text-xs text-muted">{service.durationLabel}</span>
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-deep group-hover:text-primary transition-colors">
             Découvrir l&apos;écho {service.shortLabel}
             <svg
               viewBox="0 0 16 16"
@@ -588,7 +603,7 @@ function DoctorTeaser() {
   ];
 
   return (
-    <section className="relative bg-white py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-background py-24 md:py-32 overflow-hidden">
       {/* Subtle ambient glow — frames the section without competing with type. */}
       <div
         aria-hidden
@@ -676,28 +691,27 @@ function DoctorTeaser() {
           {credentials.map((c, i) => (
             <li
               key={c.n}
-              className={`group relative rounded-[1.25rem] bg-ink-deep text-white ring-1 ring-accent/25 p-6 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_50px_90px_-40px_rgba(0,0,0,0.8)] hover:ring-accent/55 ${
+              className={`royal-panel group relative rounded-[1.25rem] bg-gradient-to-b from-white to-champagne/70 ring-1 ring-accent/30 p-6 shadow-[0_20px_50px_-28px_rgba(11,31,58,0.12)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-24px_rgba(201,162,74,0.2)] hover:ring-accent/55 ${
                 i % 2 === 1 ? "sm:mt-6" : ""
               }`}
             >
-              {/* Gold top accent line — intensifies on hover. */}
               <span
                 aria-hidden
-                className="absolute top-0 left-6 right-6 h-px bg-accent/50 group-hover:bg-accent transition-colors"
+                className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent/55 to-transparent group-hover:via-accent transition-colors"
               />
               <div className="flex items-baseline justify-between gap-3">
                 <span className="font-display text-2xl text-accent leading-none">
-                  <span className="opacity-40">0</span>
+                  <span className="opacity-35">0</span>
                   {c.n.slice(1)}
                 </span>
-                <span className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium">
+                <span className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
                   {c.eyebrow}
                 </span>
               </div>
-              <p className="mt-5 font-display text-lg text-white leading-snug text-balance">
+              <p className="mt-5 font-display text-lg text-ink leading-snug text-balance">
                 {c.title}
               </p>
-              <p className="mt-2 text-xs text-white/55 leading-relaxed">{c.sub}</p>
+              <p className="mt-2 text-xs text-ink-soft leading-relaxed">{c.sub}</p>
             </li>
           ))}
         </ol>

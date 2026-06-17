@@ -1,13 +1,18 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 
 /**
  * Minimal client island: only tracks scroll position to toggle the header
  * glass background. Everything inside (logo, links) stays server-rendered.
+ * On the homepage hero, the bar stays translucent until the user scrolls.
  */
 export function NavScrollShell({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
+  const overlay = isHome && !scrolled;
 
   useEffect(() => {
     let ticking = false;
@@ -26,13 +31,14 @@ export function NavScrollShell({ children }: { children: ReactNode }) {
 
   return (
     <header
+      data-overlay={overlay ? "true" : undefined}
       className={[
-        // A consistent ivory glass bar — readable over both the dark homepage
-        // hero and the light inner-page headers, with a fine gold hairline.
         "sticky top-0 z-50 backdrop-blur-md border-b transition-[background-color,border-color,box-shadow] duration-300",
-        scrolled
-          ? "bg-background/92 border-line shadow-[0_10px_30px_-22px_rgba(7,26,51,0.4)]"
-          : "bg-background/80 border-line/60",
+        overlay
+          ? "bg-ink-deep/30 border-white/10 shadow-none"
+          : scrolled
+            ? "bg-background/92 border-line shadow-[0_10px_30px_-22px_rgba(7,26,51,0.4)]"
+            : "bg-background/80 border-line/60",
       ].join(" ")}
     >
       {children}

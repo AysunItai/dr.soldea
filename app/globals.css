@@ -84,6 +84,23 @@ body {
   color: var(--color-ink);
 }
 
+/* Homepage hero — translucent header with light nav copy. */
+header[data-overlay="true"] .nav-brand-title {
+  color: white;
+}
+header[data-overlay="true"] .nav-brand-sub {
+  color: var(--color-accent);
+}
+header[data-overlay="true"] .nav-link,
+header[data-overlay="true"] .nav-services-btn {
+  color: color-mix(in oklab, white 78%, transparent);
+}
+header[data-overlay="true"] .nav-link:hover,
+header[data-overlay="true"] .nav-services-btn:hover,
+header[data-overlay="true"] .group:hover .nav-services-btn {
+  color: white;
+}
+
 /* Warm ivory canvas with a whisper of champagne/gold light at the very top —
  * gives the whole site a richer, layered base than flat cream without any
  * heavy gradient. Purely a paint; no effect on layout (CLS-safe). */
@@ -181,6 +198,16 @@ body {
   }
   .card-gold-top:hover::before {
     opacity: 1;
+  }
+
+  /* Hero bottom fade — blends the dark hero into the cream section below. */
+  .hero-fade-bottom {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      color-mix(in oklab, var(--color-cream) 35%, transparent) 45%,
+      var(--color-cream) 100%
+    );
   }
 }
 

@@ -30,10 +30,10 @@ export function Navbar() {
             className="h-10 w-10 md:h-11 md:w-11 rounded-full ring-1 ring-accent/40 shadow-[0_6px_16px_-8px_rgba(11,31,58,0.4)]"
           />
           <span className="hidden sm:flex flex-col leading-none">
-            <span className="font-display text-[15px] md:text-base text-ink tracking-tight">
+            <span className="nav-brand-title font-display text-[15px] md:text-base text-ink tracking-tight">
               Centre d&apos;Échographie de la Femme
             </span>
-            <span className="mt-1 text-[10px] md:text-[11px] tracking-[0.34em] uppercase text-accent-deep font-medium">
+            <span className="nav-brand-sub mt-1 text-[10px] md:text-[11px] tracking-[0.34em] uppercase text-accent-deep font-medium">
               OPÉRA · Lyon
             </span>
           </span>
@@ -46,7 +46,7 @@ export function Navbar() {
             <button
               type="button"
               aria-haspopup="menu"
-              className="px-4 py-2 text-sm font-medium rounded-full inline-flex items-center gap-1.5 text-ink-soft hover:text-ink transition-colors group-hover:text-ink"
+              className="nav-services-btn px-4 py-2 text-sm font-medium rounded-full inline-flex items-center gap-1.5 text-ink-soft hover:text-ink transition-colors group-hover:text-ink"
             >
               Services
               <svg
@@ -134,7 +134,7 @@ function DesktopLink({
   return (
     <Link
       href={href}
-      className="px-4 py-2 text-sm font-medium rounded-full text-ink-soft hover:text-ink transition-colors"
+      className="nav-link px-4 py-2 text-sm font-medium rounded-full text-ink-soft hover:text-ink transition-colors"
     >
       {children}
     </Link>
