@@ -95,7 +95,7 @@ export const PRACTITIONER = {
 
 /**
  * Centre location. The brand now operates from a single premium centre in
- * central Lyon (quartier Opéra, 1er arrondissement). The `id` is kept as
+ * central Lyon (La Presqu'île, 1er arrondissement). The `id` is kept as
  * "lyon" so existing references (e.g. the Lyon landing page) keep working.
  */
 export const CABINETS = [

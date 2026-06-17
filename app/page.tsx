@@ -91,7 +91,7 @@ function HeroCopy() {
 
       <div className="animate-rise inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur ring-1 ring-accent/40 px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-accent">
         <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-        Au cœur de Lyon · Quartier Opéra
+        Au cœur de Lyon · La Presqu&apos;île
       </div>
 
       <h1 className="hero-lcp-headline animate-rise animate-rise-delay-1 mt-6 sm:mt-7 font-display text-[clamp(2.25rem,6.5vw,4.5rem)] leading-[0.98] tracking-[-0.015em] text-white text-balance">
@@ -216,7 +216,7 @@ function HeroMedallion() {
         <figcaption className="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full bg-ink px-4 py-1.5 ring-1 ring-accent/40 shadow-[0_18px_40px_-20px_rgba(7,26,51,0.6)] whitespace-nowrap">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
           <span className="text-[11px] tracking-[0.18em] uppercase text-cream">
-            Lyon 1ᵉʳ · Quartier Opéra
+            Lyon 1ᵉʳ · La Presqu&apos;île
           </span>
         </figcaption>
 

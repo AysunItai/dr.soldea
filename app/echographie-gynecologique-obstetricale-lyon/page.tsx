@@ -14,7 +14,7 @@ const LYON_CABINET = CABINETS.find((c) => c.id === "lyon")!;
 const PAGE_PATH = "/echographie-gynecologique-obstetricale-lyon";
 
 const META_DESCRIPTION =
-  "Échographies gynécologiques et obstétricales à Lyon, au Centre d'Échographie de la Femme OPÉRA avec Dr Alexandra Soldea. Suivi de grossesse et consultations sur rendez-vous, quartier Opéra (1er).";
+  "Échographies gynécologiques et obstétricales à Lyon, au Centre d'Échographie de la Femme OPÉRA avec Dr Alexandra Soldea. Suivi de grossesse et consultations sur rendez-vous, La Presqu'île (1er).";
 
 const FAQS = [
   {
@@ -35,7 +35,7 @@ const FAQS = [
   {
     question: "Le centre est-il accessible en transports en commun ?",
     answer:
-      "Oui. Le centre se trouve au cœur de Lyon (1er arrondissement, quartier Opéra), facilement accessible en métro (ligne A, arrêts Cordeliers ou Hôtel de Ville–Louis Pradel), ainsi qu'en bus. Plusieurs parkings publics sont disponibles à proximité pour les patientes venant en voiture.",
+      "Oui. Le centre se trouve au cœur de Lyon (1er arrondissement, La Presqu'île), facilement accessible en métro (ligne A, arrêts Cordeliers ou Hôtel de Ville–Louis Pradel), ainsi qu'en bus. Plusieurs parkings publics sont disponibles à proximité pour les patientes venant en voiture.",
   },
   {
     question: "Le centre propose-t-il toutes les échographies de la femme ?",
@@ -188,7 +188,7 @@ function Intro() {
           </p>
           <p className="mt-4 text-ink-soft text-pretty leading-relaxed">
             Le centre, situé 9 rue du Président Édouard Herriot dans le 1er
-            arrondissement (quartier Opéra), offre un accès direct aux
+            arrondissement (La Presqu'île), offre un accès direct aux
             consultations et échographies pour les patientes de la métropole
             lyonnaise.
           </p>
@@ -271,7 +271,7 @@ function Location({ mapsUrl }: { mapsUrl: string }) {
         </h2>
         <p className="mt-5 text-ink-soft text-pretty leading-relaxed max-w-2xl">
           Le centre se trouve au 9 rue du Président Édouard Herriot, en plein
-          cœur de Lyon (quartier Opéra). Métro ligne A (Cordeliers ou Hôtel de
+          cœur de Lyon (La Presqu'île). Métro ligne A (Cordeliers ou Hôtel de
           Ville–Louis Pradel) et parkings publics à proximité.
         </p>
         <a

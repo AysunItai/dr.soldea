@@ -110,7 +110,7 @@ function InfoStrip() {
     {
       label: "Le centre",
       value: "9 rue du Président Édouard Herriot",
-      detail: "69001 Lyon · Quartier Opéra",
+      detail: "69001 Lyon · La Presqu'île",
       href: ADDRESSES[0].mapsUrl,
       icon: (
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>

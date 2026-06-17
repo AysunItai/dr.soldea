@@ -98,7 +98,7 @@ const calendly = (eventSlug: string) =>
 
 /**
  * Geographic keywords reused across obstetric ultrasound pages. They
- * target the centre's catchment: Lyon (where the centre is, quartier Opéra)
+ * target the centre's catchment: Lyon (where the centre is, La Presqu'île)
  * and the surrounding metropolitan area.
  */
 const OBSTETRIC_GEO_KEYWORDS = [
@@ -235,7 +235,7 @@ export const SERVICES: Service[] = [
         question:
           "Où est réalisée l'échographie ? Le cabinet est-il accessible depuis Lyon ?",
         answer:
-          "L'échographie gynécologique est réalisée au Centre d'Échographie de la Femme OPÉRA, 9 rue du Président Édouard Herriot, 69001 Lyon, en plein cœur de la Presqu'île (quartier Opéra). Le centre est accessible en métro (ligne A, Cordeliers ou Hôtel de Ville) et dessert toute la métropole de Lyon (Villeurbanne, Caluire, Rillieux-la-Pape, Vaulx-en-Velin).",
+          "L'échographie gynécologique est réalisée au Centre d'Échographie de la Femme OPÉRA, 9 rue du Président Édouard Herriot, 69001 Lyon, en plein cœur de la Presqu'île. Le centre est accessible en métro (ligne A, Cordeliers ou Hôtel de Ville) et dessert toute la métropole de Lyon (Villeurbanne, Caluire, Rillieux-la-Pape, Vaulx-en-Velin).",
       },
       {
         question: "Faut-il une ordonnance pour une échographie pelvienne ?",
@@ -279,7 +279,7 @@ export const SERVICES: Service[] = [
       "Échographiste agréée du réseau de périnatalité Aurore",
       "Trois trimestres : T1 (clarté nucale), T2 (morphologique), T3 (croissance)",
       "Compte-rendu remis en main propre à l'issue de l'examen",
-      "Centre au cœur de Lyon — quartier Opéra (1er arrondissement)",
+      "Centre au cœur de Lyon — La Presqu'île (1er arrondissement)",
     ],
     faqs: [
       {
@@ -304,7 +304,7 @@ export const SERVICES: Service[] = [
         question:
           "Où se situe le centre et est-il facile d'accès à Lyon ?",
         answer:
-          "Le Centre d'Échographie de la Femme OPÉRA est situé 9 rue du Président Édouard Herriot, 69001 Lyon, en plein cœur de la Presqu'île (quartier Opéra). Il est facilement accessible en métro (ligne A, Cordeliers ou Hôtel de Ville–Louis Pradel), en bus et via les parkings publics à proximité, et dessert toute la métropole de Lyon.",
+          "Le Centre d'Échographie de la Femme OPÉRA est situé 9 rue du Président Édouard Herriot, 69001 Lyon, en plein cœur de la Presqu'île. Il est facilement accessible en métro (ligne A, Cordeliers ou Hôtel de Ville–Louis Pradel), en bus et via les parkings publics à proximité, et dessert toute la métropole de Lyon.",
       },
       {
         question: "Faut-il un rendez-vous pour une échographie obstétricale ?",
