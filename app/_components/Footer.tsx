@@ -7,26 +7,34 @@ export function Footer() {
   const year = new Date().getFullYear();
   const trimesters = getObstetricTrimesters();
   return (
-    <footer className="bg-ink text-white/85 mt-24">
-      <div className="container-page py-16 grid gap-12 lg:grid-cols-5">
+    <footer className="relative bg-ink-deep text-white/85 mt-24">
+      {/* Gold top hairline — frames the luxury footer. */}
+      <span aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
+      <div className="container-page py-16 md:py-20 grid gap-12 lg:grid-cols-5">
         <div className="lg:col-span-1">
           {/*
-           * The logo PNG uses dark teal/navy ink which is invisible on the
-           * dark footer background. `brightness(0) invert(1)` flattens it to
-           * pure white — a single asset works for both light and dark contexts.
+           * The circular gold medallion logo reads beautifully on the dark
+           * navy footer — no colour filter needed (gold on navy is the
+           * brand's strongest pairing).
            */}
           <Image
             src="/logo.png"
-            alt="Dr. Alexandra Soldea — Gynécologue Obstétricienne à Lyon & Miribel"
-            width={366}
-            height={85}
-            className="h-12 w-auto"
-            style={{ filter: "brightness(0) invert(1)" }}
+            alt="Logo du Centre d'Échographie de la Femme OPÉRA"
+            width={1254}
+            height={1254}
+            sizes="64px"
+            className="h-16 w-16 rounded-full ring-1 ring-accent/40"
           />
-          <p className="text-sm text-white/60 mt-6 max-w-sm">
-            Suivi gynécologique et obstétrical à Lyon et Miribel. Échographies
-            agréées du réseau de périnatalité Aurore (T1, T2, T3),
-            téléconsultation et accompagnement de la grossesse.
+          <p className="mt-5 font-display text-lg text-white leading-snug">
+            Centre d&apos;Échographie de la Femme OPÉRA
+          </p>
+          <p className="mt-1 text-xs tracking-[0.28em] uppercase text-accent">
+            Avec Dr Alexandra Soldea
+          </p>
+          <p className="text-sm text-white/60 mt-5 max-w-sm">
+            Centre dédié à l&apos;échographie de la femme au cœur de Lyon :
+            échographies gynécologiques et obstétricales, suivi de grossesse
+            (T1, T2, T3 — réseau Aurore) et consultations sur rendez-vous.
           </p>
         </div>
 
@@ -38,7 +46,7 @@ export function Footer() {
            * visually identical via the same Tailwind classes) restores a
            * legal hierarchy without altering the design.
            */}
-          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
+          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
             Services
           </h2>
           <ul className="space-y-2">
@@ -64,7 +72,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
+          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
             Échographies obstétricales
           </h2>
           <ul className="space-y-2">
@@ -91,35 +99,26 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
-            Cabinet Miribel
+          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
+            Le centre
           </h2>
           <p className="text-sm text-white/75 leading-relaxed">
-            63 place de la République
+            9 rue du Président Édouard Herriot
             <br />
-            01700 Miribel
+            69001 Lyon
           </p>
           <p className="text-sm text-white/75 mt-4">
             <a href="tel:+33428295516" className="hover:text-white">
               04 28 29 55 16
             </a>
           </p>
-
-          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mt-8 mb-4">
-            Cabinet Lyon
-          </h2>
-          <p className="text-sm text-white/75 leading-relaxed">
-            4 rue du Président Carnot
-            <br />
-            69002 Lyon
-          </p>
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-5 space-y-2">
             <li>
               <Link
                 href="/echographie-gynecologique-obstetricale-lyon"
                 className="text-sm text-white/75 hover:text-white transition-colors"
               >
-                Cabinet de Lyon
+                Échographie à Lyon
               </Link>
             </li>
             <li>
@@ -138,22 +137,22 @@ export function Footer() {
                 Échographie obstétricale à Lyon
               </Link>
             </li>
-            <li>
-              <Link
-                href="/services"
-                className="text-sm text-white/75 hover:text-white transition-colors"
-              >
-                Prendre rendez-vous à Lyon
-              </Link>
-            </li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-xs tracking-[0.25em] uppercase text-primary-soft/80 mb-4">
+          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
             Liens
           </h2>
           <ul className="space-y-2">
+            <li>
+              <Link
+                href="/equipe"
+                className="text-sm text-white/75 hover:text-white"
+              >
+                Équipe
+              </Link>
+            </li>
             <li>
               <Link
                 href="/presentation"
@@ -184,7 +183,10 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-page py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/55">
-          <p>© {year} Dr. Alexandra Soldea — Tous droits réservés.</p>
+          <p>
+            © {year} Centre d&apos;Échographie de la Femme OPÉRA — Dr. Alexandra
+            Soldea. Tous droits réservés.
+          </p>
           <p className="flex items-center gap-2 flex-wrap justify-center">
             <span>Site conçu &amp; développé par</span>
             <a

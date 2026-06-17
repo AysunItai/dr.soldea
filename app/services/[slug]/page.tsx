@@ -148,7 +148,7 @@ function Header({ service }: { service: Service }) {
         className="absolute -top-32 -right-32 h-[460px] w-[460px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(58,141,150,0.18), transparent 70%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.18), transparent 70%)",
         }}
       />
       <div className="container-page relative pt-20 pb-12 md:pt-28 md:pb-16">
@@ -238,7 +238,7 @@ function Breadcrumb({ service }: { service: Service }) {
 function Meta({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl bg-white ring-1 ring-line p-4">
-      <dt className="text-[10px] tracking-[0.25em] uppercase text-primary">
+      <dt className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
         {label}
       </dt>
       <dd className="mt-1 font-display text-base lg:text-lg text-ink leading-tight">
@@ -257,7 +257,7 @@ function BookingBody({ service }: { service: Service }) {
       <section className="bg-white py-16 md:py-20">
         <div className="container-page grid lg:grid-cols-[1fr_1.5fr] gap-10 items-start">
           <div className="lg:sticky lg:top-28">
-            <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
               Description
             </div>
             <h2 className="font-display text-3xl text-ink leading-tight text-balance">
@@ -285,7 +285,7 @@ function BookingBody({ service }: { service: Service }) {
             )}
 
             <div className="mt-10 rounded-2xl bg-cream ring-1 ring-line p-5">
-              <p className="text-xs tracking-[0.25em] uppercase text-primary">
+              <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
                 Bon à savoir
               </p>
               <p className="text-sm text-ink-soft mt-2 leading-relaxed">
@@ -321,7 +321,7 @@ function HubBody({
       <section className="bg-white py-16 md:py-20">
         <div className="container-page">
           <div className="max-w-3xl">
-            <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
               Description
             </div>
             <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance">
@@ -375,7 +375,7 @@ function HubBody({
                         <ServiceIcon name={child.icon} className="h-4 w-4" />
                       </span>
                     </div>
-                    <p className="mt-5 text-[11px] tracking-[0.22em] uppercase text-primary">
+                    <p className="mt-5 text-[11px] tracking-[0.22em] uppercase text-accent-deep font-medium">
                       {child.shortLabel} · {child.weeks}
                     </p>
                     <h4 className="mt-2 font-display text-xl text-ink leading-snug text-balance">
@@ -420,7 +420,7 @@ function LongFormSections({ service }: { service: Service }) {
     <section className="bg-cream py-16 md:py-20 border-t border-line">
       <div className="container-page grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
         <div className="lg:sticky lg:top-28">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-3">
             En savoir plus
           </div>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance">
@@ -490,7 +490,7 @@ function FaqSection({ service }: { service: Service }) {
     >
       <div className="container-page grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start">
         <div className="lg:sticky lg:top-28">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-3">
             Questions fréquentes
           </div>
           <h2
@@ -579,7 +579,7 @@ function RelatedServices({ service }: { service: Service }) {
       <div className="container-page">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-3">
               {obstetricSiblings.length > 0
                 ? "Autres trimestres"
                 : "Autres services"}
@@ -609,7 +609,7 @@ function RelatedServices({ service }: { service: Service }) {
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-primary-deep ring-1 ring-line">
                   <ServiceIcon name={s.icon} className="h-4 w-4" />
                 </span>
-                <p className="text-[10px] tracking-[0.25em] uppercase text-primary">
+                <p className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
                   {s.shortLabel ? `Écho ${s.shortLabel}` : categoryLabel(s.category)}
                 </p>
               </div>

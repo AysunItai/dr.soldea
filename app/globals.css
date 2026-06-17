@@ -1,45 +1,76 @@
 @import "tailwindcss";
 
 /*
- * Design tokens for Dr. Alexandra Soldea — a calm, modern, editorial medical
- * aesthetic: deep navy ink, soft teal primary, cream background, generous
- * type. Tokens are exposed both as CSS vars and as Tailwind theme tokens so
- * utilities like `text-ink` or `bg-primary` work everywhere.
+ * Design tokens for the Centre d'Échographie de la Femme OPÉRA — a premium
+ * women's ultrasound centre in central Lyon. Palette: deep navy as the main
+ * professional colour, rich gold as the refined premium accent, burgundy/rose
+ * as a secondary feminine accent, warm ivory/cream backgrounds.
+ *
+ * Mapping note: the brand's *readable* accent (eyebrows, links, dots) is the
+ * burgundy/rose, exposed through the `primary` family so existing
+ * `text-primary` / `bg-primary` utilities pick it up everywhere and stay
+ * AA-compliant on light surfaces. Gold (`accent`) is reserved for the
+ * decorative luxury layer — hairlines, dividers, glows, the medallion logo,
+ * and gold-on-navy accents — where contrast is never an issue. This keeps the
+ * site premium and coherent without turning it loud or "all gold".
  */
 :root {
-  --color-bg: #ffffff;
-  --color-cream: #fbfaf6;
-  --color-cream-deep: #f4f1e9;
-  --color-ink: #0b1f3d;
+  /* Warm ivory base — the whole canvas reads warm, never cold white. */
+  --color-bg: #fbf7f0;
+  /* Champagne creams — richer and warmer than a pale flat cream so
+   * alternating sections feel layered, not empty. */
+  --color-cream: #f4e9d8;
+  --color-cream-deep: #efe3cf;
+  --color-champagne: #f4e9d8;
+  --color-champagne-deep: #ead9bc;
+  /* Deep navy — the main professional base. `ink-deep` is the richest
+   * navy used on the dark CTA / footer panels. */
+  --color-ink: #0b1f3a;
+  --color-ink-deep: #071a33;
   --color-ink-soft: #3b4a66;
-  /* Slightly darker than #6b7a93 so body-secondary text passes WCAG AA
-   * (≈ 6.8:1 on #fff, ≈ 6.5:1 on cream) without changing the visual
-   * register of the palette. */
-  --color-muted: #525c6f;
-  --color-line: #e7e8ea;
+  /* Body-secondary text — passes WCAG AA on ivory and champagne. */
+  --color-muted: #54607a;
+  /* Warm gold-tinted hairline — gives visible-but-refined gold borders
+   * site-wide wherever `ring-line` / `border-line` is used. */
+  --color-line: #e4d6b6;
 
-  /* Brand teal — darkened just enough that the small uppercase eyebrows
-   * styled with `text-primary` clear AA on both white and cream
-   * (≈ 4.77:1 on #fff, ≈ 4.56:1 on cream). Dots/halos using `bg-primary`
-   * stay visually identical. */
-  --color-primary: #2f7d86;
-  --color-primary-soft: #d8ecee;
-  --color-primary-deep: #2a6d75;
-  --color-accent: #c9a96a;
+  /* Burgundy / rose — the luxury feminine accent. `primary` is the
+   * readable text accent (eyebrows, links, dots): ≈ 7:1 on ivory.
+   * `primary-deep` is a rich burgundy for strong emphasis; `rose` is a
+   * lighter feminine tone for tints and accents. */
+  --color-primary: #8f3d56;
+  --color-primary-soft: #f3e0e5;
+  --color-primary-deep: #7a263d;
+  --color-rose: #a34c63;
+
+  /* Rich gold — the premium accent. `accent` is the workhorse gold;
+   * `accent-deep` is an AA-safe gold for small labels on light surfaces;
+   * `accent-soft` is a champagne gold for gentle glows and tints. */
+  --color-accent: #c9a24a;
+  /* Deep antique gold for small labels — AA on white, ivory AND champagne
+   * (≈ 5.8:1 / 5.4:1 / 4.9:1). */
+  --color-accent-deep: #7e6019;
+  --color-accent-soft: #e7cf94;
 }
 
 @theme inline {
   --color-background: var(--color-bg);
   --color-cream: var(--color-cream);
   --color-cream-deep: var(--color-cream-deep);
+  --color-champagne: var(--color-champagne);
+  --color-champagne-deep: var(--color-champagne-deep);
   --color-ink: var(--color-ink);
+  --color-ink-deep: var(--color-ink-deep);
   --color-ink-soft: var(--color-ink-soft);
   --color-muted: var(--color-muted);
   --color-line: var(--color-line);
   --color-primary: var(--color-primary);
   --color-primary-soft: var(--color-primary-soft);
   --color-primary-deep: var(--color-primary-deep);
+  --color-rose: var(--color-rose);
   --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-accent-deep);
+  --color-accent-soft: var(--color-accent-soft);
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
@@ -50,8 +81,17 @@
 
 html,
 body {
-  background: var(--color-bg);
   color: var(--color-ink);
+}
+
+/* Warm ivory canvas with a whisper of champagne/gold light at the very top —
+ * gives the whole site a richer, layered base than flat cream without any
+ * heavy gradient. Purely a paint; no effect on layout (CLS-safe). */
+body {
+  background:
+    radial-gradient(110% 55% at 50% -8%, rgba(201, 162, 74, 0.08), transparent 60%),
+    var(--color-bg);
+  background-repeat: no-repeat;
 }
 
 body {
@@ -95,6 +135,52 @@ body {
 
   .ring-soft {
     box-shadow: 0 1px 0 rgba(11, 31, 61, 0.04), 0 12px 30px -12px rgba(11, 31, 61, 0.12);
+  }
+
+  /* Elegant gold divider — a hairline that fades in from both ends.
+   * Used under section eyebrows and as refined section rules. */
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-accent) 85%, transparent),
+      transparent
+    );
+  }
+
+  /* Short solid gold tick — pairs with an eyebrow label. */
+  .gold-tick {
+    display: inline-block;
+    width: 1.75rem;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent),
+      color-mix(in oklab, var(--color-accent) 40%, transparent)
+    );
+  }
+
+  /* Premium card top accent — a thin gold gradient rule that intensifies
+   * on hover. Apply on a positioned card; the rule sits flush at the top. */
+  .card-gold-top::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklab, var(--color-accent) 70%, transparent),
+      transparent
+    );
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  .card-gold-top:hover::before {
+    opacity: 1;
   }
 }
 

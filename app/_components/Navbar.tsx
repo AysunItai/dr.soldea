@@ -16,18 +16,27 @@ export function Navbar() {
       <div className="container-page flex items-center justify-between h-20">
         <Link
           href="/"
-          aria-label="Dr. Alexandra Soldea — Accueil"
-          className="flex items-center group"
+          aria-label="Centre d'Échographie de la Femme OPÉRA — Accueil"
+          className="flex items-center gap-3 group"
         >
           <Image
             src="/logo.png"
-            alt="Dr. Alexandra Soldea — Gynécologue Obstétricienne"
-            width={366}
-            height={85}
+            alt="Logo du Centre d'Échographie de la Femme OPÉRA"
+            width={1254}
+            height={1254}
             loading="eager"
             fetchPriority="low"
-            className="h-11 w-auto md:h-12"
+            sizes="48px"
+            className="h-10 w-10 md:h-11 md:w-11 rounded-full ring-1 ring-accent/40 shadow-[0_6px_16px_-8px_rgba(11,31,58,0.4)]"
           />
+          <span className="hidden sm:flex flex-col leading-none">
+            <span className="font-display text-[15px] md:text-base text-ink tracking-tight">
+              Centre d&apos;Échographie de la Femme
+            </span>
+            <span className="mt-1 text-[10px] md:text-[11px] tracking-[0.34em] uppercase text-accent-deep font-medium">
+              OPÉRA · Lyon
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-2" aria-label="Principal">
@@ -97,12 +106,13 @@ export function Navbar() {
             </div>
           </div>
 
+          <DesktopLink href="/equipe">Équipe</DesktopLink>
           <DesktopLink href="/presentation">Présentation</DesktopLink>
           <DesktopLink href="/contact">Contact</DesktopLink>
 
           <Link
             href="/services"
-            className="ml-3 inline-flex items-center justify-center rounded-full bg-ink text-white text-sm font-medium h-10 px-5 hover:bg-primary-deep transition-colors"
+            className="ml-3 inline-flex items-center justify-center rounded-full bg-ink text-white text-sm font-medium h-10 px-5 ring-1 ring-accent/40 hover:bg-ink-deep hover:ring-accent/70 transition-colors"
           >
             Prendre rendez-vous
           </Link>

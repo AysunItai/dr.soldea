@@ -28,12 +28,19 @@ export function Section({
         {(eyebrow || title || description) && (
           <div className={`max-w-2xl ${alignClass} mb-12 md:mb-16`}>
             {eyebrow && (
-              <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
-                {eyebrow}
+              <div
+                className={`flex items-center gap-3 mb-5 ${
+                  align === "center" ? "justify-center" : ""
+                }`}
+              >
+                <span aria-hidden className="gold-tick" />
+                <span className="text-[11px] font-medium tracking-[0.34em] uppercase text-accent-deep">
+                  {eyebrow}
+                </span>
               </div>
             )}
             {title && (
-              <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] text-balance">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[3.25rem] text-ink leading-[1.04] tracking-[-0.015em] text-balance">
                 {title}
               </h2>
             )}

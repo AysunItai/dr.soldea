@@ -8,6 +8,7 @@ import { NAV_SERVICES } from "@/lib/services";
 
 const PRIMARY_LINKS = [
   { href: "/", label: "Accueil" },
+  { href: "/equipe", label: "Équipe" },
   { href: "/presentation", label: "Présentation" },
   { href: "/contact", label: "Contact" },
 ] as const;

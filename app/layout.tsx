@@ -22,24 +22,29 @@ const display = Fraunces({
   adjustFontFallback: true,
 });
 
+const HOME_TITLE =
+  "Centre d'Échographie de la Femme OPÉRA — Échographie à Lyon";
+const HOME_DESCRIPTION =
+  "Centre d'Échographie de la Femme OPÉRA : échographies gynécologiques et obstétricales au cœur de Lyon, avec Dr Alexandra Soldea et son équipe. Suivi de grossesse, échographies T1, T2, T3 et consultations sur rendez-vous.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Échographie & gynécologue à Lyon — Dr. Soldea",
-    template: "%s · Dr. Alexandra Soldea",
+    default: HOME_TITLE,
+    template: "%s · Centre d'Échographie de la Femme OPÉRA",
   },
-  description:
-    "Gynécologue et échographiste à Lyon et Miribel. Échographies de grossesse agréées Aurore (T1, T2, T3), suivi gynécologique et rendez-vous en ligne.",
-  applicationName: "Dr. Alexandra Soldea",
+  description: HOME_DESCRIPTION,
+  applicationName: "Centre d'Échographie de la Femme OPÉRA",
   authors: [{ name: "Dr. Alexandra Soldea" }],
   creator: "ITAI Web Solutions",
-  publisher: "ITAI Web Solutions",
+  publisher: "Centre d'Échographie de la Femme OPÉRA",
   keywords: [
-    "échographie Lyon",
-    "échographie gynécologique Lyon",
-    "échographie pelvienne Lyon",
+    "Centre d'Échographie de la Femme OPÉRA",
+    "centre d'échographie à Lyon",
+    "échographie de la femme à Lyon",
+    "échographie gynécologique à Lyon",
+    "échographie obstétricale à Lyon",
     "échographie grossesse Lyon",
-    "échographie obstétricale Lyon",
     "échographie 1er trimestre Lyon",
     "échographie morphologique Lyon",
     "écho T1 Lyon",
@@ -47,10 +52,8 @@ export const metadata: Metadata = {
     "écho T3 Lyon",
     "gynécologue Lyon",
     "gynécologue obstétricienne Lyon",
-    "endométriose Lyon",
+    "suivi de grossesse Lyon",
     "Dr Alexandra Soldea",
-    "cabinet gynécologue Miribel",
-    "téléconsultation gynécologue",
     "réseau Aurore",
   ],
   alternates: {
@@ -60,27 +63,31 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: canonicalUrl("/"),
-    title: "Échographie & gynécologue à Lyon — Dr. Soldea",
-    description:
-      "Gynécologue et échographiste à Lyon et Miribel. Échographies de grossesse agréées Aurore (T1, T2, T3), suivi gynécologique et rendez-vous en ligne.",
-    siteName: "Dr. Alexandra Soldea",
-    // Facebook / LinkedIn social card. The hero image is reused so we
-    // ship a single optimised asset; replace with a dedicated 1200×630
-    // export later if you want richer share previews.
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    siteName: "Centre d'Échographie de la Femme OPÉRA",
+    // Facebook / LinkedIn social card. The brand medallion is shown first
+    // (recognisable square mark), with the consultation-room photo as a
+    // richer secondary preview where the platform supports it.
     images: [
+      {
+        url: "/logo.png",
+        width: 1254,
+        height: 1254,
+        alt: "Logo du Centre d'Échographie de la Femme OPÉRA",
+      },
       {
         url: "/hero1.webp",
         width: 680,
         height: 453,
-        alt: "Cabinet du Dr. Alexandra Soldea — gynécologue obstétricienne à Lyon et Miribel",
+        alt: "Centre d'Échographie de la Femme OPÉRA — salle de consultation à Lyon",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Échographie & gynécologue à Lyon — Dr. Soldea",
-    description:
-      "Gynécologue et échographiste à Lyon et Miribel. Échographies de grossesse agréées Aurore (T1, T2, T3), suivi gynécologique et rendez-vous en ligne.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     images: ["/hero1.webp"],
   },
   robots: {
@@ -97,7 +104,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1f3d",
+  themeColor: "#0b1f3a",
   width: "device-width",
   initialScale: 1,
 };

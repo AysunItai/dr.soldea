@@ -19,32 +19,22 @@ const ContactForm = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact & rendez-vous",
   description:
-    "Contactez le cabinet du Dr. Alexandra Soldea à Lyon et Miribel : téléphone, formulaire de contact et plans d'accès. Réponse du secrétariat en semaine.",
+    "Contactez le Centre d'Échographie de la Femme OPÉRA à Lyon : téléphone, formulaire de contact et plan d'accès. 9 rue du Président Édouard Herriot, 69001 Lyon.",
   alternates: { canonical: canonicalUrl("/contact") },
 };
 
 const ADDRESSES = [
   {
-    city: "Miribel",
-    title: "Cabinet principal",
-    address: "63 place de la République, 01700 Miribel",
-    detail: null as string | null,
-    mapsUrl:
-      "https://www.google.com/maps?q=63+place+de+la+République+01700+Miribel",
-    embed:
-      "https://www.google.com/maps?q=63+place+de+la+R%C3%A9publique+01700+Miribel&output=embed",
-  },
-  {
     city: "Lyon",
-    title: "Cabinet d'échographie à Lyon",
-    address: "4 rue du Président Carnot, 69002 Lyon",
+    title: "Centre d'Échographie de la Femme OPÉRA",
+    address: "9 rue du Président Édouard Herriot, 69001 Lyon",
     detail: "Consultations gynécologiques et échographies sur rendez-vous.",
     mapsUrl:
-      "https://www.google.com/maps?q=4+rue+du+Président+Carnot+69002+Lyon",
+      "https://www.google.com/maps?q=9+rue+du+Pr%C3%A9sident+%C3%89douard+Herriot+69001+Lyon",
     embed:
-      "https://www.google.com/maps?q=4+rue+du+Pr%C3%A9sident+Carnot+69002+Lyon&output=embed",
+      "https://www.google.com/maps?q=9+rue+du+Pr%C3%A9sident+%C3%89douard+Herriot+69001+Lyon&output=embed",
   },
 ];
 
@@ -75,21 +65,23 @@ function Header() {
     <section className="relative bg-cream overflow-hidden">
       <div className="absolute inset-0 bg-grid-soft opacity-50" />
       <div className="container-page relative pt-24 pb-16 md:pt-32 md:pb-20 max-w-3xl">
-        <div className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur ring-1 ring-line px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-primary-deep">
+        <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur ring-1 ring-accent/40 px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-primary-deep shadow-[0_10px_30px_-18px_rgba(122,38,61,0.5)]">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
           Contact
         </div>
         <h1 className="mt-6 font-display text-[clamp(2.75rem,6vw,4.5rem)] leading-[0.98] tracking-[-0.01em] text-ink text-balance">
-          Parlons de votre suivi.
+          Contact &amp; <span className="italic text-primary-deep">rendez-vous</span>.
         </h1>
         <p className="mt-6 text-lg text-ink-soft text-pretty">
-          Une question administrative, un imprévu ou un retard ? Envoyez-nous un
-          message ou appelez directement le secrétariat. Pour prendre
-          rendez-vous, utilisez la prise de rendez-vous en ligne.
+          Pour toute demande administrative ou question relative à votre suivi,
+          vous pouvez contacter le Centre d&apos;Échographie de la Femme OPÉRA à
+          Lyon. Pour prendre rendez-vous, utilisez la prise de rendez-vous en
+          ligne.
         </p>
         <p className="mt-4 text-lg text-ink-soft text-pretty">
-          Dr Alexandra Soldea vous accueille à Lyon et Miribel pour les
-          échographies gynécologiques et obstétricales, le suivi de grossesse et
-          les consultations spécialisées.
+          Dr Alexandra Soldea et son équipe vous accueillent au cœur de Lyon
+          pour les échographies gynécologiques et obstétricales, le suivi de
+          grossesse et les consultations spécialisées.
         </p>
       </div>
     </section>
@@ -115,9 +107,9 @@ function InfoStrip() {
       ),
     },
     {
-      label: "Miribel",
-      value: "63 place de la République",
-      detail: "01700 Miribel",
+      label: "Le centre",
+      value: "9 rue du Président Édouard Herriot",
+      detail: "69001 Lyon · Quartier Opéra",
       href: ADDRESSES[0].mapsUrl,
       icon: (
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
@@ -131,19 +123,15 @@ function InfoStrip() {
       ),
     },
     {
-      label: "Lyon",
-      value: "Cabinet d'échographie à Lyon",
+      label: "Rendez-vous",
+      value: "Réservation en ligne",
       detail:
-        "4 rue du Président Carnot, 69002 Lyon · Consultations gynécologiques et échographies sur rendez-vous.",
-      href: "/echographie-gynecologique-obstetricale-lyon",
+        "Échographies et consultations sur rendez-vous, confirmation immédiate.",
+      href: "/services",
       icon: (
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-          <path
-            d="M3 21V8l9-5 9 5v13M9 21v-7h6v7"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
+          <rect x="3.5" y="5" width="17" height="15" rx="2.2" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M8 3.5v3M16 3.5v3M3.5 10h17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       ),
     },
@@ -164,13 +152,13 @@ function InfoStrip() {
                 ? "noopener noreferrer"
                 : undefined
             }
-            className="group rounded-2xl bg-white ring-1 ring-line p-6 flex gap-4 hover:ring-primary/40 hover:-translate-y-0.5 transition-all"
+            className="card-gold-top relative group rounded-2xl bg-white ring-1 ring-line shadow-[0_24px_60px_-40px_rgba(7,26,51,0.25)] p-6 flex gap-4 hover:ring-accent/50 hover:-translate-y-1 transition-all"
           >
-            <span className="shrink-0 h-12 w-12 rounded-full bg-primary-soft text-primary-deep grid place-content-center">
+            <span className="shrink-0 h-12 w-12 rounded-full bg-primary-soft text-primary-deep ring-1 ring-accent/40 grid place-content-center">
               {item.icon}
             </span>
             <div>
-              <p className="text-[11px] tracking-[0.25em] uppercase text-primary mb-1">
+              <p className="text-[11px] tracking-[0.25em] uppercase text-accent-deep font-medium mb-1">
                 {item.label}
               </p>
               <p className="font-display text-lg text-ink leading-tight">
@@ -190,7 +178,7 @@ function FormSection() {
     <section className="bg-cream py-20 md:py-24">
       <div className="container-page grid lg:grid-cols-[1fr_1.4fr] gap-12 items-start max-w-6xl">
         <div className="lg:sticky lg:top-28">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
             Envoyer un message
           </div>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance">
@@ -203,7 +191,7 @@ function FormSection() {
           </p>
 
           <div className="mt-8 rounded-2xl bg-white ring-1 ring-line p-5">
-            <p className="text-xs tracking-[0.25em] uppercase text-primary">
+            <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
               Prendre rendez-vous
             </p>
             <p className="text-sm text-ink-soft mt-2 text-pretty">
@@ -222,7 +210,7 @@ function FormSection() {
             aria-label="Services à Lyon"
             className="mt-6 rounded-2xl bg-white ring-1 ring-line p-5"
           >
-            <p className="text-xs tracking-[0.25em] uppercase text-primary">
+            <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
               À Lyon
             </p>
             <ul className="mt-3 space-y-2 text-sm">
@@ -267,11 +255,11 @@ function Maps() {
     <section className="bg-white py-20 md:py-24">
       <div className="container-page">
         <div className="text-center mb-12">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
             Plan d&apos;accès
           </div>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
-            Deux adresses pour vous accueillir.
+            Au cœur de Lyon.
           </h2>
         </div>
 
@@ -280,21 +268,21 @@ function Maps() {
             Consultations et échographies à Lyon
           </h3>
           <p className="mt-4 text-ink-soft text-pretty leading-relaxed">
-            Le cabinet de Lyon permet aux patientes du centre de Lyon
-            d&apos;accéder aux consultations de gynécologie, au suivi de
-            grossesse et aux échographies gynécologiques et obstétricales avec
-            Dr Alexandra Soldea.{" "}
+            Le Centre d&apos;Échographie de la Femme OPÉRA accueille les
+            patientes au cœur de Lyon pour les consultations de gynécologie, le
+            suivi de grossesse et les échographies gynécologiques et
+            obstétricales avec Dr Alexandra Soldea et son équipe.{" "}
             <Link
               href="/echographie-gynecologique-obstetricale-lyon"
               className="text-primary-deep hover:text-ink transition-colors"
             >
-              En savoir plus sur le cabinet de Lyon
+              En savoir plus sur le centre de Lyon
             </Link>
             .
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 max-w-3xl mx-auto">
           {ADDRESSES.map((a) => (
             <div
               key={a.city}
@@ -307,7 +295,7 @@ function Maps() {
               />
               <div className="p-5 flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-xs tracking-[0.25em] uppercase text-primary">
+                  <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
                     {a.city}
                   </p>
                   <p className="font-display text-lg text-ink mt-1 leading-snug">

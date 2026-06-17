@@ -90,22 +90,23 @@ export type Service = {
   keywords?: string[];
 };
 
-const PRIMARY_COLOR = "45bfcc";
+// Calendly widget accent — matches the brand burgundy/rose accent.
+const PRIMARY_COLOR = "8f3d56";
 
 const calendly = (eventSlug: string) =>
   `https://calendly.com/dralexandrasoldea/${eventSlug}?primary_color=${PRIMARY_COLOR}`;
 
 /**
  * Geographic keywords reused across obstetric ultrasound pages. They
- * target the doctor's catchment: Miribel (where the cabinet is) and the
- * neighbouring Lyon agglomeration.
+ * target the centre's catchment: Lyon (where the centre is, quartier Opéra)
+ * and the surrounding metropolitan area.
  */
 const OBSTETRIC_GEO_KEYWORDS = [
   "Lyon",
-  "Miribel",
+  "Lyon 1er",
+  "Presqu'île",
   "Villeurbanne",
-  "Saint-Maurice-de-Beynost",
-  "Ain",
+  "Caluire",
   "Rhône",
 ];
 
@@ -137,7 +138,7 @@ export const SERVICES: Service[] = [
       {
         question: "Dans quels cas une téléconsultation gynécologique est-elle adaptée ?",
         answer:
-          "La téléconsultation est adaptée aux situations qui ne nécessitent pas d'examen clinique : renouvellement d'une contraception ou d'un traitement, interprétation de résultats biologiques ou d'imagerie, conseils en cas de symptômes simples, second avis ou échange préparatoire à une consultation en cabinet. En cas de doute, le Dr. Soldea vous orientera vers une consultation en présentiel à Miribel.",
+          "La téléconsultation est adaptée aux situations qui ne nécessitent pas d'examen clinique : renouvellement d'une contraception ou d'un traitement, interprétation de résultats biologiques ou d'imagerie, conseils en cas de symptômes simples, second avis ou échange préparatoire à une consultation en cabinet. En cas de doute, le Dr. Soldea vous orientera vers une consultation en présentiel au centre de Lyon.",
       },
       {
         question: "La téléconsultation est-elle remboursée par la Sécurité sociale ?",
@@ -164,15 +165,15 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "echographie-gynecologique",
-    title: "Échographie gynécologique (pelvienne) à Lyon & Miribel",
+    title: "Échographie gynécologique (pelvienne) à Lyon",
     shortTitle: "Échographie gynécologique",
     seoTitle: "Échographie pelvienne à Lyon",
     tagline:
       "Exploration pelvienne par voie sus-pubienne et endo-vaginale — utérus, ovaires, pelvis.",
     description:
-      "Examen d'imagerie approfondi de l'utérus, des ovaires et du pelvis pour le diagnostic et le suivi des principales pathologies gynécologiques : kystes ovariens, fibromes utérins, endométriose, polypes endométriaux, contrôle de stérilet (DIU), bilan de douleurs pelviennes et de saignements anormaux. Réalisée au cabinet du Dr. Alexandra Soldea à Miribel, à 15 minutes de Lyon, par une praticienne titulaire du DIU d'échographie gynécologique et obstétricale (Paris Descartes).",
+      "Examen d'imagerie approfondi de l'utérus, des ovaires et du pelvis pour le diagnostic et le suivi des principales pathologies gynécologiques : kystes ovariens, fibromes utérins, endométriose, polypes endométriaux, contrôle de stérilet (DIU), bilan de douleurs pelviennes et de saignements anormaux. Réalisée au Centre d'Échographie de la Femme OPÉRA, au cœur de Lyon, par une praticienne titulaire du DIU d'échographie gynécologique et obstétricale (Paris Descartes).",
     durationMinutes: 20,
-    location: "Miribel",
+    location: "Lyon",
     category: "echographie",
     icon: "sonogram",
     calendlyUrl: calendly("echographie-gynecologique-pelvienne"),
@@ -234,7 +235,7 @@ export const SERVICES: Service[] = [
         question:
           "Où est réalisée l'échographie ? Le cabinet est-il accessible depuis Lyon ?",
         answer:
-          "L'échographie gynécologique est réalisée au cabinet du Dr. Alexandra Soldea, 63 place de la République à Miribel (01700), à environ 15 minutes du centre de Lyon par la D1084. Le cabinet est facilement accessible en voiture (parking à proximité) et dessert toute la métropole de Lyon (Villeurbanne, Caluire, Rillieux-la-Pape, Vaulx-en-Velin) ainsi que la Côtière de l'Ain.",
+          "L'échographie gynécologique est réalisée au Centre d'Échographie de la Femme OPÉRA, 9 rue du Président Édouard Herriot, 69001 Lyon, en plein cœur de la Presqu'île (quartier Opéra). Le centre est accessible en métro (ligne A, Cordeliers ou Hôtel de Ville) et dessert toute la métropole de Lyon (Villeurbanne, Caluire, Rillieux-la-Pape, Vaulx-en-Velin).",
       },
       {
         question: "Faut-il une ordonnance pour une échographie pelvienne ?",
@@ -243,11 +244,11 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie pelvienne à Lyon et Miribel : utérus, ovaires, pelvis. Bilan endométriose, fibromes, kystes et contrôle de stérilet (DIU).",
+      "Échographie pelvienne à Lyon : utérus, ovaires, pelvis. Bilan endométriose, fibromes, kystes et contrôle de stérilet (DIU).",
     keywords: [
       "échographie gynécologique Lyon",
       "échographie pelvienne Lyon",
-      "échographie pelvienne Miribel",
+      "échographie pelvienne Lyon 1er",
       "endométriose Lyon",
       "kyste ovarien",
       "fibrome utérin",
@@ -257,15 +258,15 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "echographie-obstetricale",
-    title: "Échographies obstétricales à Lyon & Miribel",
+    title: "Échographies obstétricales à Lyon",
     shortTitle: "Échographie obstétricale",
     seoTitle: "Échographie obstétricale à Lyon",
     tagline:
       "Les trois échographies obligatoires du suivi de grossesse — T1, T2, T3.",
     description:
-      "Échographiste agréée du réseau de périnatalité Aurore, le Dr. Alexandra Soldea réalise les trois échographies de dépistage prénatal recommandées : 1er trimestre (clarté nucale), 2e trimestre (morphologique) et 3e trimestre (croissance). Examens réalisés au cabinet de Miribel — à 15 minutes du centre de Lyon.",
+      "Échographiste agréée du réseau de périnatalité Aurore, le Dr. Alexandra Soldea réalise les trois échographies de dépistage prénatal recommandées : 1er trimestre (clarté nucale), 2e trimestre (morphologique) et 3e trimestre (croissance). Examens réalisés au Centre d'Échographie de la Femme OPÉRA, au cœur de Lyon.",
     durationMinutes: 30,
-    location: "Miribel",
+    location: "Lyon",
     category: "echographie",
     group: "obstetrical",
     icon: "fetus",
@@ -278,14 +279,14 @@ export const SERVICES: Service[] = [
       "Échographiste agréée du réseau de périnatalité Aurore",
       "Trois trimestres : T1 (clarté nucale), T2 (morphologique), T3 (croissance)",
       "Compte-rendu remis en main propre à l'issue de l'examen",
-      "Cabinet à Miribel — facilement accessible depuis Lyon et l'Ain",
+      "Centre au cœur de Lyon — quartier Opéra (1er arrondissement)",
     ],
     faqs: [
       {
         question:
           "Combien d'échographies sont obligatoires pendant la grossesse ?",
         answer:
-          "La Haute Autorité de Santé recommande trois échographies de dépistage pendant une grossesse normale : l'écho du 1er trimestre (entre 11 et 13 SA + 6 jours), l'écho du 2e trimestre dite morphologique (entre 22 et 24 SA), et l'écho du 3e trimestre (entre 31 et 34 SA). Au cabinet du Dr. Alexandra Soldea à Miribel, les trois sont réalisées par une échographiste agréée du réseau Aurore.",
+          "La Haute Autorité de Santé recommande trois échographies de dépistage pendant une grossesse normale : l'écho du 1er trimestre (entre 11 et 13 SA + 6 jours), l'écho du 2e trimestre dite morphologique (entre 22 et 24 SA), et l'écho du 3e trimestre (entre 31 et 34 SA). Au Centre d'Échographie de la Femme OPÉRA à Lyon, les trois sont réalisées par une échographiste agréée du réseau Aurore.",
       },
       {
         question:
@@ -301,9 +302,9 @@ export const SERVICES: Service[] = [
       },
       {
         question:
-          "Le cabinet est à Miribel — est-ce accessible depuis Lyon ?",
+          "Où se situe le centre et est-il facile d'accès à Lyon ?",
         answer:
-          "Oui. Le cabinet du Dr. Alexandra Soldea est situé 63 place de la République à Miribel (01700), à environ 15 minutes du centre de Lyon par la D1084. Il est facilement accessible en voiture (parking à proximité) et dessert toute la métropole de Lyon ainsi que l'Ain et la Côtière.",
+          "Le Centre d'Échographie de la Femme OPÉRA est situé 9 rue du Président Édouard Herriot, 69001 Lyon, en plein cœur de la Presqu'île (quartier Opéra). Il est facilement accessible en métro (ligne A, Cordeliers ou Hôtel de Ville–Louis Pradel), en bus et via les parkings publics à proximité, et dessert toute la métropole de Lyon.",
       },
       {
         question: "Faut-il un rendez-vous pour une échographie obstétricale ?",
@@ -312,7 +313,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographies obstétricales T1, T2 et T3 à Lyon et Miribel. Échographiste agréée réseau Aurore. Prise de rendez-vous en ligne.",
+      "Échographies obstétricales T1, T2 et T3 à Lyon. Échographiste agréée réseau Aurore. Prise de rendez-vous en ligne.",
     keywords: [
       "échographie obstétricale Lyon",
       "échographie grossesse Lyon",
@@ -333,7 +334,7 @@ export const SERVICES: Service[] = [
     description:
       "L'échographie du 1er trimestre, ou écho T1, est un examen essentiel du suivi de grossesse. Réalisée entre 11 et 13 semaines + 6 jours d'aménorrhée, elle confirme l'évolution normale de la grossesse, mesure la clarté nucale dans le cadre du dépistage de la trisomie 21 et permet de dater précisément le terme.",
     durationMinutes: 25,
-    location: "Miribel",
+    location: "Lyon",
     category: "echographie",
     group: "obstetrical",
     icon: "fetus",
@@ -395,7 +396,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie du 1er trimestre à Lyon et Miribel (11–13 SA). Clarté nucale, datation et vitalité fœtale. Échographiste agréée réseau Aurore.",
+      "Échographie du 1er trimestre à Lyon (11–13 SA). Clarté nucale, datation et vitalité fœtale. Échographiste agréée réseau Aurore.",
     keywords: [
       "échographie 1er trimestre Lyon",
       "écho T1 Lyon",
@@ -418,7 +419,7 @@ export const SERVICES: Service[] = [
     description:
       "L'échographie du 2e trimestre, aussi appelée écho T2 ou échographie morphologique, est un examen clé du suivi de grossesse. Réalisée entre 22 et 24 semaines d'aménorrhée, elle étudie en détail l'anatomie du bébé et permet de dépister d'éventuelles malformations.",
     durationMinutes: 35,
-    location: "Miribel",
+    location: "Lyon",
     category: "echographie",
     group: "obstetrical",
     icon: "fetus",
@@ -480,12 +481,12 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie morphologique du 2e trimestre à Lyon et Miribel (22–24 SA). Examen anatomique détaillé du bébé. Réseau Aurore.",
+      "Échographie morphologique du 2e trimestre à Lyon (22–24 SA). Examen anatomique détaillé du bébé. Réseau Aurore.",
     keywords: [
       "échographie morphologique Lyon",
       "écho T2 Lyon",
       "échographie 2e trimestre",
-      "échographie morphologique Miribel",
+      "échographie morphologique Lyon 1er",
       ...OBSTETRIC_GEO_KEYWORDS,
     ],
   },
@@ -502,7 +503,7 @@ export const SERVICES: Service[] = [
     description:
       "L'échographie du 3e trimestre, ou écho T3, est réalisée entre 31 et 34 semaines d'aménorrhée. Elle permet de contrôler la croissance du bébé, sa position et son bien-être, afin de préparer la fin de grossesse dans les meilleures conditions.",
     durationMinutes: 30,
-    location: "Miribel",
+    location: "Lyon",
     category: "echographie",
     group: "obstetrical",
     icon: "fetus",
@@ -545,7 +546,7 @@ export const SERVICES: Service[] = [
         question:
           "Les images 3D / 4D sont-elles systématiques lors de l'écho T3 ?",
         answer:
-          "Les images 3D et 4D ne sont pas obligatoires : ce sont des vues complémentaires à l'examen médical, qui peuvent être réalisées lorsque la position du bébé et la qualité de l'imagerie le permettent. Au cabinet du Dr. Soldea à Miribel, elles sont proposées dans le cadre standard de l'écho T3, sans surcoût.",
+          "Les images 3D et 4D ne sont pas obligatoires : ce sont des vues complémentaires à l'examen médical, qui peuvent être réalisées lorsque la position du bébé et la qualité de l'imagerie le permettent. Au Centre d'Échographie de la Femme OPÉRA à Lyon, elles sont proposées dans le cadre standard de l'écho T3, sans surcoût.",
       },
       {
         question: "Faut-il une vessie pleine pour l'échographie du 3e trimestre ?",
@@ -565,7 +566,7 @@ export const SERVICES: Service[] = [
       },
     ],
     metaDescription:
-      "Échographie du 3e trimestre à Lyon et Miribel (31–34 SA). Croissance, position et placenta. Images 3D/4D possibles. Réseau Aurore.",
+      "Échographie du 3e trimestre à Lyon (31–34 SA). Croissance, position et placenta. Images 3D/4D possibles. Réseau Aurore.",
     keywords: [
       "échographie 3e trimestre Lyon",
       "écho T3 Lyon",
@@ -580,13 +581,13 @@ export const SERVICES: Service[] = [
     shortTitle: "Suivi de grossesse",
     seoTitle: "Suivi de grossesse à Lyon",
     metaDescription:
-      "Suivi de grossesse avec le Dr. Alexandra Soldea à Lyon et Miribel : consultations mensuelles, examens et préparation à la naissance.",
+      "Suivi de grossesse avec le Dr. Alexandra Soldea à Lyon : consultations mensuelles, examens et préparation à la naissance.",
     tagline:
       "Un accompagnement personnalisé tout au long de votre grossesse.",
     description:
       "Consultation mensuelle de suivi obstétrical : examen clinique, surveillance biologique, conseils, préparation à l'accouchement et coordination avec la maternité.",
     durationMinutes: 30,
-    location: "Miribel",
+    location: "Lyon",
     category: "suivi",
     icon: "calendar-heart",
     // Note: the Calendly slug has 3 'sss' in `grossessse` — kept verbatim.
@@ -601,7 +602,7 @@ export const SERVICES: Service[] = [
       {
         question: "À quelle fréquence consulter pour le suivi de grossesse ?",
         answer:
-          "Le suivi de grossesse comporte une consultation mensuelle obligatoire à partir du 4e mois (4e, 5e, 6e, 7e, 8e et 9e mois). Au cabinet du Dr. Soldea à Miribel, chaque consultation comprend l'examen clinique, la prescription des examens biologiques recommandés, des conseils personnalisés et la coordination avec la maternité où aura lieu l'accouchement.",
+          "Le suivi de grossesse comporte une consultation mensuelle obligatoire à partir du 4e mois (4e, 5e, 6e, 7e, 8e et 9e mois). Au Centre d'Échographie de la Femme OPÉRA à Lyon, chaque consultation comprend l'examen clinique, la prescription des examens biologiques recommandés, des conseils personnalisés et la coordination avec la maternité où aura lieu l'accouchement.",
       },
       {
         question: "Quels examens sont prescrits pendant le suivi de grossesse ?",
@@ -622,7 +623,7 @@ export const SERVICES: Service[] = [
     keywords: [
       "suivi grossesse Lyon",
       "obstétricienne Lyon",
-      "gynécologue Miribel",
+      "gynécologue Lyon Presqu'île",
       "accouchement Sainte-Foy-lès-Lyon",
       "suivi prénatal Lyon",
     ],
@@ -633,12 +634,12 @@ export const SERVICES: Service[] = [
     shortTitle: "Contrôle de DIU",
     seoTitle: "Contrôle de stérilet à Lyon",
     metaDescription:
-      "Contrôle échographique du stérilet (DIU) à Lyon et Miribel : position, fils et tolérance. Cabinet Dr. Alexandra Soldea.",
+      "Contrôle échographique du stérilet (DIU) à Lyon : position, fils et tolérance. Centre d'Échographie de la Femme OPÉRA, Dr. Alexandra Soldea.",
     tagline: "Vérification du positionnement et du bon état de votre DIU.",
     description:
       "Consultation dédiée au contrôle échographique de votre stérilet (cuivre ou hormonal) : vérification de la position, état des fils, tolérance et conseils.",
     durationMinutes: 20,
-    location: "Miribel",
+    location: "Lyon",
     category: "suivi",
     icon: "iud",
     calendlyUrl: calendly("controle-de-sterilet-diu"),
@@ -674,7 +675,7 @@ export const SERVICES: Service[] = [
     keywords: [
       "contrôle stérilet Lyon",
       "DIU Lyon",
-      "contrôle DIU Miribel",
+      "contrôle DIU Lyon",
       "stérilet cuivre hormonal",
       "échographie stérilet",
     ],
@@ -685,12 +686,12 @@ export const SERVICES: Service[] = [
     shortTitle: "Échographie de datation",
     seoTitle: "Échographie de datation à Lyon",
     metaDescription:
-      "Échographie de datation à Lyon et Miribel (6–10 SA) : confirmation de grossesse, vitalité embryonnaire et terme prévu.",
+      "Échographie de datation à Lyon (6–10 SA) : confirmation de grossesse, vitalité embryonnaire et terme prévu.",
     tagline: "Confirmer et dater précisément votre grossesse débutante.",
     description:
       "Échographie précoce (entre 6 et 10 SA) pour confirmer la viabilité de la grossesse, dater son début et préparer le calendrier des examens à venir.",
     durationMinutes: 20,
-    location: "Miribel",
+    location: "Lyon",
     category: "echographie",
     icon: "date",
     calendlyUrl: calendly("echographie-de-datation"),
@@ -728,7 +729,7 @@ export const SERVICES: Service[] = [
     keywords: [
       "échographie datation Lyon",
       "échographie précoce grossesse Lyon",
-      "confirmation grossesse Miribel",
+      "confirmation grossesse Lyon",
       "écho 6 semaines grossesse",
     ],
   },
@@ -738,13 +739,13 @@ export const SERVICES: Service[] = [
     shortTitle: "Suivi de gynécologie",
     seoTitle: "Suivi gynécologique à Lyon",
     metaDescription:
-      "Consultation gynécologique à Lyon et Miribel : suivi annuel, contraception, frottis, dépistage et accompagnement de la ménopause.",
+      "Consultation gynécologique à Lyon : suivi annuel, contraception, frottis, dépistage et accompagnement de la ménopause.",
     tagline:
       "Consultation annuelle, contraception, dépistage et ménopause.",
     description:
       "Consultation gynécologique générale : suivi annuel, contraception, frottis et dépistages, ménopause, contraception d'urgence, prévention.",
     durationMinutes: 30,
-    location: "Miribel",
+    location: "Lyon",
     category: "consultation",
     icon: "feminine",
     calendlyUrl: calendly("rdv-de-suivi-de-gynecologie"),
@@ -779,7 +780,7 @@ export const SERVICES: Service[] = [
     keywords: [
       "gynécologue Lyon",
       "consultation gynécologique Lyon",
-      "gynécologue Miribel",
+      "gynécologue Lyon Presqu'île",
       "contraception Lyon",
       "ménopause Lyon",
       "frottis dépistage",

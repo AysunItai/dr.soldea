@@ -24,7 +24,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group relative flex flex-col rounded-[var(--radius-card)] bg-white ring-1 ring-line ring-soft overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_rgba(11,31,61,0.25)] hover:ring-primary/30"
+      className="card-gold-top group relative flex flex-col rounded-[var(--radius-card)] bg-white ring-1 ring-line ring-soft overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_50px_90px_-35px_rgba(7,26,51,0.35)] hover:ring-accent/50"
     >
       <div
         className={`relative aspect-[4/3] bg-gradient-to-br ${GRADIENT[service.category]}`}
@@ -38,14 +38,19 @@ export function ServiceCard({ service }: ServiceCardProps) {
               aria-hidden
               className="absolute -inset-6 rounded-full bg-white/60 blur-2xl"
             />
-            <div className="relative h-20 w-20 rounded-full bg-white shadow-[0_18px_40px_-20px_rgba(11,31,61,0.35)] ring-1 ring-line flex items-center justify-center text-primary-deep transition-transform duration-500 group-hover:scale-[1.04] group-hover:rotate-[-2deg]">
+            <div className="relative h-20 w-20 rounded-full bg-white shadow-[0_18px_40px_-20px_rgba(7,26,51,0.4)] ring-1 ring-accent/40 flex items-center justify-center text-primary-deep transition-transform duration-500 group-hover:scale-[1.04] group-hover:rotate-[-2deg]">
+              {/* Concentric gold hairline — the premium "seal" detail. */}
+              <span
+                aria-hidden
+                className="absolute inset-1.5 rounded-full ring-1 ring-accent/25"
+              />
               <ServiceIcon name={service.icon} className="h-9 w-9" />
             </div>
           </div>
         </div>
 
-        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/85 backdrop-blur px-3 py-1 text-[10px] tracking-[0.18em] uppercase text-primary-deep ring-1 ring-line">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur px-3 py-1 text-[10px] tracking-[0.18em] uppercase text-ink ring-1 ring-accent/30">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
           {service.location}
         </div>
 

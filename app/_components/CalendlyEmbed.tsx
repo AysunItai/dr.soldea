@@ -28,8 +28,8 @@ const CSS_HREF = "https://assets.calendly.com/assets/external/widget.css";
 
 /**
  * Compose the final Calendly URL: keep the caller's primary_color
- * (the booking events are pre-themed in 45bfcc) and add `hide_gdpr_banner=1`
- * if not already present.
+ * (the brand burgundy accent, passed via `lib/services.ts`) and add
+ * `hide_gdpr_banner=1` if not already present.
  */
 function buildCalendlyUrl(raw: string): string {
   try {

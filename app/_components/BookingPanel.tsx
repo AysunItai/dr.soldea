@@ -31,7 +31,7 @@ export function BookingPanel({ service }: BookingPanelProps) {
   return (
     <div className="rounded-2xl bg-white ring-1 ring-line p-3 md:p-4">
       <div className="px-3 py-2 mb-1">
-        <p className="text-[11px] tracking-[0.25em] uppercase text-primary">
+        <p className="text-[11px] tracking-[0.25em] uppercase text-accent-deep font-medium">
           Prendre rendez-vous
         </p>
         <p className="font-display text-xl text-ink mt-1">

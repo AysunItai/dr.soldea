@@ -13,7 +13,7 @@ import { SERVICES } from "@/lib/services";
  * stops trusting freshness signals from the sitemap. A stable, intentional
  * timestamp is a stronger SEO signal than a noisy one.
  */
-const CONTENT_LAST_MODIFIED = new Date("2026-06-11T00:00:00Z");
+const CONTENT_LAST_MODIFIED = new Date("2026-06-17T00:00:00Z");
 
 /**
  * Site map for search engine crawlers. Every static route + every
@@ -39,6 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: CONTENT_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/equipe`,
+      lastModified: CONTENT_LAST_MODIFIED,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${SITE_URL}/contact`,

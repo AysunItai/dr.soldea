@@ -14,18 +14,18 @@ const LYON_CABINET = CABINETS.find((c) => c.id === "lyon")!;
 const PAGE_PATH = "/echographie-gynecologique-obstetricale-lyon";
 
 const META_DESCRIPTION =
-  "Échographies gynécologiques et obstétricales à Lyon avec le Dr Alexandra Soldea. Suivi de grossesse et consultations sur rendez-vous, 2e arrondissement.";
+  "Échographies gynécologiques et obstétricales à Lyon, au Centre d'Échographie de la Femme OPÉRA avec Dr Alexandra Soldea. Suivi de grossesse et consultations sur rendez-vous, quartier Opéra (1er).";
 
 const FAQS = [
   {
-    question: "Où se situe le cabinet d'échographie à Lyon ?",
+    question: "Où se situe le centre d'échographie à Lyon ?",
     answer:
-      "Le cabinet de Lyon est situé au 4 rue du Président Carnot, 69002 Lyon, dans le 2e arrondissement, à proximité de la place Bellecour et de la gare Part-Dieu. Le Dr Alexandra Soldea y reçoit sur rendez-vous pour les consultations gynécologiques et les échographies gynécologiques et obstétricales.",
+      "Le Centre d'Échographie de la Femme OPÉRA est situé au 9 rue du Président Édouard Herriot, 69001 Lyon, en plein cœur de la Presqu'île, à proximité de l'Opéra de Lyon et des Cordeliers. Dr Alexandra Soldea et son équipe y reçoivent sur rendez-vous pour les consultations gynécologiques et les échographies gynécologiques et obstétricales.",
   },
   {
-    question: "Quels types d'échographies sont réalisés au cabinet de Lyon ?",
+    question: "Quels types d'échographies sont réalisés au centre de Lyon ?",
     answer:
-      "Au cabinet de Lyon, le Dr Soldea réalise les échographies gynécologiques pelviennes (utérus, ovaires, pelvis) et les échographies obstétricales de suivi de grossesse : 1er trimestre, morphologique du 2e trimestre et échographie du 3e trimestre. Elle est échographiste agréée du réseau de périnatalité Aurore.",
+      "Au Centre d'Échographie de la Femme OPÉRA, Dr Soldea réalise les échographies gynécologiques pelviennes (utérus, ovaires, pelvis) et les échographies obstétricales de suivi de grossesse : 1er trimestre, morphologique du 2e trimestre et échographie du 3e trimestre. Elle est échographiste agréée du réseau de périnatalité Aurore.",
   },
   {
     question: "Faut-il un rendez-vous pour une échographie à Lyon ?",
@@ -33,14 +33,14 @@ const FAQS = [
       "Oui, toutes les consultations et échographies sont réalisées exclusivement sur rendez-vous. Vous pouvez réserver votre créneau en ligne sur ce site, en choisissant le service souhaité. Une confirmation vous est envoyée par e-mail.",
   },
   {
-    question: "Le cabinet de Lyon est-il accessible en transports en commun ?",
+    question: "Le centre est-il accessible en transports en commun ?",
     answer:
-      "Oui. Le cabinet se trouve dans le centre de Lyon (2e arrondissement), facilement accessible en métro (lignes A et D, arrêts Bellecour ou Cordeliers), en tramway et en bus. Des parkings publics sont également disponibles à proximité pour les patientes venant en voiture.",
+      "Oui. Le centre se trouve au cœur de Lyon (1er arrondissement, quartier Opéra), facilement accessible en métro (ligne A, arrêts Cordeliers ou Hôtel de Ville–Louis Pradel), ainsi qu'en bus. Plusieurs parkings publics sont disponibles à proximité pour les patientes venant en voiture.",
   },
   {
-    question: "Le Dr Soldea exerce-t-elle aussi à Miribel ?",
+    question: "Le centre propose-t-il toutes les échographies de la femme ?",
     answer:
-      "Oui. Le Dr Alexandra Soldea reçoit également au cabinet principal de Miribel, 63 place de la République (01700), à environ 15 minutes du centre de Lyon. Les deux cabinets proposent les mêmes prestations : échographies gynécologiques et obstétricales, suivi de grossesse et consultations spécialisées.",
+      "Oui. Le Centre d'Échographie de la Femme OPÉRA est dédié à l'échographie de la femme : échographies gynécologiques pelviennes, échographies obstétricales des 1er, 2e et 3e trimestres, échographie de datation, suivi de grossesse, contrôle de stérilet (DIU) et consultations gynécologiques, le tout au même endroit à Lyon.",
   },
   {
     question: "Comment prendre rendez-vous à Lyon ?",
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
 
 export default function LyonLandingPage() {
   const mapsUrl =
-    "https://www.google.com/maps?q=4+rue+du+Président+Carnot+69002+Lyon";
+    "https://www.google.com/maps?q=9+rue+du+Pr%C3%A9sident+%C3%89douard+Herriot+69001+Lyon";
 
   return (
     <>
@@ -141,7 +141,7 @@ function Header() {
         className="absolute -top-32 -right-32 h-[460px] w-[460px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(58,141,150,0.18), transparent 70%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.18), transparent 70%)",
         }}
       />
       <div className="container-page relative pt-24 pb-16 md:pt-32 md:pb-20 max-w-3xl">
@@ -153,7 +153,8 @@ function Header() {
           <span className="text-ink-soft">Échographie à Lyon</span>
         </nav>
         <div className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur ring-1 ring-line px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-primary-deep mt-8">
-          Cabinet de Lyon
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+          Centre d&apos;Échographie de la Femme OPÉRA
         </div>
         <h1 className="mt-6 font-display text-[clamp(2.25rem,4.6vw,3.75rem)] leading-[1.04] tracking-[-0.01em] text-ink text-balance">
           Échographie gynécologique et obstétricale à Lyon
@@ -171,7 +172,7 @@ function Intro() {
     <section className="bg-white py-16 md:py-20">
       <div className="container-page grid lg:grid-cols-[1.2fr_1fr] gap-12 items-start max-w-5xl">
         <div>
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
             Le Dr Alexandra Soldea
           </div>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance">
@@ -179,16 +180,17 @@ function Intro() {
           </h2>
           <p className="mt-5 text-ink-soft text-pretty leading-relaxed">
             Gynécologue obstétricienne et échographiste agréée du réseau de
-            périnatalité Aurore, le Dr Alexandra Soldea exerce à Lyon et à
-            Miribel. Titulaire du DIU d&apos;échographie gynécologique et
-            obstétricale, elle accompagne les patientes du centre de Lyon pour
-            les échographies de grossesse, les bilans gynécologiques et le suivi
-            obstétrical.
+            périnatalité Aurore, le Dr Alexandra Soldea dirige le Centre
+            d&apos;Échographie de la Femme OPÉRA à Lyon. Titulaire du DIU
+            d&apos;échographie gynécologique et obstétricale, elle accompagne,
+            avec son équipe, les patientes pour les échographies de grossesse,
+            les bilans gynécologiques et le suivi obstétrical.
           </p>
           <p className="mt-4 text-ink-soft text-pretty leading-relaxed">
-            Le cabinet de Lyon, situé rue du Président Carnot dans le 2e
-            arrondissement, offre un accès direct aux consultations et
-            échographies pour les patientes de la métropole lyonnaise.
+            Le centre, situé 9 rue du Président Édouard Herriot dans le 1er
+            arrondissement (quartier Opéra), offre un accès direct aux
+            consultations et échographies pour les patientes de la métropole
+            lyonnaise.
           </p>
           <Link
             href="/presentation"
@@ -199,13 +201,13 @@ function Intro() {
         </div>
 
         <div className="rounded-2xl bg-cream ring-1 ring-line p-6">
-          <p className="text-xs tracking-[0.25em] uppercase text-primary">
+          <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
             Adresse
           </p>
           <p className="font-display text-xl text-ink mt-2 leading-snug">
-            4 rue du Président Carnot
+            9 rue du Président Édouard Herriot
           </p>
-          <p className="text-ink-soft mt-1">69002 Lyon</p>
+          <p className="text-ink-soft mt-1">69001 Lyon</p>
           <p className="text-sm text-muted mt-4">
             <a href="tel:+33428295516" className="hover:text-ink">
               04 28 29 55 16
@@ -227,11 +229,11 @@ function Services() {
   return (
     <section className="bg-cream py-16 md:py-20">
       <div className="container-page max-w-5xl">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+        <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
           Prestations
         </div>
         <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance">
-          Services disponibles au cabinet de Lyon
+          Services disponibles au centre de Lyon
         </h2>
         <div className="mt-10 grid md:grid-cols-3 gap-6">
           {SERVICES.map((service) => (
@@ -261,15 +263,16 @@ function Location({ mapsUrl }: { mapsUrl: string }) {
   return (
     <section className="bg-white py-16 md:py-20 border-t border-line">
       <div className="container-page max-w-5xl">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+        <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
           Accès
         </div>
         <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
-          Comment venir au cabinet de Lyon
+          Comment venir au centre de Lyon
         </h2>
         <p className="mt-5 text-ink-soft text-pretty leading-relaxed max-w-2xl">
-          Le cabinet se trouve au 4 rue du Président Carnot, dans le centre de
-          Lyon. Métro Bellecour ou Cordeliers, tramway et parkings à proximité.
+          Le centre se trouve au 9 rue du Président Édouard Herriot, en plein
+          cœur de Lyon (quartier Opéra). Métro ligne A (Cordeliers ou Hôtel de
+          Ville–Louis Pradel) et parkings publics à proximité.
         </p>
         <a
           href={mapsUrl}
@@ -293,7 +296,7 @@ function FaqSection() {
     >
       <div className="container-page grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start max-w-5xl">
         <div className="lg:sticky lg:top-28">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-3">
             Questions fréquentes
           </div>
           <h2

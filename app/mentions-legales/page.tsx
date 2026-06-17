@@ -82,7 +82,7 @@ function Body() {
           aria-label="Sommaire"
           className="lg:sticky lg:top-28 text-sm text-ink-soft"
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
             Sommaire
           </p>
           <ol className="space-y-2.5 border-l border-line pl-5">
@@ -167,22 +167,23 @@ const SECTIONS: { id: string; title: string; content: React.ReactNode }[] = [
       <>
         <p>
           Le présent site est édité par le <strong>Dr. Alexandra Soldea</strong>,
-          médecin gynécologue obstétricienne, exerçant à titre individuel.
+          médecin gynécologue obstétricienne, exerçant à titre individuel au sein
+          du <strong>Centre d&apos;Échographie de la Femme OPÉRA</strong> à Lyon.
         </p>
         <DefList
           items={[
+            {
+              label: "Centre",
+              value: "Centre d'Échographie de la Femme OPÉRA",
+            },
             {
               label: "Profession",
               value:
                 "Médecin gynécologue obstétricienne, échographiste agréée du réseau de périnatalité Aurore",
             },
             {
-              label: "Cabinet Lyon",
-              value: "4 rue du Président Carnot, 69002 Lyon",
-            },
-            {
-              label: "Cabinet Miribel",
-              value: "63 place de la République, 01700 Miribel",
+              label: "Adresse",
+              value: "9 rue du Président Édouard Herriot, 69001 Lyon",
             },
             {
               label: "Téléphone",

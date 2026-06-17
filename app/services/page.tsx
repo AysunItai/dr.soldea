@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Services & rendez-vous en ligne",
   description:
-    "Échographies T1, T2, T3, écho gynécologique, suivi de grossesse et consultations à Lyon et Miribel. Réseau Aurore. RDV en ligne 24 h/24.",
+    "Échographies T1, T2, T3, écho gynécologique, suivi de grossesse et consultations au Centre d'Échographie de la Femme OPÉRA à Lyon. Réseau Aurore. RDV en ligne 24 h/24.",
   keywords: [
     "échographie Lyon",
     "échographie gynécologique Lyon",
@@ -115,9 +115,10 @@ function Header() {
           Choisissez votre <span className="italic text-primary-deep">consultation</span>.
         </h1>
         <p className="mt-6 text-lg text-ink-soft text-pretty">
-          Échographies de grossesse à Lyon et Miribel, suivi gynécologique,
-          téléconsultation — cliquez sur un service pour découvrir son contenu
-          et réserver en ligne.
+          Échographies de grossesse à Lyon, suivi gynécologique et
+          téléconsultation au Centre d&apos;Échographie de la Femme OPÉRA —
+          cliquez sur un service pour découvrir son contenu et réserver en
+          ligne.
         </p>
       </div>
     </section>

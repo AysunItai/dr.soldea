@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Présentation",
   description:
-    "Parcours de la Dr. Alexandra Soldea, gynécologue-obstétricienne et échographiste agréée Aurore à Lyon et Miribel, praticien hospitalier à Sainte-Foy.",
+    "Parcours de la Dr. Alexandra Soldea, gynécologue-obstétricienne et échographiste agréée Aurore, fondatrice du Centre d'Échographie de la Femme OPÉRA à Lyon et praticien hospitalier à Sainte-Foy.",
   alternates: { canonical: canonicalUrl("/presentation") },
 };
 
@@ -43,7 +43,7 @@ function Header() {
         className="absolute -top-32 right-1/3 h-[500px] w-[500px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(58,141,150,0.18), transparent 70%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.18), transparent 70%)",
         }}
       />
       <div className="container-page relative pt-24 pb-20 md:pt-32 md:pb-24 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-end">
@@ -59,8 +59,9 @@ function Header() {
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-ink-soft text-pretty">
-            Le Dr. Soldea vous reçoit dans son cabinet à Miribel et exerce
-            également comme praticien hospitalier au CH de Sainte-Foy-lès-Lyon.
+            Le Dr. Soldea vous reçoit au Centre d&apos;Échographie de la Femme
+            OPÉRA, au cœur de Lyon, et exerce également comme praticien
+            hospitalier au CH de Sainte-Foy-lès-Lyon.
           </p>
         </div>
 
@@ -77,7 +78,7 @@ function Header() {
           <div className="relative rounded-[1.75rem] overflow-hidden ring-1 ring-line shadow-[0_40px_80px_-30px_rgba(11,31,61,0.30)]">
             <Image
               src="/alexandra.webp"
-              alt="Dr. Alexandra Soldea — gynécologue obstétricienne et échographiste agréée à Lyon et Miribel"
+              alt="Dr. Alexandra Soldea — gynécologue obstétricienne et échographiste agréée, Centre d'Échographie de la Femme OPÉRA à Lyon"
               width={567}
               height={600}
               preload
@@ -89,7 +90,7 @@ function Header() {
 
           {/* Small "signature" caption floating bottom-right. */}
           <div className="absolute -right-3 md:-right-5 bottom-6 hidden sm:flex flex-col items-start gap-0.5 rounded-2xl bg-white px-4 py-3 ring-1 ring-line shadow-[0_24px_50px_-24px_rgba(11,31,61,0.30)] max-w-[210px]">
-            <span className="text-[10px] tracking-[0.28em] uppercase text-primary">
+            <span className="text-[10px] tracking-[0.28em] uppercase text-accent-deep font-medium">
               Dr. Alexandra Soldea
             </span>
             <span className="text-xs text-muted leading-snug">
@@ -104,7 +105,7 @@ function Header() {
 
 function Bio() {
   const paragraphs = [
-    "Le Dr. Soldea vous reçoit dans son cabinet à Miribel. Les patientes déjà prises en charge à Jons continueront à être suivies dans son nouveau cabinet à Miribel.",
+    "Le Dr. Soldea vous reçoit au Centre d'Échographie de la Femme OPÉRA, au cœur de Lyon, où elle poursuit le suivi de ses patientes dans un cadre médical élégant et entièrement dédié à l'échographie de la femme.",
     "Elle est également praticien hospitalier à la maternité du Centre Hospitalier de Sainte-Foy-lès-Lyon, où elle pratique des accouchements, des interventions chirurgicales et assure des consultations de suivi gynécologique, de dépistage, d'endométriose, de suivi de grossesse, de contraception et de ménopause.",
     "Elle est spécialisée en échographie gynécologique et obstétricale, avec une compétence particulière dans le suivi des grossesses pathologiques.",
     "Le Dr. Soldea réalise les échographies fœtales de dépistage prénatal en tant qu'échographiste agréée auprès du réseau de périnatalité Aurore pour le dépistage de la T21 au 1er trimestre, et les échographies des 2e et 3e trimestres.",
@@ -114,7 +115,7 @@ function Bio() {
     <section className="bg-white py-20 md:py-24">
       <div className="container-page grid lg:grid-cols-[1fr_2fr] gap-12">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
             Le parcours
           </div>
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance">
@@ -184,7 +185,7 @@ function CredentialsGrid() {
         <div className="grid md:grid-cols-3 gap-10">
           {items.map((item) => (
             <div key={item.label}>
-              <h3 className="text-[11px] tracking-[0.3em] uppercase text-primary mb-5">
+              <h3 className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-5">
                 {item.label}
               </h3>
               <ul className="space-y-3">
@@ -215,8 +216,8 @@ function Experience() {
     },
     {
       period: "Depuis 2022",
-      role: "Cabinet libéral",
-      place: "Jons puis Miribel",
+      role: "Exercice libéral",
+      place: "Centre d'Échographie de la Femme OPÉRA — Lyon",
       detail: "Consultations & échographies",
     },
     {
@@ -254,7 +255,7 @@ function Experience() {
   return (
     <section className="bg-white py-20 md:py-24">
       <div className="container-page max-w-4xl">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+        <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
           Expériences
         </div>
         <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight text-balance">
@@ -311,7 +312,7 @@ function Publications() {
       <div className="container-page max-w-4xl">
         <div className="grid md:grid-cols-[1fr_2fr] gap-10 mb-10">
           <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-primary mb-4">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-accent-deep font-medium mb-4">
               Travaux & publications
             </div>
             <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
@@ -346,7 +347,7 @@ function Publications() {
 
         <div className="mt-12 rounded-2xl bg-white ring-1 ring-line p-7 flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
           <div>
-            <p className="text-xs tracking-[0.25em] uppercase text-primary">
+            <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
               Prix & distinctions
             </p>
             <p className="font-display text-xl text-ink mt-1">

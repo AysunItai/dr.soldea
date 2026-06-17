@@ -57,6 +57,18 @@ export function canonicalUrl(path: string = "/"): string {
  * Core identity reused across JSON-LD blocks
  * -----------------------------------------------------------------------*/
 
+/**
+ * The clinic/centre brand. The site is now a women's ultrasound centre in
+ * central Lyon — Dr. Alexandra Soldea remains visible (founder + lead
+ * physician) for trust and E-E-A-T, but the brand identity is the Centre.
+ */
+export const CENTRE = {
+  name: "Centre d'Échographie de la Femme OPÉRA",
+  shortName: "Centre d'Échographie OPÉRA",
+  tagline:
+    "Échographie de la femme à Lyon — gynécologie, obstétrique et suivi de grossesse.",
+} as const;
+
 /** Practitioner identity reused across JSON-LD blocks. */
 export const PRACTITIONER = {
   name: "Dr. Alexandra Soldea",
@@ -81,31 +93,23 @@ export const PRACTITIONER = {
   ].filter(Boolean),
 };
 
-/** Cabinet locations. The first entry is the primary practice address. */
+/**
+ * Centre location. The brand now operates from a single premium centre in
+ * central Lyon (quartier Opéra, 1er arrondissement). The `id` is kept as
+ * "lyon" so existing references (e.g. the Lyon landing page) keep working.
+ */
 export const CABINETS = [
   {
-    id: "miribel",
-    name: "Cabinet Miribel — Dr. Alexandra Soldea",
-    streetAddress: "63 place de la République",
-    postalCode: "01700",
-    addressLocality: "Miribel",
-    addressRegion: "Ain",
-    addressCountry: "FR",
-    telephone: "+33-4-28-29-55-16",
-    geo: { latitude: 45.8265, longitude: 4.9572 },
-    primary: true,
-  },
-  {
     id: "lyon",
-    name: "Cabinet Lyon — Dr. Alexandra Soldea",
-    streetAddress: "4 rue du Président Carnot",
-    postalCode: "69002",
+    name: "Centre d'Échographie de la Femme OPÉRA — Lyon",
+    streetAddress: "9 rue du Président Édouard Herriot",
+    postalCode: "69001",
     addressLocality: "Lyon",
     addressRegion: "Rhône",
     addressCountry: "FR",
     telephone: "+33-4-28-29-55-16",
-    geo: { latitude: 45.7607, longitude: 4.8350 },
-    primary: false,
+    geo: { latitude: 45.7662, longitude: 4.8351 },
+    primary: true,
   },
 ] as const;
 
@@ -135,7 +139,8 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     url: SITE_URL,
-    name: "Dr. Alexandra Soldea — Gynécologue & Échographe à Lyon",
+    name: `${CENTRE.name} — échographie de la femme à Lyon (Dr Alexandra Soldea)`,
+    alternateName: [CENTRE.shortName, "Dr. Alexandra Soldea"],
     inLanguage: "fr-FR",
     publisher: { "@id": PHYSICIAN_ID },
   };
@@ -244,11 +249,14 @@ export function medicalClinicJsonLd(cabinet: (typeof CABINETS)[number]) {
     "@type": "MedicalClinic",
     "@id": cabinetId(cabinet.id),
     name: cabinet.name,
+    alternateName: CENTRE.shortName,
     url:
       cabinet.id === "lyon"
         ? `${SITE_URL}/echographie-gynecologique-obstetricale-lyon`
-        : `${SITE_URL}/contact#cabinet-miribel`,
+        : `${SITE_URL}/contact`,
     image: `${SITE_URL}/hero1.webp`,
+    logo: `${SITE_URL}/logo.png`,
+    founder: { "@id": PERSON_ID },
     telephone: cabinet.telephone,
     priceRange: "€€",
     paymentAccepted: "Carte Vitale, Carte bancaire, Espèces, Chèque",

@@ -67,8 +67,8 @@ function buildEmailBodies(payload: ContactEmailPayload) {
 <!doctype html>
 <html lang="fr"><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#0b1f3d;background:#f6efe6;padding:24px;line-height:1.55">
   <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #e6ddd0;border-radius:16px;padding:28px">
-    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#3a8d96">
-      Nouveau message — echographielyon.fr
+    <p style="margin:0 0 16px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8f3d56">
+      Nouveau message — Centre d'Échographie de la Femme OPÉRA
     </p>
     <h1 style="margin:0 0 16px;font-size:22px;line-height:1.25">${escapeHtml(fullName)}</h1>
     <table style="width:100%;border-collapse:collapse;font-size:14px">
@@ -110,7 +110,7 @@ export async function sendContactFormEmail(
   payload: ContactEmailPayload,
 ): Promise<{ ok: true } | { ok: false }> {
   const { text, html } = buildEmailBodies(payload);
-  const from = `Dr Alexandra Soldea <${getFromEmail()}>`;
+  const from = `Centre d'Échographie OPÉRA <${getFromEmail()}>`;
 
   const resend = getResendClient();
   const { error } = await resend.emails.send({
