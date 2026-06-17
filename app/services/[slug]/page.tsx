@@ -157,14 +157,14 @@ function Header({ service }: { service: Service }) {
         <div className="mt-8 grid lg:grid-cols-[1.4fr_1fr] gap-10 items-end">
           <div>
             <div className="flex items-center gap-3 flex-wrap">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary-deep ring-1 ring-line shadow-[0_10px_24px_-14px_rgba(11,31,61,0.35)]">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink-deep text-accent ring-1 ring-accent/40 shadow-[0_10px_24px_-14px_rgba(7,26,51,0.5)]">
                 <ServiceIcon name={service.icon} className="h-5 w-5" />
               </span>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur ring-1 ring-line px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-primary-deep">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur ring-1 ring-accent/30 px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-primary-deep">
                 {categoryLabel(service.category)}
               </div>
               {service.shortLabel && (
-                <div className="inline-flex items-center gap-2 rounded-full bg-ink text-white px-3.5 py-1.5 text-[11px] tracking-[0.2em] uppercase">
+                <div className="inline-flex items-center gap-2 rounded-full bg-accent text-ink-deep font-semibold px-3.5 py-1.5 text-[11px] tracking-[0.2em] uppercase">
                   Écho {service.shortLabel}
                 </div>
               )}
@@ -237,11 +237,11 @@ function Breadcrumb({ service }: { service: Service }) {
 
 function Meta({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-white ring-1 ring-line p-4">
-      <dt className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
+    <div className="rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 p-4 shadow-[0_20px_50px_-35px_rgba(0,0,0,0.7)]">
+      <dt className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium">
         {label}
       </dt>
-      <dd className="mt-1 font-display text-base lg:text-lg text-ink leading-tight">
+      <dd className="mt-1 font-display text-base lg:text-lg text-white leading-tight">
         {value}
       </dd>
     </div>
@@ -284,11 +284,11 @@ function BookingBody({ service }: { service: Service }) {
               </ul>
             )}
 
-            <div className="mt-10 rounded-2xl bg-cream ring-1 ring-line p-5">
-              <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
+            <div className="mt-10 rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 p-5 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.7)]">
+              <p className="text-xs tracking-[0.25em] uppercase text-accent font-medium">
                 Bon à savoir
               </p>
-              <p className="text-sm text-ink-soft mt-2 leading-relaxed">
+              <p className="text-sm text-white/70 mt-2 leading-relaxed">
                 En cas d&apos;empêchement, merci de prévenir le cabinet au moins
                 24 heures à l&apos;avance pour permettre à une autre patiente de
                 bénéficier du créneau.
@@ -364,27 +364,27 @@ function HubBody({
                 <li key={child.slug}>
                   <Link
                     href={`/services/${child.slug}`}
-                    className="group block h-full rounded-[1.5rem] bg-cream ring-1 ring-line p-7 transition-all hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(11,31,61,0.18)] hover:ring-primary/30"
+                    className="card-gold-top relative group block h-full rounded-[1.5rem] bg-ink-deep text-white ring-1 ring-accent/25 p-7 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] transition-all hover:-translate-y-1.5 hover:shadow-[0_55px_100px_-40px_rgba(0,0,0,0.8)] hover:ring-accent/55"
                   >
                     <div className="flex items-start justify-between">
-                      <span className="font-display text-[3rem] leading-none text-primary-deep">
-                        <span className="opacity-30">0</span>
+                      <span className="font-display text-[3rem] leading-none text-accent">
+                        <span className="opacity-40">0</span>
                         {i + 1}
                       </span>
-                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-primary-deep ring-1 ring-line">
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.05] text-accent ring-1 ring-accent/45">
                         <ServiceIcon name={child.icon} className="h-4 w-4" />
                       </span>
                     </div>
-                    <p className="mt-5 text-[11px] tracking-[0.22em] uppercase text-accent-deep font-medium">
+                    <p className="mt-5 text-[11px] tracking-[0.22em] uppercase text-accent font-medium">
                       {child.shortLabel} · {child.weeks}
                     </p>
-                    <h4 className="mt-2 font-display text-xl text-ink leading-snug text-balance">
+                    <h4 className="mt-2 font-display text-xl text-white leading-snug text-balance">
                       {child.shortTitle}
                     </h4>
-                    <p className="mt-2 text-sm text-ink-soft line-clamp-3 text-pretty">
+                    <p className="mt-2 text-sm text-white/70 line-clamp-3 text-pretty">
                       {child.tagline}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary-deep">
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent">
                       Découvrir l&apos;écho {child.shortLabel}
                       <svg
                         viewBox="0 0 16 16"
@@ -603,23 +603,23 @@ function RelatedServices({ service }: { service: Service }) {
             <Link
               key={s.slug}
               href={`/services/${s.slug}`}
-              className="group rounded-[var(--radius-card)] bg-cream ring-1 ring-line p-7 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(11,31,61,0.18)] transition-all"
+              className="card-gold-top relative group rounded-[var(--radius-card)] bg-ink-deep text-white ring-1 ring-accent/25 p-7 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] hover:-translate-y-1.5 hover:shadow-[0_55px_100px_-40px_rgba(0,0,0,0.8)] hover:ring-accent/55 transition-all"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-primary-deep ring-1 ring-line">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/[0.05] text-accent ring-1 ring-accent/45">
                   <ServiceIcon name={s.icon} className="h-4 w-4" />
                 </span>
-                <p className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
+                <p className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium">
                   {s.shortLabel ? `Écho ${s.shortLabel}` : categoryLabel(s.category)}
                 </p>
               </div>
-              <h3 className="font-display text-xl text-ink leading-snug">
+              <h3 className="font-display text-xl text-white leading-snug">
                 {s.shortTitle ?? s.title}
               </h3>
-              <p className="mt-2 text-sm text-ink-soft line-clamp-2 text-pretty">
+              <p className="mt-2 text-sm text-white/70 line-clamp-2 text-pretty">
                 {s.tagline}
               </p>
-              <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary-deep">
+              <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent">
                 Découvrir
                 <svg
                   viewBox="0 0 16 16"

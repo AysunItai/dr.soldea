@@ -86,9 +86,9 @@ function TeamGrid() {
 
 function DoctorCard() {
   return (
-    <article className="card-gold-top group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-white ring-1 ring-line shadow-[0_30px_70px_-40px_rgba(7,26,51,0.25)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_50px_90px_-35px_rgba(7,26,51,0.32)] hover:ring-accent/50">
+    <article className="card-gold-top group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-ink-deep text-white ring-1 ring-accent/30 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_55px_100px_-40px_rgba(0,0,0,0.8)] hover:ring-accent/55">
       <OrnateCorners />
-      <div className="relative aspect-[4/5] overflow-hidden bg-cream-deep">
+      <div className="relative aspect-[4/5] overflow-hidden bg-ink">
         <Image
           src="/alexandra.webp"
           alt="Dr. Alexandra Soldea — gynécologue obstétricienne au Centre d'Échographie de la Femme OPÉRA à Lyon"
@@ -97,18 +97,23 @@ function DoctorCard() {
           sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
           className="h-full w-full object-cover object-center"
         />
+        {/* Soft gradient so the navy card and the portrait meet seamlessly. */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-deep to-transparent"
+        />
       </div>
       <div className="flex flex-1 flex-col p-6 md:p-7">
-        <p className="text-[11px] tracking-[0.28em] uppercase text-accent-deep font-medium">
+        <p className="text-[11px] tracking-[0.28em] uppercase text-accent font-medium">
           Fondatrice du centre
         </p>
-        <h2 className="mt-2 font-display text-2xl text-ink leading-snug">
+        <h2 className="mt-2 font-display text-2xl text-white leading-snug">
           Dr Alexandra Soldea
         </h2>
-        <p className="mt-1 text-sm font-medium text-ink-soft">
+        <p className="mt-1 text-sm font-medium text-white/70">
           Gynécologue obstétricienne
         </p>
-        <p className="mt-3 text-sm text-ink-soft leading-relaxed text-pretty">
+        <p className="mt-3 text-sm text-white/70 leading-relaxed text-pretty">
           Échographie gynécologique et obstétricale. Échographiste agréée du
           réseau de périnatalité Aurore et titulaire du DIU d&apos;échographie
           gynécologique et obstétricale (Paris Descartes).
@@ -118,7 +123,7 @@ function DoctorCard() {
             (tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-cream ring-1 ring-accent/30 px-3 py-1 text-xs text-ink-soft"
+                className="rounded-full bg-white/[0.06] ring-1 ring-accent/30 px-3 py-1 text-xs text-white/80"
               >
                 {tag}
               </span>
@@ -127,9 +132,9 @@ function DoctorCard() {
         </div>
         <Link
           href="/presentation"
-          className="group/link mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+          className="group/link mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent"
         >
-          <span className="border-b border-primary-deep/30 pb-px group-hover/link:border-primary-deep transition-colors">
+          <span className="border-b border-accent/40 pb-px group-hover/link:border-accent transition-colors">
             Voir le parcours complet
           </span>
           <svg
@@ -154,10 +159,10 @@ function DoctorCard() {
 
 function PlaceholderCard({ index }: { index: number }) {
   return (
-    <article className="relative flex flex-col rounded-[1.5rem] bg-cream/60 ring-1 ring-line p-6 md:p-7">
+    <article className="relative flex flex-col rounded-[1.5rem] bg-ink-deep/95 text-white ring-1 ring-accent/20 p-6 md:p-7 shadow-[0_30px_70px_-45px_rgba(0,0,0,0.6)]">
       <OrnateCorners />
-      <div className="flex aspect-[4/5] items-center justify-center rounded-[1.1rem] bg-gradient-to-b from-cream to-cream-deep ring-1 ring-accent/20">
-        <span className="relative grid h-16 w-16 place-content-center rounded-full bg-white text-accent-deep ring-1 ring-accent/40 shadow-[0_14px_30px_-18px_rgba(7,26,51,0.4)]">
+      <div className="flex aspect-[4/5] items-center justify-center rounded-[1.1rem] bg-white/[0.03] ring-1 ring-accent/15">
+        <span className="relative grid h-16 w-16 place-content-center rounded-full bg-white/[0.05] text-accent ring-1 ring-accent/40 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.6)]">
           <span aria-hidden className="absolute inset-1.5 rounded-full ring-1 ring-accent/25" />
           <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" aria-hidden>
             <circle cx="12" cy="8.5" r="3.5" stroke="currentColor" strokeWidth="1.4" />
@@ -170,13 +175,13 @@ function PlaceholderCard({ index }: { index: number }) {
           </svg>
         </span>
       </div>
-      <p className="mt-6 text-[11px] tracking-[0.28em] uppercase text-accent-deep font-medium">
+      <p className="mt-6 text-[11px] tracking-[0.28em] uppercase text-accent font-medium">
         Praticien·ne {String(index).padStart(2, "0")}
       </p>
-      <h2 className="mt-2 font-display text-xl text-ink leading-snug">
+      <h2 className="mt-2 font-display text-xl text-white/90 leading-snug">
         Médecin à venir
       </h2>
-      <p className="mt-3 text-sm text-muted leading-relaxed text-pretty">
+      <p className="mt-3 text-sm text-white/55 leading-relaxed text-pretty">
         Le Centre d&apos;Échographie de la Femme OPÉRA s&apos;agrandit et
         accueillera prochainement de nouveaux praticiens dédiés à
         l&apos;échographie de la femme à Lyon.

@@ -153,20 +153,20 @@ function InfoStrip() {
                 ? "noopener noreferrer"
                 : undefined
             }
-            className="card-gold-top relative group rounded-2xl bg-white ring-1 ring-line shadow-[0_24px_60px_-40px_rgba(7,26,51,0.25)] p-6 flex gap-4 hover:ring-accent/50 hover:-translate-y-1 transition-all"
+            className="card-gold-top relative group rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] p-6 flex gap-4 hover:ring-accent/55 hover:-translate-y-1 transition-all"
           >
             <OrnateCorners />
-            <span className="shrink-0 h-12 w-12 rounded-full bg-primary-soft text-primary-deep ring-1 ring-accent/40 grid place-content-center">
+            <span className="shrink-0 h-12 w-12 rounded-full bg-white/[0.05] text-accent ring-1 ring-accent/45 grid place-content-center">
               {item.icon}
             </span>
             <div>
-              <p className="text-[11px] tracking-[0.25em] uppercase text-accent-deep font-medium mb-1">
+              <p className="text-[11px] tracking-[0.25em] uppercase text-accent font-medium mb-1">
                 {item.label}
               </p>
-              <p className="font-display text-lg text-ink leading-tight">
+              <p className="font-display text-lg text-white leading-tight">
                 {item.value}
               </p>
-              <p className="text-sm text-muted mt-1">{item.detail}</p>
+              <p className="text-sm text-white/55 mt-1">{item.detail}</p>
             </div>
           </a>
         ))}
@@ -192,17 +192,18 @@ function FormSection() {
             au 15 ou aux services d&apos;urgence.
           </p>
 
-          <div className="mt-8 rounded-2xl bg-white ring-1 ring-line p-5">
-            <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
+          <div className="card-gold-top relative mt-8 rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 p-5 shadow-[0_30px_70px_-45px_rgba(0,0,0,0.7)]">
+            <OrnateCorners />
+            <p className="text-xs tracking-[0.25em] uppercase text-accent font-medium">
               Prendre rendez-vous
             </p>
-            <p className="text-sm text-ink-soft mt-2 text-pretty">
+            <p className="text-sm text-white/70 mt-2 text-pretty">
               Pour un rendez-vous, utilisez la prise de rendez-vous en ligne par
               service.
             </p>
             <Link
               href="/services"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-white transition-colors"
             >
               Prendre rendez-vous à Lyon <span aria-hidden>→</span>
             </Link>
@@ -210,16 +211,17 @@ function FormSection() {
 
           <nav
             aria-label="Services à Lyon"
-            className="mt-6 rounded-2xl bg-white ring-1 ring-line p-5"
+            className="relative mt-6 rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 p-5 shadow-[0_30px_70px_-45px_rgba(0,0,0,0.7)]"
           >
-            <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
+            <OrnateCorners />
+            <p className="text-xs tracking-[0.25em] uppercase text-accent font-medium">
               À Lyon
             </p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
                 <Link
                   href="/services/echographie-gynecologique"
-                  className="text-primary-deep hover:text-ink transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors"
                 >
                   Échographie gynécologique à Lyon
                 </Link>
@@ -227,7 +229,7 @@ function FormSection() {
               <li>
                 <Link
                   href="/services/echographie-obstetricale"
-                  className="text-primary-deep hover:text-ink transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors"
                 >
                   Échographie obstétricale à Lyon
                 </Link>
@@ -235,7 +237,7 @@ function FormSection() {
               <li>
                 <Link
                   href="/echographie-gynecologique-obstetricale-lyon"
-                  className="text-primary-deep hover:text-ink transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors"
                 >
                   Cabinet de Lyon
                 </Link>

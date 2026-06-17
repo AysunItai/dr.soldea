@@ -200,22 +200,22 @@ function Intro() {
           </Link>
         </div>
 
-        <div className="rounded-2xl bg-cream ring-1 ring-line p-6">
-          <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
+        <div className="card-gold-top relative rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 p-6 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)]">
+          <p className="text-xs tracking-[0.25em] uppercase text-accent font-medium">
             Adresse
           </p>
-          <p className="font-display text-xl text-ink mt-2 leading-snug">
+          <p className="font-display text-xl text-white mt-2 leading-snug">
             9 rue du Président Édouard Herriot
           </p>
-          <p className="text-ink-soft mt-1">69001 Lyon</p>
-          <p className="text-sm text-muted mt-4">
-            <a href="tel:+33428295516" className="hover:text-ink">
+          <p className="text-white/70 mt-1">69001 Lyon</p>
+          <p className="text-sm text-white/60 mt-4">
+            <a href="tel:+33428295516" className="hover:text-accent transition-colors">
               04 28 29 55 16
             </a>
           </p>
           <Link
             href="/contact#cabinet-lyon"
-            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-white transition-colors"
           >
             Voir le plan d&apos;accès <span aria-hidden>→</span>
           </Link>
@@ -240,15 +240,15 @@ function Services() {
             <Link
               key={service.href}
               href={service.href}
-              className="group rounded-2xl bg-white ring-1 ring-line p-6 hover:ring-primary/40 hover:-translate-y-0.5 transition-all"
+              className="card-gold-top relative group rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 p-6 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] hover:ring-accent/55 hover:-translate-y-1 transition-all"
             >
-              <h3 className="font-display text-lg text-ink leading-snug group-hover:text-primary-deep transition-colors">
+              <h3 className="font-display text-lg text-white leading-snug group-hover:text-accent transition-colors">
                 {service.title}
               </h3>
-              <p className="mt-3 text-sm text-ink-soft leading-relaxed">
+              <p className="mt-3 text-sm text-white/70 leading-relaxed">
                 {service.description}
               </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-deep">
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent">
                 En savoir plus <span aria-hidden>→</span>
               </span>
             </Link>

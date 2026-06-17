@@ -27,10 +27,12 @@ export function NavScrollShell({ children }: { children: ReactNode }) {
   return (
     <header
       className={[
-        "sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
+        // A consistent ivory glass bar — readable over both the dark homepage
+        // hero and the light inner-page headers, with a fine gold hairline.
+        "sticky top-0 z-50 backdrop-blur-md border-b transition-[background-color,border-color,box-shadow] duration-300",
         scrolled
-          ? "backdrop-blur-md bg-white/85 border-b border-line"
-          : "bg-transparent",
+          ? "bg-background/92 border-line shadow-[0_10px_30px_-22px_rgba(7,26,51,0.4)]"
+          : "bg-background/80 border-line/60",
       ].join(" ")}
     >
       {children}

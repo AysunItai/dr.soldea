@@ -77,7 +77,7 @@ export function Navbar() {
                     role="menuitem"
                     className="flex items-start gap-3 rounded-xl px-3 py-3 hover:bg-primary-soft/60 transition-colors group/item"
                   >
-                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-soft/50 text-primary-deep ring-1 ring-line/70 group-hover/item:bg-white">
+                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-ink-deep text-accent ring-1 ring-accent/30">
                       <ServiceIcon name={service.icon} className="h-4 w-4" />
                     </span>
                     <span className="min-w-0 flex-1">

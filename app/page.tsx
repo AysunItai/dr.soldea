@@ -30,42 +30,41 @@ export default function HomePage() {
 function Hero() {
   return (
     <section
-      className="hero-above-fold relative overflow-hidden pb-32 md:pb-44"
+      className="hero-above-fold relative overflow-hidden pb-32 md:pb-44 bg-ink-deep text-white"
       style={{
         background:
-          "linear-gradient(168deg, #f7eede 0%, #f4e9d8 38%, #fbf7f0 100%)",
+          "linear-gradient(168deg, #0a2240 0%, #071a33 55%, #06152b 100%)",
       }}
     >
-      <div className="absolute inset-0 bg-grid-soft opacity-40" />
       {/* Strong warm gold light, upper-right — the premium glow. */}
       <div
         aria-hidden
-        className="absolute -top-44 -right-40 h-[560px] w-[560px] rounded-full"
+        className="absolute -top-44 -right-40 h-[600px] w-[600px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(201,162,74,0.30), transparent 72%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.26), transparent 72%)",
         }}
       />
-      {/* Deep burgundy glow, lower-left — the luxury accent. */}
+      {/* Deep burgundy glow, lower-left — warm depth on the navy. */}
       <div
         aria-hidden
-        className="absolute top-1/3 -left-44 h-[460px] w-[460px] rounded-full"
+        className="absolute top-1/3 -left-44 h-[500px] w-[500px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(122,38,61,0.18), transparent 72%)",
+            "radial-gradient(closest-side, rgba(163,76,99,0.22), transparent 72%)",
         }}
       />
-      {/* Champagne wash directly behind the medallion column. */}
+      {/* Gold wash directly behind the medallion column. */}
       <div
         aria-hidden
         className="absolute right-0 top-0 h-full w-1/2 hidden lg:block"
         style={{
           background:
-            "radial-gradient(60% 55% at 70% 42%, rgba(212,175,55,0.14), transparent 70%)",
+            "radial-gradient(60% 55% at 70% 42%, rgba(212,175,55,0.16), transparent 70%)",
         }}
       />
       {/* Hairline gold rule pinned to the very top of the page. */}
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule opacity-70" />
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
 
       <div className="container-page relative pt-20 md:pt-28 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
         <HeroCopy />
@@ -82,32 +81,32 @@ function HeroCopy() {
   return (
     <div className="relative lg:pt-8">
       {/* Editorial index marker — a thin vertical accent on the left. */}
-      <div className="absolute -left-3 top-2 hidden lg:flex flex-col items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-muted">
+      <div className="absolute -left-3 top-2 hidden lg:flex flex-col items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-white/45">
         <span>01</span>
-        <span aria-hidden className="h-16 w-px bg-line" />
+        <span aria-hidden className="h-16 w-px bg-accent/40" />
         <span className="[writing-mode:vertical-rl] rotate-180">
           Accueil
         </span>
       </div>
 
-      <div className="animate-rise inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur ring-1 ring-accent/40 px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-primary-deep shadow-[0_10px_30px_-18px_rgba(122,38,61,0.5)]">
+      <div className="animate-rise inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur ring-1 ring-accent/40 px-4 py-1.5 text-[11px] tracking-[0.2em] uppercase text-accent">
         <span className="h-1.5 w-1.5 rounded-full bg-accent" />
         Au cœur de Lyon · Quartier Opéra
       </div>
 
-      <h1 className="hero-lcp-headline animate-rise animate-rise-delay-1 mt-6 sm:mt-7 font-display text-[clamp(2.25rem,6.5vw,4.5rem)] leading-[0.98] tracking-[-0.015em] text-ink text-balance">
+      <h1 className="hero-lcp-headline animate-rise animate-rise-delay-1 mt-6 sm:mt-7 font-display text-[clamp(2.25rem,6.5vw,4.5rem)] leading-[0.98] tracking-[-0.015em] text-white text-balance">
         Centre d&apos;Échographie
         <br />
         de la Femme{" "}
-        <span className="italic text-primary-deep">OPÉRA</span>
+        <span className="italic text-accent">OPÉRA</span>
       </h1>
-      <p className="animate-rise animate-rise-delay-2 mt-4 text-[10px] sm:text-[11px] tracking-[0.22em] sm:tracking-[0.32em] uppercase text-accent-deep font-medium">
+      <p className="animate-rise animate-rise-delay-2 mt-4 text-[10px] sm:text-[11px] tracking-[0.22em] sm:tracking-[0.32em] uppercase text-accent font-medium">
         Échographie gynécologique &amp; obstétricale · Lyon
       </p>
 
-      <p className="animate-rise animate-rise-delay-3 mt-7 sm:mt-9 max-w-lg text-base sm:text-lg leading-relaxed text-ink-soft text-pretty">
+      <p className="animate-rise animate-rise-delay-3 mt-7 sm:mt-9 max-w-lg text-base sm:text-lg leading-relaxed text-white/75 text-pretty">
         Échographies gynécologiques et obstétricales au cœur de Lyon, avec{" "}
-        <span className="text-ink underline decoration-accent/50 underline-offset-4 decoration-2">
+        <span className="text-white underline decoration-accent/60 underline-offset-4 decoration-2">
           Dr Alexandra Soldea
         </span>{" "}
         et son équipe. Un centre dédié au suivi des femmes, dans un cadre
@@ -117,12 +116,12 @@ function HeroCopy() {
       <div className="animate-rise animate-rise-delay-4 mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-3">
         <Link
           href="/services"
-          className="shine group inline-flex items-center justify-center h-12 pl-6 sm:pl-7 pr-3 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
+          className="shine group inline-flex items-center justify-center h-12 pl-6 sm:pl-7 pr-3 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 shadow-[0_18px_40px_-18px_rgba(201,162,74,0.7)] hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
         >
           <span>Prendre rendez-vous</span>
           <span
             aria-hidden
-            className="ml-3 grid place-content-center h-8 w-8 rounded-full bg-white text-ink transition-transform group-hover:translate-x-0.5"
+            className="ml-3 grid place-content-center h-8 w-8 rounded-full bg-ink-deep text-accent transition-transform group-hover:translate-x-0.5"
           >
             <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
               <path
@@ -137,7 +136,7 @@ function HeroCopy() {
         </Link>
         <Link
           href="/equipe"
-          className="inline-flex items-center gap-2 h-12 px-1 sm:px-2 text-sm font-medium text-ink hover:text-primary-deep transition-colors"
+          className="inline-flex items-center gap-2 h-12 px-1 sm:px-2 text-sm font-medium text-white hover:text-accent transition-colors"
         >
           Découvrir l&apos;équipe médicale
           <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" aria-hidden>
@@ -158,11 +157,11 @@ function HeroCopy() {
           { k: "Aurore", v: "Réseau de périnatalité" },
           { k: "FR · EN", v: "Langues parlées" },
         ].map((s) => (
-          <div key={s.v} className="border-t border-line pt-3 sm:pt-4">
-            <dt className="font-display text-lg sm:text-2xl text-ink leading-none">
+          <div key={s.v} className="border-t border-accent/30 pt-3 sm:pt-4">
+            <dt className="font-display text-lg sm:text-2xl text-white leading-none">
               {s.k}
             </dt>
-            <dd className="text-[11px] sm:text-xs text-muted mt-1 leading-tight">
+            <dd className="text-[11px] sm:text-xs text-white/55 mt-1 leading-tight">
               {s.v}
             </dd>
           </div>
@@ -222,14 +221,14 @@ function HeroMedallion() {
         </figcaption>
 
         {/* Réseau Aurore credential pill — gentle floating accent. */}
-        <div className="absolute -right-2 md:-right-6 top-6 z-20 hidden md:flex flex-col items-start gap-1 rounded-2xl bg-white px-4 py-3 ring-1 ring-accent/30 shadow-[0_24px_50px_-24px_rgba(7,26,51,0.4)] max-w-[200px] animate-float">
-          <span className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
+        <div className="absolute -right-2 md:-right-6 top-6 z-20 hidden md:flex flex-col items-start gap-1 rounded-2xl bg-ink px-4 py-3 ring-1 ring-accent/40 shadow-[0_24px_50px_-24px_rgba(0,0,0,0.5)] max-w-[200px] animate-float">
+          <span className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium">
             Échographiste agréée
           </span>
-          <span className="font-display text-base text-ink leading-snug">
+          <span className="font-display text-base text-white leading-snug">
             Réseau Aurore
           </span>
-          <span className="text-[11px] text-muted">
+          <span className="text-[11px] text-white/55">
             Dépistage prénatal · T1 / T2 / T3
           </span>
         </div>
@@ -251,12 +250,12 @@ function CredentialTicker() {
     <div className="container-page relative mt-20 sm:mt-24 md:mt-32 lg:mt-40">
       <div className="flex items-center gap-3 mb-5">
         <span aria-hidden className="gold-tick" />
-        <span className="text-[10px] tracking-[0.28em] sm:tracking-[0.32em] uppercase text-accent-deep font-medium whitespace-nowrap">
+        <span className="text-[10px] tracking-[0.28em] sm:tracking-[0.32em] uppercase text-accent font-medium whitespace-nowrap">
           Affiliations &amp; reconnaissance
         </span>
         <span aria-hidden className="h-px flex-1 gold-rule" />
       </div>
-      <ul className="flex flex-wrap items-center gap-x-5 sm:gap-x-7 md:gap-x-10 gap-y-2.5 text-[13px] sm:text-sm text-ink-soft">
+      <ul className="flex flex-wrap items-center gap-x-5 sm:gap-x-7 md:gap-x-10 gap-y-2.5 text-[13px] sm:text-sm text-white/75">
         {items.map((item) => (
           <li key={item} className="inline-flex items-center gap-2">
             <span aria-hidden className="h-1 w-1 rounded-full bg-accent" />
@@ -304,7 +303,7 @@ function Highlights() {
             id="highlights-heading"
             className="text-[11px] tracking-[0.34em] uppercase text-accent font-medium"
           >
-            Affiliations &amp; reconnaissance
+            Une expertise reconnue
           </h2>
           <OperaDivider className="mt-4" />
         </div>
@@ -422,9 +421,9 @@ function UltrasoundFocus() {
         </ol>
 
         {/* Reassurance band — also a small SEO win (extra keyword density) */}
-        <div className="card-gold-top relative mt-14 md:mt-16 rounded-3xl bg-white ring-1 ring-line p-6 md:p-8 grid gap-6 md:grid-cols-[1.4fr_1fr] items-center shadow-[0_30px_70px_-40px_rgba(7,26,51,0.25)]">
+        <div className="card-gold-top relative mt-14 md:mt-16 rounded-3xl bg-ink-deep text-white ring-1 ring-accent/25 p-6 md:p-8 grid gap-6 md:grid-cols-[1.4fr_1fr] items-center shadow-[0_40px_90px_-45px_rgba(0,0,0,0.75)]">
           <OrnateCorners />
-          <ul className="grid sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-ink-soft">
+          <ul className="grid sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-white/75">
             {[
               "Échographiste agréée Réseau Aurore",
               "Imagerie 2D · 3D · 4D possible (T3)",
@@ -445,12 +444,12 @@ function UltrasoundFocus() {
           <div className="flex md:justify-end">
             <Link
               href="/services/echographie-obstetricale"
-              className="group inline-flex items-center justify-center h-12 pl-6 pr-3 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
+              className="shine group inline-flex items-center justify-center h-12 pl-6 pr-3 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
             >
               Tout savoir sur l&apos;échographie obstétricale
               <span
                 aria-hidden
-                className="ml-3 grid place-content-center h-8 w-8 rounded-full bg-white text-ink transition-transform group-hover:translate-x-0.5"
+                className="ml-3 grid place-content-center h-8 w-8 rounded-full bg-ink-deep text-accent transition-transform group-hover:translate-x-0.5"
               >
                 <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
                   <path
@@ -480,25 +479,25 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
     <li>
       <Link
         href={`/services/${service.slug}`}
-        className="card-gold-top group relative block h-full rounded-[1.5rem] bg-white ring-1 ring-line p-7 md:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_50px_90px_-35px_rgba(7,26,51,0.32)] hover:ring-accent/50"
+        className="card-gold-top group relative block h-full rounded-[1.5rem] bg-ink-deep text-white ring-1 ring-accent/25 p-7 md:p-8 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_55px_100px_-40px_rgba(0,0,0,0.8)] hover:ring-accent/55"
       >
         <OrnateCorners />
         {/* Big number marker — gives each card a strong identity */}
         <div className="flex items-start justify-between">
-          <span className="font-display text-[3.5rem] md:text-[4rem] leading-none text-primary-deep">
-            <span className="opacity-25 text-accent">0</span>
+          <span className="font-display text-[3.5rem] md:text-[4rem] leading-none text-accent">
+            <span className="opacity-40">0</span>
             {index + 1}
           </span>
-          <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary-soft text-primary-deep ring-1 ring-accent/40">
+          <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/[0.05] text-accent ring-1 ring-accent/45">
             <ServiceIcon name={service.icon} className="h-5 w-5" />
           </span>
         </div>
 
-        <p className="mt-6 text-[11px] tracking-[0.22em] uppercase text-accent-deep font-medium">
+        <p className="mt-6 text-[11px] tracking-[0.22em] uppercase text-accent font-medium">
           {service.shortLabel} · {service.weeks}
         </p>
 
-        <h3 className="mt-2 font-display text-2xl md:text-[26px] text-ink leading-snug text-balance">
+        <h3 className="mt-2 font-display text-2xl md:text-[26px] text-white leading-snug text-balance">
           Échographie du{" "}
           {service.shortLabel === "T1"
             ? "1er"
@@ -506,16 +505,16 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
               ? "2e"
               : "3e"}{" "}
           trimestre
-          <span className="text-muted font-normal text-base"> (Écho {service.shortLabel})</span>
+          <span className="text-white/45 font-normal text-base"> (Écho {service.shortLabel})</span>
         </h3>
 
-        <p className="mt-3 text-sm text-ink-soft leading-relaxed text-pretty">
+        <p className="mt-3 text-sm text-white/70 leading-relaxed text-pretty">
           {service.tagline}
         </p>
 
-        <div className="mt-6 pt-5 border-t border-line flex items-center justify-between">
-          <span className="text-xs text-muted">{service.durationLabel}</span>
-          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-deep">
+        <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
+          <span className="text-xs text-white/55">{service.durationLabel}</span>
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent">
             Découvrir l&apos;écho {service.shortLabel}
             <svg
               viewBox="0 0 16 16"
@@ -663,7 +662,7 @@ function DoctorTeaser() {
           {credentials.map((c, i) => (
             <li
               key={c.n}
-              className={`group relative rounded-[1.25rem] bg-white ring-1 ring-line p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_40px_80px_-35px_rgba(7,26,51,0.28)] hover:ring-accent/50 ${
+              className={`group relative rounded-[1.25rem] bg-ink-deep text-white ring-1 ring-accent/25 p-6 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_50px_90px_-40px_rgba(0,0,0,0.8)] hover:ring-accent/55 ${
                 i % 2 === 1 ? "sm:mt-6" : ""
               }`}
             >
@@ -673,18 +672,18 @@ function DoctorTeaser() {
                 className="absolute top-0 left-6 right-6 h-px bg-accent/50 group-hover:bg-accent transition-colors"
               />
               <div className="flex items-baseline justify-between gap-3">
-                <span className="font-display text-2xl text-primary-deep leading-none">
-                  <span className="opacity-30 text-accent">0</span>
+                <span className="font-display text-2xl text-accent leading-none">
+                  <span className="opacity-40">0</span>
                   {c.n.slice(1)}
                 </span>
-                <span className="text-[10px] tracking-[0.25em] uppercase text-accent-deep font-medium">
+                <span className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium">
                   {c.eyebrow}
                 </span>
               </div>
-              <p className="mt-5 font-display text-lg text-ink leading-snug text-balance">
+              <p className="mt-5 font-display text-lg text-white leading-snug text-balance">
                 {c.title}
               </p>
-              <p className="mt-2 text-xs text-muted leading-relaxed">{c.sub}</p>
+              <p className="mt-2 text-xs text-white/55 leading-relaxed">{c.sub}</p>
             </li>
           ))}
         </ol>
