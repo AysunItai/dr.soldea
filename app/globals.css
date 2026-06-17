@@ -315,7 +315,7 @@ body {
 /*
  * LCP targets must never start at opacity:0 — rise-in uses `both` fill mode
  * which hides content during animation-delay. Mobile LCP is the hero h1;
- * desktop LCP is hero1.webp inside .hero-lcp-gallery.
+ * desktop LCP is the medallion logo inside .hero-lcp-gallery.
  */
 .hero-lcp-gallery,
 .hero-lcp-headline {

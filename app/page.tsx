@@ -29,44 +29,58 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section
-      className="hero-above-fold relative overflow-hidden pb-32 md:pb-44 bg-ink-deep text-white"
-      style={{
-        background:
-          "linear-gradient(168deg, #0a2240 0%, #071a33 55%, #06152b 100%)",
-      }}
-    >
-      {/* Strong warm gold light, upper-right — the premium glow. */}
+    <section className="hero-above-fold relative overflow-hidden pb-32 md:pb-44 bg-ink-deep text-white">
+      {/* Consultation-room photo — low-opacity texture behind a navy wash. */}
+      <div aria-hidden className="absolute inset-0">
+        <Image
+          src="/hero1.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          quality={60}
+          fetchPriority="low"
+          className="object-cover object-[62%_42%] opacity-[0.38] sm:opacity-[0.45] lg:opacity-[0.52]"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(105deg, rgba(6,21,43,0.86) 0%, rgba(7,26,51,0.78) 46%, rgba(7,26,51,0.62) 100%), linear-gradient(168deg, rgba(10,34,64,0.38) 0%, transparent 35%)",
+          }}
+        />
+      </div>
+
+      {/* Warm gold light, upper-right. */}
       <div
         aria-hidden
         className="absolute -top-44 -right-40 h-[600px] w-[600px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(201,162,74,0.26), transparent 72%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.18), transparent 72%)",
         }}
       />
-      {/* Deep burgundy glow, lower-left — warm depth on the navy. */}
+      {/* Burgundy glow, lower-left. */}
       <div
         aria-hidden
         className="absolute top-1/3 -left-44 h-[500px] w-[500px] rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(163,76,99,0.22), transparent 72%)",
+            "radial-gradient(closest-side, rgba(163,76,99,0.14), transparent 72%)",
         }}
       />
-      {/* Gold wash directly behind the medallion column. */}
+      {/* Gold wash behind the medallion column. */}
       <div
         aria-hidden
         className="absolute right-0 top-0 h-full w-1/2 hidden lg:block"
         style={{
           background:
-            "radial-gradient(60% 55% at 70% 42%, rgba(212,175,55,0.16), transparent 70%)",
+            "radial-gradient(60% 55% at 70% 42%, rgba(212,175,55,0.12), transparent 70%)",
         }}
       />
       {/* Hairline gold rule pinned to the very top of the page. */}
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
+      <div aria-hidden className="absolute inset-x-0 top-0 z-10 h-px gold-rule" />
 
-      <div className="container-page relative pt-20 md:pt-28 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
+      <div className="container-page relative z-10 pt-20 md:pt-28 grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
         <HeroCopy />
         <HeroMedallion />
       </div>
@@ -174,13 +188,13 @@ function HeroCopy() {
 function HeroMedallion() {
   return (
     <div className="hero-lcp-gallery relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none flex justify-center">
-      {/* Strong warm gold halo behind the medallion. */}
+      {/* Soft gold halo behind the medallion. */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(201,162,74,0.32), transparent 72%)",
+            "radial-gradient(closest-side, rgba(201,162,74,0.24), transparent 72%)",
         }}
       />
 
@@ -247,7 +261,7 @@ function CredentialTicker() {
     "ESGE 2016 — Best abstract",
   ];
   return (
-    <div className="container-page relative mt-20 sm:mt-24 md:mt-32 lg:mt-40">
+    <div className="container-page relative z-10 mt-20 sm:mt-24 md:mt-32 lg:mt-40">
       <div className="flex items-center gap-3 mb-5">
         <span aria-hidden className="gold-tick" />
         <span className="text-[10px] tracking-[0.28em] sm:tracking-[0.32em] uppercase text-accent font-medium whitespace-nowrap">
