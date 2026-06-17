@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { LazyMapEmbed } from "@/app/_components/LazyMapEmbed";
+import { OperaDivider, OrnateCorners } from "@/app/_components/OperaMotifs";
 import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
 const ContactForm = dynamic(
@@ -154,6 +155,7 @@ function InfoStrip() {
             }
             className="card-gold-top relative group rounded-2xl bg-white ring-1 ring-line shadow-[0_24px_60px_-40px_rgba(7,26,51,0.25)] p-6 flex gap-4 hover:ring-accent/50 hover:-translate-y-1 transition-all"
           >
+            <OrnateCorners />
             <span className="shrink-0 h-12 w-12 rounded-full bg-primary-soft text-primary-deep ring-1 ring-accent/40 grid place-content-center">
               {item.icon}
             </span>
@@ -261,6 +263,7 @@ function Maps() {
           <h2 className="font-display text-3xl md:text-4xl text-ink leading-tight">
             Au cœur de Lyon.
           </h2>
+          <OperaDivider className="mt-6" />
         </div>
 
         <div className="max-w-3xl mx-auto mb-12 text-center">

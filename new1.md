@@ -1,186 +1,305 @@
-Please do a second visual refinement pass on the Centre d’Échographie de la Femme OPÉRA rebrand.
+Please do a second premium design refinement pass on the Centre d’Échographie de la Femme OPÉRA website.
 
-The current implementation is technically correct, but visually it still feels too light and not premium/luxury enough. The gold logo is good, but the website around it does not yet fully match the “high-status clinic” feeling.
+Current website:
+https://www.echographielyon.fr
+
+Current situation:
+The rebrand is technically implemented correctly:
+- Centre d’Échographie de la Femme OPÉRA branding is in place
+- new address is updated
+- Équipe page exists
+- SEO/schema/canonicals/sitemap are working
+- build passes
+
+However, visually the current version is still too light and soft. It does not yet feel premium enough. The gold circular logo looks rich, but the surrounding website still feels too pale and not fully connected to the new high-status clinic identity.
 
 Goal:
-Make the website feel like a premium women’s ultrasound clinic in central Lyon — elegant, calm, medical, refined, and high-end. Visitors should immediately feel this is a serious, trusted, beautiful private medical centre where they will be treated with care and professionalism.
+Make the website feel like a premium women’s ultrasound centre in the Lyon Opéra area:
+- elegant
+- medical
+- feminine
+- calm
+- refined
+- high-status
+- trustworthy
+- private clinic feeling
+
+This should feel like a polished private medical centre, not a generic soft pastel medical website.
 
 Important:
 Do NOT rewrite the whole site.
-Do NOT break the working rebrand, SEO, schema, address updates, redirects, analytics, Resend/contact form, or build.
+Do NOT break the working rebrand.
+Do NOT break SEO, schema, sitemap, redirects, analytics, contact form, Resend, or build.
 This is a visual refinement pass.
 
-Current issue:
+Brand direction:
+Centre d’Échographie de la Femme OPÉRA
 
-* The page is still too light / too pale.
-* Gold is present but not used strongly enough.
-* Burgundy/rose tones should be used more intentionally.
-* The logo looks rich, but the surrounding page does not yet feel rich enough.
-* The homepage should feel more “premium clinic / private medical centre” and less like a soft pastel brochure.
+Core identity:
+A premium women’s ultrasound centre in central Lyon, inspired subtly by the elegance of the Opéra district.
+
+Address:
+9 rue du Président Édouard Herriot, 69001 Lyon
+
+Keep Dr Alexandra Soldea visible naturally for SEO and trust.
 
 Design direction:
-Use the new gold circular logo as the visual anchor, but make the page around it more coherent.
+Use the new gold circular logo as the main visual anchor, but make the page around it feel more coherent and premium.
 
-Palette direction:
+The current page is too light. Please introduce more depth using:
+- deep navy
+- rich burgundy / rose
+- refined gold
+- champagne / ivory backgrounds
+- subtle Opéra-inspired decorative line work
 
-* Deep navy remains the main professional base.
-* Burgundy/rose should become a stronger luxury accent.
-* Gold should be used more visibly for premium details.
-* Ivory/cream can stay, but not as a flat empty background everywhere.
+Suggested palette:
+- Deep navy: #071A33 or #0B1F3A
+- Rich burgundy: #7A263D or #8F3D56
+- Deep rose: #A34C63
+- Refined gold: #C9A24A or #D4AF37
+- Champagne: #F4E9D8 or #EFE3CF
+- Warm ivory: #FAF6EF
 
-Suggested colors:
+Important:
+Do not make the whole site yellow or gold.
+Gold should feel expensive and controlled.
+Use navy and burgundy to create depth, and gold for refined highlights.
 
-* Deep navy: #071A33 or #0B1F3A
-* Rich burgundy: #7A263D or #8F3D56
-* Deep rose: #A34C63
-* Refined gold: #C9A24A or #D4AF37
-* Warm ivory: #FAF6EF
-* Champagne background: #F4E9D8 or #EFE3CF where appropriate
+Opéra / Lyon visual inspiration:
+Please add a subtle visual connection to the Lyon Opéra / elegant historic city-centre atmosphere.
 
-Visual improvements requested:
+This should be very refined and minimal, not theatrical, not kitsch, and not overly decorative.
 
-1. Hero section
-   The hero should feel more luxurious and intentional.
+Use inspiration from:
+- Belle Époque elegance
+- French architectural detailing
+- Opéra district sophistication
+- classic interior moldings
+- arches
+- medallions
+- ornamental line work
+- engraved / filigree-style accents
+- fine gold decorative borders
+- subtle prestige
 
-Please improve the hero by:
-
-* giving the hero a richer background, not plain pale cream
-* using subtle burgundy/champagne/gold gradients or decorative glow
-* making the gold logo feel integrated, not pasted
-* adding a refined gold/burgundy frame, halo, or soft shadow around the logo
-* keeping the text highly readable
-* making the H1 feel elegant and premium
-* using gold for small dividers/eyebrows/details
-* using burgundy for selected emphasis, not too much
-
-The hero should feel like a premium clinic entrance, not a generic medical homepage.
-
-2. Logo usage
-   The round gold logo can stay as the hero medallion/badge.
-
-But for the navbar, make sure it does not feel too heavy or too small/unreadable.
-If needed:
-
-* use a smaller circular icon version
-* keep the text lockup clean
-* do not let the header become crowded
-
-The logo should look prestigious, but the page must remain elegant and clean.
-
-3. Backgrounds and sections
-   Please make section backgrounds more layered and elegant:
-
-* not every section should be plain white/cream
-* use alternating ivory, champagne, and very subtle rose-gold tones
-* add subtle borders/top rules in gold
-* use burgundy-tinted accents in cards
-* keep enough whitespace
+How to apply:
+- faint gold line-art motifs in backgrounds
+- subtle arched framing around hero/logo areas
+- fine decorative dividers between sections
+- small ornamental corners on premium cards
+- medallion-like shapes or watermark patterns
+- refined gold/burgundy section labels
 
 Avoid:
+- crowns
+- literal royal symbols
+- heavy palace/baroque overload
+- clip-art ornaments
+- busy backgrounds
+- too much gold
+- anything that hurts readability
+- anything that feels like a wedding website or beauty salon
 
-* bright yellow/gold blocks
-* cheap luxury look
-* heavy gradients everywhere
-* too much pink
-* too much decoration
+The effect should be:
+premium medical clinic near Opéra, not palace fantasy.
 
-4. Service cards
-   The service cards currently still feel too soft/simple.
+Hero section:
+The hero currently has the right content but not enough visual presence.
 
-Please make them feel more premium:
+Please improve the hero so it feels like the entrance to a premium clinic.
 
-* subtle gold top border or corner detail
-* burgundy/rose icon accents
-* refined hover states
-* better contrast
-* elegant card shadows
-* consistent spacing
-* no excessive animation
+Hero improvements:
+1. Use a richer background, not flat pale cream.
+2. Add subtle champagne/burgundy/gold gradient depth.
+3. Integrate the circular logo as a luxury medallion, not a pasted image.
+4. Add a refined halo, arched frame, soft shadow, or gold decorative line work around the logo.
+5. Make the H1 stronger and more editorial/luxury.
+6. Use gold for small dividers, eyebrows, and detail lines.
+7. Use burgundy for elegant emphasis.
+8. Keep text very readable.
+9. Make the mobile hero look intentional and not crowded.
 
-5. CTA section
-   The dark navy CTA section is good. Make it more premium:
+Hero copy should remain close to:
+H1:
+Centre d’Échographie de la Femme OPÉRA
 
-* add subtle gold glow/detail
-* use a burgundy/gold accent line
-* make the button feel polished
-* keep accessibility contrast strong
+Subtitle:
+Échographies gynécologiques et obstétricales au cœur de Lyon, avec Dr Alexandra Soldea et son équipe.
 
-6. Footer
-   The footer should feel like a luxury medical brand footer:
+Supporting text:
+Un centre dédié au suivi gynécologique, obstétrical et échographique des femmes, dans un cadre médical élégant, humain et rigoureux.
 
-* navy base
-* gold section labels
-* refined spacing
-* gold/burgundy details
-* logo should look good on dark background
-* no filters that distort the gold logo
+Navbar:
+The circular gold logo is beautiful, but it can be heavy in the navbar.
 
-7. Typography
-   Keep the elegant serif direction, but make hierarchy stronger:
+Please make the navbar elegant and practical:
+- use a small compact logo/icon if needed
+- keep the brand text readable
+- avoid crowding
+- make it feel premium
+- keep strong contrast
+- mobile nav must remain clean
 
-* H1 should feel premium and intentional
-* section titles should feel more editorial/luxury
-* body text must remain readable and medical/professional
-* avoid overusing italic text
+Suggested navbar text:
+Centre d’Échographie OPÉRA
+or
+Centre d’Échographie de la Femme
 
-8. Équipe page
-   Make sure the new Équipe page follows the same premium visual language:
+Services section:
+The service cards should feel more premium.
 
-* doctor card should look elegant and trustworthy
-* placeholders should be subtle and not cheap-looking
-* no fake doctors
+Please improve:
+- card depth
+- subtle gold top rules or corner details
+- burgundy/rose icon accents
+- refined hover states
+- better contrast
+- less generic pastel feeling
+- elegant shadows
+- consistent spacing
 
-9. Contact page
-   Make the contact page match the new brand:
+Do not over-animate.
+Do not add heavy JS.
 
-* one address only:
-  9 rue du Président Édouard Herriot, 69001 Lyon
-* gold/burgundy section accents
-* polished contact cards
-* single Lyon centre identity
+Obstetrical ultrasound section:
+This section should feel more elegant and editorial.
 
-10. SEO and content protection
-    Do not remove or weaken important SEO phrases:
+Please add:
+- subtle burgundy/gold hierarchy
+- premium numbered cards
+- refined dividers
+- better connection to the clinic identity
 
-* Centre d’Échographie de la Femme OPÉRA
-* échographie gynécologique à Lyon
-* échographie obstétricale à Lyon
-* échographie de la femme à Lyon
-* centre d’échographie à Lyon
-* Dr Alexandra Soldea
+About / medical values section:
+Keep the medical trust feeling, but make the section more premium:
+- deep navy or burgundy accents
+- gold micro-details
+- elegant cards
+- refined typography
 
-Keep Dr Alexandra Soldea visible naturally for trust and search.
+CTA section:
+The dark navy CTA is a good direction. Please make it more luxurious:
+- subtle gold glow
+- fine gold border/detail
+- burgundy accent line
+- polished button
+- strong accessibility contrast
 
-11. Technical constraints
+Footer:
+The footer should feel like a luxury medical brand footer.
 
-* Keep mobile responsive.
-* Keep PageSpeed strong.
-* Do not add unnecessary client-side JS.
-* Do not reintroduce heavy Framer Motion.
-* Keep server components where possible.
-* Do not break npm run build.
-* Do not break contact form / Resend.
-* Do not break Google Analytics.
-* Do not change redirects.
-* Do not change canonical URL logic.
-* Do not change sitemap unless needed.
-* Do not break structured data.
+Please refine:
+- navy base
+- gold section labels
+- logo should look good on dark background
+- better spacing
+- refined small dividers
+- no filters that distort the gold logo
+- keep legal links readable
 
-Performance targets:
+Équipe page:
+The Équipe page should match the premium clinic identity.
 
-* Mobile PageSpeed: 90+
-* Desktop PageSpeed: 96+
-* CLS must remain 0 or very close to 0.
+Please improve:
+- doctor card design
+- future doctor placeholders
+- page header
+- visual hierarchy
+- trust/professional tone
 
-12. After implementation, show me:
+Do not invent fake doctors.
 
-* files changed
-* visual/design changes made
-* color/token changes
-* sections updated
-* any logo/image usage changes
-* build result
-* any risks or follow-up suggestions
+Contact page:
+The contact page must match the new premium identity and single-location clinic.
 
-Important design instruction:
-The site should feel like a premium private clinic brand. Rich, elegant, high-status, medical, feminine, and trustworthy — not flashy, not cheap, not overly decorative.
+Keep:
+9 rue du Président Édouard Herriot, 69001 Lyon
+04 28 29 55 16
+
+Improve:
+- contact cards
+- form styling
+- address block
+- map/access section
+- gold/burgundy accents
+- calm premium layout
+
+Do not break the contact form or Resend email flow.
+
+Typography:
+Make hierarchy stronger:
+- H1 should feel premium/editorial
+- section titles should feel elegant
+- body text should remain readable and professional
+- avoid overusing italic text
+- avoid making text too small or low contrast
+
+SEO protection:
+Do not weaken the SEO work.
+
+Keep these phrases naturally present where appropriate:
+- Centre d’Échographie de la Femme OPÉRA
+- échographie gynécologique à Lyon
+- échographie obstétricale à Lyon
+- échographie de la femme à Lyon
+- centre d’échographie à Lyon
+- Dr Alexandra Soldea
+
+Do not remove important content.
+
+Do not break:
+- canonical URLs using https://www.echographielyon.fr
+- sitemap
+- structured data
+- redirects
+- Google Analytics
+- Search Console compatibility
+- old domain redirects
+- contact form / Resend
+- legal pages
+- cookie/consent logic
+
+Technical/performance constraints:
+The website currently has strong PageSpeed. Protect it.
+
+Targets:
+- Mobile PageSpeed: 90+
+- Desktop PageSpeed: 96+
+- CLS: 0 or very close to 0
+- Accessibility should remain strong
+
+Rules:
+1. Do not add unnecessary client-side JavaScript.
+2. Do not reintroduce heavy Framer Motion.
+3. Keep server components where possible.
+4. Avoid heavy background images.
+5. If decorative motifs are added, prefer CSS gradients, pseudo-elements, SVG line patterns, or lightweight assets.
+6. Optimize any new images.
+7. Keep responsive layout clean.
+8. Run npm run build.
+
+Important design warning:
+Do not just add more gold everywhere. That will look cheap.
+The premium feeling should come from:
+- deep navy structure
+- rich burgundy depth
+- controlled gold details
+- refined spacing
+- elegant typography
+- subtle architectural/Opéra-inspired details
+
+Deliverables:
+After implementation, show:
+- files changed
+- design/theme changes
+- color/token changes
+- sections updated
+- any decorative motif system added
+- logo usage changes
+- SEO/schema changes if any
+- build result
+- any performance risks or follow-up suggestions
+
+Final desired feeling:
+A premium private women’s ultrasound centre in the Lyon Opéra area — refined, elegant, trusted, medical, feminine, and high-status.

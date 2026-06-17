@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { OperaDivider, OrnateCorners } from "@/app/_components/OperaMotifs";
 import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -72,6 +73,7 @@ function TeamGrid() {
   return (
     <section className="bg-white py-16 md:py-24 border-t border-line">
       <div className="container-page">
+        <OperaDivider className="mb-12 md:mb-16" />
         <div className="grid gap-6 lg:gap-8 lg:grid-cols-3">
           <DoctorCard />
           <PlaceholderCard index={2} />
@@ -85,6 +87,7 @@ function TeamGrid() {
 function DoctorCard() {
   return (
     <article className="card-gold-top group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-white ring-1 ring-line shadow-[0_30px_70px_-40px_rgba(7,26,51,0.25)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_50px_90px_-35px_rgba(7,26,51,0.32)] hover:ring-accent/50">
+      <OrnateCorners />
       <div className="relative aspect-[4/5] overflow-hidden bg-cream-deep">
         <Image
           src="/alexandra.webp"
@@ -152,6 +155,7 @@ function DoctorCard() {
 function PlaceholderCard({ index }: { index: number }) {
   return (
     <article className="relative flex flex-col rounded-[1.5rem] bg-cream/60 ring-1 ring-line p-6 md:p-7">
+      <OrnateCorners />
       <div className="flex aspect-[4/5] items-center justify-center rounded-[1.1rem] bg-gradient-to-b from-cream to-cream-deep ring-1 ring-accent/20">
         <span className="relative grid h-16 w-16 place-content-center rounded-full bg-white text-accent-deep ring-1 ring-accent/40 shadow-[0_14px_30px_-18px_rgba(7,26,51,0.4)]">
           <span aria-hidden className="absolute inset-1.5 rounded-full ring-1 ring-accent/25" />

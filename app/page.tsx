@@ -4,6 +4,11 @@ import { Section } from "@/app/_components/Section";
 import { ServiceCard } from "@/app/_components/ServiceCard";
 import { ServiceIcon } from "@/app/_components/ServiceIcon";
 import {
+  OperaArch,
+  OperaDivider,
+  OrnateCorners,
+} from "@/app/_components/OperaMotifs";
+import {
   NAV_SERVICES,
   getObstetricTrimesters,
   type Service,
@@ -180,7 +185,9 @@ function HeroMedallion() {
         }}
       />
 
-      <figure className="relative">
+      <figure className="relative flex justify-center">
+        {/* Engraved Belle-Époque arch framing the medallion like an alcove. */}
+        <OperaArch className="absolute left-1/2 bottom-[-7%] -translate-x-1/2 w-[clamp(17rem,66vw,28rem)] -z-10" />
         {/*
          * The circular gold medallion logo is the homepage centrepiece. It is
          * matted on a champagne disc with a double gold rim and a soft
@@ -279,25 +286,38 @@ function Highlights() {
   return (
     <section
       aria-labelledby="highlights-heading"
-      className="bg-white py-16 md:py-20 border-t border-line"
+      className="relative overflow-hidden bg-ink-deep text-white py-16 md:py-20"
     >
-      <div className="container-page">
-        {/* Visually hidden so the visual design is unchanged, but the
-         * heading hierarchy now reads h1 (hero) → h2 (highlights) → h3
-         * (cards) instead of skipping a level. */}
-        <h2 id="highlights-heading" className="sr-only">
-          Affiliations et reconnaissance
-        </h2>
-        <div className="grid md:grid-cols-3 gap-10 reveal-stagger">
+      {/* Gold top hairline + a soft warm glow give the dark band depth. */}
+      <span aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
+      <div
+        aria-hidden
+        className="absolute -top-24 right-0 h-[360px] w-[360px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(201,162,74,0.18), transparent 70%)",
+        }}
+      />
+      <div className="container-page relative">
+        <div className="flex flex-col items-center text-center mb-10 md:mb-12">
+          <h2
+            id="highlights-heading"
+            className="text-[11px] tracking-[0.34em] uppercase text-accent font-medium"
+          >
+            Affiliations &amp; reconnaissance
+          </h2>
+          <OperaDivider className="mt-4" />
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 md:gap-10 reveal-stagger">
           {items.map((item) => (
             <div key={item.title} className="flex gap-4 reveal">
               <span
                 aria-hidden
-                className="mt-1 inline-block h-10 w-[2px] bg-primary"
+                className="mt-1 inline-block h-10 w-px bg-gradient-to-b from-accent to-transparent"
               />
               <div>
-                <h3 className="font-display text-xl text-ink">{item.title}</h3>
-                <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                <h3 className="font-display text-xl text-white">{item.title}</h3>
+                <p className="mt-2 text-sm text-white/70 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -403,6 +423,7 @@ function UltrasoundFocus() {
 
         {/* Reassurance band — also a small SEO win (extra keyword density) */}
         <div className="card-gold-top relative mt-14 md:mt-16 rounded-3xl bg-white ring-1 ring-line p-6 md:p-8 grid gap-6 md:grid-cols-[1.4fr_1fr] items-center shadow-[0_30px_70px_-40px_rgba(7,26,51,0.25)]">
+          <OrnateCorners />
           <ul className="grid sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-ink-soft">
             {[
               "Échographiste agréée Réseau Aurore",
@@ -461,6 +482,7 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
         href={`/services/${service.slug}`}
         className="card-gold-top group relative block h-full rounded-[1.5rem] bg-white ring-1 ring-line p-7 md:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_50px_90px_-35px_rgba(7,26,51,0.32)] hover:ring-accent/50"
       >
+        <OrnateCorners />
         {/* Big number marker — gives each card a strong identity */}
         <div className="flex items-start justify-between">
           <span className="font-display text-[3.5rem] md:text-[4rem] leading-none text-primary-deep">
@@ -675,8 +697,9 @@ function ContactCTA() {
   return (
     <section className="container-page py-20 md:py-24">
       <div className="relative overflow-hidden rounded-[2rem] bg-ink-deep text-white p-12 md:p-16 ring-1 ring-accent/25 reveal">
-        {/* Gold top hairline — the premium frame detail. */}
+        {/* Gold top hairline + engraved corners — the premium frame detail. */}
         <span aria-hidden className="absolute inset-x-10 top-0 h-px gold-rule" />
+        <OrnateCorners />
         <div
           aria-hidden
           className="absolute -top-32 -right-32 h-[400px] w-[400px] rounded-full"
