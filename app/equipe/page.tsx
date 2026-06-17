@@ -116,7 +116,16 @@ function DoctorCard() {
         <p className="mt-3 text-sm text-white/70 leading-relaxed text-pretty">
           Échographie gynécologique et obstétricale. Échographiste agréée du
           réseau de périnatalité Aurore et titulaire du DIU d&apos;échographie
-          gynécologique et obstétricale (Paris Descartes).
+          gynécologique et obstétricale (Paris Descartes).{" "}
+          <a
+            href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045964393"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent underline decoration-accent/40 underline-offset-[3px] hover:decoration-accent transition-colors"
+          >
+            Lauréate du concours national de praticien hospitalier (2022)
+          </a>
+          .
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           {["Gynécologie", "Obstétrique", "Échographie", "Réseau Aurore"].map(

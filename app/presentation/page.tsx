@@ -3,6 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
+const PH_CONCOURS_URL =
+  "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045964393";
+
+type CredentialValue = string | { text: string; href: string };
+
 export const metadata: Metadata = {
   title: "Présentation",
   description:
@@ -159,7 +164,13 @@ function CredentialsGrid() {
     },
     {
       label: "Diplômes",
-      values: ["DIU Échographie gynécologique et obstétricale — Paris Descartes (2020)"],
+      values: [
+        "DIU Échographie gynécologique et obstétricale — Paris Descartes (2020)",
+        {
+          text: "2022 — Lauréate du concours national de praticien hospitalier",
+          href: PH_CONCOURS_URL,
+        },
+      ],
     },
     {
       label: "Associations",
@@ -191,10 +202,10 @@ function CredentialsGrid() {
               <ul className="space-y-3">
                 {item.values.map((v) => (
                   <li
-                    key={v}
+                    key={typeof v === "string" ? v : v.text}
                     className="text-ink-soft text-[15px] leading-relaxed border-l-2 border-primary/40 pl-4"
                   >
-                    {v}
+                    <CredentialValueContent value={v} />
                   </li>
                 ))}
               </ul>
@@ -203,6 +214,22 @@ function CredentialsGrid() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CredentialValueContent({ value }: { value: CredentialValue }) {
+  if (typeof value === "string") return value;
+
+  return (
+    <a
+      href={value.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary-deep underline decoration-primary/30 underline-offset-[3px] hover:decoration-primary transition-colors"
+    >
+      {value.text}
+      <span className="sr-only"> (ouvre Légifrance dans un nouvel onglet)</span>
+    </a>
   );
 }
 
@@ -345,21 +372,43 @@ function Publications() {
           ))}
         </ul>
 
-        <div className="mt-12 rounded-2xl bg-white ring-1 ring-line p-7 flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
-          <div>
-            <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
-              Prix & distinctions
-            </p>
-            <p className="font-display text-xl text-ink mt-1">
-              1er prix · Best abstract video
-            </p>
-            <p className="text-sm text-muted mt-1">
-              European Society for Gynaecological Endoscopy (ESGE) — 2016
-            </p>
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl bg-white ring-1 ring-line p-7 flex flex-col md:flex-row items-start md:items-center gap-5 justify-between">
+            <div>
+              <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
+                Prix & distinctions
+              </p>
+              <p className="font-display text-xl text-ink mt-1">
+                1er prix · Best abstract video
+              </p>
+              <p className="text-sm text-muted mt-1">
+                European Society for Gynaecological Endoscopy (ESGE) — 2016
+              </p>
+            </div>
+            <span className="rounded-full bg-cream-deep px-4 py-2 text-xs tracking-wider uppercase text-primary-deep">
+              ESGE 2016
+            </span>
           </div>
-          <span className="rounded-full bg-cream-deep px-4 py-2 text-xs tracking-wider uppercase text-primary-deep">
-            ESGE 2016
-          </span>
+          <div className="rounded-2xl bg-white ring-1 ring-line p-7 flex flex-col gap-3">
+            <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
+              Concours national
+            </p>
+            <p className="font-display text-xl text-ink leading-snug text-balance">
+              Lauréate du concours de praticien hospitalier
+            </p>
+            <p className="text-sm text-muted">
+              Liste d&apos;aptitude — arrêté du 13 mai 2022
+            </p>
+            <a
+              href={PH_CONCOURS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-deep underline decoration-primary/30 underline-offset-[3px] hover:decoration-primary transition-colors"
+            >
+              Voir la publication officielle (Légifrance)
+              <span aria-hidden>↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
