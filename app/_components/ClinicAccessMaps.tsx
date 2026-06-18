@@ -25,7 +25,14 @@ export function ClinicAccessMaps({
   const hasStreetView = Boolean(GOOGLE_STREET_VIEW_EMBED_URL.trim());
 
   return (
-    <div className={className ?? "grid lg:grid-cols-2 gap-6"}>
+    <div
+      className={[
+        "grid lg:grid-cols-2 gap-6",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="rounded-[1.25rem] overflow-hidden ring-1 ring-line bg-cream shadow-[0_20px_50px_-28px_rgba(11,31,58,0.12)]">
         <LazyMapEmbed
           src={GOOGLE_MAPS_EMBED_URL}

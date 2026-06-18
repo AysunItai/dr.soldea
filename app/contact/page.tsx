@@ -296,10 +296,7 @@ function Maps() {
           </p>
         </div>
 
-        <ClinicAccessMaps
-          className="max-w-5xl mx-auto scroll-mt-28"
-          mapsButtonLabel="Itinéraire"
-        />
+        <ClinicAccessMaps mapsButtonLabel="Itinéraire" />
       </div>
     </section>
   );
