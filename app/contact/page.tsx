@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { LazyMapEmbed } from "@/app/_components/LazyMapEmbed";
+import { ClinicAccessMaps } from "@/app/_components/ClinicAccessMaps";
 import { OperaDivider, OrnateCorners } from "@/app/_components/OperaMotifs";
+import {
+  CLINIC_ADDRESS,
+  CLINIC_NAME,
+  GOOGLE_MAPS_URL,
+} from "@/lib/clinic";
 import { breadcrumbJsonLd, canonicalUrl } from "@/lib/seo";
 
 const ContactForm = dynamic(
@@ -29,13 +34,10 @@ export const metadata: Metadata = {
 const ADDRESSES = [
   {
     city: "Lyon",
-    title: "Centre d'Échographie de la Femme OPÉRA",
-    address: "9 rue du Président Édouard Herriot, 69001 Lyon",
+    title: CLINIC_NAME,
+    address: CLINIC_ADDRESS,
     detail: "Consultations gynécologiques et échographies sur rendez-vous.",
-    mapsUrl:
-      "https://www.google.com/maps?q=9+rue+du+Pr%C3%A9sident+%C3%89douard+Herriot+69001+Lyon",
-    embed:
-      "https://www.google.com/maps?q=9+rue+du+Pr%C3%A9sident+%C3%89douard+Herriot+69001+Lyon&output=embed",
+    mapsUrl: GOOGLE_MAPS_URL,
   },
 ];
 
@@ -294,42 +296,10 @@ function Maps() {
           </p>
         </div>
 
-        <div className="grid gap-6 max-w-3xl mx-auto">
-          {ADDRESSES.map((a) => (
-            <div
-              key={a.city}
-              id={`cabinet-${a.city.toLowerCase()}`}
-              className="scroll-mt-28 rounded-2xl overflow-hidden ring-1 ring-line bg-cream"
-            >
-              <LazyMapEmbed
-                src={a.embed}
-                title={`Plan d'accès — ${a.city}`}
-              />
-              <div className="p-5 flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-xs tracking-[0.25em] uppercase text-accent-deep font-medium">
-                    {a.city}
-                  </p>
-                  <p className="font-display text-lg text-ink mt-1 leading-snug">
-                    {a.title}
-                  </p>
-                  <p className="text-sm text-muted mt-1">{a.address}</p>
-                  {a.detail && (
-                    <p className="text-sm text-ink-soft mt-2">{a.detail}</p>
-                  )}
-                </div>
-                <a
-                  href={a.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center justify-center h-10 px-4 rounded-full bg-ink text-white text-sm hover:bg-primary-deep transition-colors"
-                >
-                  Itinéraire
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ClinicAccessMaps
+          className="max-w-5xl mx-auto scroll-mt-28"
+          mapsButtonLabel="Itinéraire"
+        />
       </div>
     </section>
   );
