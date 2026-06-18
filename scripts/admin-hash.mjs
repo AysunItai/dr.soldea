@@ -13,6 +13,9 @@ if (!password) {
 
 const hash = await bcrypt.hash(password, 12);
 const escaped = hash.replace(/\$/g, "\\$");
-console.log("\nAdd to .env.local (escape $ for Next.js env expansion):\n");
+
+console.log("\n1) Vercel (Environment Variables) — paste RAW hash, no quotes, no backslashes:\n");
+console.log(hash);
+console.log("\n2) .env.local — escape every $ as \\$ (Next.js expands $VAR in .env files):\n");
 console.log(`ADMIN_PASSWORD_HASH='${escaped}'`);
-console.log("\nAlso set ADMIN_JWT_SECRET to a random string (32+ chars).\n");
+console.log("\nAlso set ADMIN_JWT_SECRET to a random string (32+ chars) on Vercel and in .env.local.\n");

@@ -155,6 +155,14 @@ export function Footer() {
             </li>
             <li>
               <Link
+                href="/galerie"
+                className="text-sm text-white/75 hover:text-white"
+              >
+                Galerie
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/presentation"
                 className="text-sm text-white/75 hover:text-white"
               >

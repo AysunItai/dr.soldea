@@ -283,6 +283,13 @@ function Maps() {
             >
               En savoir plus sur le centre de Lyon
             </Link>
+            {" · "}
+            <Link
+              href="/galerie"
+              className="text-primary-deep hover:text-ink transition-colors"
+            >
+              Découvrir la galerie photo
+            </Link>
             .
           </p>
         </div>

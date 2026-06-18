@@ -10,6 +10,7 @@ import { NAV_SERVICES } from "@/lib/services";
 const PRIMARY_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/equipe", label: "Équipe" },
+  { href: "/galerie", label: "Galerie" },
   { href: "/presentation", label: "Présentation" },
   { href: "/blog", label: "Actualités" },
   { href: "/contact", label: "Contact" },
