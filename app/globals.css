@@ -79,6 +79,10 @@
   --shadow-soft: 0 30px 60px -30px rgba(11, 31, 61, 0.18);
 }
 
+html {
+  overflow-x: clip;
+}
+
 html,
 body {
   color: var(--color-ink);

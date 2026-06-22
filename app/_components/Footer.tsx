@@ -7,11 +7,11 @@ export function Footer() {
   const year = new Date().getFullYear();
   const trimesters = getObstetricTrimesters();
   return (
-    <footer className="relative bg-ink-deep text-white/85 mt-24">
+    <footer className="relative bg-ink-deep text-white/85 mt-16 sm:mt-24 overflow-hidden">
       {/* Gold top hairline — frames the luxury footer. */}
       <span aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
-      <div className="container-page py-16 md:py-20 grid gap-12 lg:grid-cols-5">
-        <div className="lg:col-span-1">
+      <div className="container-page min-w-0 py-12 sm:py-16 md:py-20 grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="sm:col-span-2 lg:col-span-1">
           {/*
            * The circular gold medallion logo reads beautifully on the dark
            * navy footer — no colour filter needed (gold on navy is the
@@ -31,14 +31,14 @@ export function Footer() {
           <p className="mt-1 text-xs tracking-[0.28em] uppercase text-accent">
             Avec Dr Alexandra Soldea
           </p>
-          <p className="text-sm text-white/60 mt-5 max-w-sm">
+          <p className="text-sm text-white/60 mt-4 sm:mt-5 max-w-sm text-pretty leading-relaxed">
             Centre dédié à l&apos;échographie de la femme au cœur de Lyon :
             échographies gynécologiques et obstétricales, suivi de grossesse
             (T1, T2, T3 — réseau Aurore) et consultations sur rendez-vous.
           </p>
         </div>
 
-        <div>
+        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
           {/*
            * The Footer's column titles were `<h4>` for visual weight, but
            * Lighthouse flagged a heading-order skip (main content's
@@ -46,7 +46,7 @@ export function Footer() {
            * visually identical via the same Tailwind classes) restores a
            * legal hierarchy without altering the design.
            */}
-          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
+          <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Services
           </h2>
           <ul className="space-y-2">
@@ -71,8 +71,8 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
+        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
+          <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Échographies obstétricales
           </h2>
           <ul className="space-y-2">
@@ -98,8 +98,8 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
+        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
+          <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Le centre
           </h2>
           <p className="text-sm text-white/75 leading-relaxed">
@@ -140,8 +140,8 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-xs tracking-[0.25em] uppercase text-accent mb-4">
+        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
+          <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Liens
           </h2>
           <ul className="space-y-2">
@@ -206,8 +206,8 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/55">
-          <p>
+        <div className="container-page min-w-0 py-5 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/55 text-center md:text-left">
+          <p className="text-pretty max-w-prose">
             © {year} Centre d&apos;Échographie de la Femme OPÉRA — Dr. Alexandra
             Soldea. Tous droits réservés.
           </p>
