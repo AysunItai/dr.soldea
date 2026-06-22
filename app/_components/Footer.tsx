@@ -163,6 +163,14 @@ export function Footer() {
             </li>
             <li>
               <Link
+                href="/technologie"
+                className="text-sm text-white/75 hover:text-white"
+              >
+                Technologie &amp; équipement
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/presentation"
                 className="text-sm text-white/75 hover:text-white"
               >

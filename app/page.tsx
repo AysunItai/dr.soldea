@@ -14,6 +14,7 @@ import {
   type Service,
 } from "@/lib/services";
 import { CLINIC_GALLERY_PHOTOS } from "@/lib/clinic";
+import { EQUIPMENT_INTRO } from "@/lib/equipment";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <PregnancyExamsSection />
       <ServicesSection />
       <UltrasoundFocus />
+      <TechnologyTeaser />
       <TeamTeaser />
       <ClinicGalleryTeaser />
       <ContactCTA />
@@ -544,6 +546,89 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
         </div>
       </Link>
     </li>
+  );
+}
+
+function TechnologyTeaser() {
+  const examRoom = CLINIC_GALLERY_PHOTOS[1];
+
+  return (
+    <section
+      aria-labelledby="technology-teaser-heading"
+      className="relative bg-white py-20 md:py-28 overflow-hidden border-t border-line"
+    >
+      <div
+        aria-hidden
+        className="absolute top-1/2 -right-32 h-[420px] w-[420px] rounded-full"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(201,162,74,0.1), transparent 70%)",
+        }}
+      />
+
+      <div className="container-page relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="order-2 lg:order-1">
+          <h2
+            id="technology-teaser-heading"
+            className="text-[11px] tracking-[0.34em] uppercase text-accent-deep font-medium"
+          >
+            {EQUIPMENT_INTRO.eyebrow}
+          </h2>
+          <p className="mt-4 font-display text-3xl md:text-4xl text-ink leading-[1.06] text-balance">
+            {EQUIPMENT_INTRO.title}
+          </p>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed text-pretty">
+            {EQUIPMENT_INTRO.teaser}
+          </p>
+          <Link
+            href="/technologie"
+            className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary-deep"
+          >
+            <span className="border-b border-primary-deep/30 pb-px group-hover:border-primary-deep transition-colors">
+              Découvrir notre équipement
+            </span>
+            <svg
+              viewBox="0 0 16 16"
+              className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d="M3 8h10m0 0L9 4m4 4-4 4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </div>
+
+        <Link
+          href="/technologie"
+          className="card-gold-top group relative order-1 lg:order-2 overflow-hidden rounded-[1.5rem] ring-1 ring-accent/35 shadow-[0_28px_70px_-32px_rgba(11,31,58,0.14)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_40px_90px_-28px_rgba(201,162,74,0.18)] hover:ring-accent/50"
+        >
+          <OrnateCorners />
+          <div className="relative aspect-[3/4] max-h-[420px] overflow-hidden">
+            <Image
+              src={examRoom.src}
+              alt={examRoom.alt}
+              width={examRoom.width}
+              height={examRoom.height}
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink-deep/45 to-transparent"
+            />
+            <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-ink-deep/90 px-4 py-1.5 text-[11px] tracking-[0.18em] uppercase text-accent ring-1 ring-accent/40">
+              Salle d&apos;échographie
+            </span>
+          </div>
+        </Link>
+      </div>
+    </section>
   );
 }
 
