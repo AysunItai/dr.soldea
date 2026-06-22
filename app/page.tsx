@@ -434,7 +434,7 @@ function UltrasoundFocus() {
         </ol>
 
         {/* Reassurance band — also a small SEO win (extra keyword density) */}
-        <div className="card-gold-top relative mt-14 md:mt-16 rounded-3xl bg-ink-deep text-white ring-1 ring-accent/25 p-6 md:p-8 grid gap-6 md:grid-cols-[1.4fr_1fr] items-center shadow-[0_40px_90px_-45px_rgba(0,0,0,0.75)]">
+        <div className="card-gold-top relative mt-14 md:mt-16 rounded-3xl bg-ink-deep text-white ring-1 ring-accent/25 p-6 md:p-8 grid gap-6 lg:grid-cols-[1fr_auto] items-center shadow-[0_40px_90px_-45px_rgba(0,0,0,0.75)]">
           <OrnateCorners />
           <ul className="grid sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-white/75">
             {[
@@ -454,10 +454,10 @@ function UltrasoundFocus() {
               </li>
             ))}
           </ul>
-          <div className="flex md:justify-end">
+          <div className="flex lg:justify-end">
             <Link
               href="/services/echographie-obstetricale"
-              className="shine group inline-flex items-center justify-center h-12 pl-6 pr-3 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
+              className="shine group inline-flex w-full sm:w-auto shrink-0 items-center justify-center h-12 pl-6 pr-3 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 hover:from-[#e3c479] hover:to-[#cfa850] transition-colors whitespace-nowrap"
             >
               Tout savoir sur l&apos;échographie obstétricale
               <span
@@ -821,7 +821,7 @@ function ContactCTA() {
               "radial-gradient(closest-side, rgba(143,61,86,0.22), transparent 70%)",
           }}
         />
-        <div className="relative grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
+        <div className="relative grid lg:grid-cols-[1fr_auto] gap-10 items-center">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span aria-hidden className="gold-tick" />
@@ -837,10 +837,10 @@ function ContactCTA() {
               confirmation immédiate.
             </p>
           </div>
-          <div className="flex flex-col gap-3 md:items-end">
+          <div className="flex flex-col gap-3 lg:items-end shrink-0">
             <Link
               href="/services"
-              className="shine inline-flex items-center justify-center h-12 px-7 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 shadow-[0_18px_40px_-18px_rgba(201,162,74,0.7)] hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
+              className="shine inline-flex w-full sm:w-auto shrink-0 items-center justify-center h-12 px-7 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 shadow-[0_18px_40px_-18px_rgba(201,162,74,0.7)] hover:from-[#e3c479] hover:to-[#cfa850] transition-colors whitespace-nowrap"
             >
               <span>Voir tous les services</span>
             </Link>

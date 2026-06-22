@@ -5,10 +5,17 @@ import { NavScrollShell } from "@/app/_components/NavScrollShell";
 import { ServiceIcon } from "@/app/_components/ServiceIcon";
 import { NAV_SERVICES } from "@/lib/services";
 
+const CENTRE_LINKS = [
+  { href: "/equipe", label: "Équipe" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/technologie", label: "Technologie" },
+  { href: "/presentation", label: "Présentation" },
+] as const;
+
 /**
  * Site header — server-rendered shell with two small client islands:
  * `NavScrollShell` (scroll styling) and `MobileNav` (drawer).
- * Desktop services dropdown uses CSS hover/focus-within (no JS).
+ * Desktop dropdowns use CSS hover/focus-within (no JS).
  */
 export function Navbar() {
   return (
@@ -29,7 +36,7 @@ export function Navbar() {
             sizes="48px"
             className="h-10 w-10 md:h-11 md:w-11 rounded-full ring-1 ring-accent/40 shadow-[0_6px_16px_-8px_rgba(11,31,58,0.4)]"
           />
-          <span className="hidden sm:flex flex-col leading-none">
+          <span className="hidden xl:flex flex-col leading-none">
             <span className="nav-brand-title font-display text-[15px] md:text-base text-ink tracking-tight">
               Centre d&apos;Échographie de la Femme
             </span>
@@ -39,14 +46,14 @@ export function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-2" aria-label="Principal">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 shrink-0" aria-label="Principal">
           <DesktopLink href="/">Accueil</DesktopLink>
 
           <div className="relative group">
             <button
               type="button"
               aria-haspopup="menu"
-              className="nav-services-btn px-4 py-2 text-sm font-medium rounded-full inline-flex items-center gap-1.5 text-ink-soft hover:text-ink transition-colors group-hover:text-ink"
+              className="nav-services-btn px-2.5 xl:px-3.5 py-2 text-sm font-medium rounded-full inline-flex items-center gap-1 text-ink-soft hover:text-ink transition-colors group-hover:text-ink"
             >
               Services
               <svg
@@ -106,18 +113,17 @@ export function Navbar() {
             </div>
           </div>
 
-          <DesktopLink href="/equipe">Équipe</DesktopLink>
-          <DesktopLink href="/galerie">Galerie</DesktopLink>
-          <DesktopLink href="/technologie">Technologie</DesktopLink>
-          <DesktopLink href="/presentation">Présentation</DesktopLink>
+          <NavDropdown label="Le centre" links={CENTRE_LINKS} />
+
           <DesktopLink href="/blog">Actualités</DesktopLink>
           <DesktopLink href="/contact">Contact</DesktopLink>
 
           <Link
             href="/services"
-            className="ml-3 inline-flex items-center justify-center rounded-full bg-ink text-white text-sm font-medium h-10 px-5 ring-1 ring-accent/40 hover:bg-ink-deep hover:ring-accent/70 transition-colors"
+            className="ml-1.5 xl:ml-3 inline-flex shrink-0 items-center justify-center rounded-full bg-ink text-white text-sm font-medium h-10 px-4 xl:px-5 whitespace-nowrap ring-1 ring-accent/40 hover:bg-ink-deep hover:ring-accent/70 transition-colors"
           >
-            Prendre rendez-vous
+            <span className="xl:hidden">Rendez-vous</span>
+            <span className="hidden xl:inline">Prendre rendez-vous</span>
           </Link>
         </nav>
 
@@ -137,9 +143,61 @@ function DesktopLink({
   return (
     <Link
       href={href}
-      className="nav-link px-4 py-2 text-sm font-medium rounded-full text-ink-soft hover:text-ink transition-colors"
+      className="nav-link px-2.5 xl:px-3.5 py-2 text-sm font-medium rounded-full text-ink-soft hover:text-ink transition-colors whitespace-nowrap"
     >
       {children}
     </Link>
+  );
+}
+
+function NavDropdown({
+  label,
+  links,
+}: {
+  label: string;
+  links: ReadonlyArray<{ href: string; label: string }>;
+}) {
+  return (
+    <div className="relative group">
+      <button
+        type="button"
+        aria-haspopup="menu"
+        className="px-2.5 xl:px-3.5 py-2 text-sm font-medium rounded-full inline-flex items-center gap-1 text-ink-soft hover:text-ink transition-colors group-hover:text-ink whitespace-nowrap"
+      >
+        {label}
+        <svg
+          className="h-3.5 w-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+          viewBox="0 0 12 12"
+          fill="none"
+          aria-hidden
+        >
+          <path
+            d="M3 4.5 6 7.5 9 4.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div
+        role="menu"
+        className="absolute left-0 top-full pt-3 w-52 invisible opacity-0 pointer-events-none transition-opacity duration-200 group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100 group-focus-within:pointer-events-auto"
+      >
+        <div className="rounded-xl bg-white ring-1 ring-line shadow-[0_20px_40px_-24px_rgba(11,31,61,0.25)] p-1.5">
+          {links.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              role="menuitem"
+              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft hover:text-ink hover:bg-primary-soft/60 transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
