@@ -33,7 +33,7 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="hero-above-fold relative overflow-hidden pb-20 sm:pb-24 md:pb-36 bg-ink-deep text-white">
+    <section className="hero-above-fold relative overflow-hidden pb-16 sm:pb-24 md:pb-36 bg-ink-deep text-white">
       {/* Consultation-room photo — editorial ken-burns behind a navy wash. */}
       <div aria-hidden className="absolute inset-0 overflow-hidden">
         <Image
@@ -84,9 +84,16 @@ function Hero() {
       {/* Hairline gold rule pinned to the very top of the page. */}
       <div aria-hidden className="absolute inset-x-0 top-0 z-10 h-px gold-rule" />
 
-      <div className="container-page relative z-10 min-w-0 pt-16 sm:pt-20 md:pt-28 grid lg:grid-cols-[1.1fr_1fr] gap-8 sm:gap-10 lg:gap-20 items-center">
-        <HeroCopy />
-        <HeroMedallion />
+      <div className="container-page relative z-10 min-w-0 pt-[4.25rem] sm:pt-20 md:pt-28 grid lg:grid-cols-[1.1fr_1fr] lg:grid-rows-[auto_auto] gap-6 sm:gap-8 lg:gap-x-20 lg:gap-y-10 items-center">
+        <div className="order-1 lg:col-start-1 lg:row-start-1 min-w-0">
+          <HeroCopy />
+        </div>
+        <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 min-w-0">
+          <HeroMedallion />
+        </div>
+        <div className="order-3 lg:col-start-1 lg:row-start-2 min-w-0">
+          <HeroStats />
+        </div>
       </div>
 
       {/* Soft fade into the cream section below. */}
@@ -115,31 +122,33 @@ function HeroCopy() {
         <span className="text-pretty">Au cœur de Lyon · La Presqu&apos;île</span>
       </div>
 
-      <h1 className="hero-lcp-headline animate-rise animate-rise-delay-1 mt-5 sm:mt-7 font-display text-[clamp(2rem,8.5vw,4.5rem)] leading-[0.98] tracking-[-0.015em] text-white text-balance">
+      <h1 className="hero-lcp-headline animate-rise animate-rise-delay-1 mt-5 sm:mt-6 font-display text-[clamp(1.9rem,8vw,4.5rem)] leading-[1.02] sm:leading-[0.98] tracking-[-0.015em] text-white text-balance">
         Centre d&apos;Échographie
         <br />
         de la Femme{" "}
         <span className="italic text-accent">OPÉRA</span>
       </h1>
-      <p className="animate-rise animate-rise-delay-2 mt-3 sm:mt-4 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.32em] uppercase text-accent font-medium text-pretty">
+      <p className="animate-rise animate-rise-delay-2 mt-3 sm:mt-4 text-[10px] sm:text-[11px] tracking-[0.16em] sm:tracking-[0.28em] uppercase text-accent font-medium text-pretty leading-relaxed">
         Échographie gynécologique &amp; obstétricale · Lyon
       </p>
 
-      <p className="animate-rise animate-rise-delay-3 mt-6 sm:mt-9 max-w-lg text-[0.95rem] sm:text-lg leading-relaxed text-white/75 text-pretty">
+      <p className="animate-rise animate-rise-delay-3 mt-5 sm:mt-8 max-w-lg text-[0.9375rem] sm:text-lg leading-[1.65] sm:leading-relaxed text-white/78 text-pretty">
         Échographies gynécologiques et obstétricales au cœur de Lyon, réalisées
         par notre équipe médicale. Consultations sur rendez-vous — suivi de
         grossesse, échographies T1, T2, T3 et examens gynécologiques.
       </p>
 
-      <div className="animate-rise animate-rise-delay-4 mt-7 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-x-4 sm:gap-y-3">
+      <div className="animate-rise animate-rise-delay-4 mt-6 sm:mt-9 flex flex-col gap-2.5 sm:gap-3">
         <Link
           href="/services"
-          className="shine group inline-flex w-full sm:w-auto items-center justify-center min-h-12 h-12 pl-6 sm:pl-7 pr-3 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 shadow-[0_18px_40px_-18px_rgba(201,162,74,0.7)] hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
+          className="btn-gold shine group w-full sm:w-auto pl-5 pr-3"
         >
-          <span>Prendre rendez-vous</span>
+          <span className="flex-1 text-center sm:flex-initial sm:text-left">
+            Prendre rendez-vous
+          </span>
           <span
             aria-hidden
-            className="ml-3 grid shrink-0 place-content-center h-8 w-8 rounded-full bg-ink-deep text-accent transition-transform group-hover:translate-x-0.5"
+            className="btn-gold-icon ml-2 sm:ml-3 transition-transform group-hover:translate-x-0.5"
           >
             <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
               <path
@@ -154,7 +163,7 @@ function HeroCopy() {
         </Link>
         <Link
           href="/equipe"
-          className="inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-2 min-h-12 h-12 px-2 sm:px-2 text-sm font-medium text-white hover:text-accent transition-colors"
+          className="inline-flex w-full sm:w-auto items-center justify-center gap-2 min-h-11 h-11 px-2 text-sm font-medium text-white/88 hover:text-accent transition-colors"
         >
           <span className="sm:hidden">L&apos;équipe médicale</span>
           <span className="hidden sm:inline">Découvrir l&apos;équipe médicale</span>
@@ -169,30 +178,34 @@ function HeroCopy() {
           </svg>
         </Link>
       </div>
-
-      <dl className="animate-rise animate-rise-delay-4 mt-10 sm:mt-14 grid grid-cols-3 gap-2.5 sm:gap-6 max-w-md">
-        {[
-          { k: "T1 · T2 · T3", v: "Échographies de dépistage" },
-          { k: "Aurore", v: "Réseau de périnatalité" },
-          { k: "En ligne", v: "Prise de rendez-vous" },
-        ].map((s) => (
-          <div key={s.v} className="min-w-0 border-t border-accent/30 pt-3 sm:pt-4">
-            <dt className="font-display text-base sm:text-2xl text-white leading-none">
-              {s.k}
-            </dt>
-            <dd className="text-[10px] sm:text-xs text-white/55 mt-1 leading-snug text-pretty">
-              {s.v}
-            </dd>
-          </div>
-        ))}
-      </dl>
     </div>
+  );
+}
+
+function HeroStats() {
+  return (
+    <dl className="animate-rise animate-rise-delay-4 grid grid-cols-3 gap-2 sm:gap-6 max-w-md lg:mt-1">
+      {[
+        { k: "T1 · T2 · T3", v: "Échographies de dépistage" },
+        { k: "Aurore", v: "Réseau de périnatalité" },
+        { k: "En ligne", v: "Prise de rendez-vous" },
+      ].map((s) => (
+        <div key={s.v} className="min-w-0 border-t border-accent/30 pt-3 sm:pt-4">
+          <dt className="font-display text-[0.95rem] sm:text-2xl text-white leading-none">
+            {s.k}
+          </dt>
+          <dd className="text-[10px] sm:text-xs text-white/55 mt-1.5 leading-snug text-pretty">
+            {s.v}
+          </dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
 function HeroMedallion() {
   return (
-    <div className="hero-lcp-gallery relative mx-auto w-full max-w-[min(100%,20rem)] sm:max-w-md lg:max-w-none flex justify-center px-1">
+    <div className="hero-lcp-gallery relative mx-auto w-full max-w-[min(100%,18rem)] sm:max-w-md lg:max-w-none flex justify-center px-1 -mt-1 sm:mt-0">
       {/* Soft gold halo behind the medallion. */}
       <div
         aria-hidden
@@ -227,7 +240,7 @@ function HeroMedallion() {
             preload
             fetchPriority="high"
             sizes="(min-width: 1024px) 30vw, 70vw"
-            className="relative w-[clamp(12rem,52vw,23rem)] h-auto max-w-full rounded-full"
+            className="relative w-[clamp(11rem,48vw,23rem)] h-auto max-w-full rounded-full"
           />
         </div>
 
@@ -260,7 +273,7 @@ function PregnancyExamsSection() {
   return (
     <section
       aria-labelledby="pregnancy-exams-heading"
-      className="relative overflow-hidden bg-cream text-ink -mt-12 sm:-mt-16 md:-mt-20 pt-20 sm:pt-24 md:pt-28 pb-14 sm:pb-16 md:pb-20"
+      className="relative overflow-hidden bg-cream text-ink -mt-10 sm:-mt-16 md:-mt-20 pt-[4.5rem] sm:pt-24 md:pt-28 pb-14 sm:pb-16 md:pb-20"
     >
       <span aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
       <div
@@ -283,7 +296,7 @@ function PregnancyExamsSection() {
           <p className="mt-3 sm:mt-4 font-display text-[1.65rem] sm:text-3xl md:text-4xl text-ink leading-[1.1] sm:leading-[1.08] text-balance">
             Nos examens d&apos;échographie de grossesse
           </p>
-          <p className="mt-3 sm:mt-4 text-[0.95rem] sm:text-base md:text-lg text-ink-soft leading-relaxed text-pretty max-w-2xl">
+          <p className="mt-3 sm:mt-4 text-[0.9375rem] sm:text-base md:text-lg text-ink-soft leading-[1.65] sm:leading-relaxed text-pretty max-w-2xl">
             Au Centre d&apos;Échographie de la Femme OPÉRA, notre équipe réalise
             l&apos;ensemble des examens du suivi prénatal — du dépistage du 1er
             trimestre à la surveillance des grossesses à risque.
@@ -295,7 +308,7 @@ function PregnancyExamsSection() {
             <li key={exam.title} className="min-w-0">
               <Link
                 href={exam.href}
-                className="group flex h-full min-w-0 items-start gap-3 rounded-2xl bg-gradient-to-b from-white to-champagne/70 px-4 py-3.5 sm:px-5 sm:py-4 ring-1 ring-accent/25 shadow-[0_16px_40px_-28px_rgba(11,31,58,0.14)] transition-all duration-300 hover:-translate-y-0.5 hover:ring-accent/45 hover:shadow-[0_24px_50px_-24px_rgba(201,162,74,0.18)]"
+                className="group flex h-full min-w-0 items-center gap-3 rounded-2xl bg-gradient-to-b from-white to-champagne/70 px-4 py-4 sm:px-5 sm:py-4 ring-1 ring-accent/25 shadow-[0_16px_40px_-28px_rgba(11,31,58,0.14)] transition-all duration-300 hover:-translate-y-0.5 hover:ring-accent/45 hover:shadow-[0_24px_50px_-24px_rgba(201,162,74,0.18)] min-h-[3.25rem]"
               >
                 <span
                   aria-hidden
@@ -312,7 +325,7 @@ function PregnancyExamsSection() {
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3 sm:gap-x-6 sm:gap-y-3">
           <Link
             href="/services/echographie-obstetricale"
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary-deep hover:gap-3 transition-all"
+            className="link-row hover:gap-3"
           >
             <span className="text-pretty">Tout sur l&apos;échographie obstétricale</span>
             <span aria-hidden>→</span>
@@ -320,7 +333,7 @@ function PregnancyExamsSection() {
           <span aria-hidden className="hidden sm:inline h-4 w-px bg-line" />
           <Link
             href="/services"
-            className="text-sm text-ink-soft hover:text-ink transition-colors"
+            className="link-row text-ink-soft hover:text-ink font-normal"
           >
             Voir tous les services
           </Link>
@@ -336,14 +349,14 @@ function ServicesSection() {
 
   return (
     <Section
-      className="bg-cream pt-6 sm:pt-8 md:pt-12"
+      className="bg-cream !pt-10 sm:!pt-12 md:!pt-16"
       eyebrow="Services"
       title={
         <>
           Choisissez votre <span className="italic text-primary-deep">consultation</span>
         </>
       }
-      description="Consultations et examens d'imagerie réalisés sur rendez-vous, dans un cadre d'exception au cœur de Lyon."
+      description="Consultations et examens d'imagerie sur rendez-vous, dans un cadre calme et confidentiel au cœur de Lyon."
     >
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 reveal-stagger min-w-0">
         {services.map((service, index) => (
@@ -360,10 +373,10 @@ function ServicesSection() {
         ))}
       </div>
 
-      <div className="mt-12 text-center">
+      <div className="mt-10 sm:mt-12 text-center">
         <Link
           href="/services"
-          className="inline-flex items-center gap-2 text-sm font-medium text-primary-deep hover:gap-3 transition-all"
+          className="link-row hover:gap-3"
         >
           Voir tous les services
           <span aria-hidden>→</span>
@@ -380,7 +393,7 @@ function UltrasoundFocus() {
     <section
       id="echographies-obstetricales"
       aria-labelledby="echographies-heading"
-      className="relative bg-cream py-16 sm:py-20 md:py-32 overflow-hidden"
+      className="relative bg-cream section-y overflow-hidden"
     >
       {/* Decorative ambient glow — purely visual */}
       <div
@@ -416,7 +429,7 @@ function UltrasoundFocus() {
             <span className="italic text-primary-deep">à Lyon</span>.
           </h2>
 
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-ink-soft leading-relaxed text-pretty max-w-2xl">
+          <p className="mt-5 sm:mt-6 text-[0.9375rem] sm:text-lg md:text-xl text-ink-soft leading-[1.65] sm:leading-relaxed text-pretty max-w-2xl">
             Au Centre d&apos;Échographie de la Femme OPÉRA, notre équipe
             d&apos;échographistes agréés du réseau de périnatalité{" "}
             <strong className="font-medium text-ink">Aurore</strong> réalise les
@@ -435,9 +448,9 @@ function UltrasoundFocus() {
         </ol>
 
         {/* Reassurance band — also a small SEO win (extra keyword density) */}
-        <div className="card-gold-top relative mt-10 sm:mt-14 md:mt-16 overflow-hidden rounded-2xl sm:rounded-3xl bg-ink-deep text-white ring-1 ring-accent/25 p-5 sm:p-6 md:p-8 grid gap-5 sm:gap-6 lg:grid-cols-[1fr_auto] items-center shadow-[0_40px_90px_-45px_rgba(0,0,0,0.75)]">
+        <div className="card-gold-top relative mt-10 sm:mt-14 md:mt-16 overflow-hidden rounded-2xl sm:rounded-3xl bg-ink-deep text-white ring-1 ring-accent/25 p-5 sm:p-7 md:p-8 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center shadow-[0_40px_90px_-45px_rgba(0,0,0,0.75)]">
           <OrnateCorners />
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-6 sm:gap-y-3 text-sm text-white/75 min-w-0">
+          <ul className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-6 sm:gap-y-3.5 text-[0.875rem] sm:text-sm text-white/78 min-w-0">
             {[
               "Équipe agréée Réseau Aurore",
               "Imagerie 2D · 3D · 4D possible (T3)",
@@ -455,18 +468,18 @@ function UltrasoundFocus() {
               </li>
             ))}
           </ul>
-          <div className="min-w-0 w-full lg:w-auto">
+          <div className="min-w-0 w-full lg:w-auto pt-1">
             <Link
               href="/services/echographie-obstetricale"
-              className="shine group flex w-full max-w-full items-center justify-center gap-2 sm:gap-0 min-h-12 h-auto sm:h-12 py-3 sm:py-0 px-4 sm:pl-6 sm:pr-3 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-[13px] sm:text-sm font-semibold ring-1 ring-accent/60 hover:from-[#e3c479] hover:to-[#cfa850] transition-colors text-center sm:text-left"
+              className="btn-gold shine group w-full max-w-full pl-4 pr-3 sm:pl-6 sm:pr-3 h-auto min-h-12 py-3 sm:py-0 sm:h-12"
             >
-              <span className="leading-snug text-pretty">
+              <span className="flex-1 text-center sm:text-left leading-snug text-pretty text-[13px] sm:text-sm">
                 <span className="sm:hidden">Échographie obstétricale</span>
                 <span className="hidden sm:inline">Tout savoir sur l&apos;échographie obstétricale</span>
               </span>
               <span
                 aria-hidden
-                className="sm:ml-3 shrink-0 grid place-content-center h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-ink-deep text-accent transition-transform group-hover:translate-x-0.5"
+                className="btn-gold-icon ml-2 sm:ml-3 h-7 w-7 sm:h-8 sm:w-8 transition-transform group-hover:translate-x-0.5"
               >
                 <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
                   <path
@@ -496,20 +509,20 @@ function TrimesterCard({ service, index }: { service: Service; index: number }) 
     <li>
       <Link
         href={`/services/${service.slug}`}
-        className="card-gold-top group relative block h-full min-w-0 overflow-hidden rounded-[1.25rem] sm:rounded-[1.5rem] bg-gradient-to-b from-white via-[#fbf7f0] to-champagne text-ink ring-1 ring-accent/35 p-5 sm:p-7 md:p-8 shadow-[0_24px_60px_-32px_rgba(11,31,58,0.14)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_40px_80px_-28px_rgba(201,162,74,0.22)] hover:ring-accent/60"
+        className="card-gold-top group relative block h-full min-w-0 overflow-hidden rounded-[1.2rem] sm:rounded-[1.5rem] bg-gradient-to-b from-white via-[#fbf7f0] to-champagne text-ink ring-1 ring-accent/35 p-5 sm:p-6 md:p-8 shadow-[0_24px_60px_-32px_rgba(11,31,58,0.14)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_40px_80px_-28px_rgba(201,162,74,0.22)] hover:ring-accent/60"
       >
         <OrnateCorners />
         <div className="flex items-start justify-between gap-3">
-          <span className="font-display text-[3rem] sm:text-[3.5rem] md:text-[4rem] leading-none text-accent">
+          <span className="font-display text-[2.75rem] sm:text-[3.5rem] md:text-[4rem] leading-none text-accent">
             <span className="opacity-35">0</span>
             {index + 1}
           </span>
-          <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink-deep text-accent ring-1 ring-accent/45 shadow-[0_12px_28px_-16px_rgba(7,26,51,0.45)]">
-            <ServiceIcon name={service.icon} className="h-5 w-5" />
+          <span className="relative inline-flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full bg-ink-deep text-accent ring-1 ring-accent/45 shadow-[0_12px_28px_-16px_rgba(7,26,51,0.45)]">
+            <ServiceIcon name={service.icon} className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
           </span>
         </div>
 
-        <p className="mt-5 sm:mt-6 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-accent-deep font-medium text-pretty">
+        <p className="mt-4 sm:mt-6 text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.22em] uppercase text-accent-deep font-medium text-pretty">
           {service.shortLabel} · {service.weeks}
         </p>
 
@@ -560,7 +573,7 @@ function TechnologyTeaser() {
   return (
     <section
       aria-labelledby="technology-teaser-heading"
-      className="relative bg-white py-16 sm:py-20 md:py-28 overflow-hidden border-t border-line"
+      className="relative bg-white section-y overflow-hidden border-t border-line"
     >
       <div
         aria-hidden
@@ -580,14 +593,14 @@ function TechnologyTeaser() {
             {EQUIPMENT_INTRO.eyebrow}
           </h2>
           <p className="mt-3 sm:mt-4 font-display text-[1.65rem] sm:text-3xl md:text-4xl text-ink leading-[1.08] sm:leading-[1.06] text-balance">
-            {EQUIPMENT_INTRO.title}
+            {EQUIPMENT_INTRO.teaserTitle}
           </p>
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-ink-soft leading-relaxed text-pretty">
+          <p className="mt-4 sm:mt-5 text-[0.9375rem] sm:text-lg text-ink-soft leading-[1.65] sm:leading-relaxed text-pretty">
             {EQUIPMENT_INTRO.teaser}
           </p>
           <Link
             href="/technologie"
-            className="group mt-6 sm:mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary-deep"
+            className="group mt-6 sm:mt-8 link-row"
           >
             <span className="border-b border-primary-deep/30 pb-px group-hover:border-primary-deep transition-colors">
               Découvrir notre équipement
@@ -614,14 +627,14 @@ function TechnologyTeaser() {
           className="card-gold-top group relative order-1 lg:order-2 overflow-hidden rounded-[1.5rem] ring-1 ring-accent/35 shadow-[0_28px_70px_-32px_rgba(11,31,58,0.14)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_40px_90px_-28px_rgba(201,162,74,0.18)] hover:ring-accent/50"
         >
           <OrnateCorners />
-          <div className="relative aspect-[3/4] max-h-[420px] overflow-hidden">
+          <div className="relative aspect-[4/3] sm:aspect-[3/4] max-h-[260px] sm:max-h-[420px] overflow-hidden">
             <Image
               src={examRoom.src}
               alt={examRoom.alt}
               width={examRoom.width}
               height={examRoom.height}
               sizes="(min-width: 1024px) 40vw, 100vw"
-              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              className="h-full w-full object-cover object-[center_35%] sm:object-center transition-transform duration-700 group-hover:scale-[1.02]"
             />
             <div
               aria-hidden
@@ -656,7 +669,7 @@ function TeamTeaser() {
   return (
     <section
       aria-labelledby="team-teaser-heading"
-      className="relative bg-background py-16 sm:py-20 md:py-28 overflow-hidden"
+      className="relative bg-background section-y overflow-hidden"
     >
       <div
         aria-hidden
@@ -680,21 +693,21 @@ function TeamTeaser() {
             Une équipe à votre écoute,{" "}
             <span className="italic text-primary-deep">au cœur de Lyon</span>.
           </h2>
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-ink-soft leading-relaxed text-pretty">
+          <p className="mt-4 sm:mt-5 text-[0.9375rem] sm:text-lg text-ink-soft leading-[1.65] sm:leading-relaxed text-pretty">
             Le centre réunit des praticiens expérimentés en échographie
-            gynécologique et obstétricale. Retrouvez les parcours, affiliations
-            et spécialités de chaque membre de l&apos;équipe.
+            gynécologique et obstétricale. Retrouvez les parcours et spécialités
+            de chaque membre de l&apos;équipe.
           </p>
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
             <Link
               href="/equipe"
-              className="shine inline-flex w-full sm:w-auto items-center justify-center min-h-12 h-12 px-6 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
+              className="btn-gold shine w-full sm:w-auto px-6"
             >
               Découvrir l&apos;équipe
             </Link>
             <Link
               href="/presentation"
-              className="inline-flex w-full sm:w-auto items-center justify-center min-h-12 h-12 px-6 rounded-full bg-white text-sm font-medium text-ink ring-1 ring-line hover:ring-accent/40 transition-colors"
+              className="btn-outline-ivory w-full sm:w-auto px-6"
             >
               <span className="sm:hidden">Le centre</span>
               <span className="hidden sm:inline">Présentation du centre</span>
@@ -726,7 +739,7 @@ function ClinicGalleryTeaser() {
   return (
     <section
       aria-labelledby="clinic-gallery-teaser-heading"
-      className="relative bg-cream py-16 sm:py-20 md:py-28 overflow-hidden border-t border-line"
+      className="relative bg-cream section-y overflow-hidden border-t border-line"
     >
       <div
         aria-hidden
@@ -748,13 +761,13 @@ function ClinicGalleryTeaser() {
           <p className="mt-3 sm:mt-4 font-display text-[1.65rem] sm:text-3xl md:text-4xl text-ink leading-[1.08] sm:leading-[1.06] text-balance">
             Découvrez le centre
           </p>
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-ink-soft leading-relaxed text-pretty">
-            Un espace médical élégant et apaisant, pensé pour accueillir les
-            patientes dans un cadre professionnel, chaleureux et confidentiel.
+          <p className="mt-4 sm:mt-5 text-[0.9375rem] sm:text-lg text-ink-soft leading-[1.65] sm:leading-relaxed text-pretty">
+            Un espace médical pensé pour accueillir les patientes dans un cadre
+            calme, confidentiel et professionnel — au cœur de Lyon.
           </p>
           <Link
             href="/galerie"
-            className="group mt-6 sm:mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary-deep"
+            className="group mt-6 sm:mt-8 link-row"
           >
             <span className="border-b border-primary-deep/30 pb-px group-hover:border-primary-deep transition-colors">
               Voir la galerie
@@ -781,14 +794,14 @@ function ClinicGalleryTeaser() {
           className="card-gold-top group relative order-1 lg:order-2 overflow-hidden rounded-[1.5rem] ring-1 ring-accent/35 shadow-[0_28px_70px_-32px_rgba(11,31,58,0.16)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_40px_90px_-28px_rgba(201,162,74,0.2)] hover:ring-accent/50"
         >
           <OrnateCorners />
-          <div className="relative aspect-[1170/754] overflow-hidden">
+          <div className="relative aspect-[16/10] sm:aspect-[1170/754] max-h-[240px] sm:max-h-none overflow-hidden">
             <Image
               src={preview.src}
               alt={preview.alt}
               width={preview.width}
               height={preview.height}
               sizes="(min-width: 1024px) 45vw, 100vw"
-              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              className="h-full w-full object-cover object-[center_40%] sm:object-center transition-transform duration-700 group-hover:scale-[1.02]"
             />
             <div
               aria-hidden
@@ -806,8 +819,8 @@ function ClinicGalleryTeaser() {
 
 function ContactCTA() {
   return (
-    <section className="container-page min-w-0 py-14 sm:py-20 md:py-24">
-      <div className="relative overflow-hidden rounded-[1.25rem] sm:rounded-[2rem] bg-ink-deep text-white p-6 sm:p-8 md:p-12 lg:p-16 ring-1 ring-accent/25 reveal">
+    <section className="container-page min-w-0 section-y !py-12 sm:!py-20 md:!py-24">
+      <div className="relative overflow-hidden rounded-[1.2rem] sm:rounded-[2rem] bg-ink-deep text-white p-6 sm:p-8 md:p-12 lg:p-16 ring-1 ring-accent/25 reveal">
         {/* Gold top hairline + engraved corners — the premium frame detail. */}
         <span aria-hidden className="absolute inset-x-10 top-0 h-px gold-rule" />
         <OrnateCorners />
@@ -838,7 +851,7 @@ function ContactCTA() {
             <h2 className="font-display text-[1.85rem] sm:text-4xl md:text-5xl leading-[1.06] sm:leading-[1.05] text-balance">
               Un rendez-vous en quelques clics.
             </h2>
-            <p className="mt-4 sm:mt-5 text-white/75 text-base sm:text-lg max-w-lg text-pretty">
+            <p className="mt-4 sm:mt-5 text-white/78 text-[0.9375rem] sm:text-lg max-w-lg text-pretty leading-[1.65] sm:leading-relaxed">
               Choisissez le type de consultation, sélectionnez votre créneau —
               confirmation immédiate.
             </p>
@@ -846,13 +859,13 @@ function ContactCTA() {
           <div className="flex min-w-0 w-full flex-col gap-3 lg:w-auto lg:items-end shrink-0">
             <Link
               href="/services"
-              className="shine inline-flex w-full max-w-full items-center justify-center min-h-12 h-12 px-6 sm:px-7 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 shadow-[0_18px_40px_-18px_rgba(201,162,74,0.7)] hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
+              className="btn-gold shine w-full max-w-full px-6 sm:px-7"
             >
               <span>Voir tous les services</span>
             </Link>
             <a
               href="tel:+33428295516"
-              className="inline-flex min-h-11 items-center justify-center sm:justify-start gap-2 text-sm text-white/80 hover:text-white"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 border-t border-white/10 pt-3 sm:border-0 sm:pt-0 sm:w-auto sm:justify-start text-sm text-white/80 hover:text-white"
             >
               <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" aria-hidden>
                 <path

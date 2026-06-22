@@ -23,7 +23,7 @@ export function Section({
     align === "center" ? "text-center mx-auto" : "text-left";
 
   return (
-    <section id={id} className={`py-16 sm:py-20 md:py-28 ${className}`}>
+    <section id={id} className={`section-y ${className}`}>
       <div className="container-page min-w-0">
         {(eyebrow || title || description) && (
           <div className={`max-w-2xl ${alignClass} mb-10 sm:mb-12 md:mb-16`}>

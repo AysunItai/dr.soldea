@@ -154,6 +154,43 @@ body {
     text-wrap: pretty;
   }
 
+  /* Homepage mobile rhythm + shared CTAs */
+  .section-y {
+    padding-block: 4.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-y {
+      padding-block: 5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section-y {
+      padding-block: 7rem;
+    }
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center min-h-12 h-12 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 shadow-[0_18px_40px_-18px_rgba(201,162,74,0.7)] hover:from-[#e3c479] hover:to-[#cfa850] transition-colors;
+  }
+
+  .btn-gold-icon {
+    @apply grid shrink-0 place-content-center h-8 w-8 rounded-full bg-ink-deep text-accent;
+  }
+
+  .btn-outline-ivory {
+    @apply inline-flex items-center justify-center min-h-12 h-12 rounded-full bg-white text-sm font-medium text-ink ring-1 ring-line hover:ring-accent/40 transition-colors;
+  }
+
+  .link-row {
+    @apply inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary-deep transition-colors;
+  }
+
+  .footer-link {
+    @apply inline-flex min-h-11 items-center text-sm text-white/75 hover:text-white transition-colors;
+  }
+
   .ring-soft {
     box-shadow: 0 1px 0 rgba(11, 31, 61, 0.04), 0 12px 30px -12px rgba(11, 31, 61, 0.12);
   }

@@ -20,11 +20,11 @@ const CENTRE_LINKS = [
 export function Navbar() {
   return (
     <NavScrollShell>
-      <div className="container-page flex items-center justify-between h-20">
+      <div className="container-page flex items-center justify-between h-[4.25rem] sm:h-20 min-w-0">
         <Link
           href="/"
           aria-label="Centre d'Échographie de la Femme OPÉRA — Accueil"
-          className="flex items-center gap-3 group"
+          className="flex min-w-0 shrink items-center gap-2.5 sm:gap-3 group"
         >
           <Image
             src="/logo.png"
@@ -34,7 +34,7 @@ export function Navbar() {
             loading="eager"
             fetchPriority="low"
             sizes="48px"
-            className="h-10 w-10 md:h-11 md:w-11 rounded-full ring-1 ring-accent/40 shadow-[0_6px_16px_-8px_rgba(11,31,58,0.4)]"
+            className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 shrink-0 rounded-full ring-1 ring-accent/40 shadow-[0_6px_16px_-8px_rgba(11,31,58,0.4)]"
           />
           <span className="hidden xl:flex flex-col leading-none">
             <span className="nav-brand-title font-display text-[15px] md:text-base text-ink tracking-tight">

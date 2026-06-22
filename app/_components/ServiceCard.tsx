@@ -31,7 +31,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
       <OrnateCorners />
 
       {/* Icon medallion panel */}
-      <div className="relative flex aspect-[4/3] items-center justify-center border-b border-accent/15">
+      <div className="relative flex aspect-[5/3] sm:aspect-[4/3] items-center justify-center border-b border-accent/15">
         <div
           aria-hidden
           className="absolute inset-0"
@@ -40,12 +40,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
               "radial-gradient(55% 55% at 50% 40%, rgba(201,162,74,0.14), transparent 72%)",
           }}
         />
-        <div className="relative grid h-16 w-16 sm:h-20 sm:w-20 place-content-center rounded-full bg-ink-deep text-accent ring-1 ring-accent/50 shadow-[0_16px_40px_-20px_rgba(7,26,51,0.5)] transition-transform duration-500 group-hover:scale-[1.05]">
+        <div className="relative grid h-14 w-14 sm:h-20 sm:w-20 place-content-center rounded-full bg-ink-deep text-accent ring-1 ring-accent/50 shadow-[0_16px_40px_-20px_rgba(7,26,51,0.5)] transition-transform duration-500 group-hover:scale-[1.05]">
           <span
             aria-hidden
             className="absolute inset-2 rounded-full ring-1 ring-accent/30"
           />
-          <ServiceIcon name={service.icon} className="h-8 w-8 sm:h-9 sm:w-9" />
+          <ServiceIcon name={service.icon} className="h-7 w-7 sm:h-9 sm:w-9" />
         </div>
 
         <div className="absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-2 p-3 sm:p-4">
@@ -68,7 +68,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6 md:p-7">
-        <h3 className="font-display text-xl sm:text-2xl text-ink leading-snug text-balance">
+        <h3 className="font-display text-lg sm:text-2xl text-ink leading-snug text-balance">
           {service.shortTitle ?? service.title}
         </h3>
         <p className="mt-2 text-sm text-ink-soft text-pretty line-clamp-3 leading-relaxed">
@@ -105,7 +105,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
             )}
           </div>
 
-          <div className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary-deep group-hover:text-primary transition-colors">
+          <div className="mt-3.5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary-deep group-hover:text-primary transition-colors">
             <span className="sm:hidden">{ctaLabelMobile}</span>
             <span className="hidden sm:inline">{ctaLabel}</span>
             <svg

@@ -20,6 +20,7 @@ export const EQUIPMENT_INTRO = {
     "Cette technologie permet une imagerie précise, des mesures assistées et des modes avancés d'exploration, utilisés selon le contexte médical et l'indication de chaque examen.",
     "L'objectif reste le même : offrir aux patientes un suivi rigoureux, dans un environnement calme, confidentiel et professionnel.",
   ],
+  teaserTitle: "Équipement d'échographie médicale",
   teaser:
     "Le centre dispose d'un échographe Samsung V8 pour les examens gynécologiques et obstétricaux, dans un cadre médical adapté à chaque consultation.",
 } as const;

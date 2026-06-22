@@ -7,10 +7,10 @@ export function Footer() {
   const year = new Date().getFullYear();
   const trimesters = getObstetricTrimesters();
   return (
-    <footer className="relative bg-ink-deep text-white/85 mt-16 sm:mt-24 overflow-hidden">
+    <footer className="relative bg-ink-deep text-white/85 mt-12 sm:mt-20 overflow-hidden">
       {/* Gold top hairline — frames the luxury footer. */}
       <span aria-hidden className="absolute inset-x-0 top-0 h-px gold-rule" />
-      <div className="container-page min-w-0 py-12 sm:py-16 md:py-20 grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="container-page min-w-0 py-12 sm:py-16 md:py-20 grid gap-12 sm:gap-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="sm:col-span-2 lg:col-span-1">
           {/*
            * The circular gold medallion logo reads beautifully on the dark
@@ -38,7 +38,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
+        <div className="border-t border-white/10 pt-10 sm:border-0 sm:pt-0">
           {/*
            * The Footer's column titles were `<h4>` for visual weight, but
            * Lighthouse flagged a heading-order skip (main content's
@@ -49,12 +49,12 @@ export function Footer() {
           <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Services
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-0.5">
             {NAV_SERVICES.map((s) => (
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="text-sm text-white/75 hover:text-white transition-colors"
+                  className="footer-link"
                 >
                   {s.shortTitle ?? s.title}
                 </Link>
@@ -63,7 +63,7 @@ export function Footer() {
             <li>
               <Link
                 href="/services"
-                className="text-sm text-primary-soft hover:text-white"
+                className="footer-link text-primary-soft hover:text-white"
               >
                 Tous les services →
               </Link>
@@ -71,7 +71,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
+        <div className="border-t border-white/10 pt-10 sm:border-0 sm:pt-0">
           <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Échographies obstétricales
           </h2>
@@ -80,7 +80,7 @@ export function Footer() {
               <li key={t.slug}>
                 <Link
                   href={`/services/${t.slug}`}
-                  className="text-sm text-white/75 hover:text-white transition-colors"
+                  className="footer-link"
                 >
                   <span className="font-medium text-white/90">
                     {t.shortLabel}
@@ -98,7 +98,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
+        <div className="border-t border-white/10 pt-10 sm:border-0 sm:pt-0">
           <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Le centre
           </h2>
@@ -108,7 +108,7 @@ export function Footer() {
             69001 Lyon
           </p>
           <p className="text-sm text-white/75 mt-4">
-            <a href="tel:+33428295516" className="hover:text-white">
+            <a href="tel:+33428295516" className="footer-link hover:text-white">
               04 28 29 55 16
             </a>
           </p>
@@ -140,7 +140,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="border-t border-white/10 pt-8 sm:border-0 sm:pt-0">
+        <div className="border-t border-white/10 pt-10 sm:border-0 sm:pt-0">
           <h2 className="text-xs tracking-[0.22em] sm:tracking-[0.25em] uppercase text-accent mb-3 sm:mb-4">
             Liens
           </h2>
@@ -148,7 +148,7 @@ export function Footer() {
             <li>
               <Link
                 href="/equipe"
-                className="text-sm text-white/75 hover:text-white"
+                className="footer-link"
               >
                 Équipe
               </Link>
@@ -156,7 +156,7 @@ export function Footer() {
             <li>
               <Link
                 href="/galerie"
-                className="text-sm text-white/75 hover:text-white"
+                className="footer-link"
               >
                 Galerie
               </Link>
@@ -164,7 +164,7 @@ export function Footer() {
             <li>
               <Link
                 href="/technologie"
-                className="text-sm text-white/75 hover:text-white"
+                className="footer-link"
               >
                 Technologie &amp; équipement
               </Link>
@@ -172,7 +172,7 @@ export function Footer() {
             <li>
               <Link
                 href="/presentation"
-                className="text-sm text-white/75 hover:text-white"
+                className="footer-link"
               >
                 Présentation
               </Link>
@@ -180,7 +180,7 @@ export function Footer() {
             <li>
               <Link
                 href="/blog"
-                className="text-sm text-white/75 hover:text-white"
+                className="footer-link"
               >
                 Actualités
               </Link>
@@ -188,7 +188,7 @@ export function Footer() {
             <li>
               <Link
                 href="/contact"
-                className="text-sm text-white/75 hover:text-white"
+                className="footer-link"
               >
                 Contact
               </Link>
@@ -196,7 +196,7 @@ export function Footer() {
             <li>
               <Link
                 href="/services"
-                className="text-sm text-white/75 hover:text-white"
+                className="footer-link"
               >
                 Prendre rendez-vous
               </Link>

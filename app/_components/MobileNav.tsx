@@ -79,7 +79,7 @@ export function MobileNav() {
         createPortal(
           <div
             className={[
-              "lg:hidden fixed inset-x-0 top-20 bottom-0 z-[55] bg-ink-deep text-white origin-top transition-all duration-300",
+              "lg:hidden fixed inset-x-0 top-[4.25rem] sm:top-20 bottom-0 z-[55] bg-ink-deep text-white origin-top transition-all duration-300",
               open
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-2 pointer-events-none",
@@ -156,7 +156,7 @@ export function MobileNav() {
               <Link
                 href="/services"
                 onClick={() => setOpen(false)}
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-base font-semibold ring-1 ring-accent/60 h-12 px-6"
+                className="mt-6 shine w-full btn-gold px-6"
               >
                 Prendre rendez-vous
               </Link>
