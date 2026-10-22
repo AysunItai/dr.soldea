@@ -1,3 +1,4 @@
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -297,12 +298,12 @@ function BookCTA() {
             </p>
           </div>
           <div className="flex flex-col gap-3 md:items-end">
-            <Link
-              href="/services"
+            <DoctolibLink
+              buttonLocation="gallery"
               className="shine inline-flex items-center justify-center h-12 px-7 rounded-full bg-gradient-to-b from-[#dab85f] to-accent text-ink-deep text-sm font-semibold ring-1 ring-accent/60 shadow-[0_18px_40px_-18px_rgba(201,162,74,0.7)] hover:from-[#e3c479] hover:to-[#cfa850] transition-colors"
             >
               Prendre rendez-vous
-            </Link>
+            </DoctolibLink>
             <Link
               href="/contact"
               className="text-sm text-white/80 hover:text-white"

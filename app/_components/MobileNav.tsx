@@ -1,5 +1,6 @@
 "use client";
 
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -79,7 +80,7 @@ export function MobileNav() {
         createPortal(
           <div
             className={[
-              "lg:hidden fixed inset-x-0 top-[4.25rem] sm:top-20 bottom-0 z-[55] bg-ink-deep text-white origin-top transition-all duration-300",
+              "lg:hidden fixed inset-x-0 top-[var(--site-nav-height)] bottom-0 z-[55] bg-ink-deep text-white origin-top transition-all duration-300",
               open
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-2 pointer-events-none",
@@ -153,13 +154,13 @@ export function MobileNav() {
                 </MobileLink>
               ))}
 
-              <Link
-                href="/services"
+              <DoctolibLink
+                buttonLocation="mobile_menu"
                 onClick={() => setOpen(false)}
                 className="mt-6 shine w-full btn-gold px-6"
               >
                 Prendre rendez-vous
-              </Link>
+              </DoctolibLink>
             </nav>
           </div>,
           document.body,

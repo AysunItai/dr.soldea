@@ -15,6 +15,9 @@
  * site premium and coherent without turning it loud or "all gold".
  */
 :root {
+  /* Navbar content plus its 1px bottom border; shared with scroll targets. */
+  --site-nav-content-height: 4.25rem;
+  --site-nav-height: calc(var(--site-nav-content-height) + 1px);
   /* Warm ivory base — the whole canvas reads warm, never cold white. */
   --color-bg: #fbf7f0;
   /* Champagne creams — richer and warmer than a pale flat cream so
@@ -79,8 +82,16 @@
   --shadow-soft: 0 30px 60px -30px rgba(11, 31, 61, 0.18);
 }
 
+@media (min-width: 640px) {
+  :root {
+    --site-nav-content-height: 5rem;
+  }
+}
+
 html {
   overflow-x: clip;
+  /* Offset anchors and scrollIntoView without changing page layout/padding. */
+  scroll-padding-top: var(--site-nav-height);
 }
 
 html,

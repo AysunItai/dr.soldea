@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BookingPanelLoader } from "@/app/_components/BookingPanelLoader";
+import { BookingPanel } from "@/app/_components/BookingPanel";
 import { ServiceIcon } from "@/app/_components/ServiceIcon";
 import {
   SERVICES,
@@ -237,8 +237,8 @@ function Breadcrumb({ service }: { service: Service }) {
 
 function Meta({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 p-4 shadow-[0_20px_50px_-35px_rgba(0,0,0,0.7)]">
-      <dt className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium">
+    <div className="rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 px-2.5 py-4 sm:p-4 shadow-[0_20px_50px_-35px_rgba(0,0,0,0.7)]">
+      <dt className="text-[10px] tracking-[0.1em] sm:tracking-[0.25em] uppercase text-accent font-medium">
         {label}
       </dt>
       <dd className="mt-1 font-display text-base lg:text-lg text-white leading-tight">
@@ -248,7 +248,7 @@ function Meta({ label, value }: { label: string; value: string }) {
   );
 }
 
-/* ---------------- Booking page body (single Calendly) ---------------- */
+/* ---------------- Booking page body (Doctolib handoff) ---------------- */
 
 function BookingBody({ service }: { service: Service }) {
   const hasSections = !!service.sections?.length;
@@ -297,7 +297,7 @@ function BookingBody({ service }: { service: Service }) {
           </div>
 
           <div>
-            <BookingPanelLoader service={service} />
+            <BookingPanel serviceSlug={service.slug} />
           </div>
         </div>
       </section>

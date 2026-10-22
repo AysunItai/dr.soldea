@@ -7,7 +7,7 @@ import type { ServiceIconName } from "@/app/_components/ServiceIcon";
  *   - the dropdown in the main navigation
  *   - the cards on the home & /services pages
  *   - the per-service detail page at /services/[slug]
- *   - the Calendly widget on each booking page
+ *   - the Doctolib handoff on each booking page
  *
  * Why each obstetric trimester is its own service
  * ------------------------------------------------
@@ -21,15 +21,6 @@ import type { ServiceIconName } from "@/app/_components/ServiceIcon";
  * for the broader "échographie obstétricale Lyon" query and funnels users
  * to the right trimester via `children`.
  */
-export type ServiceVariant = {
-  /** Short tab label, e.g. "1er trimestre (T1)". */
-  label: string;
-  /** Optional sub-line shown beneath the tab title. */
-  sublabel?: string;
-  /** Full Calendly URL for this trimester / sub-flow. */
-  calendlyUrl: string;
-};
-
 export type ServiceSection = {
   heading: string;
   body?: string;
@@ -49,8 +40,20 @@ export type ServiceFaq = {
   answer: string;
 };
 
+export type ServiceSlug =
+  | "teleconsultation"
+  | "echographie-gynecologique"
+  | "echographie-obstetricale"
+  | "echographie-1er-trimestre"
+  | "echographie-2e-trimestre"
+  | "echographie-3e-trimestre"
+  | "suivi-grossesse"
+  | "controle-sterilet"
+  | "echographie-datation"
+  | "suivi-gynecologie";
+
 export type Service = {
-  slug: string;
+  slug: ServiceSlug;
   title: string;
   shortTitle?: string;
   /** Ultra-short label for badges, e.g. "T1". */
@@ -64,10 +67,6 @@ export type Service = {
   durationLabel?: string;
   priceEUR?: number;
   location: "Miribel" | "Lyon" | "En ligne";
-  /** Single-flow booking URL. Undefined for hub pages with `children`. */
-  calendlyUrl?: string;
-  /** Legacy multi-flow services. Kept for backward-compatibility (unused). */
-  variants?: ServiceVariant[];
   /** Slug list of child services for a category-hub page. */
   children?: string[];
   category: "consultation" | "echographie" | "suivi";
@@ -89,12 +88,6 @@ export type Service = {
   /** Comma-separated SEO keywords. */
   keywords?: string[];
 };
-
-// Calendly widget accent — matches the brand burgundy/rose accent.
-const PRIMARY_COLOR = "8f3d56";
-
-const calendly = (eventSlug: string) =>
-  `https://calendly.com/dralexandrasoldea/${eventSlug}?primary_color=${PRIMARY_COLOR}`;
 
 /**
  * Geographic keywords reused across obstetric ultrasound pages. They
@@ -127,7 +120,6 @@ export const SERVICES: Service[] = [
     location: "En ligne",
     category: "consultation",
     icon: "video",
-    calendlyUrl: calendly("teleconsultation-en-ligne"),
     details: [
       "Échange par appel téléphonique",
       "Renouvellement d'ordonnance",
@@ -176,7 +168,6 @@ export const SERVICES: Service[] = [
     location: "Lyon",
     category: "echographie",
     icon: "sonogram",
-    calendlyUrl: calendly("echographie-gynecologique-pelvienne"),
     details: [
       "Voie sus-pubienne et endo-vaginale",
       "Bilan de douleurs ou de saignements anormaux",
@@ -309,7 +300,7 @@ export const SERVICES: Service[] = [
       {
         question: "Faut-il un rendez-vous pour une échographie obstétricale ?",
         answer:
-          "Oui, les échographies de grossesse sont réalisées exclusivement sur rendez-vous. Vous pouvez réserver votre créneau en ligne 24 h/24 directement sur ce site, en choisissant le trimestre concerné. Confirmation immédiate par e-mail.",
+          "Oui, les échographies de grossesse sont réalisées exclusivement sur rendez-vous. Consultez le trimestre concerné sur ce site, puis cliquez sur « Prendre rendez-vous » pour choisir votre motif de consultation et votre créneau sur Doctolib.",
       },
     ],
     metaDescription:
@@ -338,7 +329,6 @@ export const SERVICES: Service[] = [
     category: "echographie",
     group: "obstetrical",
     icon: "fetus",
-    calendlyUrl: calendly("echographie-obstetricale-1er-trimestre"),
     details: [
       "Réalisée entre 11 SA et 13 SA + 6 jours",
       "Voie abdominale, parfois complétée par voie endo-vaginale",
@@ -423,7 +413,6 @@ export const SERVICES: Service[] = [
     category: "echographie",
     group: "obstetrical",
     icon: "fetus",
-    calendlyUrl: calendly("echographie-obstetricale-2e-trimestre"),
     details: [
       "Réalisée entre 22 et 24 SA",
       "Voie abdominale uniquement",
@@ -507,7 +496,6 @@ export const SERVICES: Service[] = [
     category: "echographie",
     group: "obstetrical",
     icon: "fetus",
-    calendlyUrl: calendly("echographie-obstetricale-3e-trimestre"),
     details: [
       "Réalisée entre 31 et 34 SA",
       "Voie abdominale",
@@ -590,8 +578,6 @@ export const SERVICES: Service[] = [
     location: "Lyon",
     category: "suivi",
     icon: "calendar-heart",
-    // Note: the Calendly slug has 3 'sss' in `grossessse` — kept verbatim.
-    calendlyUrl: calendly("rdv-de-suivi-de-grossessse"),
     details: [
       "Examen clinique mensuel",
       "Prescription des examens biologiques",
@@ -642,7 +628,6 @@ export const SERVICES: Service[] = [
     location: "Lyon",
     category: "suivi",
     icon: "iud",
-    calendlyUrl: calendly("controle-de-sterilet-diu"),
     details: [
       "Contrôle échographique de la position",
       "Vérification des fils du stérilet",
@@ -694,7 +679,6 @@ export const SERVICES: Service[] = [
     location: "Lyon",
     category: "echographie",
     icon: "date",
-    calendlyUrl: calendly("echographie-de-datation"),
     details: [
       "Confirmation de la grossesse",
       "Datation précise du terme",
@@ -748,7 +732,6 @@ export const SERVICES: Service[] = [
     location: "Lyon",
     category: "consultation",
     icon: "feminine",
-    calendlyUrl: calendly("rdv-de-suivi-de-gynecologie"),
     details: [
       "Examen gynécologique annuel",
       "Frottis & dépistages",

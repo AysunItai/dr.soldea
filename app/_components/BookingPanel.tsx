@@ -1,96 +1,52 @@
-"use client";
+import { getServiceBooking } from "@/lib/booking";
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 
-import { useState } from "react";
-import { CalendlyEmbed } from "@/app/_components/CalendlyEmbed";
-import type { Service } from "@/lib/services";
-
-type BookingPanelProps = {
-  service: Service;
-};
-
-/**
- * Handles the booking widget for a service page.
- *
- * - Single Calendly URL → renders the embed directly.
- * - Multiple variants (e.g. obstetric ultrasound T1 / T2 / T3) →
- *   renders a segmented control and swaps the embedded calendar when the
- *   active variant changes.
- *
- * Lives as a `"use client"` island so the surrounding service detail page
- * can remain a server component.
- */
-export function BookingPanel({ service }: BookingPanelProps) {
-  const variants = service.variants ?? [];
-  const hasVariants = variants.length > 0;
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const activeUrl = hasVariants
-    ? variants[activeIndex]?.calendlyUrl
-    : service.calendlyUrl;
-
+/** Server-rendered link with optional, consent-gated click tracking. */
+export function BookingPanel({ serviceSlug }: { serviceSlug: string }) {
+  const destination = getServiceBooking(serviceSlug);
+  const needsConfirmation = destination.status === "requires-manual-confirmation";
+  const buttonClassName = "mt-6 flex min-h-12 w-full min-w-0 items-center justify-center gap-2 rounded-full bg-ink px-4 py-3 text-center text-sm font-medium text-white ring-1 ring-accent/40 transition-colors hover:bg-primary-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-deep";
   return (
-    <div className="rounded-2xl bg-white ring-1 ring-line p-3 md:p-4">
-      <div className="px-3 py-2 mb-1">
-        <p className="text-[11px] tracking-[0.25em] uppercase text-accent-deep font-medium">
-          Prendre rendez-vous
-        </p>
-        <p className="font-display text-xl text-ink mt-1">
-          {hasVariants
-            ? "Choisissez votre trimestre"
-            : "Sélectionnez votre créneau"}
-        </p>
-      </div>
-
-      {hasVariants && (
-        <div
-          role="tablist"
-          aria-label="Trimestre de grossesse"
-          className="mb-3 grid grid-cols-3 gap-1.5 p-1.5 rounded-2xl bg-cream ring-1 ring-line"
-        >
-          {variants.map((variant, idx) => {
-            const isActive = idx === activeIndex;
-            return (
-              <button
-                key={variant.label}
-                role="tab"
-                type="button"
-                aria-selected={isActive}
-                onClick={() => setActiveIndex(idx)}
-                className={`relative flex flex-col items-center justify-center text-center px-3 py-3 rounded-xl transition-all duration-300 ${
-                  isActive
-                    ? "bg-ink text-white shadow-[0_10px_30px_-12px_rgba(11,31,61,0.45)]"
-                    : "bg-transparent text-ink-soft hover:bg-white hover:text-ink"
-                }`}
-              >
-                <span
-                  className={`text-[11px] tracking-[0.16em] uppercase ${
-                    isActive ? "text-cream/80" : "text-primary"
-                  }`}
-                >
-                  {variant.label}
-                </span>
-                {variant.sublabel && (
-                  <span
-                    className={`mt-1 text-[11px] leading-snug ${
-                      isActive ? "text-white/85" : "text-muted"
-                    }`}
-                  >
-                    {variant.sublabel}
-                  </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      )}
-
-      {activeUrl ? (
-        <CalendlyEmbed url={activeUrl} />
+    <section
+      aria-labelledby="booking-heading"
+      className="min-w-0 rounded-2xl bg-champagne ring-1 ring-accent/30 p-5 sm:p-8"
+    >
+      <p className="text-[11px] tracking-[0.25em] uppercase text-primary-deep font-medium">
+        Prendre rendez-vous
+      </p>
+      <h2 id="booking-heading" className="font-display text-2xl sm:text-3xl text-ink mt-3 leading-tight">
+        Réserver votre consultation
+      </h2>
+      <p className="mt-4 text-sm text-ink-soft leading-relaxed">
+        {needsConfirmation
+          ? "Pour une téléconsultation, contactez le cabinet afin de confirmer la disponibilité et les modalités de réservation."
+          : destination.status === "verified-direct"
+            ? "Consultez les disponibilités pour cet examen au cabinet de Lyon et poursuivez votre réservation sur Doctolib."
+            : "Choisissez le motif adapté à votre consultation au cabinet de Lyon, puis consultez les disponibilités sur Doctolib."}
+      </p>
+      {needsConfirmation ? (
+        <a href={destination.contactUrl} className={buttonClassName} aria-describedby="doctolib-booking-note">
+          Contacter le cabinet
+        </a>
       ) : (
-        <div className="h-[720px] flex items-center justify-center text-sm text-muted">
-          Aucun calendrier configuré pour ce service.
-        </div>
+        <DoctolibLink
+          href={destination.url}
+          buttonLocation="service_detail"
+          aria-describedby="doctolib-booking-note"
+          className={buttonClassName}
+        >
+          <span className="min-w-0">Prendre rendez-vous sur Doctolib</span>
+          <span aria-hidden="true" className="shrink-0">↗</span>
+        </DoctolibLink>
       )}
-    </div>
+      <p id="doctolib-booking-note" className="mt-4 text-center text-xs text-muted leading-relaxed">
+        {needsConfirmation ? "Secrétariat : 04 28 29 55 16." : (
+          <>
+            La réservation s&apos;effectue sur Doctolib.
+            <span className="block">Ouverture dans un nouvel onglet.</span>
+          </>
+        )}
+      </p>
+    </section>
   );
 }

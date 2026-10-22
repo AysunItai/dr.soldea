@@ -13,15 +13,14 @@ type ServiceCardProps = {
  * card; lifts on hover with a warm gold halo.
  */
 export function ServiceCard({ service }: ServiceCardProps) {
-  const hasVariants = !!service.variants?.length;
   const isHub = !!service.children?.length;
   const trimesterLabel = service.shortLabel;
   const ctaLabel =
-    isHub || hasVariants
+    isHub
       ? "Voir & choisir le trimestre"
       : "Voir & réserver";
   const ctaLabelMobile =
-    isHub || hasVariants ? "Choisir le trimestre" : "Voir & réserver";
+    isHub ? "Choisir le trimestre" : "Voir & réserver";
 
   return (
     <Link
@@ -54,7 +53,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
             <span className="truncate">{service.location}</span>
           </div>
 
-          {(hasVariants || isHub) && (
+          {isHub && (
             <div className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2 py-1 text-[9px] sm:text-[10px] tracking-[0.14em] sm:tracking-[0.16em] uppercase text-ink-deep font-semibold ring-1 ring-accent/40">
               T1 · T2 · T3
             </div>

@@ -1,4 +1,7 @@
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { DOCTOLIB_BOOKING_URL } from "@/lib/booking";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ClinicAccessMaps } from "@/app/_components/ClinicAccessMaps";
@@ -129,8 +132,8 @@ function InfoStrip() {
       label: "Rendez-vous",
       value: "Réservation en ligne",
       detail:
-        "Échographies et consultations sur rendez-vous, confirmation immédiate.",
-      href: "/services",
+        "Échographies et consultations sur rendez-vous, réservation sur Doctolib.",
+      href: DOCTOLIB_BOOKING_URL,
       icon: (
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
           <rect x="3.5" y="5" width="17" height="15" rx="2.2" stroke="currentColor" strokeWidth="1.5" />
@@ -144,17 +147,9 @@ function InfoStrip() {
     <section className="bg-white py-10 border-t border-line">
       <div className="container-page grid md:grid-cols-3 gap-6">
         {items.map((item) => (
-          <a
+          <ContactCardLink
             key={item.label}
             href={item.href}
-            target={
-              item.href.startsWith("http") ? "_blank" : undefined
-            }
-            rel={
-              item.href.startsWith("http")
-                ? "noopener noreferrer"
-                : undefined
-            }
             className="card-gold-top relative group rounded-2xl bg-ink-deep text-white ring-1 ring-accent/25 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.7)] p-6 flex gap-4 hover:ring-accent/55 hover:-translate-y-1 transition-all"
           >
             <OrnateCorners />
@@ -170,10 +165,27 @@ function InfoStrip() {
               </p>
               <p className="text-sm text-white/55 mt-1">{item.detail}</p>
             </div>
-          </a>
+          </ContactCardLink>
         ))}
       </div>
     </section>
+  );
+}
+
+function ContactCardLink({ href, className, children }: {
+  href: string;
+  className: string;
+  children: ReactNode;
+}) {
+  if (href === DOCTOLIB_BOOKING_URL) {
+    return <DoctolibLink buttonLocation="contact" className={className}>{children}</DoctolibLink>;
+  }
+  return (
+    <a href={href} className={className}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>
+      {children}
+    </a>
   );
 }
 
@@ -203,12 +215,12 @@ function FormSection() {
               Pour un rendez-vous, utilisez la prise de rendez-vous en ligne par
               service.
             </p>
-            <Link
-              href="/services"
+            <DoctolibLink
+              buttonLocation="contact"
               className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-white transition-colors"
             >
               Prendre rendez-vous à Lyon <span aria-hidden>→</span>
-            </Link>
+            </DoctolibLink>
           </div>
 
           <nav

@@ -1,3 +1,4 @@
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 import Image from "next/image";
 import Link from "next/link";
 import { NAV_SERVICES, getObstetricTrimesters } from "@/lib/services";
@@ -194,12 +195,12 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/services"
+              <DoctolibLink
+                buttonLocation="footer"
                 className="footer-link"
               >
                 Prendre rendez-vous
-              </Link>
+              </DoctolibLink>
             </li>
           </ul>
         </div>

@@ -429,16 +429,26 @@ const SECTIONS: { id: string; title: string; content: React.ReactNode }[] = [
         <p>
           Le site n&apos;utilise pas de cookies publicitaires ni de cookies de
           suivi à des fins marketing. Les cookies strictement nécessaires au
-          fonctionnement de services tiers utilisés sur le site (notamment le
-          module de prise de rendez-vous Calendly et les cartes Google Maps
-          intégrées sur la page Contact) peuvent être déposés lorsque vous
+          fonctionnement de services tiers utilisés sur le site (notamment les
+          cartes Google Maps intégrées sur la page Contact) peuvent être déposés lorsque vous
           interagissez avec ces fonctionnalités.
+        </p>
+        <p>
+          La prise de rendez-vous s&apos;effectue sur le site externe Doctolib,
+          qui s&apos;ouvre dans un nouvel onglet et applique sa propre politique
+          de confidentialité. Aucun calendrier Doctolib n&apos;est intégré à ce site.
+          Avec votre consentement à la mesure d&apos;audience, le clic vers
+          Doctolib est mesuré uniquement à partir de l&apos;emplacement du bouton
+          dans l&apos;interface et du nom du prestataire, sans transmettre le type
+          de consultation. Il ne confirme pas la prise d&apos;un rendez-vous
+          et ne transmet aucune information saisie dans le formulaire de contact.
         </p>
         <p>
           Vous pouvez à tout moment configurer votre navigateur pour refuser
           l&apos;ensemble des cookies ; certaines fonctionnalités du site
-          (notamment la prise de rendez-vous en ligne et l&apos;affichage des
-          cartes) pourraient alors ne plus être disponibles.
+          (notamment l&apos;affichage des cartes) pourraient alors ne plus être
+          disponibles. Le lien vers Doctolib reste accessible sans accepter les
+          cookies de mesure d&apos;audience.
         </p>
         <div className="mt-2">
           <CookieSettingsTrigger className="inline-flex items-center gap-2 rounded-full bg-ink text-white h-10 px-5 text-sm font-medium hover:bg-primary-deep transition-colors">

@@ -1,0 +1,127 @@
+{
+  "source": "User-supplied manual collection, 2026-10-22. Supersedes earlier browser observations; no Doctolib requests made for this mapping.",
+  "fallbackUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/motive-categories?specialityId=102&telehealth=false&placeId=practice-806420&source=profile",
+  "categories": [
+    {
+      "category": "Échographies gynécologiques et échographies de grossesse",
+      "categoryId": "171273",
+      "records": [
+        {
+          "label": "Échographie de datation",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171273&motiveIds%5B%5D=6400728&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Échographie gynécologique",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171273&motiveIds%5B%5D=6400729&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Échographie de contrôle de croissance",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171273&motiveIds%5B%5D=6683280&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Échographie obstétricale — 1er trimestre",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171273&motiveIds%5B%5D=6622462&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Échographie obstétricale — 2e trimestre",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171273&motiveIds%5B%5D=6622463&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Échographie obstétricale — 3e trimestre",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171273&motiveIds%5B%5D=6622464&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Échographie de grossesse — 2e avis",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171273&motiveIds%5B%5D=16054610&source=profile",
+          "urlUnambiguous": true
+        }
+      ]
+    },
+    {
+      "category": "Suivi de grossesse",
+      "categoryId": "171275",
+      "records": [
+        {
+          "label": "Consultation de suivi de grossesse pathologique (Médecin)",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=6668678&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Écho obstétricale (1er trimestre) + consultation suivi de grossesse",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188953&source=profile",
+          "urlUnambiguous": true
+        },
+        {
+          "label": "Écho obstétricale (2e trimestre) + consultation suivi de grossesse",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        },
+        {
+          "label": "Écho obstétricale (3e trimestre) + consultation suivi de grossesse",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        },
+        {
+          "label": "Consultation de suivi de grossesse",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        }
+      ]
+    },
+    {
+      "category": "Suivi gynécologique",
+      "categoryId": null,
+      "note": "Category ID not supplied. Preserve the recorded pregnancy-category URL without correcting or relabelling its parameters.",
+      "records": [
+        {
+          "label": "Colposcopie",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        },
+        {
+          "label": "Consultation de gynécologie",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        },
+        {
+          "label": "Consultation postnatale",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        },
+        {
+          "label": "Pose de DIU (stérilet)",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        },
+        {
+          "label": "Pose ou retrait de stérilet (DIU)",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        },
+        {
+          "label": "Première consultation de gynécologie",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&telehealth=false&placeId=practice-806420&motiveCategoryIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        }
+      ]
+    },
+    {
+      "category": "Échographie",
+      "categoryId": null,
+      "note": "Exactly as supplied: yIds[], no telehealth or placeId. Evidence only; never an active booking destination. Prefer Category 1 for T1.",
+      "records": [
+        {
+          "label": "Échographie obstétricale (1er trimestre)",
+          "recordedUrl": "https://www.doctolib.fr/gynecologue-obstetricien/lyon/alexandra-soldea/booking/availabilities?specialityId=102&yIds%5B%5D=171275&motiveIds%5B%5D=7188954&source=profile",
+          "urlUnambiguous": false
+        }
+      ]
+    }
+  ]
+}

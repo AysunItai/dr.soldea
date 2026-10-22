@@ -241,7 +241,7 @@ export function physicianJsonLd() {
  * queries like "échographie lyon" / "gynécologue miribel".
  *
  * `openingHoursSpecification` is intentionally omitted: the practice is
- * "by appointment only" via Calendly. Wrong opening hours are worse than
+ * "by appointment only" via Doctolib. Wrong opening hours are worse than
  * none — Google will downrank if hours conflict with reality.
  */
 export function medicalClinicJsonLd(cabinet: (typeof CABINETS)[number]) {

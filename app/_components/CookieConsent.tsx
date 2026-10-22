@@ -2,6 +2,11 @@
 
 import Script from "next/script";
 import {
+  GA_CONSENT_STORAGE_KEY as STORAGE_KEY,
+  readConsent,
+  type ConsentState,
+} from "@/lib/analytics-consent";
+import {
   useCallback,
   useEffect,
   useState,
@@ -22,21 +27,11 @@ import {
  */
 
 const GA_ID = "G-0C18XKTFXB";
-const STORAGE_KEY = "dr-soldea:ga-consent";
+// The public tag currently enables outbound URLs and automatic user-data
+// collection. Keep it unloaded until those account settings are disabled.
+// This build-time flag is an operator attestation, not a consent substitute.
+const GA_PRIVACY_VERIFIED = process.env.NEXT_PUBLIC_GA4_PRIVACY_VERIFIED === "true";
 const OPEN_EVENT = "dr-soldea:open-cookie-settings";
-
-type ConsentState = "unset" | "granted" | "denied";
-
-function readConsent(): ConsentState {
-  if (typeof window === "undefined") return "unset";
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw === "granted" || raw === "denied" ? raw : "unset";
-  } catch {
-    // Private mode / disabled storage: behave as if no choice has been made.
-    return "unset";
-  }
-}
 
 /**
  * Custom event used to notify our `useSyncExternalStore` subscribers when
@@ -123,9 +118,9 @@ export function CookieConsent() {
 
   return (
     <>
-      {/* GA4 is mounted only after explicit grant. next/script dedupes by id,
+      {/* GA4 requires verified privacy settings AND explicit consent. next/script dedupes by id,
           so toggling consent multiple times in a session won't double-load. */}
-      {consent === "granted" && (
+      {GA_PRIVACY_VERIFIED && consent === "granted" && (
         <>
           <Script
             id="ga4-loader"
@@ -137,7 +132,14 @@ export function CookieConsent() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GA_ID}', { anonymize_ip: true });
+              gtag('config', '${GA_ID}', {
+                send_page_view: false,
+                page_location: 'https://www.echographielyon.fr/',
+                page_referrer: '',
+                page_title: 'Centre d’Échographie de la Femme OPÉRA',
+                allow_google_signals: false,
+                allow_ad_personalization_signals: false
+              });
             `}
           </Script>
         </>

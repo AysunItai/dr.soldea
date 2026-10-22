@@ -1,3 +1,4 @@
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/app/_components/Section";
@@ -139,8 +140,8 @@ function HeroCopy() {
       </p>
 
       <div className="animate-rise animate-rise-delay-4 mt-6 sm:mt-9 flex flex-col gap-2.5 sm:gap-3">
-        <Link
-          href="/services"
+        <DoctolibLink
+          buttonLocation="home"
           className="btn-gold shine group w-full sm:w-auto pl-5 pr-3"
         >
           <span className="flex-1 text-center sm:flex-initial sm:text-left">
@@ -160,7 +161,7 @@ function HeroCopy() {
               />
             </svg>
           </span>
-        </Link>
+        </DoctolibLink>
         <Link
           href="/equipe"
           className="inline-flex w-full sm:w-auto items-center justify-center gap-2 min-h-11 h-11 px-2 text-sm font-medium text-white/88 hover:text-accent transition-colors"
@@ -852,8 +853,8 @@ function ContactCTA() {
               Un rendez-vous en quelques clics.
             </h2>
             <p className="mt-4 sm:mt-5 text-white/78 text-[0.9375rem] sm:text-lg max-w-lg text-pretty leading-[1.65] sm:leading-relaxed">
-              Choisissez le type de consultation, sélectionnez votre créneau —
-              confirmation immédiate.
+              Découvrez nos consultations, puis choisissez votre motif et
+              votre créneau sur Doctolib.
             </p>
           </div>
           <div className="flex min-w-0 w-full flex-col gap-3 lg:w-auto lg:items-end shrink-0">

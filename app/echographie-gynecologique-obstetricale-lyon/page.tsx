@@ -1,3 +1,4 @@
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -30,7 +31,7 @@ const FAQS = [
   {
     question: "Faut-il un rendez-vous pour une échographie à Lyon ?",
     answer:
-      "Oui, toutes les consultations et échographies sont réalisées exclusivement sur rendez-vous. Vous pouvez réserver votre créneau en ligne sur ce site, en choisissant le service souhaité. Une confirmation vous est envoyée par e-mail.",
+      "Oui, toutes les consultations et échographies sont réalisées exclusivement sur rendez-vous. Consultez le service souhaité sur ce site, puis cliquez sur « Prendre rendez-vous » pour poursuivre votre réservation sur Doctolib.",
   },
   {
     question: "Le centre est-il accessible en transports en commun ?",
@@ -45,7 +46,7 @@ const FAQS = [
   {
     question: "Comment prendre rendez-vous à Lyon ?",
     answer:
-      "La prise de rendez-vous s'effectue en ligne sur la page Services de ce site. Sélectionnez le type de consultation ou d'échographie souhaité, puis choisissez un créneau disponible. Pour toute question, vous pouvez également contacter le secrétariat au 04 28 29 55 16 ou via le formulaire de contact.",
+      "Consultez les types de consultation ou d'échographie sur la page Services de ce site, puis cliquez sur « Prendre rendez-vous ». Sur Doctolib, sélectionnez votre motif de consultation et un créneau disponible. Pour toute question, vous pouvez également contacter le secrétariat au 04 28 29 55 16 ou via le formulaire de contact.",
   },
 ] as const;
 
@@ -364,12 +365,12 @@ function Cta() {
           contactez le secrétariat pour toute question.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/services"
+          <DoctolibLink
+            buttonLocation="lyon_page"
             className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-ink text-white text-sm font-medium hover:bg-primary-deep transition-colors"
           >
             Prendre rendez-vous à Lyon
-          </Link>
+          </DoctolibLink>
           <Link
             href="/contact"
             className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-white text-ink text-sm font-medium ring-1 ring-line hover:ring-primary/40 transition-colors"

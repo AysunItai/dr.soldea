@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
  * Safe baseline security headers — applied to every route.
  *
  * Intentionally conservative:
- *  - No Content-Security-Policy: Calendly, Google Fonts and any future
+ *  - No Content-Security-Policy: Google Fonts and
  *    analytics inject inline/eval code; CSP must be tested route-by-route
  *    before turning it on.
  *  - No Strict-Transport-Security: HSTS should only be enabled once HTTPS

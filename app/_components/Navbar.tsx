@@ -1,3 +1,4 @@
+import { DoctolibLink } from "@/app/_components/DoctolibLink";
 import Image from "next/image";
 import Link from "next/link";
 import { MobileNav } from "@/app/_components/MobileNav";
@@ -20,7 +21,7 @@ const CENTRE_LINKS = [
 export function Navbar() {
   return (
     <NavScrollShell>
-      <div className="container-page flex items-center justify-between h-[4.25rem] sm:h-20 min-w-0">
+      <div className="container-page flex items-center justify-between h-[var(--site-nav-content-height)] min-w-0">
         <Link
           href="/"
           aria-label="Centre d'Échographie de la Femme OPÉRA — Accueil"
@@ -118,13 +119,13 @@ export function Navbar() {
           <DesktopLink href="/blog">Actualités</DesktopLink>
           <DesktopLink href="/contact">Contact</DesktopLink>
 
-          <Link
-            href="/services"
+          <DoctolibLink
+            buttonLocation="header"
             className="ml-1.5 xl:ml-3 inline-flex shrink-0 items-center justify-center rounded-full bg-ink text-white text-sm font-medium h-10 px-4 xl:px-5 whitespace-nowrap ring-1 ring-accent/40 hover:bg-ink-deep hover:ring-accent/70 transition-colors"
           >
             <span className="xl:hidden">Rendez-vous</span>
             <span className="hidden xl:inline">Prendre rendez-vous</span>
-          </Link>
+          </DoctolibLink>
         </nav>
 
         <MobileNav />

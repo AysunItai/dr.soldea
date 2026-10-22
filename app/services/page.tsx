@@ -117,8 +117,8 @@ function Header() {
         <p className="mt-6 text-lg text-ink-soft text-pretty">
           Échographies de grossesse à Lyon, suivi gynécologique et
           téléconsultation au Centre d&apos;Échographie de la Femme OPÉRA —
-          cliquez sur un service pour découvrir son contenu et réserver en
-          ligne.
+          cliquez sur un service pour découvrir son contenu, puis prenez
+          rendez-vous sur Doctolib.
         </p>
       </div>
     </section>
